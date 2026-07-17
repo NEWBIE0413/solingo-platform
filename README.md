@@ -44,7 +44,6 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
-
 ```bash
 duolingo-clone/
   |- actions/
@@ -98,7 +97,6 @@ duolingo-clone/
   |- .env/.env.local
   |- .gitignore
   |- .prettierrc.json
-  |- bun.lock
   |- components.json
   |- constants.ts
   |- drizzle.config.ts
@@ -106,13 +104,14 @@ duolingo-clone/
   |- eslint.config.mjs
   |- next.config.ts
   |- package.json
+  |- pnpm-lock.yaml
+  |- pnpm-workspace.yaml
   |- postcss.config.js
   |- proxy.ts
   |- tailwind.config.ts
   |- tsconfig.json
   |- vercel.ts
 ```
-
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -240,9 +239,7 @@ Useful resources and dependencies that are used in Lingo.
 - Flagpack: https://flagpack.xyz/
 
 <!--- DEPENDENCIES_START --->
-
-- [@clerk/nextjs](https://www.npmjs.com/package/@clerk/nextjs): ^7.4.3
-- [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc): ^3
+- [@clerk/nextjs](https://www.npmjs.com/package/@clerk/nextjs): ^7.5.19
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.1.0
 - [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.2.0
 - [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.19
@@ -259,7 +256,7 @@ Useful resources and dependencies that are used in Lingo.
 - [dotenv](https://www.npmjs.com/package/dotenv): ^17.4.2
 - [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.10
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.2
-- [eslint](https://www.npmjs.com/package/eslint): ^10
+- [eslint](https://www.npmjs.com/package/eslint): ^9
 - [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.2.10
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
 - [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.24.0
