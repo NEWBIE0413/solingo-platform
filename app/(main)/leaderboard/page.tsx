@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -15,6 +16,8 @@ import {
 } from "@/db/queries";
 
 const LeaderboardPage = async () => {
+  await auth.protect();
+
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
   const leaderboardData = getTopTenUsers();

@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
@@ -5,6 +6,8 @@ import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 import { Quiz } from "./quiz";
 
 const LessonPage = async () => {
+  await auth.protect();
+
   const lessonData = getLesson();
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();

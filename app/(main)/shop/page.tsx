@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
@@ -10,6 +11,8 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { Items } from "./items";
 
 const ShopPage = async () => {
+  await auth.protect();
+
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
 

@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
@@ -11,6 +12,8 @@ type LessonIdPageProps = {
 };
 
 const LessonIdPage = async ({ params }: LessonIdPageProps) => {
+  await auth.protect();
+
   const { lessonId } = await params;
 
   const lessonData = getLesson(Number(lessonId));

@@ -20,7 +20,7 @@ export const UserProgress = ({
 }: UserProgressProps) => {
   return (
     <div className="flex w-full items-center justify-between gap-x-2">
-      <Link href="/courses">
+      <Link href="/courses" prefetch>
         <Button variant="ghost">
           <Image
             src={activeCourse.imageSrc}
@@ -32,7 +32,7 @@ export const UserProgress = ({
         </Button>
       </Link>
 
-      <Link href="/shop">
+      <Link href="/shop" prefetch>
         <Button variant="ghost" className="text-orange-500">
           <Image
             src="/points.svg"
@@ -45,7 +45,7 @@ export const UserProgress = ({
         </Button>
       </Link>
 
-      <Link href="/shop">
+      <Link href="/shop" prefetch>
         <Button variant="ghost" className="text-rose-500">
           <Image
             src="/heart.svg"

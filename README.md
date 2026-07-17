@@ -44,6 +44,7 @@
 Here is the folder structure of this app.
 
 <!--- FOLDER_STRUCTURE_START --->
+
 ```bash
 duolingo-clone/
   |- actions/
@@ -111,6 +112,7 @@ duolingo-clone/
   |- tsconfig.json
   |- vercel.ts
 ```
+
 <!--- FOLDER_STRUCTURE_END --->
 
 <br />
@@ -142,7 +144,7 @@ STRIPE_WEBHOOK_SECRET=whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # public app url
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 
-# clerk admin user id(s) separated by comma and space (, )
+# clerk admin user id(s) separated by comma (,)
 CLERK_ADMIN_IDS="user_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 # or CLERK_ADMIN_IDS="user_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx, user_xxxxxxxxxxxxxxxxxxxxxx" for multiple admins.
 
@@ -187,23 +189,23 @@ CLERK_ADMIN_IDS="user_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 10. Save and Secure:
     - Save the changes to the `.env` file.
 
-11. Install Project Dependencies using `bun install --legacy-peer-deps`.
+11. Install Project Dependencies using `pnpm install`.
 
 12. Run the Seed Script:
 
 In the same terminal, run the following command to execute the seed script:
 
 ```bash
-bun run db:push && bun run db:prod
+pnpm run db:push && pnpm run db:prod
 ```
 
-This command uses `bun` to execute the Typescript file (`scripts/prod.ts`) and writes challenges data in database.
+This command uses `tsx` to execute the Typescript file (`scripts/prod.ts`) and writes challenges data in database.
 
 13. Verify Data in Database:
 
 Once the script completes, check your database to ensure that the challenges data has been successfully seeded.
 
-14. Now app is fully configured 👍 and you can start using this app using either one of `bun dev`.
+14. Now app is fully configured 👍 and you can start using this app using either one of `pnpm dev`.
 
 **NOTE:** Please make sure to keep your API keys and configuration values secure and do not expose them publicly.
 
@@ -236,7 +238,9 @@ Useful resources and dependencies that are used in Lingo.
 - Freesound: https://freesound.org/
 - Elevenlabs AI: https://elevenlabs.io/
 - Flagpack: https://flagpack.xyz/
+
 <!--- DEPENDENCIES_START --->
+
 - [@clerk/nextjs](https://www.npmjs.com/package/@clerk/nextjs): ^7.4.3
 - [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc): ^3
 - [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.1.0

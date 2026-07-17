@@ -31,7 +31,9 @@ export default function MarketingPage() {
           <ClerkLoaded>
             <Show when="signed-in">
               <Button size="lg" variant="secondary" className="w-full" asChild>
-                <Link href="/learn">Continue Learning</Link>
+                <Link href="/learn" prefetch>
+                  Continue Learning
+                </Link>
               </Button>
             </Show>
 

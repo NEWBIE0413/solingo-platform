@@ -49,6 +49,7 @@ export const LessonButton = ({
   return (
     <Link
       href={href}
+      prefetch
       aria-disabled={locked}
       style={{ pointerEvents: locked ? "none" : "auto" }}
     >

@@ -26,13 +26,14 @@ export default function RootLayout({
   return (
     <ClerkProvider
       appearance={{
-        layout: {
+        options: {
           logoImageUrl: "/favicon.ico",
         },
         variables: {
           colorPrimary: "#22C55E",
         },
       }}
+      telemetry={false}
       afterSignOutUrl="/"
     >
       <html lang="en">

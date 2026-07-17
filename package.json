@@ -15,14 +15,14 @@
     "db:prod": "tsx ./scripts/prod.ts"
   },
   "dependencies": {
-    "@clerk/nextjs": "^7.4.3",
+    "@clerk/nextjs": "^7.5.19",
     "@neondatabase/serverless": "^1.1.0",
     "@radix-ui/react-avatar": "^1.2.0",
     "@radix-ui/react-dialog": "^1.1.19",
     "@radix-ui/react-progress": "^1.1.12",
     "@radix-ui/react-separator": "^1.1.11",
     "@radix-ui/react-slot": "^1.3.0",
-		"@vercel/config": "^0.5.4",
+    "@vercel/config": "^0.5.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.0",
     "dotenv": "^17.4.2",
@@ -43,13 +43,12 @@
     "zustand": "^5.0.14"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@types/node": "^25.9.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.5.0",
     "drizzle-kit": "^0.31.10",
-    "eslint": "^10",
+    "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "eslint-config-prettier": "^10.1.8",
     "pg": "^8.22.0",
@@ -60,6 +59,7 @@
     "tsx": "^4.22.4",
     "typescript": "^6"
   },
+  "packageManager": "pnpm@11.11.0",
   "author": {
     "name": "Sanidhya Kumar Verma",
     "email": "sanidhya.verma12345@gmail.com",

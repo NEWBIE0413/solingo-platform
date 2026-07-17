@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 import { FeedWrapper } from "@/components/feed-wrapper";
@@ -17,6 +18,8 @@ import { Header } from "./header";
 import { Unit } from "./unit";
 
 const LearnPage = async () => {
+  await auth.protect();
+
   const userProgressData = getUserProgress();
   const courseProgressData = getCourseProgress();
   const lessonPercentageData = getLessonPercentage();

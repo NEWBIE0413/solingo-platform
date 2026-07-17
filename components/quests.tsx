@@ -13,7 +13,7 @@ export const Quests = ({ points }: QuestsProps) => {
       <div className="flex w-full items-center justify-between space-y-2">
         <h3 className="text-lg font-bold">Quests</h3>
 
-        <Link href="/quests">
+        <Link href="/quests" prefetch>
           <Button size="sm" variant="primaryOutline">
             View all
           </Button>

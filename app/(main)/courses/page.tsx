@@ -1,8 +1,12 @@
+import { auth } from "@clerk/nextjs/server";
+
 import { getCourses, getUserProgress } from "@/db/queries";
 
 import { List } from "./list";
 
 const CoursesPage = async () => {
+  await auth.protect();
+
   const coursesData = getCourses();
   const userProgressData = getUserProgress();
 
