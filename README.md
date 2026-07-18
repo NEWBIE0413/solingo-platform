@@ -259,7 +259,7 @@ Useful resources and dependencies that are used in Lingo.
 - [eslint](https://www.npmjs.com/package/eslint): ^9
 - [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.2.10
 - [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.24.0
+- [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.25.0
 - [next](https://www.npmjs.com/package/next): ^16.2.10
 - [pg](https://www.npmjs.com/package/pg): ^8.22.0
 - [postcss](https://www.npmjs.com/package/postcss): ^8
