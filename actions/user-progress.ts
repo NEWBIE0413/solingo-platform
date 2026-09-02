@@ -1,6 +1,6 @@
 "use server";
 
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@/lib/session";
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
@@ -34,8 +34,8 @@ export const upsertUserProgress = async (courseId: number) => {
       .update(userProgress)
       .set({
         activeCourseId: courseId,
-        userName: user.firstName || "User",
-        userImageSrc: user.imageUrl || "/mascot.svg",
+        userName: user.name || "User",
+        userImageSrc: user.image || "/mascot.svg",
       })
       .where(eq(userProgress.userId, userId));
 
@@ -47,8 +47,8 @@ export const upsertUserProgress = async (courseId: number) => {
   await db.insert(userProgress).values({
     userId,
     activeCourseId: courseId,
-    userName: user.firstName || "User",
-    userImageSrc: user.imageUrl || "/mascot.svg",
+    userName: user.name || "User",
+    userImageSrc: user.image || "/mascot.svg",
   });
 
   revalidatePath("/courses");

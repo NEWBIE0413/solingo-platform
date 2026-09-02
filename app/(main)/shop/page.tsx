@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/lib/session";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 

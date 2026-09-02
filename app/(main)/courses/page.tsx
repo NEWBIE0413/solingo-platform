@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/lib/session";
 
 import { getCourses, getUserProgress } from "@/db/queries";
 

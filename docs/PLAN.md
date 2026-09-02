@@ -12,7 +12,7 @@ content pipeline underneath.
 ## Milestone 1 — the path works with our content  (now)
 - [x] Fork, rename, node-postgres driver (any Postgres, not only Neon), Docker Postgres for dev
 - [x] `scripts/seed-kana.ts`: JSON course → units/lessons/challenges. 5 units, 63 lessons, 674 challenges
-- [ ] Clerk keys in `.env` (user) → `pnpm dev` boots, path renders, kana lessons playable with audio
+- [x] Clerk replaced by Better Auth (self-hosted, email+password); sign-up → courses → learn → lesson verified
 - [ ] Deploy on NucBox behind cloudflared (`app.jp.myworld.monster` or similar)
 
 ## Milestone 2 — our exercise types inside the clone's lesson runner
@@ -44,7 +44,7 @@ levels per item stays.
 - Admin (react-admin) stays for hand edits; JSON → DB is the bulk path.
 
 ## Decisions
-- Keep Clerk for now (free tier, fastest). Swapping to self-hosted auth is a contained change
-  (`proxy.ts`, `auth()` calls in `db/queries.ts` and `actions/`).
+- Auth is self-hosted (Better Auth). `lib/session.ts` keeps the Clerk-shaped `auth()` / `currentUser()` API so
+  the rest of the app was untouched; social providers are a config line in `lib/auth.ts` when wanted.
 - Stripe stays optional: the shop's "unlimited hearts" is the only user of it.
 - Korean UI strings are hard-coded like the clone's English ones; i18n is a later pass.

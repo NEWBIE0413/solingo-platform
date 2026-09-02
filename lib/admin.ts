@@ -1,14 +1,9 @@
-import { auth } from "@clerk/nextjs/server";
+import { currentUser } from "@/lib/session";
 
+// Admins are listed by email in ADMIN_EMAILS (comma-separated).
 export const getIsAdmin = async () => {
-  const { userId } = await auth();
-
-  if (!userId) return false;
-
-  const adminIds =
-    process.env.CLERK_ADMIN_IDS?.split(",")
-      .map((id) => id.trim())
-      .filter(Boolean) ?? [];
-
-  return adminIds.includes(userId);
+  const user = await currentUser();
+  if (!user?.email) return false;
+  const admins = process.env.ADMIN_EMAILS?.split(",").map((e) => e.trim().toLowerCase()).filter(Boolean) ?? [];
+  return admins.includes(user.email.toLowerCase());
 };

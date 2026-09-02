@@ -1,6 +1,6 @@
 "use server";
 
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { auth, currentUser } from "@/lib/session";
 
 import { getUserSubscription } from "@/db/queries";
 import { stripe } from "@/lib/stripe";
@@ -30,7 +30,7 @@ export const createStripeUrl = async () => {
   const stripeSession = await stripe.checkout.sessions.create({
     mode: "subscription",
     payment_method_types: ["card"],
-    customer_email: user.emailAddresses[0].emailAddress,
+    customer_email: user.email,
     line_items: [
       {
         quantity: 1,

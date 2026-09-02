@@ -4,18 +4,17 @@ export {};
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      // neon db uri
       DATABASE_URL: string;
-
-      // stripe api key and webhook
+      // better-auth
+      BETTER_AUTH_SECRET: string;
+      BETTER_AUTH_URL: string;
+      // admin user email(s) separated by comma (,)
+      ADMIN_EMAILS: string;
+      // stripe api key and webhook (optional)
       STRIPE_API_SECRET_KEY: string;
       STRIPE_WEBHOOK_SECRET: string;
-
       // public app url
       NEXT_PUBLIC_APP_URL: string;
-
-      // clerk admin user id(s) separated by comma (,)
-      CLERK_ADMIN_IDS: string;
     }
   }
 }
