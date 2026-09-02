@@ -1,7 +1,11 @@
-import { SignIn } from "@clerk/nextjs";
+import { Suspense } from "react";
 
-const SignInPage = () => {
-  return <SignIn />;
-};
+import { AuthForm } from "@/components/auth/auth-form";
+
+const SignInPage = () => (
+  <Suspense>
+    <AuthForm mode="sign-in" />
+  </Suspense>
+);
 
 export default SignInPage;

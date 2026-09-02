@@ -1,6 +1,6 @@
 import { cache } from "react";
 
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/lib/session";
 import { eq } from "drizzle-orm";
 
 import db from "./drizzle";

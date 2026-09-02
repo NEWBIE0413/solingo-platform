@@ -1,24 +1,19 @@
 "use client";
 import { useState } from "react";
 
-import {
-  ClerkLoaded,
-  ClerkLoading,
-  SignInButton,
-  Show,
-  useAuth,
-} from "@clerk/nextjs";
-import { Loader } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { UserButton } from "@/components/auth/user-button";
 import Banner from "@/components/banner";
 import { Button } from "@/components/ui/button";
 import { links } from "@/config";
+import { useSession } from "@/lib/auth-client";
 import { cn } from "@/lib/utils";
 
 export const Header = () => {
-  const { isSignedIn } = useAuth();
+  const { data: session } = useSession();
+  const isSignedIn = !!session;
   const [hideBanner, setHideBanner] = useState(true);
 
   return (
@@ -45,33 +40,29 @@ export const Header = () => {
           </Link>
 
           <div className="flex gap-x-3">
-            <ClerkLoading>
-              <Loader className="h-5 w-5 animate-spin text-muted-foreground" />
-            </ClerkLoading>
+            {isSignedIn ? (
+              <UserButton compact />
+            ) : (
+              <Button size="lg" variant="ghost" asChild>
+                <Link href="/sign-in" prefetch>
+                  Login
+                </Link>
+              </Button>
+            )}
 
-            <ClerkLoaded>
-              <Show when="signed-out">
-                <SignInButton>
-                  <Button size="lg" variant="ghost">
-                    Login
-                  </Button>
-                </SignInButton>
-              </Show>
-
-              <Link
-                href={links.sourceCode}
-                target="_blank"
-                rel="noreferrer noopener"
-                className={isSignedIn ? "pt-1.5" : "pt-3"}
-              >
-                <Image
-                  src="/github.svg"
-                  alt="Source Code"
-                  height={20}
-                  width={20}
-                />
-              </Link>
-            </ClerkLoaded>
+            <Link
+              href={links.sourceCode}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={isSignedIn ? "pt-1.5" : "pt-3"}
+            >
+              <Image
+                src="/github.svg"
+                alt="Source Code"
+                height={20}
+                width={20}
+              />
+            </Link>
           </div>
         </div>
       </header>

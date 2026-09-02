@@ -11,15 +11,16 @@
 docker run -d --name solingo-pg --restart unless-stopped \
   -e POSTGRES_USER=solingo -e POSTGRES_PASSWORD=solingo -e POSTGRES_DB=solingo \
   -p 5433:5432 -v solingo-pg:/var/lib/postgresql/data postgres:16-alpine
-cp .env.example .env      # fill Clerk keys; DATABASE_URL already points at the container
+cp .env.example .env      # set BETTER_AUTH_SECRET (openssl rand -hex 32) and ADMIN_EMAILS
 pnpm install
 pnpm run db:push
 pnpm run db:seed:kana      # content/ja-kana.json → 5 units / 63 lessons / 674 challenges
 pnpm dev
 ```
 
-Differences from upstream: node-postgres instead of Neon's HTTP driver (any Postgres works),
-`scripts/seed-kana.ts` + `content/` + `public/audio/` for JSON-authored courses.
+Differences from upstream: **self-hosted auth** (Better Auth, email + password, no Clerk), node-postgres
+instead of Neon's HTTP driver (any Postgres works), `scripts/seed-kana.ts` + `content/` + `public/audio/`
+for JSON-authored courses. Admins are listed by email in `ADMIN_EMAILS`.
 
 ---
 
