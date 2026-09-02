@@ -1,3 +1,28 @@
+# Solingo platform
+
+> Fork of [sanidhyy/duolingo-clone](https://github.com/sanidhyy/duolingo-clone) (MIT) — Duolingo's course
+> path, hearts, XP, quests and shop — being merged with [solingo](https://github.com/NEWBIE0413/solingo)'s
+> script-level engine (kana/hangul teaching, handwriting, speech, JSON courses, neural audio).
+> Roadmap: [docs/PLAN.md](docs/PLAN.md).
+
+## Getting started (this fork)
+
+```sh
+docker run -d --name solingo-pg --restart unless-stopped \
+  -e POSTGRES_USER=solingo -e POSTGRES_PASSWORD=solingo -e POSTGRES_DB=solingo \
+  -p 5433:5432 -v solingo-pg:/var/lib/postgresql/data postgres:16-alpine
+cp .env.example .env      # fill Clerk keys; DATABASE_URL already points at the container
+pnpm install
+pnpm run db:push
+pnpm run db:seed:kana      # content/ja-kana.json → 5 units / 63 lessons / 674 challenges
+pnpm dev
+```
+
+Differences from upstream: node-postgres instead of Neon's HTTP driver (any Postgres works),
+`scripts/seed-kana.ts` + `content/` + `public/audio/` for JSON-authored courses.
+
+---
+
 <a name="readme-top"></a>
 
 # Lingo - Interactive platform for language learning.
