@@ -18,7 +18,8 @@ pnpm run db:seed:kana      # content/ja-kana.json → 5 units / 63 lessons / 674
 pnpm dev
 ```
 
-Differences from upstream: **self-hosted auth** (Better Auth, email + password, no Clerk), node-postgres
+Differences from upstream: a **히라가나 tab** (`/kana`) running the Solingo engine with account-bound
+progress (`/api/kana/state`), **self-hosted auth** (Better Auth, email + password, no Clerk), node-postgres
 instead of Neon's HTTP driver (any Postgres works), `scripts/seed-kana.ts` + `content/` + `public/audio/`
 for JSON-authored courses. Admins are listed by email in `ADMIN_EMAILS`.
 

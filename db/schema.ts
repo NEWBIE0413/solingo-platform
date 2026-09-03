@@ -2,8 +2,10 @@ import { relations } from "drizzle-orm";
 import {
   boolean,
   integer,
+  jsonb,
   pgEnum,
   pgTable,
+  primaryKey,
   serial,
   text,
   timestamp,
@@ -154,5 +156,15 @@ export const userSubscription = pgTable("user_subscription", {
   stripePriceId: text("stripe_price_id").notNull(),
   stripeCurrentPeriodEnd: timestamp("stripe_current_period_end").notNull(),
 });
+
+// Solingo engine state (the /kana tab): one JSON document per user per course.
+// Server-authoritative — the browser only mirrors it for offline use.
+export const kanaState = pgTable("kana_state", {
+  userId: text("user_id").notNull(),
+  courseId: text("course_id").notNull(),
+  state: jsonb("state").notNull().default({}),
+  session: jsonb("session"),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.userId, t.courseId] })]);
 
 export * from "./auth-schema";

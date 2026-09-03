@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="Solingo — self-hosted, Duolingo-style script trainer. Engine + JSON courses.">
+<title>Solingo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%2358cc02%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27sans-serif%27%3Eあ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="styles.css?v=6">
+</head>
+<body>
+<div class="wrap" id="home">
+  <div class="hud">
+    <div class="streak"><span class="ic">🔥</span><div><b id="h-streak">0</b><span>연속일</span></div></div>
+    <div class="xp"><span class="ic">⚡️</span><div><b id="h-xp">0</b><span>XP</span></div></div>
+    <div class="known"><span class="ic">✍️</span><div><b id="h-known">0</b><span>익힌 글자</span></div></div>
+  </div>
+  <div class="startwrap"><div class="bubble" id="bubble">Start</div><div class="ring" id="ring"><button class="start" id="start" aria-label="학습 시작하기">★</button></div><div class="startsub" id="start-sub"></div></div>
+  <div id="sets"></div>
+  <div class="section-t">단어 <span id="w-pct"></span></div><div class="words" id="wordlist"></div>
+  <p class="tiny" style="margin-top:20px">기록은 계정에 저장됩니다. 어느 기기에서든 로그인하면 이어집니다. <button id="snd-reset" style="color:var(--sky);font-weight:700">소리·목소리 설정</button></p>
+</div>
+
+<div class="sheet" id="perm"><div class="panel">
+  <h2>소리와 진동을 켤까요?</h2>
+  <p>브라우저 규칙상 한 번은 직접 허용해야 소리가 자동으로 나옵니다.</p>
+  <ul><li><span class="ic">🔊</span>새 글자와 단어를 음성으로 자동 재생</li><li><span class="ic">🎵</span>정답·오답 효과음</li><li><span class="ic">🎙</span>따라 읽기 문제에서 마이크 사용 (그때 따로 물어봐요)</li><li><span class="ic">📳</span>진동 (지원 기기만)</li></ul>
+  <div id="voice-wrap" style="display:none"><div class="section-t" style="margin-top:0">목소리 <span>눌러서 들어보기</span></div><div class="voices" id="voices"></div></div>
+  <button class="btn block secondary lg" id="perm-ok">허용하고 시작</button>
+  <button class="btn block ghost" id="perm-no" style="margin-top:8px">소리 없이</button>
+  <p class="tiny" id="perm-note" style="margin:10px 0 0;text-align:center"></p>
+</div></div>
+
+<div id="lesson">
+  <div class="top"><button class="x" id="l-x">✕</button><div class="meter"><i id="l-meter"></i></div><span class="combo" id="l-combo"></span></div>
+  <div class="stage" id="stage"></div>
+  <div class="foot" id="l-foot"><div class="verdict" id="l-verdict"></div><button class="btn secondary lg" id="l-btn">확인</button></div>
+</div>
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
+<!-- iOS has no Vibration API; toggling a native switch control is the one thing that produces a haptic tick from a web page. -->
+<label class="hapt"><input type="checkbox" switch id="hapt"></label>
+<script src="app.js?v=6"></script>
+</body>
+</html>

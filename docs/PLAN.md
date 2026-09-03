@@ -15,6 +15,12 @@ content pipeline underneath.
 - [x] Clerk replaced by Better Auth (self-hosted, email+password); sign-up → courses → learn → lesson verified
 - [ ] Deploy on NucBox behind cloudflared (`app.jp.myworld.monster` or similar)
 
+## Milestone 1.5 — the Solingo engine as a tab  (done 2026-09-03)
+- `/kana` sidebar tab (히라가나) hosts `public/kana/` (the static engine) in an iframe.
+- Engine storage is server-authoritative: `GET/PUT /api/kana/state` → `kana_state(userId, courseId, state, session)`.
+  localStorage is only an offline mirror; the account wins on load. Sessions resume on any device.
+- Engine XP is credited to `user_progress.points`, so the tab feeds the same leaderboard/quests.
+
 ## Milestone 2 — our exercise types inside the clone's lesson runner
 The clone's `challenges.type` is `SELECT | ASSIST`. Extend the enum and `app/lesson/quiz.tsx`:
 - `LISTEN`   — audio only → pick symbol   (from solingo `listen`)
