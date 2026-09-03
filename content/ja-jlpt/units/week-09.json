@@ -4,7 +4,7 @@
  "units": [
   {
    "title": "9주차 · 생각과 말, 이유와 조건",
-   "description": "전달 〜と思います/〜と言いました, 조건 〜と(필연), 이유 〜から・〜ので, 부사 たぶん·きっと. 8주차에 시작한 漢字를 계속 노출합니다.",
+   "description": "전달 〜と思います/〜と言いました, 조건 〜と(필연), 이유 〜から・〜ので, 추측 〜かもしれません/〜でしょう/〜はずです. 漢字 계속 노출.",
    "lessons": [
     {
      "title": "9-1 〜と思います (생각하다)",
@@ -210,23 +210,23 @@
        "level": 4,
        "tag": "grammar",
        "meta": {
-        "explanation": "plain형(だ)으로 인용합니다: がくせいだ と おもいます."
+        "explanation": "명사는 보통형 だ + 인용 と: がくせいだと おもいます."
        },
        "options": [
         {
-         "text": "だ",
+         "text": "だと",
          "correct": true
         },
         {
-         "text": "です",
+         "text": "のと",
          "correct": false
         },
         {
-         "text": "でした",
+         "text": "なと",
          "correct": false
         },
         {
-         "text": "な",
+         "text": "ですと",
          "correct": false
         }
        ]
@@ -907,33 +907,33 @@
        "audioSrc": "/audio/ja-jlpt/a07ca9af0f4f.mp3",
        "meta": {
         "target": "ひだりへ まがると、えきです。",
-        "reading": "hi da ri e i ku to e ki de su",
-        "meaning": "왼쪽으로 가면 역입니다",
+        "reading": "hi da ri e ma ga ru to e ki de su",
+        "meaning": "왼쪽으로 돌면 역입니다",
         "say": "ひだりへ まがると、えきです。"
        },
        "options": []
       },
       {
        "type": "ASSIST",
-       "question": "ねると、めがさめます",
+       "question": "はるに なると、あたたかく なります",
        "level": 4,
        "tag": "grammar",
        "options": [
         {
-         "text": "자고 싶습니다",
+         "text": "봄이 되면 추워집니다",
          "correct": false
         },
         {
-         "text": "자면 눈이 떠집니다(깹니다)",
+         "text": "봄에는 따뜻했습니다",
+         "correct": false
+        },
+        {
+         "text": "봄이 되었습니다",
+         "correct": false
+        },
+        {
+         "text": "봄이 되면 따뜻해집니다",
          "correct": true
-        },
-        {
-         "text": "안 자면 깹니다",
-         "correct": false
-        },
-        {
-         "text": "자고 있습니다",
-         "correct": false
         }
        ]
       },
@@ -1349,249 +1349,227 @@
      ]
     },
     {
-     "title": "9-5 상황 · 의견과 이유",
+     "title": "9-5 〜かもしれません・〜でしょう・〜はずです (추측)",
      "challenges": [
+      {
+       "type": "SELECT",
+       "question": "내일은 비가 올지도 모릅니다.\nあしたは あめが ふる___。",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "そうです",
+         "correct": false
+        },
+        {
+         "text": "でしょうか",
+         "correct": false
+        },
+        {
+         "text": "はずでした",
+         "correct": false
+        },
+        {
+         "text": "かもしれません",
+         "correct": true
+        }
+       ],
+       "meta": {
+        "explanation": "가능성이 낮을 때 보통형+かもしれません (~일지도 모른다)."
+       }
+      },
+      {
+       "type": "ASSIST",
+       "question": "たぶん くるでしょう",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "아마 올 겁니다",
+         "correct": true
+        },
+        {
+         "text": "올지도 모릅니다",
+         "correct": false
+        },
+        {
+         "text": "분명 왔습니다",
+         "correct": false
+        },
+        {
+         "text": "오지 않을 겁니다",
+         "correct": false
+        }
+       ]
+      },
       {
        "type": "LISTEN",
        "question": "들리는 문장의 뜻은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/545cfc5bdbad.mp3",
+       "audioSrc": "/audio/ja-jlpt/5cf6b94ba988.mp3",
        "meta": {
-        "say": "にほんごは むずかしいと おもいますか。"
+        "say": "あしたは たぶん はれるでしょう。"
        },
        "options": [
         {
-         "text": "일본어가 어려웠습니까?",
-         "correct": false
-        },
-        {
-         "text": "일본어는 어렵다고 생각합니까?",
+         "text": "내일은 아마 맑을 겁니다",
          "correct": true
         },
         {
-         "text": "일본어는 어렵습니다",
+         "text": "내일은 맑을지도 모릅니다",
          "correct": false
         },
         {
-         "text": "일본어를 배우고 싶습니까?",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「아마 갈 수 있을 겁니다」라고 씁니다.\nたぶん いける___ おもいます。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "を",
+         "text": "내일은 맑습니다",
          "correct": false
         },
         {
-         "text": "ので",
+         "text": "내일은 분명 비가 옵니다",
          "correct": false
-        },
-        {
-         "text": "と",
-         "correct": true
-        },
-        {
-         "text": "に",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "いそがしいから、あしたは いけません",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "바쁘니까 갑니다",
-         "correct": false
-        },
-        {
-         "text": "바쁘지 않습니다",
-         "correct": false
-        },
-        {
-         "text": "내일 갑니다",
-         "correct": false
-        },
-        {
-         "text": "바쁘니까 내일은 못 갑니다",
-         "correct": true
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 좋다고 생각합니다",
+       "question": "문장을 만드세요: 그는 오지 않을지도 모릅니다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/59fe8cfd8eb6.mp3",
+       "audioSrc": "/audio/ja-jlpt/e8c039b75095.mp3",
        "meta": {
-        "target": "いいとおもいます",
-        "reading": "i i to o mo i ma su",
-        "meaning": "좋다고 생각합니다",
-        "say": "いいとおもいます"
+        "target": "かれはこないかもしれません",
+        "reading": "ka re ha ko na i ka mo shi re ma se n",
+        "meaning": "그는 오지 않을지도 모릅니다",
+        "say": "かれはこないかもしれません"
        },
        "options": [
         {
-         "text": "いいます",
+         "text": "こないでしょう",
          "correct": false
         },
         {
-         "text": "いいです",
-         "correct": false
-        },
-        {
-         "text": "いい",
+         "text": "かれは",
          "correct": true,
          "meta": {
           "order": 1
          }
         },
         {
-         "text": "と",
+         "text": "かもしれません",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "こない",
          "correct": true,
          "meta": {
           "order": 2
          }
         },
         {
-         "text": "おもいます",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "vocab",
-       "options": [
-        {
-         "text": "たぶん",
-         "correct": false,
-         "meta": {
-          "pair": "たぶん",
-          "side": "left"
-         }
-        },
-        {
-         "text": "きっと",
-         "correct": false,
-         "meta": {
-          "pair": "きっと",
-          "side": "left"
-         }
-        },
-        {
-         "text": "ぜんぜん",
-         "correct": false,
-         "meta": {
-          "pair": "ぜんぜん",
-          "side": "left"
-         }
-        },
-        {
-         "text": "とても",
-         "correct": false,
-         "meta": {
-          "pair": "とても",
-          "side": "left"
-         }
-        },
-        {
-         "text": "아마",
-         "correct": false,
-         "meta": {
-          "pair": "たぶん",
-          "side": "right"
-         }
-        },
-        {
-         "text": "분명히",
-         "correct": false,
-         "meta": {
-          "pair": "きっと",
-          "side": "right"
-         }
-        },
-        {
-         "text": "전혀",
-         "correct": false,
-         "meta": {
-          "pair": "ぜんぜん",
-          "side": "right"
-         }
-        },
-        {
-         "text": "아주",
-         "correct": false,
-         "meta": {
-          "pair": "とても",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/7ab5cd756bbe.mp3",
-       "meta": {
-        "say": "たぶん あしたも あめだと おもいます。"
-       },
-       "options": [
-        {
-         "text": "아마 내일도 비라고 생각합니다",
-         "correct": true
-        },
-        {
-         "text": "내일은 분명히 맑을 겁니다",
-         "correct": false
-        },
-        {
-         "text": "내일 비가 옵니다",
-         "correct": false
-        },
-        {
-         "text": "비가 온다고 들었습니다",
+         "text": "きません",
          "correct": false
         }
        ]
       },
       {
        "type": "SELECT",
-       "question": "친구가 「맛있다」고 말했습니다.\nともだちは「おいしい」___ いいました。",
+       "question": "김 씨는 벌써 도착했을 겁니다. (근거 있는 확신)\nキムさんは もう ___。",
        "level": 4,
        "tag": "grammar",
        "options": [
         {
-         "text": "が",
+         "text": "つくでしょうか",
          "correct": false
         },
         {
-         "text": "と",
+         "text": "ついたはずです",
          "correct": true
         },
         {
-         "text": "を",
+         "text": "ついたかもしれません",
          "correct": false
         },
         {
-         "text": "に",
+         "text": "つきたいです",
          "correct": false
+        }
+       ],
+       "meta": {
+        "explanation": "はず는 근거가 있어 확신할 때: 7시에 나갔으니 도착했을 것이다."
+       }
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "〜かもしれません",
+         "correct": false,
+         "meta": {
+          "pair": "〜かもしれません",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜でしょう",
+         "correct": false,
+         "meta": {
+          "pair": "〜でしょう",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜はずです",
+         "correct": false,
+         "meta": {
+          "pair": "〜はずです",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜と思います",
+         "correct": false,
+         "meta": {
+          "pair": "〜と思います",
+          "side": "left"
+         }
+        },
+        {
+         "text": "~일 겁니다 (근거 있는 확신)",
+         "correct": false,
+         "meta": {
+          "pair": "〜はずです",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~라고 생각합니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜と思います",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~일지도 모릅니다 (낮은 가능성)",
+         "correct": false,
+         "meta": {
+          "pair": "〜かもしれません",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~일 겁니다 (추측)",
+         "correct": false,
+         "meta": {
+          "pair": "〜でしょう",
+          "side": "right"
+         }
         }
        ]
       },
@@ -1600,76 +1578,107 @@
        "question": "따라 읽어보세요",
        "level": 4,
        "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/d0c12273fdd6.mp3",
+       "audioSrc": "/audio/ja-jlpt/c4a4598cc397.mp3",
        "meta": {
-        "target": "きっと だいじょうぶだと おもいます。",
-        "reading": "ki t to da i jo u bu da to o mo i ma su",
-        "meaning": "분명 괜찮을 거라고 생각합니다",
-        "say": "きっと だいじょうぶだと おもいます。"
+        "target": "この もんだいは むずかしいかもしれません。",
+        "reading": "ko no mo n da i wa mu zu ka shi i ka mo shi re ma se n",
+        "meaning": "이 문제는 어려울지도 모릅니다",
+        "say": "この もんだいは むずかしいかもしれません。"
        },
        "options": []
       },
       {
-       "type": "ASSIST",
-       "question": "そうおもいません",
+       "type": "SELECT",
+       "question": "그 사람은 학생일지도 모릅니다.\nあの ひとは がくせい___。",
        "level": 4,
        "tag": "grammar",
        "options": [
         {
-         "text": "그렇게 생각합니다",
+         "text": "のかもしれません",
          "correct": false
         },
         {
-         "text": "모르겠습니다",
+         "text": "なかもしれません",
          "correct": false
         },
         {
-         "text": "그렇게 생각하지 않습니다",
+         "text": "だかもしれません",
+         "correct": false
+        },
+        {
+         "text": "かもしれません",
          "correct": true
+        }
+       ],
+       "meta": {
+        "explanation": "명사·な형용사 뒤에는 だ 없이 바로 かもしれません."
+       }
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 4,
+       "tag": "listening",
+       "audioSrc": "/audio/ja-jlpt/25bbbf3a4314.mp3",
+       "meta": {
+        "say": "かいぎは さんじに おわるはずです。"
+       },
+       "options": [
+        {
+         "text": "회의는 3시에 끝났습니다",
+         "correct": false
         },
         {
-         "text": "그렇게 말하지 않습니다",
+         "text": "회의는 3시에 시작합니다",
          "correct": false
+        },
+        {
+         "text": "회의는 3시에 끝날지도 모릅니다",
+         "correct": false
+        },
+        {
+         "text": "회의는 3시에 끝날 겁니다 (확신)",
+         "correct": true
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 시간이 없으니까 걷지 않습니다",
+       "question": "문장을 만드세요: 내일은 추울 겁니다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/36950b172636.mp3",
+       "audioSrc": "/audio/ja-jlpt/96898c0216fb.mp3",
        "meta": {
-        "target": "じかんがないからあるきません",
-        "reading": "ji ka n ga na i ka ra a ru ki ma se n",
-        "meaning": "시간이 없으니까 걷지 않습니다",
-        "say": "じかんがないからあるきません"
+        "target": "あしたはさむいでしょう",
+        "reading": "a shi ta ha sa mu i de sho u",
+        "meaning": "내일은 추울 겁니다",
+        "say": "あしたはさむいでしょう"
        },
        "options": [
         {
-         "text": "ないから",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
+         "text": "さむいです",
+         "correct": false
         },
         {
-         "text": "あるきません",
+         "text": "でしょう",
          "correct": true,
          "meta": {
           "order": 3
          }
         },
         {
-         "text": "あるきます",
+         "text": "さむかった",
          "correct": false
         },
         {
-         "text": "じかんが ある",
-         "correct": false
+         "text": "さむい",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
         },
         {
-         "text": "じかんが",
+         "text": "あしたは",
          "correct": true,
          "meta": {
           "order": 1
@@ -1855,10 +1864,11 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/883b81c855f0.mp3",
+       "audioSrc": "/audio/ja-jlpt/465afe3c1185.mp3",
        "meta": {
-        "target": "時間",
-        "reading": "じかん"
+        "target": "人",
+        "reading": "ひと",
+        "meaning": "사람"
        },
        "options": []
       },

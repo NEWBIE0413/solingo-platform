@@ -4,7 +4,7 @@
  "units": [
   {
    "title": "8주차 · 사전형과 N4의 문장 연결",
-   "description": "사전형(た形과 세트), 사전형+こと(~하는 것), 〜まえ에(하기 전에), 〜たあとで(한 후에), 〜ながら(하면서). 8주차부터 N4 필수 漢字를 후리가나 없이 노출하고 TRACE로 따라 씁니다: 日本·学校·先生·毎日.",
+   "description": "사전형, 사전형+こと, 〜まえに, 〜たあとで, 〜ながら, 그리고 보통형(반말) 정리 — 다음 주 〜と思います의 전제. 8주차부터 N4 필수 漢字를 후리가나 없이 노출하고 TRACE로 따라 씁니다.",
    "lessons": [
     {
      "title": "8-1 사전형과 〜こと",
@@ -167,7 +167,7 @@
        "audioSrc": "/audio/ja-jlpt/803b524aa92d.mp3",
        "meta": {
         "target": "りょうりをすることが すきです",
-        "reading": "ryo ri o su ru ko to ga su ki de su",
+        "reading": "ryo u ri o su ru ko to ga su ki de su",
         "meaning": "요리하는 것을 좋아합니다",
         "say": "りょうりをすることが すきです"
        },
@@ -223,7 +223,7 @@
        "audioSrc": "/audio/ja-jlpt/fc18d7fe07b8.mp3",
        "meta": {
         "target": "わたしは しゃしんを とることが すきです。",
-        "reading": "wa ta shi wa sha shin o to ru ko to ga su ki de su",
+        "reading": "wa ta shi wa sha shi n o to ru ko to ga su ki de su",
         "meaning": "나는 사진을 찍는 것을 좋아합니다",
         "say": "わたしは しゃしんを とることが すきです。"
        },
@@ -259,24 +259,24 @@
       },
       {
        "type": "SELECT",
-       "question": "「수영하는 것이 잘됩니다」라고 씁니다.\nおよぐ___が じょうずです。",
+       "question": "「수영을 잘합니다」라고 씁니다.\nおよぐ___が じょうずです。",
        "level": 4,
        "tag": "grammar",
        "options": [
-        {
-         "text": "もの",
-         "correct": false
-        },
-        {
-         "text": "ところ",
-         "correct": false
-        },
         {
          "text": "こと",
          "correct": true
         },
         {
-         "text": "の",
+         "text": "もの",
+         "correct": false
+        },
+        {
+         "text": "とき",
+         "correct": false
+        },
+        {
+         "text": "ところ",
          "correct": false
         }
        ]
@@ -289,7 +289,7 @@
        "audioSrc": "/audio/ja-jlpt/25400b3b1eb4.mp3",
        "meta": {
         "target": "にほんへいくことが ゆめです",
-        "reading": "ni ho n e i ku ko to ga yu me de su",
+        "reading": "ni ho n he i ku ko to ga yu me de su",
         "meaning": "일본에 가는 것이 꿈입니다",
         "say": "にほんへいくことが ゆめです"
        },
@@ -460,58 +460,42 @@
        "tag": "grammar",
        "options": [
         {
-         "text": "いく",
+         "text": "いくまえに",
          "correct": false,
          "meta": {
-          "pair": "いく",
+          "pair": "いくまえに",
           "side": "left"
          }
         },
         {
-         "text": "する",
+         "text": "するまえに",
          "correct": false,
          "meta": {
-          "pair": "する",
+          "pair": "するまえに",
           "side": "left"
          }
         },
         {
-         "text": "たべる",
+         "text": "たべるまえに",
          "correct": false,
          "meta": {
-          "pair": "たべる",
+          "pair": "たべるまえに",
           "side": "left"
          }
         },
         {
-         "text": "のむ",
+         "text": "のむまえに",
          "correct": false,
          "meta": {
-          "pair": "のむ",
+          "pair": "のむまえに",
           "side": "left"
-         }
-        },
-        {
-         "text": "가기 전에",
-         "correct": false,
-         "meta": {
-          "pair": "いく",
-          "side": "right"
          }
         },
         {
          "text": "하기 전에",
          "correct": false,
          "meta": {
-          "pair": "する",
-          "side": "right"
-         }
-        },
-        {
-         "text": "먹기 전에",
-         "correct": false,
-         "meta": {
-          "pair": "たべる",
+          "pair": "するまえに",
           "side": "right"
          }
         },
@@ -519,7 +503,23 @@
          "text": "마시기 전에",
          "correct": false,
          "meta": {
-          "pair": "のむ",
+          "pair": "のむまえに",
+          "side": "right"
+         }
+        },
+        {
+         "text": "가기 전에",
+         "correct": false,
+         "meta": {
+          "pair": "いくまえに",
+          "side": "right"
+         }
+        },
+        {
+         "text": "먹기 전에",
+         "correct": false,
+         "meta": {
+          "pair": "たべるまえに",
           "side": "right"
          }
         }
@@ -565,12 +565,12 @@
       },
       {
        "type": "ASSIST",
-       "question": "かすまえに ききます",
+       "question": "かりるまえに ききます",
        "level": 4,
        "tag": "grammar",
        "options": [
         {
-         "text": "빌린 후에 물어봅니다",
+         "text": "물어보고 빌렸습니다",
          "correct": false
         },
         {
@@ -578,12 +578,12 @@
          "correct": false
         },
         {
-         "text": "물어보고 빌렸습니다",
-         "correct": false
-        },
-        {
          "text": "빌리기 전에 물어봅니다",
          "correct": true
+        },
+        {
+         "text": "빌린 후에 물어봅니다",
+         "correct": false
         }
        ]
       },
@@ -623,7 +623,7 @@
        "audioSrc": "/audio/ja-jlpt/b1e192dddb5c.mp3",
        "meta": {
         "target": "ねるまえにメールを みます",
-        "reading": "ne ru ma e ni meeru o mi ma su",
+        "reading": "ne ru ma e ni mee ru o mi ma su",
         "meaning": "자기 전에 이메일을 봅니다",
         "say": "ねるまえにメールを みます"
        },
@@ -745,14 +745,14 @@
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 일이 끝난 후에 마셉니다",
+       "question": "문장을 만드세요: 일이 끝난 후에 마십니다",
        "level": 4,
        "tag": "grammar",
        "audioSrc": "/audio/ja-jlpt/d957beb62bd0.mp3",
        "meta": {
         "target": "しごとがおわったあとで のみます",
         "reading": "shi go to ga o wa t ta a to de no mi ma su",
-        "meaning": "일이 끝난 후에 마셉니다",
+        "meaning": "일이 끝난 후에 마십니다",
         "say": "しごとがおわったあとで のみます"
        },
        "options": [
@@ -801,7 +801,7 @@
       },
       {
        "type": "SELECT",
-       "question": "그림 (漢字): 「日本」의 뜻은?",
+       "question": "한자 「日本」의 뜻은?",
        "level": 4,
        "tag": "kanji",
        "options": [
@@ -891,27 +891,30 @@
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 온 후에 연락합니다",
+       "question": "문장을 만드세요: 집에 돌아온 후에 연락합니다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/57caa53e3043.mp3",
+       "audioSrc": "/audio/ja-jlpt/59f2c40ff192.mp3",
        "meta": {
-        "target": "いったあとでれんらくします",
-        "reading": "i t ta a to de re n ra ku shi ma su",
-        "meaning": "온 후에 연락합니다",
-        "say": "いったあとでれんらくします"
+        "target": "うちへかえったあとでれんらくします",
+        "reading": "u chi he ka e t ta a to de re n ra ku shi ma su",
+        "meaning": "집에 돌아온 후에 연락합니다",
+        "say": "うちへかえったあとでれんらくします"
        },
        "options": [
         {
-         "text": "いく",
+         "text": "れんらくします",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "まえに",
          "correct": false
         },
         {
-         "text": "れんらくが",
-         "correct": false
-        },
-        {
-         "text": "いった",
+         "text": "うちへ",
          "correct": true,
          "meta": {
           "order": 1
@@ -921,15 +924,19 @@
          "text": "あとで",
          "correct": true,
          "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "かえった",
+         "correct": true,
+         "meta": {
           "order": 2
          }
         },
         {
-         "text": "れんらくします",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
+         "text": "かえる",
+         "correct": false
         }
        ]
       }
@@ -1171,7 +1178,7 @@
        "audioSrc": "/audio/ja-jlpt/906163746bdf.mp3",
        "meta": {
         "target": "おんがくをききながらりょうりします",
-        "reading": "o n ga ku o ki ki na ga ra ryo ri shi ma su",
+        "reading": "o n ga ku o ki ki na ga ra ryo u ri shi ma su",
         "meaning": "음악을 들으면서 요리합니다",
         "say": "おんがくをききながらりょうりします"
        },
@@ -1210,124 +1217,196 @@
      ]
     },
     {
-     "title": "8-5 상황 · 하루 일과",
+     "title": "8-5 보통형(반말) 정리 — だ・ない・た・なかった",
      "challenges": [
       {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
        "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/1c9996adec8f.mp3",
-       "meta": {
-        "say": "まいあさ あさごはんを たべる まえに、さんぽします。"
-       },
+       "tag": "grammar",
        "options": [
         {
-         "text": "산책을 안 합니다",
-         "correct": false
+         "text": "いきます",
+         "correct": false,
+         "meta": {
+          "pair": "いきます",
+          "side": "left"
+         }
         },
         {
-         "text": "매일 아침 아침을 먹기 전에 산책합니다",
-         "correct": true
+         "text": "いきません",
+         "correct": false,
+         "meta": {
+          "pair": "いきません",
+          "side": "left"
+         }
         },
         {
-         "text": "먹은 후에 산책합니다",
-         "correct": false
+         "text": "いきました",
+         "correct": false,
+         "meta": {
+          "pair": "いきました",
+          "side": "left"
+         }
         },
         {
-         "text": "산책하면서 먹습니다",
-         "correct": false
+         "text": "いきませんでした",
+         "correct": false,
+         "meta": {
+          "pair": "いきませんでした",
+          "side": "left"
+         }
+        },
+        {
+         "text": "いった",
+         "correct": false,
+         "meta": {
+          "pair": "いきました",
+          "side": "right"
+         }
+        },
+        {
+         "text": "いく",
+         "correct": false,
+         "meta": {
+          "pair": "いきます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "いかなかった",
+         "correct": false,
+         "meta": {
+          "pair": "いきませんでした",
+          "side": "right"
+         }
+        },
+        {
+         "text": "いかない",
+         "correct": false,
+         "meta": {
+          "pair": "いきません",
+          "side": "right"
+         }
         }
        ]
       },
       {
        "type": "SELECT",
-       "question": "「일이 끝난 후에 술을 마십니다」라고 씁니다.\nしごとが おわった___、のみます。",
+       "question": "「학생입니다」의 보통형(반말)은?\nがくせいです → ___",
        "level": 4,
        "tag": "grammar",
-       "meta": {
-        "explanation": "끝난 '후에'이므로 た形+あとで."
-       },
        "options": [
         {
-         "text": "ながら",
+         "text": "がくせいで",
          "correct": false
         },
         {
-         "text": "ごろ",
+         "text": "がくせいな",
          "correct": false
         },
         {
-         "text": "あとで",
+         "text": "がくせいだ",
          "correct": true
         },
         {
-         "text": "まえに",
+         "text": "がくせいい",
          "correct": false
+        }
+       ],
+       "meta": {
+        "explanation": "명사·な형용사의 보통형은 だ. 과거는 だった, 부정은 じゃない. 다음 주 〜と思います 앞에 이 형태가 옵니다."
+       }
+      },
+      {
+       "type": "ASSIST",
+       "question": "きのうは さむかった",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "어제는 춥지 않았다",
+         "correct": false
+        },
+        {
+         "text": "어제는 춥지 않다",
+         "correct": false
+        },
+        {
+         "text": "어제는 춥다",
+         "correct": false
+        },
+        {
+         "text": "어제는 추웠다",
+         "correct": true
         }
        ]
       },
       {
-       "type": "ASSIST",
-       "question": "おきた あとで かおを あらいます",
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은? (반말)",
        "level": 4,
-       "tag": "grammar",
+       "tag": "listening",
+       "audioSrc": "/audio/ja-jlpt/50567ee9a7c5.mp3",
+       "meta": {
+        "say": "あした、いっしょに えいがを みない？"
+       },
        "options": [
         {
-         "text": "일어나기 전에 세수합니다",
+         "text": "내일 영화를 봤어?",
          "correct": false
         },
         {
-         "text": "일어나면서 세수합니다",
+         "text": "내일 영화를 보지 않는다",
          "correct": false
         },
         {
-         "text": "일어나지 않습니다",
+         "text": "내일 같이 영화 보자",
          "correct": false
         },
         {
-         "text": "일어난 후에 세수합니다",
+         "text": "내일 같이 영화 안 볼래?",
          "correct": true
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 밥을 먹으면서 이야기합니다",
+       "question": "문장을 만드세요: 이 가게는 싸지 않았다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/7732dbb35618.mp3",
+       "audioSrc": "/audio/ja-jlpt/cc1a38c86977.mp3",
        "meta": {
-        "target": "ごはんをたべながらはなします",
-        "reading": "go ha n o ta be na ga ra ha na shi ma su",
-        "meaning": "밥을 먹으면서 이야기합니다",
-        "say": "ごはんをたべながらはなします"
+        "target": "このみせはやすくなかった",
+        "reading": "ko no mi se ha ya su ku na ka t ta",
+        "meaning": "이 가게는 싸지 않았다",
+        "say": "このみせはやすくなかった"
        },
        "options": [
         {
-         "text": "はなします",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "たべない",
+         "text": "やすいじゃなかった",
          "correct": false
         },
         {
-         "text": "はなした",
+         "text": "やすくないでした",
          "correct": false
         },
         {
-         "text": "ごはんを",
+         "text": "この",
          "correct": true,
          "meta": {
           "order": 1
          }
         },
         {
-         "text": "たべながら",
+         "text": "やすくなかった",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "みせは",
          "correct": true,
          "meta": {
           "order": 2
@@ -1336,38 +1415,98 @@
        ]
       },
       {
-       "type": "TRACE",
-       "question": "한자를 손으로 따라 쓰세요",
-       "level": 4,
-       "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/1f9820d2152d.mp3",
-       "meta": {
-        "target": "先生",
-        "reading": "せんせい"
-       },
-       "options": []
-      },
-      {
        "type": "SELECT",
-       "question": "그림 (漢字): 「学生」의 읽기는?",
+       "question": "「조용했습니다」의 보통형은?\nしずかでした → ___",
        "level": 4,
-       "tag": "kanji",
+       "tag": "grammar",
        "options": [
         {
-         "text": "がくせい",
+         "text": "しずかかった",
+         "correct": false
+        },
+        {
+         "text": "しずかだ",
+         "correct": false
+        },
+        {
+         "text": "しずかでしたた",
+         "correct": false
+        },
+        {
+         "text": "しずかだった",
          "correct": true
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "たかいです",
+         "correct": false,
+         "meta": {
+          "pair": "たかいです",
+          "side": "left"
+         }
         },
         {
-         "text": "せんせい",
-         "correct": false
+         "text": "たかくないです",
+         "correct": false,
+         "meta": {
+          "pair": "たかくないです",
+          "side": "left"
+         }
         },
         {
-         "text": "がくせいか",
-         "correct": false
+         "text": "たかかったです",
+         "correct": false,
+         "meta": {
+          "pair": "たかかったです",
+          "side": "left"
+         }
         },
         {
-         "text": "がくせえ",
-         "correct": false
+         "text": "たかくなかったです",
+         "correct": false,
+         "meta": {
+          "pair": "たかくなかったです",
+          "side": "left"
+         }
+        },
+        {
+         "text": "たかい",
+         "correct": false,
+         "meta": {
+          "pair": "たかいです",
+          "side": "right"
+         }
+        },
+        {
+         "text": "たかくなかった",
+         "correct": false,
+         "meta": {
+          "pair": "たかくなかったです",
+          "side": "right"
+         }
+        },
+        {
+         "text": "たかくない",
+         "correct": false,
+         "meta": {
+          "pair": "たかくないです",
+          "side": "right"
+         }
+        },
+        {
+         "text": "たかかった",
+         "correct": false,
+         "meta": {
+          "pair": "たかかったです",
+          "side": "right"
+         }
         }
        ]
       },
@@ -1376,108 +1515,108 @@
        "question": "따라 읽어보세요",
        "level": 4,
        "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/b83b20939a5b.mp3",
+       "audioSrc": "/audio/ja-jlpt/a9cef755dabf.mp3",
        "meta": {
-        "target": "まいにち しんぶんを よみます。",
-        "reading": "ma i ni chi shi n bu n o yo mi ma su",
-        "meaning": "매일 신문을 읽습니다",
-        "say": "まいにち しんぶんを よみます。"
+        "target": "きょうは いそがしい。あしたは ひまだ。",
+        "reading": "kyo u wa i so ga shi i a shi ta wa hi ma da",
+        "meaning": "오늘은 바쁘다. 내일은 한가하다.",
+        "say": "きょうは いそがしい。あしたは ひまだ。"
        },
        "options": []
       },
       {
-       "type": "ASSIST",
-       "question": "シャワーを あびてから、ねます",
+       "type": "SELECT",
+       "question": "「먹지 않았습니다」의 보통형은?\nたべませんでした → ___",
        "level": 4,
        "tag": "grammar",
        "options": [
         {
-         "text": "샤워를 안 합니다",
+         "text": "たべないでした",
          "correct": false
         },
         {
-         "text": "샤워하고 나서 잡니다",
+         "text": "たべませんだ",
+         "correct": false
+        },
+        {
+         "text": "たべなかった",
          "correct": true
         },
         {
-         "text": "샤워하기 전에 잡니다",
-         "correct": false
-        },
-        {
-         "text": "잠들면서 샤워합니다",
+         "text": "たべなかったです",
          "correct": false
         }
        ]
       },
       {
        "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
+       "question": "들리는 문장의 뜻은? (반말)",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/0b6a64d93329.mp3",
+       "audioSrc": "/audio/ja-jlpt/f963ed4f2a3e.mp3",
        "meta": {
-        "say": "テレビを みながら しゅくだいを しますか。"
+        "say": "きのう なにを した？"
        },
        "options": [
         {
-         "text": "텔레비전만 봅니까?",
+         "text": "어제 뭘 안 했어?",
          "correct": false
         },
         {
-         "text": "숙제를 안 합니까?",
+         "text": "어제 뭐 하고 싶었어?",
          "correct": false
         },
         {
-         "text": "텔레비전을 보면서 숙제를 합니까?",
+         "text": "어제 뭐 했어?",
          "correct": true
         },
         {
-         "text": "숙제를 한 후에 봅니까?",
+         "text": "어제 뭐 해?",
          "correct": false
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 학교에서 공부한 후에 집에 갑니다",
+       "question": "문장을 만드세요: 내일은 학교에 안 간다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/9d03ef11c3b1.mp3",
+       "audioSrc": "/audio/ja-jlpt/7470cd84fca9.mp3",
        "meta": {
-        "target": "がっこうでべんきょうしたあとで うちへ かえります",
-        "reading": "ga k ko u de be n kyo o shi ta a to de u chi e ka e ri ma su",
-        "meaning": "학교에서 공부한 후에 집에 갑니다",
-        "say": "がっこうでべんきょうしたあとで うちへ かえります"
+        "target": "あしたはがっこうへいかない",
+        "reading": "a shi ta ha ga k ko u he i ka na i",
+        "meaning": "내일은 학교에 안 간다",
+        "say": "あしたはがっこうへいかない"
        },
        "options": [
         {
-         "text": "がっこうで",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "べんきょうした",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "あとで うちへ かえります",
+         "text": "いかない",
          "correct": true,
          "meta": {
           "order": 3
          }
         },
         {
-         "text": "かえります",
+         "text": "いきません",
          "correct": false
         },
         {
-         "text": "まえに",
+         "text": "がっこうへ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "いかなかった",
          "correct": false
+        },
+        {
+         "text": "あしたは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
         }
        ]
       }
@@ -1662,7 +1801,8 @@
        "audioSrc": "/audio/ja-jlpt/b0e91c12727a.mp3",
        "meta": {
         "target": "毎日",
-        "reading": "まいにち"
+        "reading": "まいにち",
+        "meaning": "매일"
        },
        "options": []
       },
@@ -1733,32 +1873,32 @@
        "question": "들리는 문장의 뜻은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/80bc6d93971e.mp3",
+       "audioSrc": "/audio/ja-jlpt/03ead4ae23a4.mp3",
        "meta": {
-        "say": "テレビを つけた ままで ねてしまいました。"
+        "say": "ばんごはんを たべた あとで、さんぽします。"
        },
        "options": [
         {
-         "text": "텔레비전을 끄고 잤습니다",
+         "text": "저녁을 먹으면서 산책합니다",
          "correct": false
         },
         {
-         "text": "텔레비전을 보려고 했습니다",
-         "correct": false
-        },
-        {
-         "text": "텔레비전이 고장 났습니다",
-         "correct": false
-        },
-        {
-         "text": "텔레비전을 켠 채로 잠들어 버렸습니다",
+         "text": "저녁을 먹은 후에 산책합니다",
          "correct": true
+        },
+        {
+         "text": "저녁을 먹지 않고 산책합니다",
+         "correct": false
+        },
+        {
+         "text": "저녁을 먹기 전에 산책합니다",
+         "correct": false
         }
        ]
       },
       {
        "type": "SELECT",
-       "question": "「공부하는 것이 좋아합니다」라고 씁니다.\nべんきょうする___が すきです。",
+       "question": "「공부하는 것을 좋아합니다」라고 씁니다.\nべんきょうする___が すきです。",
        "level": 4,
        "tag": "grammar",
        "options": [

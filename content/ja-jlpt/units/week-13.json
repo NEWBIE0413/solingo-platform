@@ -4,7 +4,7 @@
  "units": [
   {
    "title": "13주차 · 기출 모드 2 · 종합",
-   "description": "마지막 주: 조건 〜ば/〜たら, 문맥 문법, 독해·청해 종합. 시험 전날에는 격려 문장(がんばれば、できます)으로 마무리합니다.",
+   "description": "기출 모드 2: 조건 〜ば, 문맥 문법, 독해 종합, 의지형·つもり, 회화 청해, 시험 전날 종합 복습. 마지막은 격려 문장(がんばれば、できます)으로.",
    "lessons": [
     {
      "title": "13-1 조건 〜ば (하면)",
@@ -137,13 +137,17 @@
        "question": "들리는 문장의 뜻은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/278c85ef570a.mp3",
+       "audioSrc": "/audio/ja-jlpt/c73ce049400d.mp3",
        "meta": {
-        "say": "てんきが よければ、はなへ いきます。"
+        "say": "てんきが よければ、はなみに いきます。"
        },
        "options": [
         {
-         "text": "날씨가 나쁘면 갑니다",
+         "text": "날씨가 좋으면 꽃구경을 갑니다",
+         "correct": true
+        },
+        {
+         "text": "산에 갑니다",
          "correct": false
         },
         {
@@ -151,12 +155,8 @@
          "correct": false
         },
         {
-         "text": "산에 갑니다",
+         "text": "날씨가 나쁘면 갑니다",
          "correct": false
-        },
-        {
-         "text": "날씨가 좋으면 꽃 보러 갑니다",
-         "correct": true
         }
        ]
       },
@@ -209,10 +209,11 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/1f9820d2152d.mp3",
+       "audioSrc": "/audio/ja-jlpt/06da773f5816.mp3",
        "meta": {
-        "target": "先生",
-        "reading": "せんせい"
+        "target": "土",
+        "reading": "つち",
+        "meaning": "흙"
        },
        "options": []
       },
@@ -289,16 +290,16 @@
        },
        "options": [
         {
-         "text": "약을 먹었습니다",
-         "correct": false
-        },
-        {
          "text": "약이 없습니다",
          "correct": false
         },
         {
-         "text": "약을 먹으면 낫습니다요",
+         "text": "약을 먹으면 나아요",
          "correct": true
+        },
+        {
+         "text": "약을 먹었습니다",
+         "correct": false
         },
         {
          "text": "약을 먹지 않으면 낫습니다",
@@ -401,9 +402,9 @@
        "question": "들은 내용과 같은 것은?",
        "level": 4,
        "tag": "reading",
-       "audioSrc": "/audio/ja-jlpt/d054fff838d1.mp3",
+       "audioSrc": "/audio/ja-jlpt/66169cada474.mp3",
        "meta": {
-        "say": "あしたは あさ はやく おきます。それから、しりょうを かきます。\n들은 내용과 같은 것은?"
+        "say": "あしたは あさ はやく おきます。それから、しりょうを かきます。"
        },
        "options": [
         {
@@ -453,10 +454,11 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/b0e91c12727a.mp3",
+       "audioSrc": "/audio/ja-jlpt/465260fe80b0.mp3",
        "meta": {
-        "target": "毎日",
-        "reading": "まいにち"
+        "target": "年",
+        "reading": "とし",
+        "meaning": "해, 년"
        },
        "options": []
       },
@@ -492,7 +494,7 @@
        "audioSrc": "/audio/ja-jlpt/d28102062afb.mp3",
        "meta": {
         "target": "きょうは ちょっと つかれました。",
-        "reading": "kyo u wa cho t te tsu ka re ma shi ta",
+        "reading": "kyo u wa cho t to tsu ka re ma shi ta",
         "meaning": "오늘은 좀 피곤합니다",
         "say": "きょうは ちょっと つかれました。"
        },
@@ -527,9 +529,9 @@
        "question": "들은 내용과 같은 것은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/e9d1034a2569.mp3",
+       "audioSrc": "/audio/ja-jlpt/a30d883e3d9a.mp3",
        "meta": {
-        "say": "てんきが よくなかったら、でかけません。\n들은 내용과 같은 것은?"
+        "say": "てんきが よくなかったら、でかけません。"
        },
        "options": [
         {
@@ -594,60 +596,60 @@
      "challenges": [
       {
        "type": "SELECT",
-       "question": "사토 씨는 일요일마다 도서관에서 공부합니다. 3시까지 공부하고, 그 후에 카페에서 친구와 이야기합니다.\n사토 씨는 3시 이후에 뭡니까?",
+       "question": "さとうさんは まいしゅう にちようびに としょかんで べんきょうします。さんじまで べんきょうして、そのあと カフェで ともだちと はなします。\n\nさとうさんは さんじの あとで なにを しますか。",
        "level": 4,
        "tag": "reading",
        "options": [
         {
-         "text": "청소",
+         "text": "そうじを します",
          "correct": false
         },
         {
-         "text": "출근",
-         "correct": false
-        },
-        {
-         "text": "친구와 이야기",
+         "text": "ともだちと はなします",
          "correct": true
         },
         {
-         "text": "공부",
+         "text": "かいしゃへ いきます",
+         "correct": false
+        },
+        {
+         "text": "べんきょうします",
          "correct": false
         }
        ]
       },
       {
        "type": "SELECT",
-       "question": "공지: 다음 주 월요일은 건물 점검 때문에 도서관이 오후 1시에 닫습니다.\n이 공지의 내용은?",
+       "question": "おしらせ：らいしゅうの げつようびは ビルの てんけんが あるので、としょかんは ごご いちじに しまります。\n\nこの おしらせの ないようは？",
        "level": 4,
        "tag": "reading",
        "options": [
         {
-         "text": "도서관이 늦게 열립니다",
+         "text": "としょかんは いちにち やすみです",
          "correct": false
         },
         {
-         "text": "점검으로 하루 휴무",
+         "text": "としょかんが おそく あきます",
          "correct": false
         },
         {
-         "text": "도서관은 문을 안 닫습니다",
-         "correct": false
-        },
-        {
-         "text": "도서관이 일찍 닫힙니다",
+         "text": "としょかんが はやく しまります",
          "correct": true
+        },
+        {
+         "text": "としょかんは しまりません",
+         "correct": false
         }
        ]
       },
       {
        "type": "LISTEN",
-       "question": "대화를 듣고 답하세요",
+       "question": "질문: 커피는 어떻습니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/eea3d120032e.mp3",
+       "audioSrc": "/audio/ja-jlpt/592e7613541c.mp3",
        "meta": {
-        "say": "男: すみません、この コーヒーは あついですか。\n女: つくりたてですが、のめるくらい あついですよ。\n질문: 커피는 어떻습니까?"
+        "say": "おとこのひと：すみません、この コーヒーは あついですか。\nおんなのひと：つくりたてですが、のめるくらいの あつさですよ。"
        },
        "options": [
         {
@@ -670,24 +672,24 @@
       },
       {
        "type": "SELECT",
-       "question": "「수고하셨습니다. 다음 주에 뵙겠습니다」라고 씁니다.\nおつかれさまでした。らいしゅう ___。",
+       "question": "「수고하셨습니다. 다음 주에 또 만납시다」라고 씁니다.\nおつかれさまでした。らいしゅう ___。",
        "level": 4,
        "tag": "expression",
        "options": [
         {
-         "text": "おあいしていました",
+         "text": "また あいませんでした",
          "correct": false
         },
         {
-         "text": "おあいしましょう",
+         "text": "また あいません",
+         "correct": false
+        },
+        {
+         "text": "また あいましょう",
          "correct": true
         },
         {
-         "text": "おあいしました",
-         "correct": false
-        },
-        {
-         "text": "おあいしません",
+         "text": "また あいました",
          "correct": false
         }
        ]
@@ -697,10 +699,11 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/4dbed2e65745.mp3",
+       "audioSrc": "/audio/ja-jlpt/296304f1e5d0.mp3",
        "meta": {
-        "target": "日本",
-        "reading": "にほん"
+        "target": "今日",
+        "reading": "きょう",
+        "meaning": "오늘"
        },
        "options": []
       },
@@ -747,9 +750,9 @@
        "question": "들은 내용과 같은 것은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/5c57c31717aa.mp3",
+       "audioSrc": "/audio/ja-jlpt/b43eb8da2e04.mp3",
        "meta": {
-        "say": "きょうは つよいかぜが ふいていますから、でかけないほうがいいですよ。\n들은 내용과 같은 것은?"
+        "say": "きょうは つよいかぜが ふいていますから、でかけないほうがいいですよ。"
        },
        "options": [
         {
@@ -772,15 +775,15 @@
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 다음 주에 뵙겠습니다",
+       "question": "문장을 만드세요: 다음 주에 또 만납시다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/a64b5895605e.mp3",
+       "audioSrc": "/audio/ja-jlpt/c23171ca285f.mp3",
        "meta": {
-        "target": "らいしゅうおあいしましょう",
-        "reading": "ra i shu u o a i ma sho u",
-        "meaning": "다음 주에 뵙겠습니다",
-        "say": "らいしゅうおあいしましょう"
+        "target": "らいしゅうまたあいましょう",
+        "reading": "ra i shu u ma ta a i ma sho u",
+        "meaning": "다음 주에 또 만납시다",
+        "say": "らいしゅうまたあいましょう"
        },
        "options": [
         {
@@ -791,18 +794,25 @@
          }
         },
         {
-         "text": "おあいしましょう",
+         "text": "また",
          "correct": true,
          "meta": {
           "order": 2
          }
         },
         {
-         "text": "あいました",
+         "text": "あいましょう",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "あいません",
          "correct": false
         },
         {
-         "text": "あいませんでした",
+         "text": "あいました",
          "correct": false
         }
        ]
@@ -810,75 +820,75 @@
      ]
     },
     {
-     "title": "13-4 한자 읽기 (N4)",
+     "title": "13-4 의지형과 つもり (〜ようと思います・〜つもりです)",
      "challenges": [
       {
        "type": "MATCH",
        "question": "짝을 맞추세요",
        "level": 4,
-       "tag": "kanji",
+       "tag": "grammar",
        "options": [
         {
-         "text": "時間",
+         "text": "いく",
          "correct": false,
          "meta": {
-          "pair": "時間",
+          "pair": "いく",
           "side": "left"
          }
         },
         {
-         "text": "先生",
+         "text": "たべる",
          "correct": false,
          "meta": {
-          "pair": "先生",
+          "pair": "たべる",
           "side": "left"
          }
         },
         {
-         "text": "学生",
+         "text": "する",
          "correct": false,
          "meta": {
-          "pair": "学生",
+          "pair": "する",
           "side": "left"
          }
         },
         {
-         "text": "学校",
+         "text": "くる",
          "correct": false,
          "meta": {
-          "pair": "学校",
+          "pair": "くる",
           "side": "left"
          }
         },
         {
-         "text": "じかん",
+         "text": "いこう",
          "correct": false,
          "meta": {
-          "pair": "時間",
+          "pair": "いく",
           "side": "right"
          }
         },
         {
-         "text": "せんせい",
+         "text": "こよう",
          "correct": false,
          "meta": {
-          "pair": "先生",
+          "pair": "くる",
           "side": "right"
          }
         },
         {
-         "text": "がくせい",
+         "text": "たべよう",
          "correct": false,
          "meta": {
-          "pair": "学生",
+          "pair": "たべる",
           "side": "right"
          }
         },
         {
-         "text": "がっこう",
+         "text": "しよう",
          "correct": false,
          "meta": {
-          "pair": "学校",
+          "pair": "する",
           "side": "right"
          }
         }
@@ -886,212 +896,267 @@
       },
       {
        "type": "SELECT",
-       "question": "漢字の読み方: 「半分」",
+       "question": "내년에 일본에 가려고 생각하고 있습니다.\nらいねん にほんへ ___と おもっています。",
        "level": 4,
-       "tag": "kanji",
+       "tag": "grammar",
        "options": [
         {
-         "text": "はんぶん",
+         "text": "いこう",
          "correct": true
         },
         {
-         "text": "ばんぶん",
+         "text": "いく",
          "correct": false
         },
         {
-         "text": "はんぶんし",
+         "text": "いきたい",
          "correct": false
         },
         {
-         "text": "なかぶん",
+         "text": "いった",
          "correct": false
         }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "漢字の読み方: 「毎日」",
-       "level": 4,
-       "tag": "kanji",
-       "options": [
-        {
-         "text": "まいび",
-         "correct": false
-        },
-        {
-         "text": "まいにち",
-         "correct": true
-        },
-        {
-         "text": "まいひ",
-         "correct": false
-        },
-        {
-         "text": "ばんにち",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들이고 답하세요",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/7e14935f3173.mp3",
+       ],
        "meta": {
-        "say": "がくせいは がっこうで べんきょうします。"
-       },
-       "options": [
-        {
-         "text": "학생은 집에서 쉽니다",
-         "correct": false
-        },
-        {
-         "text": "학교에 안 갑니다",
-         "correct": false
-        },
-        {
-         "text": "학생은 학교에서 공부합니다",
-         "correct": true
-        },
-        {
-         "text": "선생님이 가르칩니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "TRACE",
-       "question": "한자를 손으로 따라 쓰세요",
-       "level": 4,
-       "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/b0e91c12727a.mp3",
-       "meta": {
-        "target": "毎日",
-        "reading": "まいにち"
-       },
-       "options": []
-      },
-      {
-       "type": "SELECT",
-       "question": "漢字の意味: 「時間がない」의 뜻은?",
-       "level": 4,
-       "tag": "kanji",
-       "options": [
-        {
-         "text": "시간이 있다",
-         "correct": false
-        },
-        {
-         "text": "시간이 빠르다",
-         "correct": false
-        },
-        {
-         "text": "시험 본다",
-         "correct": false
-        },
-        {
-         "text": "시간이 없다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/6acc2f3a89bb.mp3",
-       "meta": {
-        "target": "せんせいに ききました。",
-        "reading": "se n se i ni ki ki ma shi ta",
-        "meaning": "선생님께 물었습니다",
-        "say": "せんせいに ききました。"
-       },
-       "options": []
+        "explanation": "의지형+と思っています = ~하려고 (생각)하고 있다."
+       }
       },
       {
        "type": "ASSIST",
-       "question": "がっこうは あした やすみです",
+       "question": "しゅうまつは うちで やすむつもりです",
        "level": 4,
-       "tag": "kanji",
+       "tag": "grammar",
        "options": [
         {
-         "text": "학교는 내일 쉽니다",
+         "text": "주말은 집에서 쉴지도 모릅니다",
+         "correct": false
+        },
+        {
+         "text": "주말은 집에서 쉬었습니다",
+         "correct": false
+        },
+        {
+         "text": "주말은 집에서 쉴 생각입니다",
          "correct": true
         },
         {
-         "text": "학교는 오늘 쉽니다",
-         "correct": false
-        },
-        {
-         "text": "학생이 쉽니다",
-         "correct": false
-        },
-        {
-         "text": "학교에 갑니다",
+         "text": "주말은 집에서 쉬는 편이 좋습니다",
          "correct": false
         }
        ]
       },
       {
        "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
+       "question": "들리는 문장의 뜻은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/76fdddc696dc.mp3",
+       "audioSrc": "/audio/ja-jlpt/451e80417bbb.mp3",
        "meta": {
-        "say": "まいにち、はんぶんだけ れんしゅうします。"
+        "say": "きょうから まいにち にほんごを べんきょうしようと おもいます。"
        },
        "options": [
         {
-         "text": "주말에 연습합니다",
+         "text": "오늘은 일본어를 공부했습니다",
          "correct": false
         },
         {
-         "text": "매일 절반만 연습합니다",
+         "text": "매일 일본어를 공부해야 합니다",
+         "correct": false
+        },
+        {
+         "text": "일본어를 공부할 수 있게 되었습니다",
+         "correct": false
+        },
+        {
+         "text": "오늘부터 매일 일본어를 공부하려고 합니다",
          "correct": true
-        },
-        {
-         "text": "매일 다 연습합니다",
-         "correct": false
-        },
-        {
-         "text": "연습하지 않습니다",
-         "correct": false
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 선생님께 물었습니다",
+       "question": "문장을 만드세요: 담배를 끊을 생각입니다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/386c48daafab.mp3",
+       "audioSrc": "/audio/ja-jlpt/e6743951f29e.mp3",
        "meta": {
-        "target": "せんせいにききました",
-        "reading": "se n se i ni ki ki ma shi ta",
-        "meaning": "선생님께 물었습니다",
-        "say": "せんせいにききました"
+        "target": "たばこをやめるつもりです",
+        "reading": "ta ba ko o ya me ru tsu mo ri de su",
+        "meaning": "담배를 끊을 생각입니다",
+        "say": "たばこをやめるつもりです"
        },
        "options": [
         {
-         "text": "ききます",
+         "text": "やめたい",
          "correct": false
         },
         {
-         "text": "ききましたか",
+         "text": "やめよう",
          "correct": false
         },
         {
-         "text": "せんせいに",
+         "text": "やめる",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "たばこを",
          "correct": true,
          "meta": {
           "order": 1
          }
         },
         {
-         "text": "ききました",
+         "text": "つもりです",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "「사다(かう)」의 의지형은?\nかう → ___",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "かうう",
+         "correct": false
+        },
+        {
+         "text": "かよう",
+         "correct": false
+        },
+        {
+         "text": "かいよう",
+         "correct": false
+        },
+        {
+         "text": "かおう",
+         "correct": true
+        }
+       ],
+       "meta": {
+        "explanation": "1그룹은 う단→お단+う: かう→かおう, のむ→のもう. 2그룹은 る→よう."
+       }
+      },
+      {
+       "type": "SELECT",
+       "question": "올해는 여행하지 않을 생각입니다.\nことしは りょこうを ___。",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "しないでしょう",
+         "correct": false
+        },
+        {
+         "text": "しようつもりです",
+         "correct": false
+        },
+        {
+         "text": "しませんつもりです",
+         "correct": false
+        },
+        {
+         "text": "しないつもりです",
+         "correct": true
+        }
+       ],
+       "meta": {
+        "explanation": "부정의 계획은 ない형+つもりです."
+       }
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 4,
+       "tag": "vocab",
+       "audioSrc": "/audio/ja-jlpt/df89c7593b31.mp3",
+       "meta": {
+        "target": "しょうらい にほんで はたらこうと おもっています。",
+        "reading": "sho u ra i ni ho n de ha ta ra ko u to o mo t te i ma su",
+        "meaning": "장래에 일본에서 일하려고 생각하고 있습니다",
+        "say": "しょうらい にほんで はたらこうと おもっています。"
+       },
+       "options": []
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 4,
+       "tag": "listening",
+       "audioSrc": "/audio/ja-jlpt/9d9916f78ca5.mp3",
+       "meta": {
+        "say": "なつやすみは なにを するつもりですか。"
+       },
+       "options": [
+        {
+         "text": "여름방학에는 무엇을 할 생각입니까?",
+         "correct": true
+        },
+        {
+         "text": "여름방학은 언제입니까?",
+         "correct": false
+        },
+        {
+         "text": "여름방학에는 무엇을 할 수 있습니까?",
+         "correct": false
+        },
+        {
+         "text": "여름방학에는 무엇을 했습니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 내일은 일찍 일어나려고 합니다",
+       "level": 4,
+       "tag": "grammar",
+       "audioSrc": "/audio/ja-jlpt/9a00b0eb7a31.mp3",
+       "meta": {
+        "target": "あしたははやくおきようとおもいます",
+        "reading": "a shi ta ha ha ya ku o ki yo u to o mo i ma su",
+        "meaning": "내일은 일찍 일어나려고 합니다",
+        "say": "あしたははやくおきようとおもいます"
+       },
+       "options": [
+        {
+         "text": "おもいます",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "おきようと",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "おきたいと",
+         "correct": false
+        },
+        {
+         "text": "あしたは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "おきると",
+         "correct": false
+        },
+        {
+         "text": "はやく",
          "correct": true,
          "meta": {
           "order": 2
@@ -1106,40 +1171,40 @@
      "challenges": [
       {
        "type": "LISTEN",
-       "question": "대화를 듣고 답하세요",
+       "question": "질문: 두 사람은 언제 저녁을 먹습니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/8b95740de52b.mp3",
+       "audioSrc": "/audio/ja-jlpt/361a4898c690.mp3",
        "meta": {
-        "say": "男: あしたの よる、いっしょに ばんごはんを たべませんか。\n女: いいですね。でも、えいがを みたことがないので、えいがも みたいです。\n질문: 두 사람은 무엇을 합니까?"
+        "say": "おとこのひと：あしたの よる、いっしょに ばんごはんを たべませんか。\nおんなのひと：いいですね。でも、あしたは しごとが おそくまで あります。あさってなら だいじょうぶです。"
        },
        "options": [
         {
-         "text": "영화만 봅니다",
+         "text": "오늘",
          "correct": false
         },
         {
-         "text": "만나지 않습니다",
+         "text": "다음 주",
          "correct": false
         },
         {
-         "text": "저녁을 먹거나 영화를 봅니다",
+         "text": "모레",
          "correct": true
         },
         {
-         "text": "저녁만 먹습니다",
+         "text": "내일",
          "correct": false
         }
        ]
       },
       {
        "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
+       "question": "질문: 숙제 마감은 언제입니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/3a69d8442724.mp3",
+       "audioSrc": "/audio/ja-jlpt/36f3828fdced.mp3",
        "meta": {
-        "say": "女: しゅくだいは いつまでに だしますか。\n男: もくようびまでです。きょうは かようびですから、あしたです。\n질문: 숙제 마감은 언제입니까?"
+        "say": "おんなのひと：しゅくだいは いつまでに だしますか。\nおとこのひと：もくようびまでです。きょうは かようびですから、あさってですね。"
        },
        "options": [
         {
@@ -1162,27 +1227,30 @@
       },
       {
        "type": "SELECT",
-       "question": "선생님에게 감사 인사를 합니다.\nおしえて___、ありがとう ございました。",
+       "question": "선생님에게 감사 인사를 합니다.\nおしえて___、ありがとうございました。",
        "level": 4,
        "tag": "expression",
        "options": [
         {
-         "text": "いただいて",
+         "text": "くださって",
          "correct": true
         },
         {
-         "text": "くださって",
-         "correct": false
-        },
-        {
-         "text": "もらって",
+         "text": "いて",
          "correct": false
         },
         {
          "text": "さしあげて",
          "correct": false
+        },
+        {
+         "text": "あげて",
+         "correct": false
         }
-       ]
+       ],
+       "meta": {
+        "explanation": "상대가 나에게 해 준 일에 감사할 때는 〜てくださって(〜てくれて의 높임)."
+       }
       },
       {
        "type": "ASSIST",
@@ -1282,12 +1350,12 @@
       },
       {
        "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
+       "question": "질문: 언제까지 돌려야 합니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/d809532b49a2.mp3",
+       "audioSrc": "/audio/ja-jlpt/64fb47f81125.mp3",
        "meta": {
-        "say": "男: この じしょを かしてください。\n女: いいですよ。でも、あしたまでに かえしてくださいね。\n질문: 언제까지 돌려야 합니까?"
+        "say": "おとこのひと：この じしょを かしてください。\nおんなのひと：いいですよ。でも、あしたまでに かえしてくださいね。"
        },
        "options": [
         {
@@ -1348,12 +1416,12 @@
       },
       {
        "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
+       "question": "질문: 남자의 의견은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/474b6a39514b.mp3",
+       "audioSrc": "/audio/ja-jlpt/f815c234536c.mp3",
        "meta": {
-        "say": "女: にちようびに うみへ いきませんか。\n男: いいですね。でも、あつかったら、やめましょう。\n질문: 남자의 의견은?"
+        "say": "おんなのひと：にちようびに うみへ いきませんか。\nおとこのひと：いいですね。でも、あつかったら、やめましょう。"
        },
        "options": [
         {
@@ -1379,31 +1447,20 @@
        "question": "문장을 만드세요: 다음 주에 또 봅시다",
        "level": 4,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/aa8f453b650f.mp3",
+       "audioSrc": "/audio/ja-jlpt/cdabe0138c28.mp3",
        "meta": {
-        "target": "またらいしゅうおあいしましょう",
-        "reading": "ma ta ra i shu u o a i ma sho u",
+        "target": "またらいしゅうあいましょう",
+        "reading": "ma ta ra i shu u a i ma sho u",
         "meaning": "다음 주에 또 봅시다",
-        "say": "またらいしゅうおあいしましょう"
+        "say": "またらいしゅうあいましょう"
        },
        "options": [
         {
-         "text": "らいしゅう",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "おあいしましょう",
+         "text": "あいましょう",
          "correct": true,
          "meta": {
           "order": 3
          }
-        },
-        {
-         "text": "あいました",
-         "correct": false
         },
         {
          "text": "あいません",
@@ -1415,6 +1472,17 @@
          "meta": {
           "order": 1
          }
+        },
+        {
+         "text": "らいしゅう",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "あいました",
+         "correct": false
         }
        ]
       }
@@ -1452,9 +1520,9 @@
        "question": "들리는 문장의 뜻은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/3b74e2d2d24c.mp3",
+       "audioSrc": "/audio/ja-jlpt/58d67ce5c76f.mp3",
        "meta": {
-        "say": "あすは あめだと おもいますから、かさを もっていってください。\n들은 내용과 같은 것은?"
+        "say": "あすは あめだと おもいますから、かさを もっていってください。"
        },
        "options": [
         {
@@ -1589,10 +1657,11 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/883b81c855f0.mp3",
+       "audioSrc": "/audio/ja-jlpt/ffd4e49ee67f.mp3",
        "meta": {
-        "target": "時間",
-        "reading": "じかん"
+        "target": "何",
+        "reading": "なに",
+        "meaning": "무엇"
        },
        "options": []
       },

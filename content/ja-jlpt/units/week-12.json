@@ -4,7 +4,7 @@
  "units": [
   {
    "title": "12주차 · 기출 모드 1 · 문법과 독해",
-   "description": "실전형으로 전환: 12문항형 긴 문제(문장 문법·독해·청해). 조사·활용·한자 읽기를 N4 기출 스타일로 반복합니다.",
+   "description": "기출 모드 1: 조사 총정리, 용언 활용(てある·ておく·てしまう), 짧은 일본어 지문 독해, 기초 한자 읽기, 회화 청해, 종합 연습.",
    "lessons": [
     {
      "title": "12-1 조사 총정리 (기출형)",
@@ -72,23 +72,15 @@
          }
         },
         {
-         "text": "7時に会う",
+         "text": "ともだちと はなす",
          "correct": false,
          "meta": {
-          "pair": "に (시간)",
+          "pair": "と (함께)",
           "side": "right"
          }
         },
         {
-         "text": "バスで行く",
-         "correct": false,
-         "meta": {
-          "pair": "で (수단)",
-          "side": "right"
-         }
-        },
-        {
-         "text": "本を読む",
+         "text": "ほんを よむ",
          "correct": false,
          "meta": {
           "pair": "を (대상)",
@@ -96,10 +88,18 @@
          }
         },
         {
-         "text": "友だちと話す",
+         "text": "しちじに あう",
          "correct": false,
          "meta": {
-          "pair": "と (함께)",
+          "pair": "に (시간)",
+          "side": "right"
+         }
+        },
+        {
+         "text": "バスで いく",
+         "correct": false,
+         "meta": {
+          "pair": "で (수단)",
           "side": "right"
          }
         }
@@ -159,7 +159,7 @@
       },
       {
        "type": "SELECT",
-       "question": "그 소식을 신문에서 알았습니다.\nそのニュースは しんぶん___ しっました。",
+       "question": "그 소식을 신문에서 알았습니다.\nそのニュースは しんぶん___ しりました。",
        "level": 4,
        "tag": "grammar",
        "options": [
@@ -186,16 +186,17 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/4dbed2e65745.mp3",
+       "audioSrc": "/audio/ja-jlpt/e42b99d59954.mp3",
        "meta": {
-        "target": "日本",
-        "reading": "にほん"
+        "target": "月",
+        "reading": "つき",
+        "meaning": "달"
        },
        "options": []
       },
       {
        "type": "SELECT",
-       "question": "「학교까지 30분 걸립니다」라고 씁니다.\nがっこう___ 30分 かかります。",
+       "question": "「학교까지 30분 걸립니다」라고 씁니다.\nがっこう___ さんじゅっぷん かかります。",
        "level": 4,
        "tag": "grammar",
        "meta": {
@@ -656,48 +657,48 @@
      "challenges": [
       {
        "type": "SELECT",
-       "question": "다나카 씨는 매일 아침 6시에 일어나서 러닝을 30분 합니다. 그리고 세수를 하고, 아침을 먹습니다. 8시에 집을 나옵니다.\n다나카 씨는 언제 집을 나옵니까?",
+       "question": "たなかさんは まいあさ ろくじに おきて、さんじゅっぷん はしります。それから シャワーを あびて、あさごはんを たべます。はちじに うちを でます。\n\nたなかさんは なんじに うちを でますか。",
        "level": 4,
        "tag": "reading",
        "options": [
         {
-         "text": "8시에",
+         "text": "ろくじ",
+         "correct": false
+        },
+        {
+         "text": "はちじはん",
+         "correct": false
+        },
+        {
+         "text": "はちじ",
          "correct": true
         },
         {
-         "text": "6시에",
-         "correct": false
-        },
-        {
-         "text": "6시 30분에",
-         "correct": false
-        },
-        {
-         "text": "8시 30분에",
+         "text": "ろくじはん",
          "correct": false
         }
        ]
       },
       {
        "type": "SELECT",
-       "question": "스즈키 씨: 「일요일에 청소를 하거나 빨래를 하거나 해서 바빴습니다.」\n스즈키 씨의 주말은 어땠습니까?",
+       "question": "すずきさんは にちようびに そうじを したり、せんたくを したりしました。とても いそがしかったです。\n\nすずきさんの にちようびは どうでしたか。",
        "level": 4,
        "tag": "reading",
        "options": [
         {
-         "text": "출근했습니다",
+         "text": "かいしゃへ いきました",
          "correct": false
         },
         {
-         "text": "바빴습니다",
+         "text": "いそがしかったです",
          "correct": true
         },
         {
-         "text": "놀았습니다",
+         "text": "ひまでした",
          "correct": false
         },
         {
-         "text": "쉬었습니다",
+         "text": "ともだちと あそびました",
          "correct": false
         }
        ]
@@ -707,9 +708,9 @@
        "question": "들은 내용과 같은 것은?",
        "level": 4,
        "tag": "reading",
-       "audioSrc": "/audio/ja-jlpt/5dd4eb4716c3.mp3",
+       "audioSrc": "/audio/ja-jlpt/e3d7e1a35f8b.mp3",
        "meta": {
-        "say": "きのうは ともだちの たんじょうびでした。みんなで ケーキを たべて、うたを うたいました。\n들은 내용과 같은 것은?"
+        "say": "きのうは ともだちの たんじょうびでした。みんなで ケーキを たべて、うたを うたいました。"
        },
        "options": [
         {
@@ -732,25 +733,25 @@
       },
       {
        "type": "SELECT",
-       "question": "이 가게는 점심시간(12시~1시)에는 문을 닫습니다. 저녁은 6시에 열립니다.\n이 가게는 언제 열립니까?",
+       "question": "この みせは ひるやすみが あります。じゅうにじから いちじまでは しまっています。よるは ろくじに あきます。\n\nこの みせは よる なんじに あきますか。",
        "level": 4,
        "tag": "reading",
        "options": [
         {
-         "text": "점심시간에",
+         "text": "じゅうにじ",
          "correct": false
         },
         {
-         "text": "아침 12시에",
+         "text": "いちじ",
          "correct": false
         },
         {
-         "text": "일요일에",
-         "correct": false
-        },
-        {
-         "text": "저녁 6시에",
+         "text": "ろくじ",
          "correct": true
+        },
+        {
+         "text": "ごじ",
+         "correct": false
         }
        ]
       },
@@ -759,33 +760,34 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/883b81c855f0.mp3",
+       "audioSrc": "/audio/ja-jlpt/e0a5e08af3c1.mp3",
        "meta": {
-        "target": "時間",
-        "reading": "じかん"
+        "target": "木",
+        "reading": "き",
+        "meaning": "나무"
        },
        "options": []
       },
       {
        "type": "SELECT",
-       "question": "미나토 씨는 일본 요리를 만드는 것을 좋아합니다. 매주 토요일에 친구에게 가르쳐 줍니다.\n미나토 씨는 어떤 사람입니까?",
+       "question": "みなとさんは にほんりょうりを つくることが すきです。まいしゅう どようびに ともだちに りょうりを おしえています。\n\nみなとさんは どんな ひとですか。",
        "level": 4,
        "tag": "reading",
        "options": [
         {
-         "text": "요리를 가르치는 사람",
+         "text": "りょうりを ならいたい ひと",
+         "correct": false
+        },
+        {
+         "text": "りょうりを おしえる ひと",
          "correct": true
         },
         {
-         "text": "요리를 배우고 싶은 사람",
+         "text": "りょうりを しない ひと",
          "correct": false
         },
         {
-         "text": "요리를 하지 않는 사람",
-         "correct": false
-        },
-        {
-         "text": "매일 가르치는 사람",
+         "text": "まいにち おしえる ひと",
          "correct": false
         }
        ]
@@ -833,9 +835,9 @@
        "question": "들은 내용과 같은 것은?",
        "level": 4,
        "tag": "reading",
-       "audioSrc": "/audio/ja-jlpt/666f9e4e5129.mp3",
+       "audioSrc": "/audio/ja-jlpt/85b78d48c881.mp3",
        "meta": {
-        "say": "あしたの ごご さんじに としょかんで あいましょう。\n언제 만나기로 했습니까?"
+        "say": "あしたの ごご さんじに としょかんで あいましょう。"
        },
        "options": [
         {
@@ -903,75 +905,75 @@
      ]
     },
     {
-     "title": "12-4 한자 읽기 (N4)",
+     "title": "12-4 한자 읽기 (N5·N4 기초 한자)",
      "challenges": [
       {
        "type": "MATCH",
-       "question": "짝을 맞추세요",
+       "question": "요일 한자와 읽기를 맞추세요",
        "level": 4,
        "tag": "kanji",
        "options": [
         {
-         "text": "毎日",
+         "text": "日",
          "correct": false,
          "meta": {
-          "pair": "毎日",
+          "pair": "日",
           "side": "left"
          }
         },
         {
-         "text": "日本",
+         "text": "月",
          "correct": false,
          "meta": {
-          "pair": "日本",
+          "pair": "月",
           "side": "left"
          }
         },
         {
-         "text": "学校",
+         "text": "火",
          "correct": false,
          "meta": {
-          "pair": "学校",
+          "pair": "火",
           "side": "left"
          }
         },
         {
-         "text": "先生",
+         "text": "水",
          "correct": false,
          "meta": {
-          "pair": "先生",
+          "pair": "水",
           "side": "left"
          }
         },
         {
-         "text": "まいにち",
+         "text": "すい",
          "correct": false,
          "meta": {
-          "pair": "毎日",
+          "pair": "水",
           "side": "right"
          }
         },
         {
-         "text": "にほん",
+         "text": "げつ",
          "correct": false,
          "meta": {
-          "pair": "日本",
+          "pair": "月",
           "side": "right"
          }
         },
         {
-         "text": "がっこう",
+         "text": "か",
          "correct": false,
          "meta": {
-          "pair": "学校",
+          "pair": "火",
           "side": "right"
          }
         },
         {
-         "text": "せんせい",
+         "text": "にち",
          "correct": false,
          "meta": {
-          "pair": "先生",
+          "pair": "日",
           "side": "right"
          }
         }
@@ -979,77 +981,77 @@
       },
       {
        "type": "SELECT",
-       "question": "漢字の読み方: 「時間」",
+       "question": "「山」의 읽기는?",
        "level": 4,
        "tag": "kanji",
        "options": [
         {
-         "text": "じかんがい",
-         "correct": false
-        },
-        {
-         "text": "ときま",
-         "correct": false
-        },
-        {
-         "text": "じけん",
-         "correct": false
-        },
-        {
-         "text": "じかん",
+         "text": "やま",
          "correct": true
+        },
+        {
+         "text": "き",
+         "correct": false
+        },
+        {
+         "text": "かわ",
+         "correct": false
+        },
+        {
+         "text": "はな",
+         "correct": false
         }
        ]
       },
       {
-       "type": "SELECT",
-       "question": "漢字の意味: 「学生」の 뜻은?",
+       "type": "ASSIST",
+       "question": "川",
        "level": 4,
        "tag": "kanji",
        "options": [
         {
-         "text": "학생",
+         "text": "나무",
+         "correct": false
+        },
+        {
+         "text": "강, 냇물",
          "correct": true
         },
         {
-         "text": "선생",
+         "text": "산",
          "correct": false
         },
         {
-         "text": "학교",
-         "correct": false
-        },
-        {
-         "text": "선배",
+         "text": "꽃",
          "correct": false
         }
        ]
       },
       {
        "type": "LISTEN",
-       "question": "들이고 답하세요",
+       "question": "들리는 문장을 한자로 쓴 것은?",
        "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/5fa9ab67638e.mp3",
+       "tag": "kanji",
+       "audioSrc": "/audio/ja-jlpt/49909399d30a.mp3",
        "meta": {
-        "say": "せんせいは がっこうに います。"
+        "say": "きんようびは やすみです。"
        },
        "options": [
         {
-         "text": "학생이 왔습니다",
+         "text": "月曜日は やすみです",
          "correct": false
         },
         {
-         "text": "선생님은 학교에 있습니다",
+         "text": "土曜日は やすみです",
+         "correct": false
+        },
+        {
+         "text": "水曜日は やすみです",
+         "correct": false
+        },
+        {
+         "text": "金曜日は やすみです",
          "correct": true
-        },
-        {
-         "text": "학생은 집에 있습니다",
-         "correct": false
-        },
-        {
-         "text": "선생님은 집에 있습니다",
-         "correct": false
         }
        ]
       },
@@ -1058,33 +1060,130 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/b0e91c12727a.mp3",
+       "audioSrc": "/audio/ja-jlpt/465afe3c1185.mp3",
        "meta": {
-        "target": "毎日",
-        "reading": "まいにち"
+        "target": "人",
+        "reading": "ひと",
+        "meaning": "사람"
        },
        "options": []
       },
       {
        "type": "SELECT",
-       "question": "漢字の読み方: 「半分」",
+       "question": "「人」의 뜻은?",
        "level": 4,
        "tag": "kanji",
        "options": [
         {
-         "text": "ばんぶん",
-         "correct": false
-        },
-        {
-         "text": "はんぼん",
-         "correct": false
-        },
-        {
-         "text": "はんぶん",
+         "text": "사람",
          "correct": true
         },
         {
-         "text": "はんぶんし",
+         "text": "들어가다",
+         "correct": false
+        },
+        {
+         "text": "하나",
+         "correct": false
+        },
+        {
+         "text": "크다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 4,
+       "tag": "kanji",
+       "options": [
+        {
+         "text": "一",
+         "correct": false,
+         "meta": {
+          "pair": "一",
+          "side": "left"
+         }
+        },
+        {
+         "text": "二",
+         "correct": false,
+         "meta": {
+          "pair": "二",
+          "side": "left"
+         }
+        },
+        {
+         "text": "三",
+         "correct": false,
+         "meta": {
+          "pair": "三",
+          "side": "left"
+         }
+        },
+        {
+         "text": "十",
+         "correct": false,
+         "meta": {
+          "pair": "十",
+          "side": "left"
+         }
+        },
+        {
+         "text": "に",
+         "correct": false,
+         "meta": {
+          "pair": "二",
+          "side": "right"
+         }
+        },
+        {
+         "text": "じゅう",
+         "correct": false,
+         "meta": {
+          "pair": "十",
+          "side": "right"
+         }
+        },
+        {
+         "text": "いち",
+         "correct": false,
+         "meta": {
+          "pair": "一",
+          "side": "right"
+         }
+        },
+        {
+         "text": "さん",
+         "correct": false,
+         "meta": {
+          "pair": "三",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "「百円」의 읽기는?",
+       "level": 4,
+       "tag": "kanji",
+       "options": [
+        {
+         "text": "せんえん",
+         "correct": false
+        },
+        {
+         "text": "ひゃくねん",
+         "correct": false
+        },
+        {
+         "text": "ひゃくえん",
+         "correct": true
+        },
+        {
+         "text": "まんえん",
          "correct": false
         }
        ]
@@ -1093,109 +1192,61 @@
        "type": "SPEAK",
        "question": "따라 읽어보세요",
        "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/6ab7ce0f418d.mp3",
+       "tag": "kanji",
+       "audioSrc": "/audio/ja-jlpt/038ce167f496.mp3",
        "meta": {
-        "target": "まいにち にほんごを べんきょうします。",
-        "reading": "ma i ni chi ni ho n go o be n kyo o shi ma su",
-        "meaning": "매일 일본어를 공부합니다",
-        "say": "まいにち にほんごを べんきょうします。"
+        "target": "わたしは 日本人です。",
+        "reading": "wa ta shi wa ni ho n ji n de su",
+        "meaning": "나는 일본인입니다",
+        "say": "わたしは 日本人です。"
        },
        "options": []
       },
       {
-       "type": "ASSIST",
-       "question": "がっこうへ いきます",
+       "type": "SELECT",
+       "question": "「今日は 日曜日です」의 뜻은?",
        "level": 4,
        "tag": "kanji",
        "options": [
         {
-         "text": "학생이 옵니다",
+         "text": "내일은 일요일입니다",
          "correct": false
         },
         {
-         "text": "집에 갑니다",
+         "text": "오늘은 월요일입니다",
          "correct": false
         },
         {
-         "text": "선생님을 만납니다",
-         "correct": false
-        },
-        {
-         "text": "학교에 갑니다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/d1061233c0e5.mp3",
-       "meta": {
-        "say": "せんせいは がっこうに いません。"
-       },
-       "options": [
-        {
-         "text": "선생님은 학교에 없습니다",
+         "text": "오늘은 일요일입니다",
          "correct": true
         },
         {
-         "text": "선생님은 학교에 있습니다",
-         "correct": false
-        },
-        {
-         "text": "학생이 없습니다",
-         "correct": false
-        },
-        {
-         "text": "선생님이 왔습니다",
+         "text": "오늘은 휴일입니다",
          "correct": false
         }
        ]
       },
       {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 매일 일본어를 공부합니다",
+       "type": "ASSIST",
+       "question": "学生",
        "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/e14d5853c854.mp3",
-       "meta": {
-        "target": "まいにちにほんごをべんきょうします",
-        "reading": "ma i ni chi ni ho n go o be n kyo o shi ma su",
-        "meaning": "매일 일본어를 공부합니다",
-        "say": "まいにちにほんごをべんきょうします"
-       },
+       "tag": "kanji",
        "options": [
         {
-         "text": "べんきょうします",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "まいにちが",
+         "text": "선생님",
          "correct": false
         },
         {
-         "text": "かきます",
+         "text": "학교",
          "correct": false
         },
         {
-         "text": "まいにち",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
+         "text": "학생",
+         "correct": true
         },
         {
-         "text": "にほんごを",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
+         "text": "친구",
+         "correct": false
         }
        ]
       }
@@ -1206,12 +1257,12 @@
      "challenges": [
       {
        "type": "LISTEN",
-       "question": "대화를 듣고 답하세요",
+       "question": "질문: 남자는 오늘 저녁 어떻게 합니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/1d83a0ee5859.mp3",
+       "audioSrc": "/audio/ja-jlpt/51eca68690f6.mp3",
        "meta": {
-        "say": "わ: きょうの よる、ひまですか。\n男: すみません、きょうは ちょっと……。あしたなら ひまです。\n질문: 남자는 오늘 저녁 어떻게 합니까?"
+        "say": "おんなのひと：きょうの よる、ひまですか。\nおとこのひと：すみません、きょうは ちょっと……。あしたなら ひまです。"
        },
        "options": [
         {
@@ -1234,28 +1285,28 @@
       },
       {
        "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
+       "question": "질문: 숙제는 얼마나 했습니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/10d48abe8688.mp3",
+       "audioSrc": "/audio/ja-jlpt/c1c455b9c913.mp3",
        "meta": {
-        "say": "女: しゅくだいは おわりましたか。\n男: はんぶんだけ おわりました。あとで します。\n질문: 숙제는 얼마나 했습니까?"
+        "say": "おんなのひと：しゅくだいは おわりましたか。\nおとこのひと：はんぶんだけ おわりました。あとで します。"
        },
        "options": [
-        {
-         "text": "안 했습니다",
-         "correct": false
-        },
         {
          "text": "조금 남았습니다",
          "correct": false
         },
         {
-         "text": "절만 했습니다",
+         "text": "다 했습니다",
+         "correct": false
+        },
+        {
+         "text": "절반만 했습니다",
          "correct": true
         },
         {
-         "text": "다 했습니다",
+         "text": "안 했습니다",
          "correct": false
         }
        ]
@@ -1382,12 +1433,12 @@
       },
       {
        "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
+       "question": "질문: 남자는 갈 수 있습니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/247734e6bd82.mp3",
+       "audioSrc": "/audio/ja-jlpt/270557408dfa.mp3",
        "meta": {
-        "say": "女: あしたの パーティーに いきますか。\n男: いきたいですが、しごとが あるので……。\n질문: 남자는 갈 수 있습니까?"
+        "say": "おんなのひと：あしたの パーティーに いきますか。\nおとこのひと：いきたいですが、しごとが あるので……。"
        },
        "options": [
         {
@@ -1416,7 +1467,7 @@
        "audioSrc": "/audio/ja-jlpt/69675f935172.mp3",
        "meta": {
         "target": "ちょっと いそがしいんです。",
-        "reading": "cho t te i so ga shi i n de su",
+        "reading": "cho t to i so ga shi i n de su",
         "meaning": "좀 바쁩니다",
         "say": "ちょっと いそがしいんです。"
        },
@@ -1448,12 +1499,12 @@
       },
       {
        "type": "LISTEN",
-       "question": "들은 내용과 같은 것은?",
+       "question": "질문: 여자는 지금 무엇을 하고 있습니까?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/38d637770236.mp3",
+       "audioSrc": "/audio/ja-jlpt/1aed21eac24f.mp3",
        "meta": {
-        "say": "男: その ほん、おわったら かして ください。\n女: はい、もうすぐ おわります。\n질문: 여자는 지금 무엇을 하고 있습니까?"
+        "say": "おとこのひと：その ほん、おわったら かしてください。\nおんなのひと：はい、もうすぐ おわります。"
        },
        "options": [
         {
@@ -1476,19 +1527,23 @@
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 다음에 다시 만납시다",
+       "question": "문장을 만드세요: 다음에 또 만납시다",
        "level": 4,
        "tag": "grammar",
        "audioSrc": "/audio/ja-jlpt/09a63691e285.mp3",
        "meta": {
         "target": "こんどまたあいましょう",
-        "reading": "ta i ya, ma ta a i ma sho u",
-        "meaning": "다음에 다시 만납시다",
+        "reading": "ko n do ma ta a i ma sho u",
+        "meaning": "다음에 또 만납시다",
         "say": "こんどまたあいましょう"
        },
        "options": [
         {
          "text": "あいません",
+         "correct": false
+        },
+        {
+         "text": "あいましたか",
          "correct": false
         },
         {
@@ -1511,10 +1566,6 @@
          "meta": {
           "order": 3
          }
-        },
-        {
-         "text": "あいましたか",
-         "correct": false
         }
        ]
       }
@@ -1552,9 +1603,9 @@
        "question": "들리는 문장의 뜻은?",
        "level": 4,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/6bc03354383f.mp3",
+       "audioSrc": "/audio/ja-jlpt/1fc91d01ea65.mp3",
        "meta": {
-        "say": "きのう、でんしゃに おくれて、しあいに まにあいませんでした。\n들은 내용과 같은 것은?"
+        "say": "きのう、でんしゃに おくれて、しあいに まにあいませんでした。"
        },
        "options": [
         {
@@ -1696,10 +1747,11 @@
        "question": "한자를 손으로 따라 쓰세요",
        "level": 4,
        "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/413b738061f6.mp3",
+       "audioSrc": "/audio/ja-jlpt/9c41898568fd.mp3",
        "meta": {
-        "target": "学校",
-        "reading": "がっこう"
+        "target": "金",
+        "reading": "かね",
+        "meaning": "돈, 금"
        },
        "options": []
       },
@@ -1760,7 +1812,7 @@
        "meta": {
         "target": "そろそろ しつれいします。",
         "reading": "so ro so ro shi tsu re i shi ma su",
-        "meaning": "そろそ로 실례하겠습니다(헤어질 때)",
+        "meaning": "슬슬 실례하겠습니다 (헤어질 때)",
         "say": "そろそろ しつれいします。"
        },
        "options": []
@@ -1801,7 +1853,7 @@
        "audioSrc": "/audio/ja-jlpt/9ff5caefdd8d.mp3",
        "meta": {
         "target": "いっしょうけんめいべんきょうします",
-        "reading": "i s sho ke n me i be n kyo o shi ma su",
+        "reading": "i s sho u ke n me i be n kyo u shi ma su",
         "meaning": "열심히 공부합니다",
         "say": "いっしょうけんめいべんきょうします"
        },

@@ -4,7 +4,7 @@
  "units": [
   {
    "title": "5주차 · て形과 요청·진행",
-   "description": "동사 て形(かいて·のんで·いって·まって), 부탁 〜てください, 진행 〜ています, 상태 〜ています(すんでいる·결혼한·알고 있는). 「잠깐만 기다려 주세요」는 ちょっと まってください.",
+   "description": "동사 て形(かいて·のんで·いって·まって), 부탁 〜てください, 진행·상태 〜ています, 희망 〜たいです/〜がほしいです. 「잠깐만 기다려 주세요」는 ちょっと まってください.",
    "lessons": [
     {
      "title": "5-1 て形 만들기",
@@ -165,37 +165,51 @@
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 쓰고, 읽습니다",
+       "question": "문장을 만드세요: 아침에 일어나서 샤워를 합니다",
        "level": 5,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/cd74e4f088d3.mp3",
+       "audioSrc": "/audio/ja-jlpt/7f9c9daa4fb7.mp3",
        "meta": {
-        "target": "かいてよみます",
-        "reading": "ka i te yo mi ma su",
-        "meaning": "쓰고, 읽습니다",
-        "say": "かいてよみます"
+        "target": "あさおきてシャワーをあびます",
+        "reading": "a sa o ki te sha waa o a bi ma su",
+        "meaning": "아침에 일어나서 샤워를 합니다",
+        "say": "あさおきてシャワーをあびます"
        },
        "options": [
         {
-         "text": "かきます",
-         "correct": false
-        },
-        {
-         "text": "かいて",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "よみます",
+         "text": "おきて",
          "correct": true,
          "meta": {
           "order": 2
          }
         },
         {
-         "text": "よんで",
+         "text": "シャワーを",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "あびて",
+         "correct": false
+        },
+        {
+         "text": "あさ",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "あびます",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "おきます",
          "correct": false
         }
        ]
@@ -343,38 +357,45 @@
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 기다리고, 듣습니다",
+       "question": "문장을 만드세요: 친구를 만나서 이야기합니다",
        "level": 5,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/78e5ae35eba7.mp3",
+       "audioSrc": "/audio/ja-jlpt/73a7a4ba763b.mp3",
        "meta": {
-        "target": "まってききます",
-        "reading": "ma t te ki ki ma su",
-        "meaning": "기다리고, 듣습니다",
-        "say": "まってききます"
+        "target": "ともだちにあってはなします",
+        "reading": "to mo da chi ni a t te ha na shi ma su",
+        "meaning": "친구를 만나서 이야기합니다",
+        "say": "ともだちにあってはなします"
        },
        "options": [
         {
-         "text": "ききます",
+         "text": "あいます",
+         "correct": false
+        },
+        {
+         "text": "はなします",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "ともだちに",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "あって",
          "correct": true,
          "meta": {
           "order": 2
          }
         },
         {
-         "text": "まちて",
+         "text": "はなして",
          "correct": false
-        },
-        {
-         "text": "みます",
-         "correct": false
-        },
-        {
-         "text": "まって",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
         }
        ]
       }
@@ -389,7 +410,7 @@
        "level": 5,
        "tag": "grammar",
        "meta": {
-        "explanation": "부탁은 て形+ください. まちます의 て形は まって."
+        "explanation": "부탁은 て形+ください. まちます의 て形은 まって."
        },
        "options": [
         {
@@ -445,7 +466,7 @@
        "audioSrc": "/audio/ja-jlpt/a6a0ef9fc214.mp3",
        "meta": {
         "say": "もういちど ゆっくり いってください。",
-        "explanation": "いって = いう의 て形. ゆっくりは '천천히'."
+        "explanation": "いって = いう(말하다)의 て形. ゆっくり는 '천천히'."
        },
        "options": [
         {
@@ -474,7 +495,7 @@
        "audioSrc": "/audio/ja-jlpt/ab2842d962dd.mp3",
        "meta": {
         "target": "しゃしんをとってください",
-        "reading": "sha shin o to tte ku da sa i",
+        "reading": "sha shi n o to t te ku da sa i",
         "meaning": "사진을 찍어 주세요",
         "say": "しゃしんをとってください"
        },
@@ -817,7 +838,7 @@
        "audioSrc": "/audio/ja-jlpt/ff19651035db.mp3",
        "meta": {
         "target": "いまにほんごをべんきょうしています",
-        "reading": "i ma ni ho n go o be n kyo o shi te i ma su",
+        "reading": "i ma ni ho n go o be n kyo u shi te i ma su",
         "meaning": "지금 일본어를 공부하고 있습니다",
         "say": "いまにほんごをべんきょうしています"
        },
@@ -998,9 +1019,9 @@
        "question": "들리는 문장의 뜻은?",
        "level": 5,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/ddb1789fc10e.mp3",
+       "audioSrc": "/audio/ja-jlpt/690003c8da66.mp3",
        "meta": {
-        "say": "とうさんは しんぶんを よんでいます。"
+        "say": "ちちは しんぶんを よんでいます。"
        },
        "options": [
         {
@@ -1400,130 +1421,150 @@
      ]
     },
     {
-     "title": "5-5 상황 · 부탁과 전화",
+     "title": "5-5 〜たいです・〜がほしいです (하고 싶다·갖고 싶다)",
      "challenges": [
+      {
+       "type": "SELECT",
+       "question": "일본에 가고 싶습니다.\nにほんへ ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "いきほしいです",
+         "correct": false
+        },
+        {
+         "text": "いきます",
+         "correct": false
+        },
+        {
+         "text": "いきたいでした",
+         "correct": false
+        },
+        {
+         "text": "いきたいです",
+         "correct": true
+        }
+       ],
+       "meta": {
+        "explanation": "「~하고 싶다」는 ます형 어간+たいです: いきます → いきたいです."
+       }
+      },
+      {
+       "type": "ASSIST",
+       "question": "なにが たべたいですか",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "무엇이 맛있습니까?",
+         "correct": false
+        },
+        {
+         "text": "무엇을 먹고 싶습니까?",
+         "correct": true
+        },
+        {
+         "text": "무엇을 먹습니까?",
+         "correct": false
+        },
+        {
+         "text": "무엇을 먹었습니까?",
+         "correct": false
+        }
+       ]
+      },
       {
        "type": "LISTEN",
        "question": "들리는 문장의 뜻은?",
        "level": 5,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/5ad1b5b273f2.mp3",
+       "audioSrc": "/audio/ja-jlpt/d23b3adabe78.mp3",
        "meta": {
-        "say": "すみません、ちょっと まってください。"
+        "say": "あたらしい パソコンが ほしいです。"
        },
        "options": [
         {
-         "text": "잠깐만 기다렸습니다",
+         "text": "새 컴퓨터는 비쌉니다",
          "correct": false
         },
         {
-         "text": "조금 걸어 주세요",
+         "text": "새 컴퓨터를 샀습니다",
          "correct": false
         },
         {
-         "text": "잠깐 만나 주세요",
-         "correct": false
-        },
-        {
-         "text": "잠깐만 기다려 주세요",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "가게에서: 「이것을 주세요」라고 말하고 싶습니다.\nすみません、___。",
-       "level": 5,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "'이것을 주세요'는 これを ください. 가게 필수 표현."
-       },
-       "options": [
-        {
-         "text": "これを ください",
+         "text": "새 컴퓨터를 갖고 싶습니다",
          "correct": true
         },
         {
-         "text": "ここを ください",
-         "correct": false
-        },
-        {
-         "text": "これを します",
-         "correct": false
-        },
-        {
-         "text": "これが あります",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "ちょっと まってください",
-       "level": 5,
-       "tag": "vocab",
-       "options": [
-        {
-         "text": "기다립시다",
-         "correct": false
-        },
-        {
-         "text": "잠깐만 기다려 주세요",
-         "correct": true
-        },
-        {
-         "text": "조금 웃어 주세요",
-         "correct": false
-        },
-        {
-         "text": "잠깐만 갑니다",
+         "text": "새 컴퓨터를 가지고 있습니다",
          "correct": false
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 여기에 서명해 주세요",
+       "question": "문장을 만드세요: 커피를 마시고 싶습니다",
        "level": 5,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/665928a454dd.mp3",
+       "audioSrc": "/audio/ja-jlpt/1fcbd9237cb3.mp3",
        "meta": {
-        "target": "ここにサインをしてください",
-        "reading": "ko ko ni sa i n o shi te ku da sa i",
-        "meaning": "여기에 서명해 주세요",
-        "say": "ここにサインをしてください"
+        "target": "コーヒーがのみたいです",
+        "reading": "koo hii ga no mi ta i de su",
+        "meaning": "커피를 마시고 싶습니다",
+        "say": "コーヒーがのみたいです"
        },
        "options": [
         {
-         "text": "サインを",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "してください",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "サインが",
+         "text": "のみます",
          "correct": false
         },
         {
-         "text": "しまして",
+         "text": "ほしいです",
          "correct": false
         },
         {
-         "text": "ここに",
+         "text": "コーヒーが",
          "correct": true,
          "meta": {
           "order": 1
          }
+        },
+        {
+         "text": "のみたいです",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
         }
        ]
+      },
+      {
+       "type": "SELECT",
+       "question": "돈을 갖고 싶습니다. (ほしい는 조사 が)\nおかね___ ほしいです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "に",
+         "correct": false
+        },
+        {
+         "text": "が",
+         "correct": true
+        },
+        {
+         "text": "は",
+         "correct": false
+        },
+        {
+         "text": "を",
+         "correct": false
+        }
+       ],
+       "meta": {
+        "explanation": "ほしい(갖고 싶다)는 형용사라서 대상에 が를 씁니다: おかねが ほしいです."
+       }
       },
       {
        "type": "MATCH",
@@ -1532,123 +1573,68 @@
        "tag": "grammar",
        "options": [
         {
-         "text": "しめてください",
+         "text": "いきたい",
          "correct": false,
          "meta": {
-          "pair": "しめてください",
+          "pair": "いきたい",
           "side": "left"
          }
         },
         {
-         "text": "もってきてください",
+         "text": "たべたい",
          "correct": false,
          "meta": {
-          "pair": "もってきてください",
+          "pair": "たべたい",
           "side": "left"
          }
         },
         {
-         "text": "かしてください",
+         "text": "かいたい",
          "correct": false,
          "meta": {
-          "pair": "かしてください",
+          "pair": "かいたい",
           "side": "left"
          }
         },
         {
-         "text": "あけてください",
+         "text": "やすみたい",
          "correct": false,
          "meta": {
-          "pair": "あけてください",
+          "pair": "やすみたい",
           "side": "left"
          }
         },
         {
-         "text": "닫아 주세요",
+         "text": "먹고 싶다",
          "correct": false,
          "meta": {
-          "pair": "しめてください",
+          "pair": "たべたい",
           "side": "right"
          }
         },
         {
-         "text": "가져다 주세요",
+         "text": "쉬고 싶다",
          "correct": false,
          "meta": {
-          "pair": "もってきてください",
+          "pair": "やすみたい",
           "side": "right"
          }
         },
         {
-         "text": "빌려 주세요",
+         "text": "사고 싶다",
          "correct": false,
          "meta": {
-          "pair": "かしてください",
+          "pair": "かいたい",
           "side": "right"
          }
         },
         {
-         "text": "열어 주세요",
+         "text": "가고 싶다",
          "correct": false,
          "meta": {
-          "pair": "あけてください",
+          "pair": "いきたい",
           "side": "right"
          }
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 5,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/f603378269f2.mp3",
-       "meta": {
-        "say": "もういちど いってください。"
-       },
-       "options": [
-        {
-         "text": "다시 써 주세요",
-         "correct": false
-        },
-        {
-         "text": "그만 말해 주세요",
-         "correct": false
-        },
-        {
-         "text": "다시 말해 주세요",
-         "correct": true
-        },
-        {
-         "text": "한 번 봐 주세요",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "지금 전화를 걸고 있습니다.\nいま でんわを ___。",
-       "level": 5,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "전화를 걸다 = でんわを かける. 진행은 かけています."
-       },
-       "options": [
-        {
-         "text": "かけます",
-         "correct": false
-        },
-        {
-         "text": "かけました",
-         "correct": false
-        },
-        {
-         "text": "かけてください",
-         "correct": false
-        },
-        {
-         "text": "かけています",
-         "correct": true
         }
        ]
       },
@@ -1657,80 +1643,111 @@
        "question": "따라 읽어보세요",
        "level": 5,
        "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/656a95f69c2c.mp3",
+       "audioSrc": "/audio/ja-jlpt/e2e3b1b13f65.mp3",
        "meta": {
-        "target": "すみません、えんぴつを かしてください。",
-        "reading": "su mi ma se n e n pi tsu o ka shi te ku da sa i",
-        "meaning": "죄송합니다, 연필을 빌려 주세요",
-        "say": "すみません、えんぴつを かしてください。"
+        "target": "にほんへ りょこうに いきたいです。",
+        "reading": "ni ho n e ryo ko u ni i ki ta i de su",
+        "meaning": "일본에 여행하러 가고 싶습니다",
+        "say": "にほんへ りょこうに いきたいです。"
        },
        "options": []
       },
       {
-       "type": "ASSIST",
-       "question": "なまえを かいてください",
+       "type": "SELECT",
+       "question": "지금은 아무것도 먹고 싶지 않습니다.\nいまは なにも ___。",
        "level": 5,
-       "tag": "vocab",
+       "tag": "grammar",
        "options": [
         {
-         "text": "이름을 써 주세요",
+         "text": "たべたくないです",
          "correct": true
         },
         {
-         "text": "이름을 부르세요",
+         "text": "たべません",
          "correct": false
         },
         {
-         "text": "이름입니다",
+         "text": "たべたくなかったです",
          "correct": false
         },
         {
-         "text": "이름을 지우세요",
+         "text": "たべたいです",
+         "correct": false
+        }
+       ],
+       "meta": {
+        "explanation": "たい의 부정은 い형용사처럼 たくないです."
+       }
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "/audio/ja-jlpt/bcb2ebbaa3b3.mp3",
+       "meta": {
+        "say": "なつやすみに なにが したいですか。"
+       },
+       "options": [
+        {
+         "text": "여름방학에 무엇을 했습니까?",
+         "correct": false
+        },
+        {
+         "text": "여름방학에 무엇을 하고 싶습니까?",
+         "correct": true
+        },
+        {
+         "text": "여름방학에 어디에 갑니까?",
+         "correct": false
+        },
+        {
+         "text": "여름방학은 언제입니까?",
          "correct": false
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 잠깐만 기다려 주세요",
+       "question": "문장을 만드세요: 새 차를 갖고 싶습니다",
        "level": 5,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/11ff97d96964.mp3",
+       "audioSrc": "/audio/ja-jlpt/6318215ad47d.mp3",
        "meta": {
-        "target": "ちょっとまってください",
-        "reading": "cho t te ma t te ku da sa i",
-        "meaning": "잠깐만 기다려 주세요",
-        "say": "ちょっとまってください"
+        "target": "あたらしいくるまがほしいです",
+        "reading": "a ta ra shi i ku ru ma ga ho shi i de su",
+        "meaning": "새 차를 갖고 싶습니다",
+        "say": "あたらしいくるまがほしいです"
        },
        "options": [
         {
-         "text": "まちます",
+         "text": "ほしいでした",
          "correct": false
         },
         {
-         "text": "ちょっと",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
+         "text": "くるまを",
+         "correct": false
         },
         {
-         "text": "まって",
+         "text": "くるまが",
          "correct": true,
          "meta": {
           "order": 2
          }
         },
         {
-         "text": "ください",
+         "text": "ほしいです",
          "correct": true,
          "meta": {
           "order": 3
          }
         },
         {
-         "text": "まちて",
-         "correct": false
+         "text": "あたらしい",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
         }
        ]
       }
@@ -2035,7 +2052,7 @@
        "audioSrc": "/audio/ja-jlpt/e16833986980.mp3",
        "meta": {
         "target": "わたしはとうきょうにすんでいます",
-        "reading": "wa ta shi wa to u kyo u ni su n de i ma su",
+        "reading": "wa ta shi ha to u kyo u ni su n de i ma su",
         "meaning": "나는 도쿄에 살고 있습니다",
         "say": "わたしはとうきょうにすんでいます"
        },

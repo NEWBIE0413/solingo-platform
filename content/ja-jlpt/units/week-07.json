@@ -4,7 +4,7 @@
  "units": [
   {
    "title": "7주차 · た形과 경험, ない형",
-   "description": "た形(과거형), 경험 〜たことがあります, 나열 〜たり〜たりします, ない形(する→しない·くる→こない), なにも/ぜんぜん+부정. N5 문법의 마지막 주.",
+   "description": "た形(과거형), 경험 〜たことがあります, 나열 〜たり〜たりします, ない形, 의무 〜なければなりません/〜なくてもいいです. N5 문법의 마지막 주.",
    "lessons": [
     {
      "title": "7-1 た形 만들기",
@@ -618,12 +618,12 @@
        "question": "따라 읽어보세요",
        "level": 5,
        "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/d1416af851ee.mp3",
+       "audioSrc": "/audio/ja-jlpt/71ef855dbb12.mp3",
        "meta": {
-        "target": "あさ ごはんを たべたことがありますか。",
-        "reading": "a sa go ha n o ta be ta ko to ga a ri ma su ka",
-        "meaning": "아침 밥을 먹은 적이 있습니까?",
-        "say": "あさ ごはんを たべたことがありますか。"
+        "target": "すしを たべたことがありますか。",
+        "reading": "su shi o ta be ta ko to ga a ri ma su ka",
+        "meaning": "스시를 먹어 본 적이 있습니까?",
+        "say": "すしを たべたことがありますか。"
        },
        "options": []
       },
@@ -815,7 +815,7 @@
        "audioSrc": "/audio/ja-jlpt/ec91b730a7df.mp3",
        "meta": {
         "target": "にちようびはやすんだりべんきょうしたりします",
-        "reading": "ni chi yo u bi wa ya su mi ta ri be n kyo o shi ta ri shi ma su",
+        "reading": "ni chi yo u bi ha ya su n da ri be n kyo u shi ta ri shi ma su",
         "meaning": "일요일에는 쉬거나 공부합니다",
         "say": "にちようびはやすんだりべんきょうしたりします"
        },
@@ -955,7 +955,7 @@
        "audioSrc": "/audio/ja-jlpt/fb136338ec96.mp3",
        "meta": {
         "target": "にちようびは あそんだり べんきょうしたりします。",
-        "reading": "ni chi yo u bi wa a so n da ri be n kyo o shi ta ri shi ma su",
+        "reading": "ni chi yo u bi wa a so n da ri be n kyo u shi ta ri shi ma su",
         "meaning": "일요일에는 놀거나 공부하거나 합니다",
         "say": "にちようびは あそんだり べんきょうしたりします。"
        },
@@ -1221,7 +1221,7 @@
        "audioSrc": "/audio/ja-jlpt/5438020925d6.mp3",
        "meta": {
         "target": "きょうはがっこうへいかない",
-        "reading": "kyo u wa ga k ko u e i ka na i",
+        "reading": "kyo u ha ga k ko u he i ka na i",
         "meaning": "오늘은 학교에 가지 않는다",
         "say": "きょうはがっこうへいかない"
        },
@@ -1289,12 +1289,12 @@
        "question": "따라 읽어보세요",
        "level": 5,
        "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/f87c3195f9b1.mp3",
+       "audioSrc": "/audio/ja-jlpt/565c7a655e1f.mp3",
        "meta": {
-        "target": "まいにち はしらない。",
-        "reading": "ma i ni chi ha shi ra na i",
-        "meaning": "매일은 달리지 않는다",
-        "say": "まいにち はしらない。"
+        "target": "あさは コーヒーを のまない。",
+        "reading": "a sa wa koo hii o no ma na i",
+        "meaning": "아침에는 커피를 마시지 않는다",
+        "say": "あさは コーヒーを のまない。"
        },
        "options": []
       },
@@ -1327,26 +1327,26 @@
        "question": "들리는 문장의 뜻은?",
        "level": 5,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/db56780930cf.mp3",
+       "audioSrc": "/audio/ja-jlpt/a38b3e5cdfb1.mp3",
        "meta": {
-        "say": "なにも かいません。"
+        "say": "なにも かわない。"
        },
        "options": [
+        {
+         "text": "아무것도 먹지 않는다",
+         "correct": false
+        },
         {
          "text": "아무것도 사지 않았다",
          "correct": false
         },
         {
-         "text": "아무것도 먹지 않는다",
-         "correct": true
-        },
-        {
-         "text": "아무것도 먹고 싶지 않다",
+         "text": "아무것도 쓰지 않는다",
          "correct": false
         },
         {
          "text": "아무것도 사지 않는다",
-         "correct": false
+         "correct": true
         }
        ]
       },
@@ -1358,7 +1358,7 @@
        "audioSrc": "/audio/ja-jlpt/87c7eacb07b9.mp3",
        "meta": {
         "target": "いまはなにもかかない",
-        "reading": "i ma wa na ni mo ka ka na i",
+        "reading": "i ma ha na ni mo ka ka na i",
         "meaning": "지금은 아무것도 쓰지 않는다",
         "say": "いまはなにもかかない"
        },
@@ -1397,249 +1397,220 @@
      ]
     },
     {
-     "title": "7-5 상황 · 여가 이야기",
+     "title": "7-5 〜なければなりません・〜なくてもいいです (해야 한다·안 해도 된다)",
      "challenges": [
+      {
+       "type": "SELECT",
+       "question": "내일 일찍 일어나야 합니다.\nあした はやく ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "おきなくてもいいです",
+         "correct": false
+        },
+        {
+         "text": "おきてはいけません",
+         "correct": false
+        },
+        {
+         "text": "おきないでください",
+         "correct": false
+        },
+        {
+         "text": "おきなければなりません",
+         "correct": true
+        }
+       ],
+       "meta": {
+        "explanation": "의무는 ない형의 ない를 떼고 なければなりません: おきない → おきなければなりません."
+       }
+      },
+      {
+       "type": "ASSIST",
+       "question": "くすりを のまなければなりません",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "약을 먹으면 안 됩니다",
+         "correct": false
+        },
+        {
+         "text": "약을 먹지 않아도 됩니다",
+         "correct": false
+        },
+        {
+         "text": "약을 먹고 싶습니다",
+         "correct": false
+        },
+        {
+         "text": "약을 먹어야 합니다",
+         "correct": true
+        }
+       ]
+      },
       {
        "type": "LISTEN",
        "question": "들리는 문장의 뜻은?",
        "level": 5,
        "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/0b1652677c25.mp3",
+       "audioSrc": "/audio/ja-jlpt/0c95c64b2178.mp3",
        "meta": {
-        "say": "しゅうまつは なにを しましたか。"
+        "say": "あしたは やすみですから、はやく おきなくてもいいです。"
        },
        "options": [
         {
-         "text": "주말에 뭘 하고 싶습니까?",
+         "text": "내일은 일찍 일어나면 안 됩니다",
          "correct": false
         },
         {
-         "text": "주말에 뭘 하지 않았습니까?",
+         "text": "내일은 휴일이 아닙니다",
          "correct": false
         },
         {
-         "text": "주말에 뭘 했습니까?",
+         "text": "내일은 휴일이니까 일찍 일어나지 않아도 됩니다",
          "correct": true
         },
         {
-         "text": "주말에 뭘 합니까?",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「노래방에 가 본 적이 있습니까?」라고 묻습니다.\nカラオケに ___か。",
-       "level": 5,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "いきましょう",
-         "correct": false
-        },
-        {
-         "text": "いきます",
-         "correct": false
-        },
-        {
-         "text": "いきたいです",
-         "correct": false
-        },
-        {
-         "text": "いったことがあります",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "かたことがありません",
-       "level": 5,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "한 적이 없습니다",
-         "correct": true
-        },
-        {
-         "text": "하고 있습니다",
-         "correct": false
-        },
-        {
-         "text": "하고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "하겠습니다",
+         "text": "내일은 휴일이지만 일찍 일어나야 합니다",
          "correct": false
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 주말에 영화를 보거나 책을 읽거나 합니다",
+       "question": "문장을 만드세요: 숙제를 해야 합니다",
        "level": 5,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/643ffa55071c.mp3",
+       "audioSrc": "/audio/ja-jlpt/02a78904f131.mp3",
        "meta": {
-        "target": "しゅうまつはえいがを みたりほんを よんだりします",
-        "reading": "shu kyo u hi wa e i ga o mi ta ri ho n o yo n da ri shi ma su",
-        "meaning": "주말에 영화를 보거나 책을 읽거나 합니다",
-        "say": "しゅうまつはえいがを みたりほんを よんだりします"
+        "target": "しゅくだいをしなければなりません",
+        "reading": "shu ku da i o shi na ke re ba na ri ma se n",
+        "meaning": "숙제를 해야 합니다",
+        "say": "しゅくだいをしなければなりません"
        },
        "options": [
         {
-         "text": "ほんを よんだりします",
+         "text": "しなければなりません",
          "correct": true,
          "meta": {
-          "order": 3
+          "order": 2
          }
         },
         {
-         "text": "みます",
-         "correct": false
-        },
-        {
-         "text": "よんだが",
-         "correct": false
-        },
-        {
-         "text": "しゅうまつは",
+         "text": "しゅくだいを",
          "correct": true,
          "meta": {
           "order": 1
          }
         },
         {
-         "text": "えいがを みたり",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 5,
-       "tag": "vocab",
-       "options": [
-        {
-         "text": "うたった",
-         "correct": false,
-         "meta": {
-          "pair": "うたった",
-          "side": "left"
-         }
-        },
-        {
-         "text": "のんだ",
-         "correct": false,
-         "meta": {
-          "pair": "のんだ",
-          "side": "left"
-         }
-        },
-        {
-         "text": "あそんだ",
-         "correct": false,
-         "meta": {
-          "pair": "あそんだ",
-          "side": "left"
-         }
-        },
-        {
-         "text": "おどった",
-         "correct": false,
-         "meta": {
-          "pair": "おどった",
-          "side": "left"
-         }
-        },
-        {
-         "text": "노래했다",
-         "correct": false,
-         "meta": {
-          "pair": "うたった",
-          "side": "right"
-         }
-        },
-        {
-         "text": "마셨다",
-         "correct": false,
-         "meta": {
-          "pair": "のんだ",
-          "side": "right"
-         }
-        },
-        {
-         "text": "놀았다",
-         "correct": false,
-         "meta": {
-          "pair": "あそんだ",
-          "side": "right"
-         }
-        },
-        {
-         "text": "춤췄다",
-         "correct": false,
-         "meta": {
-          "pair": "おどった",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 5,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/0bae0567b261.mp3",
-       "meta": {
-        "say": "にほんりょうりを つくったことがあります。"
-       },
-       "options": [
-        {
-         "text": "일본 요리를 만들 겁니다",
+         "text": "しなくてもいいです",
          "correct": false
         },
         {
-         "text": "일본 요리를 만들어 본 적이 있습니다",
-         "correct": true
-        },
-        {
-         "text": "일본 요리를 만들고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "일본 요리를 만들지 않았습니다",
+         "text": "します",
          "correct": false
         }
        ]
       },
       {
        "type": "SELECT",
-       "question": "「담배를 피운 적이 있습니까?」라고 묻습니다.\nたばこを ___か。",
+       "question": "표를 사지 않아도 됩니다.\nきっぷを ___。",
        "level": 5,
        "tag": "grammar",
        "options": [
         {
-         "text": "すわないでください",
+         "text": "かわなければなりません",
          "correct": false
         },
         {
-         "text": "すいます",
-         "correct": false
-        },
-        {
-         "text": "すったことがあります",
+         "text": "かわなくてもいいです",
          "correct": true
         },
         {
-         "text": "すってもいいです",
+         "text": "かわないでください",
          "correct": false
+        },
+        {
+         "text": "かってもいいです",
+         "correct": false
+        }
+       ],
+       "meta": {
+        "explanation": "「~하지 않아도 된다」는 ない → なくてもいいです."
+       }
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "〜なければなりません",
+         "correct": false,
+         "meta": {
+          "pair": "〜なければなりません",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜なくてもいいです",
+         "correct": false,
+         "meta": {
+          "pair": "〜なくてもいいです",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜てはいけません",
+         "correct": false,
+         "meta": {
+          "pair": "〜てはいけません",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜てもいいです",
+         "correct": false,
+         "meta": {
+          "pair": "〜てもいいです",
+          "side": "left"
+         }
+        },
+        {
+         "text": "~하면 안 됩니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜てはいけません",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~하지 않아도 됩니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜なくてもいいです",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~해야 합니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜なければなりません",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~해도 됩니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜てもいいです",
+          "side": "right"
+         }
         }
        ]
       },
@@ -1648,79 +1619,100 @@
        "question": "따라 읽어보세요",
        "level": 5,
        "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/8b43c82e9035.mp3",
+       "audioSrc": "/audio/ja-jlpt/7db1f34f35b9.mp3",
        "meta": {
-        "target": "きょうとへ いったことがあります。",
-        "reading": "kyo u to e i t ta ko to ga a ri ma su",
-        "meaning": "교토에 가 본 적이 있습니다",
-        "say": "きょうとへ いったことがあります。"
+        "target": "まいにち にほんごを べんきょうしなければなりません。",
+        "reading": "ma i ni chi ni ho n go o be n kyo u shi na ke re ba na ri ma se n",
+        "meaning": "매일 일본어를 공부해야 합니다",
+        "say": "まいにち にほんごを べんきょうしなければなりません。"
        },
        "options": []
       },
       {
-       "type": "ASSIST",
-       "question": "やすんだり、うんてんしたりします",
+       "type": "SELECT",
+       "question": "일요일에는 회사에 가지 않아도 됩니다.\nにちようびは かいしゃへ ___。",
        "level": 5,
        "tag": "grammar",
        "options": [
         {
-         "text": "쉬고 운전합니다(단순 나열)",
-         "correct": false
-        },
-        {
-         "text": "쉬려고 합니다",
-         "correct": false
-        },
-        {
-         "text": "쉬었습니다",
-         "correct": false
-        },
-        {
-         "text": "쉬거나 운전하거나 합니다",
+         "text": "いかなくてもいいです",
          "correct": true
+        },
+        {
+         "text": "いきたくないです",
+         "correct": false
+        },
+        {
+         "text": "いってもいいですか",
+         "correct": false
+        },
+        {
+         "text": "いかなければなりません",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "/audio/ja-jlpt/5dd0f57f5a3b.mp3",
+       "meta": {
+        "say": "パスポートを みせなければなりませんか。"
+       },
+       "options": [
+        {
+         "text": "여권을 보여 줘야 합니까?",
+         "correct": true
+        },
+        {
+         "text": "여권을 보여 주면 안 됩니까?",
+         "correct": false
+        },
+        {
+         "text": "여권을 가지고 있습니까?",
+         "correct": false
+        },
+        {
+         "text": "여권을 보여 주지 않아도 됩니까?",
+         "correct": false
         }
        ]
       },
       {
        "type": "BUILD",
-       "question": "문장을 만드세요: 오늘은 아무것도 먹지 않았다",
+       "question": "문장을 만드세요: 이름을 쓰지 않아도 됩니다",
        "level": 5,
        "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/d72d44ac014e.mp3",
+       "audioSrc": "/audio/ja-jlpt/10de231a640d.mp3",
        "meta": {
-        "target": "きょうはなにもたべなかった",
-        "reading": "kyo u wa na ni mo ta be na ka t ta",
-        "meaning": "오늘은 아무것도 먹지 않았다",
-        "say": "きょうはなにもたべなかった"
+        "target": "なまえをかかなくてもいいです",
+        "reading": "na ma e o ka ka na ku te mo i i de su",
+        "meaning": "이름을 쓰지 않아도 됩니다",
+        "say": "なまえをかかなくてもいいです"
        },
        "options": [
         {
-         "text": "きょうは",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
+         "text": "かかなければなりません",
+         "correct": false
         },
         {
-         "text": "なにも",
+         "text": "かかなくてもいいです",
          "correct": true,
          "meta": {
           "order": 2
          }
         },
         {
-         "text": "たべなかった",
+         "text": "なまえを",
          "correct": true,
          "meta": {
-          "order": 3
+          "order": 1
          }
         },
         {
-         "text": "たべない",
-         "correct": false
-        },
-        {
-         "text": "きょうが",
+         "text": "かきます",
          "correct": false
         }
        ]
@@ -1862,7 +1854,7 @@
        "audioSrc": "/audio/ja-jlpt/6e7e5698ed69.mp3",
        "meta": {
         "target": "きのうしゃしんをとった",
-        "reading": "ki no u sha shin o to t ta",
+        "reading": "ki no u sha shi n o to t ta",
         "meaning": "어제 사진을 찍었다",
         "say": "きのうしゃしんをとった"
        },
@@ -1994,7 +1986,7 @@
        "level": 5,
        "tag": "grammar",
        "meta": {
-        "explanation": "なには 언제나 부정과 함께: 아무것도 ~않다."
+        "explanation": "なにも는 언제나 부정과 함께: 아무것도 ~않다."
        },
        "options": [
         {
