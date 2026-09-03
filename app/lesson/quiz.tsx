@@ -252,6 +252,7 @@ export const Quiz = ({
 
               <Challenge
                 challenge={challenge}
+                options={options}
                 answer={answer}
                 onAnswer={(a) => { if (status === "none") setAnswer(a); }}
                 status={status}
