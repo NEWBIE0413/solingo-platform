@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -9,6 +9,7 @@ import { useAudio, useWindowSize, useMount } from "react-use";
 import { toast } from "sonner";
 
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
+import { recordLessonComplete } from "@/actions/streak";
 import { reduceHearts } from "@/actions/user-progress";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
@@ -79,10 +80,18 @@ export const Quiz = ({
   });
 
   const [selectedOption, setSelectedOption] = useState<number>();
+  const [attended, setAttended] = useState(false);
   const [status, setStatus] = useState<"none" | "wrong" | "correct">("none");
 
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
+
+  // 출석: the moment the lesson runs out of challenges, once.
+  useEffect(() => {
+    if (challenge || attended) return;
+    setAttended(true);
+    void recordLessonComplete().catch(() => {});
+  }, [challenge, attended]);
 
   const onNext = () => {
     setActiveIndex((current) => current + 1);
@@ -132,7 +141,7 @@ export const Quiz = ({
               setHearts((prev) => Math.min(prev + 1, MAX_HEARTS));
             }
           })
-          .catch(() => toast.error("Something went wrong. Please try again."));
+          .catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
       });
     } else {
       startTransition(() => {
@@ -148,7 +157,7 @@ export const Quiz = ({
 
             if (!response?.error) setHearts((prev) => Math.max(prev - 1, 0));
           })
-          .catch(() => toast.error("Something went wrong. Please try again."));
+          .catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
       });
     }
   };
@@ -182,7 +191,7 @@ export const Quiz = ({
           />
 
           <h1 className="text-lg font-bold text-neutral-700 lg:text-3xl">
-            Great job! <br /> You&apos;ve completed the lesson.
+            잘했어요! <br /> 레슨을 완료했어요.
           </h1>
 
           <div className="flex w-full items-center gap-x-4">
@@ -205,7 +214,7 @@ export const Quiz = ({
 
   const title =
     challenge.type === "ASSIST"
-      ? "Select the correct meaning"
+      ? "알맞은 뜻을 고르세요"
       : challenge.question;
 
   return (

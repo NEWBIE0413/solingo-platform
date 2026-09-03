@@ -14,7 +14,7 @@ export const Footer = () => {
             width={40}
             className="mr-4 rounded-md"
           />
-          Croatian
+          크로아티아어
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
@@ -25,7 +25,7 @@ export const Footer = () => {
             width={40}
             className="mr-4 rounded-md"
           />
-          Spanish
+          스페인어
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
@@ -36,7 +36,7 @@ export const Footer = () => {
             width={40}
             className="mr-4 rounded-md"
           />
-          French
+          프랑스어
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
@@ -47,7 +47,7 @@ export const Footer = () => {
             width={40}
             className="mr-4 rounded-md"
           />
-          Italian
+          이탈리아어
         </Button>
 
         <Button size="lg" variant="ghost" className="w-full cursor-default">
@@ -58,7 +58,7 @@ export const Footer = () => {
             width={40}
             className="mr-4 rounded-md"
           />
-          Japanese
+          일본어
         </Button>
       </div>
     </div>

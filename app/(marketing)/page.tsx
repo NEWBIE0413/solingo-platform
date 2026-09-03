@@ -14,26 +14,26 @@ export default async function MarketingPage() {
 
       <div className="flex flex-col items-center gap-y-8">
         <h1 className="max-w-[480px] text-center text-xl font-bold text-neutral-600 lg:text-3xl">
-          Learn, practice and master new languages with Solingo.
+          Solingo에서 새 언어를 배우고, 연습하고, 내 것으로 만드세요.
         </h1>
 
         <div className="flex w-full max-w-[330px] flex-col items-center gap-y-3">
           {userId ? (
             <Button size="lg" variant="secondary" className="w-full" asChild>
               <Link href="/learn" prefetch>
-                Continue Learning
+                이어서 학습하기
               </Link>
             </Button>
           ) : (
             <>
               <Button size="lg" variant="secondary" className="w-full" asChild>
                 <Link href="/sign-up" prefetch>
-                  Get Started
+                  시작하기
                 </Link>
               </Button>
               <Button size="lg" variant="primaryOutline" className="w-full" asChild>
                 <Link href="/sign-in" prefetch>
-                  I already have an account
+                  이미 계정이 있어요
                 </Link>
               </Button>
             </>

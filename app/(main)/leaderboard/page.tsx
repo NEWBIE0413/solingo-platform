@@ -55,10 +55,10 @@ const LeaderboardPage = async () => {
           />
 
           <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
-            Leaderboard
+            리더보드
           </h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">
-            See where you stand among other learners in the community.
+            다른 학습자들 사이에서 내 순위를 확인하세요.
           </p>
 
           <Separator className="mb-4 h-0.5 rounded-full" />

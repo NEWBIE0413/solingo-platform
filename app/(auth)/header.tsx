@@ -34,7 +34,7 @@ export const Header = () => {
             ) : (
               <Button size="lg" variant="ghost" asChild>
                 <Link href="/sign-in" prefetch>
-                  Login
+                  로그인
                 </Link>
               </Button>
             )}

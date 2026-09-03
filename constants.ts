@@ -4,27 +4,27 @@ export const MAX_HEARTS = 5;
 
 export const QUESTS = [
   {
-    title: "Earn 20 XP",
+    title: "XP 20 모으기",
     value: 20,
   },
   {
-    title: "Earn 50 XP",
+    title: "XP 50 모으기",
     value: 50,
   },
   {
-    title: "Earn 100 XP",
+    title: "XP 100 모으기",
     value: 100,
   },
   {
-    title: "Earn 250 XP",
+    title: "XP 250 모으기",
     value: 250,
   },
   {
-    title: "Earn 500 XP",
+    title: "XP 500 모으기",
     value: 500,
   },
   {
-    title: "Earn 1000 XP",
+    title: "XP 1000 모으기",
     value: 1000,
   },
 ];

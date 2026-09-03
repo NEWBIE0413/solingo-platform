@@ -29,15 +29,16 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </Link>
 
       <div className="flex flex-1 flex-col gap-y-2">
-        <SidebarItem label="Learn" href="/learn" iconSrc="/learn.svg" />
+        <SidebarItem label="학습" href="/learn" iconSrc="/learn.svg" />
         <SidebarItem label="히라가나" href="/kana" iconSrc="/jp.svg" />
+        <SidebarItem label="출석" href="/streak" iconSrc="/quests.svg" />
         <SidebarItem
-          label="Leaderboard"
+          label="리더보드"
           href="/leaderboard"
           iconSrc="/leaderboard.svg"
         />
-        <SidebarItem label="Quests" href="/quests" iconSrc="/quests.svg" />
-        <SidebarItem label="Shop" href="/shop" iconSrc="/shop.svg" />
+        <SidebarItem label="퀘스트" href="/quests" iconSrc="/quests.svg" />
+        <SidebarItem label="상점" href="/shop" iconSrc="/shop.svg" />
       </div>
 
       <div className="p-4">

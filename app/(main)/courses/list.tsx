@@ -25,7 +25,7 @@ export const List = ({ courses, activeCourseId }: ListProps) => {
     if (id === activeCourseId) return router.push("/learn");
 
     startTransition(() => {
-      upsertUserProgress(id).catch(() => toast.error("Something went wrong."));
+      upsertUserProgress(id).catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
     });
   };
 

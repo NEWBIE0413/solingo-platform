@@ -4,6 +4,7 @@ import { NextResponse } from "next/server";
 import db from "@/db/drizzle";
 import { kanaState, userProgress } from "@/db/schema";
 import { auth } from "@/lib/session";
+import { recordActivity } from "@/lib/streak";
 
 /*
  GET  /api/kana/state?course=ja-kana        → { state, session }
@@ -33,6 +34,7 @@ export async function PUT(req: Request) {
     .values({ userId, courseId, state: (body.state as object) ?? {}, session: (body.session as object) ?? null })
     .onConflictDoUpdate({ target: [kanaState.userId, kanaState.courseId], set });
   if (body.xpDelta && Number.isFinite(body.xpDelta) && body.xpDelta > 0) {
+    await recordActivity(userId); // a finished 히라가나 session counts as attendance
     await db.update(userProgress).set({ points: sql`${userProgress.points} + ${Math.min(200, Math.round(body.xpDelta))}` }).where(eq(userProgress.userId, userId));
   }
   return NextResponse.json({ ok: true });
