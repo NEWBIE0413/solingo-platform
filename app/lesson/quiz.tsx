@@ -206,8 +206,12 @@ export const Quiz = ({
     );
   }
 
+  // ASSIST prompts differ by what the token is: a kana asks for its reading, anything else asks for meaning/the fitting answer.
   const title =
-    challenge.type === "ASSIST" ? (challenge.tag === "word" ? "무슨 뜻일까요?" : "어떻게 읽어요?") : challenge.question;
+    challenge.type === "ASSIST"
+      ? challenge.tag === "kana" ? "어떻게 읽어요?" : ["word", "vocab", "expression"].includes(challenge.tag ?? "") ? "무슨 뜻일까요?" : "알맞은 것을 고르세요"
+      : challenge.question;
+  const longTitle = title.length > 60 || title.includes("\n");
 
   return (
     <>
@@ -222,7 +226,7 @@ export const Quiz = ({
       <div className="flex-1">
         <div className="flex h-full items-center justify-center">
           <div className="flex w-full flex-col gap-y-8 px-5 py-4 lg:min-h-[350px] lg:w-[600px] lg:px-0">
-            <h1 className="text-center text-2xl font-bold text-neutral-700 lg:text-start lg:text-3xl">
+            <h1 className={longTitle ? "whitespace-pre-line text-left text-lg font-semibold leading-relaxed text-neutral-700 lg:text-xl" : "whitespace-pre-line text-center text-2xl font-bold text-neutral-700 lg:text-start lg:text-3xl"}>
               {title}
             </h1>
 
