@@ -1,1990 +1,1990 @@
 {
- "id": "ja-jlpt",
- "title": "일본어 JLPT",
- "units": [
-  {
-   "title": "11주차 · 전문·목적·수동",
-   "description": "전문 〜そうだ, 목적 〜ように, 수동 〜られます, 〜ようにします/〜ようになりました, 수수 표현 あげる/くれる/もらう(+て형). 漢字 반복 노출.",
-   "lessons": [
+  "id": "ja-jlpt",
+  "title": "일본어 JLPT",
+  "units": [
     {
-     "title": "11-1 〜そうだ (전문)",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "일기예보에 따르면 내일은 흐리겠답니다.\nてんきよほうでは あしたは ___。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "남이 말한 내용(전문)은 보통형+そうです: くもる+そうです. くもりそう는 '흐려질 것 같다'(모양)."
-       },
-       "options": [
+      "title": "11주차 · 전문·목적·수동",
+      "description": "전문 〜そうだ, 목적 〜ように, 수동 〜られます, 〜ようにします/〜ようになりました, 수수 표현 あげる/くれる/もらう(+て형). 漢字 반복 노출.",
+      "lessons": [
         {
-         "text": "くもりそうです",
-         "correct": false
+          "title": "11-1 〜そうだ (전문)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "일기예보에 따르면 내일은 흐리겠답니다.\nてんきよほうでは あしたは ___。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "남이 말한 내용(전문)은 보통형+そうです: くもる+そうです. くもりそう는 '흐려질 것 같다'(모양)."
+              },
+              "options": [
+                {
+                  "text": "くもりそうです",
+                  "correct": false
+                },
+                {
+                  "text": "くもったです",
+                  "correct": false
+                },
+                {
+                  "text": "くもるそうです",
+                  "correct": true
+                },
+                {
+                  "text": "くもりです",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "この ケーキは おいしいそうですね",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "직접 먹어 보니 맛있어요",
+                  "correct": false
+                },
+                {
+                  "text": "맛있어 보여요(보고 느낌)",
+                  "correct": false
+                },
+                {
+                  "text": "맛없다고 들었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "이 케이크는 맛있다던데요",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/33fbff08e745.mp3",
+              "meta": {
+                "say": "たなかさんは あした こないそうだ。"
+              },
+              "options": [
+                {
+                  "text": "다나카 씨는 내일 안 온다고 한다",
+                  "correct": true
+                },
+                {
+                  "text": "내일 온다고 했다",
+                  "correct": false
+                },
+                {
+                  "text": "내일 옵니다",
+                  "correct": false
+                },
+                {
+                  "text": "온 적이 없습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 내일은 비가 온다고 한다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/5f2017f08641.mp3",
+              "meta": {
+                "target": "あしたはあめが ふるそうだ",
+                "reading": "a shi ta wa a me ga fu ru so u da",
+                "meaning": "내일은 비가 온다고 한다",
+                "say": "あしたはあめが ふるそうだ"
+              },
+              "options": [
+                {
+                  "text": "そうだ",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "ふった",
+                  "correct": false
+                },
+                {
+                  "text": "そうですか",
+                  "correct": false
+                },
+                {
+                  "text": "あしたは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "あめが ふる",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「비싸다고 들었어요」라고 씁니다.\nたかい___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "でしょう",
+                  "correct": false
+                },
+                {
+                  "text": "そうです",
+                  "correct": true
+                },
+                {
+                  "text": "らしいです",
+                  "correct": false
+                },
+                {
+                  "text": "みたいです",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "〜らしい",
+                  "correct": false,
+                  "meta": {
+                    "pair": "전설",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜でしょう",
+                  "correct": false,
+                  "meta": {
+                    "pair": "추정",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜そうだ",
+                  "correct": false,
+                  "meta": {
+                    "pair": "전문",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜そうだ(あめそう)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "외견",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "~라는데",
+                  "correct": false,
+                  "meta": {
+                    "pair": "전설",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~겠지요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "추정",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~라고 한다 (남의 말)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "전문",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "비 올 것 같다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "외견",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/00dde07b9d75.mp3",
+              "meta": {
+                "target": "にほんでは がっこうが はやく はじまるそうだ。",
+                "reading": "ni ho n de wa ga k ko u ga ha ya ku ha ji ma ru so u da",
+                "meaning": "일본에서는 학교가 일찍 시작한다던데",
+                "say": "にほんでは がっこうが はやく はじまるそうだ。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "たかそうですね",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "비싸겠네요(전문)",
+                  "correct": false
+                },
+                {
+                  "text": "쌌네요",
+                  "correct": false
+                },
+                {
+                  "text": "비싸 보이네요",
+                  "correct": true
+                },
+                {
+                  "text": "비쌌네요",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/aaaa92f71232.mp3",
+              "meta": {
+                "say": "この レストランは やすいそうです。"
+              },
+              "options": [
+                {
+                  "text": "직접 보니 싸 보입니다",
+                  "correct": false
+                },
+                {
+                  "text": "이 식당은 쌌습니다",
+                  "correct": false
+                },
+                {
+                  "text": "비싸다고 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "이 식당은 싸다고 합니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 좋은 일이 있다고 합니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/7b85133ad436.mp3",
+              "meta": {
+                "target": "いい ことがあるそうです",
+                "reading": "i i ko to ga a ru so u de su",
+                "meaning": "좋은 일이 있다고 합니다",
+                "say": "いい ことがあるそうです"
+              },
+              "options": [
+                {
+                  "text": "いい ことが",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ある",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "そうです",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "あった",
+                  "correct": false
+                },
+                {
+                  "text": "いいです",
+                  "correct": false
+                }
+              ]
+            }
+          ]
         },
         {
-         "text": "くもったです",
-         "correct": false
+          "title": "11-2 〜ように (도록)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "늦지 않도록 일찍 나옵니다.\nおそくならない___、はやく うちを でます。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "목적(부정형)·요망은 〜ように: ~하지 않도록."
+              },
+              "options": [
+                {
+                  "text": "ように",
+                  "correct": true
+                },
+                {
+                  "text": "ための",
+                  "correct": false
+                },
+                {
+                  "text": "ことに",
+                  "correct": false
+                },
+                {
+                  "text": "ようです",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "まちがえないように、もういちど みました",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "또 봤습니다",
+                  "correct": false
+                },
+                {
+                  "text": "틀리지 않도록 한 번 더 봤습니다",
+                  "correct": true
+                },
+                {
+                  "text": "틀렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "틀리지 않았습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/c262dfd16730.mp3",
+              "meta": {
+                "say": "かぜを ひかないように、きをつけてください。"
+              },
+              "options": [
+                {
+                  "text": "감기에 걸리세요",
+                  "correct": false
+                },
+                {
+                  "text": "기침이 납니다",
+                  "correct": false
+                },
+                {
+                  "text": "감기에 걸리지 않도록 조심하세요",
+                  "correct": true
+                },
+                {
+                  "text": "감기 조심해서 걸렸습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 잊지 않도록 메모합니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/89eb6851c27c.mp3",
+              "meta": {
+                "target": "わすれないようにメモを します",
+                "reading": "wa su re na i yo u ni me mo o shi ma su",
+                "meaning": "잊지 않도록 메모합니다",
+                "say": "わすれないようにメモを します"
+              },
+              "options": [
+                {
+                  "text": "わすれて",
+                  "correct": false
+                },
+                {
+                  "text": "メモを もらいます",
+                  "correct": false
+                },
+                {
+                  "text": "わすれない",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ように",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "メモを します",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「아침에 일찍 일어나도록 합니다」라고 씁니다.\nあさはやく おきる___にします。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ため",
+                  "correct": false
+                },
+                {
+                  "text": "そう",
+                  "correct": false
+                },
+                {
+                  "text": "もの",
+                  "correct": false
+                },
+                {
+                  "text": "よう",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "まけないように",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まけないように",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かつように",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かつように",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "わすれないように",
+                  "correct": false,
+                  "meta": {
+                    "pair": "わすれないように",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "まちがえないように",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まちがえないように",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "지지 않도록",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まけないように",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "이기도록",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かつように",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "잊지 않도록",
+                  "correct": false,
+                  "meta": {
+                    "pair": "わすれないように",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "틀리지 않도록",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まちがえないように",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/57831676d353.mp3",
+              "meta": {
+                "target": "はやく おきるように しています。",
+                "reading": "ha ya ku o ki ru yo u ni shi te i ma su",
+                "meaning": "아침에 일찍 일어나도록 하고 있습니다",
+                "say": "はやく おきるように しています。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "おくれないように はやく いきます",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "늦어서 빨리 갑니다",
+                  "correct": false
+                },
+                {
+                  "text": "늦어도 됩니다",
+                  "correct": false
+                },
+                {
+                  "text": "늦지 않았습니다",
+                  "correct": false
+                },
+                {
+                  "text": "늦지 않도록 일찍 갑니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/43b2ca55b9cb.mp3",
+              "meta": {
+                "say": "せいせきが よくなるように、まいにち べんきょうします。"
+              },
+              "options": [
+                {
+                  "text": "공부하고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "성적이 좋아지도록 매일 공부합니다",
+                  "correct": true
+                },
+                {
+                  "text": "매일 공부하지 않습니다",
+                  "correct": false
+                },
+                {
+                  "text": "성적이 나빠졌습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 제 시간에 갈 수 있도록 지금 출발합니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/cb51fbb6062c.mp3",
+              "meta": {
+                "target": "じかんにいける ようにいま でかけます",
+                "reading": "ji ka n ni i ke ru yo u ni i ma de ka ke ma su",
+                "meaning": "제 시간에 갈 수 있도록 지금 출발합니다",
+                "say": "じかんにいける ようにいま でかけます"
+              },
+              "options": [
+                {
+                  "text": "いける ように",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "いま でかけます",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "まえに",
+                  "correct": false
+                },
+                {
+                  "text": "いきません",
+                  "correct": false
+                },
+                {
+                  "text": "じかんに",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
-         "text": "くもるそうです",
-         "correct": true
+          "title": "11-3 수동 〜られます",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "선생님께 칭찬받았습니다.\nせんせいに ほめ___。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "수동은 ない形 어간+れます: ほめられる(받다)."
+              },
+              "options": [
+                {
+                  "text": "ましたでした",
+                  "correct": false
+                },
+                {
+                  "text": "られたです",
+                  "correct": false
+                },
+                {
+                  "text": "られました",
+                  "correct": true
+                },
+                {
+                  "text": "ました",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "いぬに かまれました",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "개를 물렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "개를 키웁니다",
+                  "correct": false
+                },
+                {
+                  "text": "개가 없습니다",
+                  "correct": false
+                },
+                {
+                  "text": "개한테 물렸습니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/4c9adfa1d48d.mp3",
+              "meta": {
+                "say": "でんしゃの なかで あしを ふまれました。"
+              },
+              "options": [
+                {
+                  "text": "전철 안에서 발을 밟혔습니다",
+                  "correct": true
+                },
+                {
+                  "text": "발을 밟았습니다",
+                  "correct": false
+                },
+                {
+                  "text": "전철이 밀렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "발이 아프지 않습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 친구에게 이름을 불렸습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/400e54eb1d09.mp3",
+              "meta": {
+                "target": "ともだちになまえをよばれました",
+                "reading": "to mo da chi ni na ma e o yo ba re ma shi ta",
+                "meaning": "친구에게 이름을 불렸습니다",
+                "say": "ともだちになまえをよばれました"
+              },
+              "options": [
+                {
+                  "text": "よばれます",
+                  "correct": false
+                },
+                {
+                  "text": "よびました",
+                  "correct": false
+                },
+                {
+                  "text": "なまえを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ともだちに",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "よばれました",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「어머니에게 혼났습니다」라고 씁니다.\nおかあさんに ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "しかられない",
+                  "correct": false
+                },
+                {
+                  "text": "しかられました",
+                  "correct": true
+                },
+                {
+                  "text": "しかりました",
+                  "correct": false
+                },
+                {
+                  "text": "しかりません",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ほめられます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "ほめられます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "しかられます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "しかられます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "よばれます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "よばれます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "ふまれます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "ふまれます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "불립니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "よばれます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "혼납니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "しかられます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "칭찬받습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "ほめられます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "밟힙니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "ふまれます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/353312e18341.mp3",
+              "meta": {
+                "target": "あめに ふられました。",
+                "reading": "a me ni fu ra re ma shi ta",
+                "meaning": "비를 맞았습니다",
+                "say": "あめに ふられました。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "しらない ひとに みちを きかれました",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "모르는 사람이 길을 잃었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "모르는 사람과 길을 걸었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "모르는 사람에게 길을 질문받았습니다",
+                  "correct": true
+                },
+                {
+                  "text": "모르는 사람에게 길을 물었습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/edc88f8a79b4.mp3",
+              "meta": {
+                "say": "せんせいに なまえを よばれました。"
+              },
+              "options": [
+                {
+                  "text": "선생님의 이름을 불렀습니다",
+                  "correct": false
+                },
+                {
+                  "text": "선생님께 이름을 물었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "선생님께 이름을 불렸습니다",
+                  "correct": true
+                },
+                {
+                  "text": "선생님을 만났습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 동생에게 케이크를 먹혀 버렸습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/d30bd1b57b13.mp3",
+              "meta": {
+                "target": "おとうとにケーキをたべられました",
+                "reading": "o to u to ni kee ki o ta be ra re ma shi ta",
+                "meaning": "동생에게 케이크를 먹혀 버렸습니다",
+                "say": "おとうとにケーキをたべられました"
+              },
+              "options": [
+                {
+                  "text": "おとうとに",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ケーキを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "たべます",
+                  "correct": false
+                },
+                {
+                  "text": "たべられました",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "たべました",
+                  "correct": false
+                }
+              ]
+            }
+          ]
         },
         {
-         "text": "くもりです",
-         "correct": false
+          "title": "11-4 〜ようにします・〜ようになりました",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "건강을 위해 걷도록 하고 있습니다.\nけんこうの ため、あるく___にしています。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "노력·습관은 〜ようにします: ~하도록 하다."
+              },
+              "options": [
+                {
+                  "text": "よう",
+                  "correct": true
+                },
+                {
+                  "text": "そう",
+                  "correct": false
+                },
+                {
+                  "text": "ため",
+                  "correct": false
+                },
+                {
+                  "text": "こと",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "まいあさ うんどうするように しています",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "매일 아침 운동할 수 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "매일 아침 운동하고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "매일 아침 운동하도록 하고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "매일 아침 운동했습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/fcf7441e517a.mp3",
+              "meta": {
+                "say": "あまいものは たべないように しています。"
+              },
+              "options": [
+                {
+                  "text": "먹었었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "먹을 수 없습니다",
+                  "correct": false
+                },
+                {
+                  "text": "단 것은 먹지 않도록 하고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "단 것을 좋아합니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 지각하지 않도록 일찍 나옵니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/095bc31ccbaf.mp3",
+              "meta": {
+                "target": "ちこくしないようにはやく でます",
+                "reading": "chi ko ku shi na i yo u ni ha ya ku de ma su",
+                "meaning": "지각하지 않도록 일찍 나옵니다",
+                "say": "ちこくしないようにはやく でます"
+              },
+              "options": [
+                {
+                  "text": "ちこくしない",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ように",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "はやく でます",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "はやくない",
+                  "correct": false
+                },
+                {
+                  "text": "でかけました",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "일본어를 할 수 있게 되었습니다.\nにほんごが はなせる___に なりました。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "변화는 〜ようになりました: 할 수 없었다 → 할 수 있게 되었다."
+              },
+              "options": [
+                {
+                  "text": "そう",
+                  "correct": false
+                },
+                {
+                  "text": "こと",
+                  "correct": false
+                },
+                {
+                  "text": "ため",
+                  "correct": false
+                },
+                {
+                  "text": "よう",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "TRACE",
+              "question": "한자를 손으로 따라 쓰세요",
+              "level": 4,
+              "tag": "kanji",
+              "audioSrc": "/audio/ja-jlpt/df3bbd5232a0.mp3",
+              "meta": {
+                "target": "火",
+                "reading": "ひ",
+                "meaning": "불"
+              },
+              "options": []
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/3d8924007d2c.mp3",
+              "meta": {
+                "target": "まいにち かんじを おぼえるように します。",
+                "reading": "ma i ni chi ka n ji o o bo e ru yo u ni shi ma su",
+                "meaning": "매일 한자를 외우도록 하고 있습니다",
+                "say": "まいにち かんじを おぼえるように します。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "およげるように なりました",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "수영할 수 있게 되었습니다",
+                  "correct": true
+                },
+                {
+                  "text": "수영하고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "수영할 수 없습니다",
+                  "correct": false
+                },
+                {
+                  "text": "수영했습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/c0c27523babb.mp3",
+              "meta": {
+                "say": "せいかつが べんりに なるように、いろいろ します。"
+              },
+              "options": [
+                {
+                  "text": "여행하고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "생활이 편해지도록 여러 가지를 합니다",
+                  "correct": true
+                },
+                {
+                  "text": "생활이 편리해졌습니다",
+                  "correct": false
+                },
+                {
+                  "text": "편리하지 않습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 일본 요리를 먹을 수 있게 되었습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/73634e4f3b4d.mp3",
+              "meta": {
+                "target": "にほんりょうりがたべられるように なりました",
+                "reading": "ni ho n ryo u ri ga ta be ra re ru yo u ni na ri ma shi ta",
+                "meaning": "일본 요리를 먹을 수 있게 되었습니다",
+                "say": "にほんりょうりがたべられるように なりました"
+              },
+              "options": [
+                {
+                  "text": "たべません",
+                  "correct": false
+                },
+                {
+                  "text": "たべたいです",
+                  "correct": false
+                },
+                {
+                  "text": "にほんりょうりが",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "たべられる",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ように なりました",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "11-5 수수 표현 (あげます・くれます・もらいます)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "나는 친구에게 선물을 주었습니다.\nわたしは ともだちに プレゼントを ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "かしました",
+                  "correct": false
+                },
+                {
+                  "text": "くれました",
+                  "correct": false
+                },
+                {
+                  "text": "もらいました",
+                  "correct": false
+                },
+                {
+                  "text": "あげました",
+                  "correct": true
+                }
+              ],
+              "meta": {
+                "explanation": "내가 남에게 주면 あげます, 남이 나에게 주면 くれます, 내가 받으면 もらいます."
+              }
+            },
+            {
+              "type": "SELECT",
+              "question": "친구가 나에게 책을 주었습니다.\nともだちは わたしに ほんを ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "おしえました",
+                  "correct": false
+                },
+                {
+                  "text": "あげました",
+                  "correct": false
+                },
+                {
+                  "text": "くれました",
+                  "correct": true
+                },
+                {
+                  "text": "もらいました",
+                  "correct": false
+                }
+              ],
+              "meta": {
+                "explanation": "주는 사람이 남이고 받는 사람이 나(우리 쪽)일 때는 くれます."
+              }
+            },
+            {
+              "type": "ASSIST",
+              "question": "せんせいに じしょを もらいました",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "선생님께 사전을 받았습니다",
+                  "correct": true
+                },
+                {
+                  "text": "선생님께 사전을 드렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "선생님께 사전을 보여 드렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "선생님이 사전을 빌렸습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/23d2804292da.mp3",
+              "meta": {
+                "say": "たんじょうびに ははが とけいを くれました。"
+              },
+              "options": [
+                {
+                  "text": "생일에 어머니께 시계를 드렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "생일에 어머니와 시계를 샀습니다",
+                  "correct": false
+                },
+                {
+                  "text": "생일에 어머니가 시계를 받았습니다",
+                  "correct": false
+                },
+                {
+                  "text": "생일에 어머니가 시계를 주셨습니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 친구가 일본어를 가르쳐 주었습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/a3830861b2e2.mp3",
+              "meta": {
+                "target": "ともだちがにほんごをおしえてくれました",
+                "reading": "to mo da chi ga ni ho n go o o shi e te ku re ma shi ta",
+                "meaning": "친구가 일본어를 가르쳐 주었습니다",
+                "say": "ともだちがにほんごをおしえてくれました"
+              },
+              "options": [
+                {
+                  "text": "おしえてもらいます",
+                  "correct": false
+                },
+                {
+                  "text": "おしえて",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "おしえてあげました",
+                  "correct": false
+                },
+                {
+                  "text": "くれました",
+                  "correct": true,
+                  "meta": {
+                    "order": 4
+                  }
+                },
+                {
+                  "text": "ともだちが",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "にほんごを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "あげます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あげます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "くれます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "くれます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "もらいます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "もらいます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜てもらいます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜てもらいます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "(내가 남에게) 줍니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あげます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~해 받습니다 (부탁해서)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜てもらいます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "받습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "もらいます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "(남이 나에게) 줍니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "くれます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "나는 김 씨에게 사진을 찍어 받았습니다. (=김 씨가 찍어 줌)\nわたしは キムさんに しゃしんを ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "とってあげました",
+                  "correct": false
+                },
+                {
+                  "text": "とりました",
+                  "correct": false
+                },
+                {
+                  "text": "とってくれました",
+                  "correct": false
+                },
+                {
+                  "text": "とってもらいました",
+                  "correct": true
+                }
+              ],
+              "meta": {
+                "explanation": "〜てもらう: 내가 남에게 부탁해서 ~해 받다. 행위자에는 に."
+              }
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/b4dd58dbaf46.mp3",
+              "meta": {
+                "target": "ともだちに かさを かしてあげました。",
+                "reading": "to mo da chi ni ka sa o ka shi te a ge ma shi ta",
+                "meaning": "친구에게 우산을 빌려주었습니다",
+                "say": "ともだちに かさを かしてあげました。"
+              },
+              "options": []
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/7745fa7d607b.mp3",
+              "meta": {
+                "say": "だれが てつだって くれましたか。"
+              },
+              "options": [
+                {
+                  "text": "누구에게 부탁했습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "누가 도와주었습니까?",
+                  "correct": true
+                },
+                {
+                  "text": "누구를 도와주었습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "누가 도움을 받았습니까?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 아버지가 차를 사 주었습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/43547a91971c.mp3",
+              "meta": {
+                "target": "ちちがくるまをかってくれました",
+                "reading": "chi chi ga ku ru ma o ka t te ku re ma shi ta",
+                "meaning": "아버지가 차를 사 주었습니다",
+                "say": "ちちがくるまをかってくれました"
+              },
+              "options": [
+                {
+                  "text": "かってあげました",
+                  "correct": false
+                },
+                {
+                  "text": "ちちが",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "くるまを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "くれました",
+                  "correct": true,
+                  "meta": {
+                    "order": 4
+                  }
+                },
+                {
+                  "text": "かいました",
+                  "correct": false
+                },
+                {
+                  "text": "かって",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "11-6 11주차 복습",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "「비가 온다고 합니다」라고 씁니다.\nあめが ふる___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "でしょう",
+                  "correct": false
+                },
+                {
+                  "text": "そうです",
+                  "correct": true
+                },
+                {
+                  "text": "そうですか",
+                  "correct": false
+                },
+                {
+                  "text": "そうだでした",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/37ac6b4b81d5.mp3",
+              "meta": {
+                "say": "うんどうするように しています。"
+              },
+              "options": [
+                {
+                  "text": "운동했습니다",
+                  "correct": false
+                },
+                {
+                  "text": "운동할 수 없습니다",
+                  "correct": false
+                },
+                {
+                  "text": "운동하도록 하고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "운동을 좋아합니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "〜と",
+                  "correct": false,
+                  "meta": {
+                    "pair": "필연",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜そうだ",
+                  "correct": false,
+                  "meta": {
+                    "pair": "전문",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜ように",
+                  "correct": false,
+                  "meta": {
+                    "pair": "목적·요망",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜たら",
+                  "correct": false,
+                  "meta": {
+                    "pair": "가정",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "~하면 항상",
+                  "correct": false,
+                  "meta": {
+                    "pair": "필연",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~라고 한다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "전문",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하도록",
+                  "correct": false,
+                  "meta": {
+                    "pair": "목적·요망",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하면",
+                  "correct": false,
+                  "meta": {
+                    "pair": "가정",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 할 수 있게 되었습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/48174eea4b88.mp3",
+              "meta": {
+                "target": "できるようになりました",
+                "reading": "de ki ru yo u ni na ri ma shi ta",
+                "meaning": "할 수 있게 되었습니다",
+                "say": "できるようになりました"
+              },
+              "options": [
+                {
+                  "text": "なりました",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "できました",
+                  "correct": false
+                },
+                {
+                  "text": "できます",
+                  "correct": false
+                },
+                {
+                  "text": "できる",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ように",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "TRACE",
+              "question": "한자를 손으로 따라 쓰세요",
+              "level": 4,
+              "tag": "kanji",
+              "audioSrc": "/audio/ja-jlpt/eab619fba24a.mp3",
+              "meta": {
+                "target": "水",
+                "reading": "みず",
+                "meaning": "물"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "みちが こんでいるそうだ",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "길이 막히고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "길이 막혔었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "길이 막히지 않았다",
+                  "correct": false
+                },
+                {
+                  "text": "길이 막힌다고 한다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「잊지 않도록 메모합니다」라고 씁니다.\nわすれない___、メモします。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ように",
+                  "correct": true
+                },
+                {
+                  "text": "ため",
+                  "correct": false
+                },
+                {
+                  "text": "ことに",
+                  "correct": false
+                },
+                {
+                  "text": "そうに",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/4a9a4a661867.mp3",
+              "meta": {
+                "target": "はやく なおるように いのります。",
+                "reading": "ha ya ku na o ru yo u ni i no ri ma su",
+                "meaning": "빨리 낫도록 빕니다",
+                "say": "はやく なおるように いのります。"
+              },
+              "options": []
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/d010546740e8.mp3",
+              "meta": {
+                "say": "らいしゅう てんじかいが あるそうです。"
+              },
+              "options": [
+                {
+                  "text": "전시회가 없다고 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "다음 주에 전시회가 있다고 합니다",
+                  "correct": true
+                },
+                {
+                  "text": "전시회에 가고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "전시회에 갔었습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「지각하지 않도록 하겠습니다」라고 씁니다.\nちこくしない___にします。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "もの",
+                  "correct": false
+                },
+                {
+                  "text": "ため",
+                  "correct": false
+                },
+                {
+                  "text": "よう",
+                  "correct": true
+                },
+                {
+                  "text": "そう",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 전시회가 있다고 합니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/cde24e2e66b3.mp3",
+              "meta": {
+                "target": "てんじかいがあるそうです",
+                "reading": "te n ji ka i ga a ru so u de su",
+                "meaning": "전시회가 있다고 합니다",
+                "say": "てんじかいがあるそうです"
+              },
+              "options": [
+                {
+                  "text": "ある",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "そうです",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "ありません",
+                  "correct": false
+                },
+                {
+                  "text": "あるでしょうか",
+                  "correct": false
+                },
+                {
+                  "text": "てんじかいが",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
         }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "この ケーキは おいしいそうですね",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "직접 먹어 보니 맛있어요",
-         "correct": false
-        },
-        {
-         "text": "맛있어 보여요(보고 느낌)",
-         "correct": false
-        },
-        {
-         "text": "맛없다고 들었습니다",
-         "correct": false
-        },
-        {
-         "text": "이 케이크는 맛있다던데요",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/33fbff08e745.mp3",
-       "meta": {
-        "say": "たなかさんは あした こないそうだ。"
-       },
-       "options": [
-        {
-         "text": "다나카 씨는 내일 안 온다고 한다",
-         "correct": true
-        },
-        {
-         "text": "내일 온다고 했다",
-         "correct": false
-        },
-        {
-         "text": "내일 옵니다",
-         "correct": false
-        },
-        {
-         "text": "온 적이 없습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 내일은 비가 온다고 한다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/5f2017f08641.mp3",
-       "meta": {
-        "target": "あしたはあめが ふるそうだ",
-        "reading": "a shi ta ha a me ga fu ru so u da",
-        "meaning": "내일은 비가 온다고 한다",
-        "say": "あしたはあめが ふるそうだ"
-       },
-       "options": [
-        {
-         "text": "そうだ",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "ふった",
-         "correct": false
-        },
-        {
-         "text": "そうですか",
-         "correct": false
-        },
-        {
-         "text": "あしたは",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "あめが ふる",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「비싸다고 들었어요」라고 씁니다.\nたかい___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "でしょう",
-         "correct": false
-        },
-        {
-         "text": "そうです",
-         "correct": true
-        },
-        {
-         "text": "らしいです",
-         "correct": false
-        },
-        {
-         "text": "みたいです",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "〜らしい",
-         "correct": false,
-         "meta": {
-          "pair": "전설",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜でしょう",
-         "correct": false,
-         "meta": {
-          "pair": "추정",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜そうだ",
-         "correct": false,
-         "meta": {
-          "pair": "전문",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜そうだ(あめそう)",
-         "correct": false,
-         "meta": {
-          "pair": "외견",
-          "side": "left"
-         }
-        },
-        {
-         "text": "~라는데",
-         "correct": false,
-         "meta": {
-          "pair": "전설",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~겠지요",
-         "correct": false,
-         "meta": {
-          "pair": "추정",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~라고 한다 (남의 말)",
-         "correct": false,
-         "meta": {
-          "pair": "전문",
-          "side": "right"
-         }
-        },
-        {
-         "text": "비 올 것 같다",
-         "correct": false,
-         "meta": {
-          "pair": "외견",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/00dde07b9d75.mp3",
-       "meta": {
-        "target": "にほんでは がっこうが はやく はじまるそうだ。",
-        "reading": "ni ho n de wa ga k ko u ga ha ya ku ha ji ma ru so u da",
-        "meaning": "일본에서는 학교가 일찍 시작한다던데",
-        "say": "にほんでは がっこうが はやく はじまるそうだ。"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "たかそうですね",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "비싸겠네요(전문)",
-         "correct": false
-        },
-        {
-         "text": "쌌네요",
-         "correct": false
-        },
-        {
-         "text": "비싸 보이네요",
-         "correct": true
-        },
-        {
-         "text": "비쌌네요",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/aaaa92f71232.mp3",
-       "meta": {
-        "say": "この レストランは やすいそうです。"
-       },
-       "options": [
-        {
-         "text": "직접 보니 싸 보입니다",
-         "correct": false
-        },
-        {
-         "text": "이 식당은 쌌습니다",
-         "correct": false
-        },
-        {
-         "text": "비싸다고 합니다",
-         "correct": false
-        },
-        {
-         "text": "이 식당은 싸다고 합니다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 좋은 일이 있다고 합니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/7b85133ad436.mp3",
-       "meta": {
-        "target": "いい ことがあるそうです",
-        "reading": "i i ko to ga a ru so u de su",
-        "meaning": "좋은 일이 있다고 합니다",
-        "say": "いい ことがあるそうです"
-       },
-       "options": [
-        {
-         "text": "いい ことが",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "ある",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "そうです",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "あった",
-         "correct": false
-        },
-        {
-         "text": "いいです",
-         "correct": false
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "11-2 〜ように (도록)",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "늦지 않도록 일찍 나옵니다.\nおそくならない___、はやく うちを でます。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "목적(부정형)·요망은 〜ように: ~하지 않도록."
-       },
-       "options": [
-        {
-         "text": "ように",
-         "correct": true
-        },
-        {
-         "text": "ための",
-         "correct": false
-        },
-        {
-         "text": "ことに",
-         "correct": false
-        },
-        {
-         "text": "ようです",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "まちがえないように、もういちど みました",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "또 봤습니다",
-         "correct": false
-        },
-        {
-         "text": "틀리지 않도록 한 번 더 봤습니다",
-         "correct": true
-        },
-        {
-         "text": "틀렸습니다",
-         "correct": false
-        },
-        {
-         "text": "틀리지 않았습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/c262dfd16730.mp3",
-       "meta": {
-        "say": "かぜを ひかないように、きをつけてください。"
-       },
-       "options": [
-        {
-         "text": "감기에 걸리세요",
-         "correct": false
-        },
-        {
-         "text": "기침이 납니다",
-         "correct": false
-        },
-        {
-         "text": "감기에 걸리지 않도록 조심하세요",
-         "correct": true
-        },
-        {
-         "text": "감기 조심해서 걸렸습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 잊지 않도록 메모합니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/89eb6851c27c.mp3",
-       "meta": {
-        "target": "わすれないようにメモを します",
-        "reading": "wa su re na i yo u ni me mo o shi ma su",
-        "meaning": "잊지 않도록 메모합니다",
-        "say": "わすれないようにメモを します"
-       },
-       "options": [
-        {
-         "text": "わすれて",
-         "correct": false
-        },
-        {
-         "text": "メモを もらいます",
-         "correct": false
-        },
-        {
-         "text": "わすれない",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "ように",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "メモを します",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「아침에 일찍 일어나도록 합니다」라고 씁니다.\nあさはやく おきる___にします。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "ため",
-         "correct": false
-        },
-        {
-         "text": "そう",
-         "correct": false
-        },
-        {
-         "text": "もの",
-         "correct": false
-        },
-        {
-         "text": "よう",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "まけないように",
-         "correct": false,
-         "meta": {
-          "pair": "まけないように",
-          "side": "left"
-         }
-        },
-        {
-         "text": "かつように",
-         "correct": false,
-         "meta": {
-          "pair": "かつように",
-          "side": "left"
-         }
-        },
-        {
-         "text": "わすれないように",
-         "correct": false,
-         "meta": {
-          "pair": "わすれないように",
-          "side": "left"
-         }
-        },
-        {
-         "text": "まちがえないように",
-         "correct": false,
-         "meta": {
-          "pair": "まちがえないように",
-          "side": "left"
-         }
-        },
-        {
-         "text": "지지 않도록",
-         "correct": false,
-         "meta": {
-          "pair": "まけないように",
-          "side": "right"
-         }
-        },
-        {
-         "text": "이기도록",
-         "correct": false,
-         "meta": {
-          "pair": "かつように",
-          "side": "right"
-         }
-        },
-        {
-         "text": "잊지 않도록",
-         "correct": false,
-         "meta": {
-          "pair": "わすれないように",
-          "side": "right"
-         }
-        },
-        {
-         "text": "틀리지 않도록",
-         "correct": false,
-         "meta": {
-          "pair": "まちがえないように",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/57831676d353.mp3",
-       "meta": {
-        "target": "はやく おきるように しています。",
-        "reading": "ha ya ku o ki ru yo u ni shi te i ma su",
-        "meaning": "아침에 일찍 일어나도록 하고 있습니다",
-        "say": "はやく おきるように しています。"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "おくれないように はやく いきます",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "늦어서 빨리 갑니다",
-         "correct": false
-        },
-        {
-         "text": "늦어도 됩니다",
-         "correct": false
-        },
-        {
-         "text": "늦지 않았습니다",
-         "correct": false
-        },
-        {
-         "text": "늦지 않도록 일찍 갑니다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/43b2ca55b9cb.mp3",
-       "meta": {
-        "say": "せいせきが よくなるように、まいにち べんきょうします。"
-       },
-       "options": [
-        {
-         "text": "공부하고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "성적이 좋아지도록 매일 공부합니다",
-         "correct": true
-        },
-        {
-         "text": "매일 공부하지 않습니다",
-         "correct": false
-        },
-        {
-         "text": "성적이 나빠졌습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 제 시간에 갈 수 있도록 지금 출발합니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/cb51fbb6062c.mp3",
-       "meta": {
-        "target": "じかんにいける ようにいま でかけます",
-        "reading": "ji ka n ni i ke ru yo u ni i ma de ka ke ma su",
-        "meaning": "제 시간에 갈 수 있도록 지금 출발합니다",
-        "say": "じかんにいける ようにいま でかけます"
-       },
-       "options": [
-        {
-         "text": "いける ように",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "いま でかけます",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "まえに",
-         "correct": false
-        },
-        {
-         "text": "いきません",
-         "correct": false
-        },
-        {
-         "text": "じかんに",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "11-3 수동 〜られます",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "선생님께 칭찬받았습니다.\nせんせいに ほめ___。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "수동은 ない形 어간+れます: ほめられる(받다)."
-       },
-       "options": [
-        {
-         "text": "ましたでした",
-         "correct": false
-        },
-        {
-         "text": "られたです",
-         "correct": false
-        },
-        {
-         "text": "られました",
-         "correct": true
-        },
-        {
-         "text": "ました",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "いぬに かまれました",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "개를 물렸습니다",
-         "correct": false
-        },
-        {
-         "text": "개를 키웁니다",
-         "correct": false
-        },
-        {
-         "text": "개가 없습니다",
-         "correct": false
-        },
-        {
-         "text": "개한테 물렸습니다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/4c9adfa1d48d.mp3",
-       "meta": {
-        "say": "でんしゃの なかで あしを ふまれました。"
-       },
-       "options": [
-        {
-         "text": "전철 안에서 발을 밟혔습니다",
-         "correct": true
-        },
-        {
-         "text": "발을 밟았습니다",
-         "correct": false
-        },
-        {
-         "text": "전철이 밀렸습니다",
-         "correct": false
-        },
-        {
-         "text": "발이 아프지 않습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 친구에게 이름을 불렸습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/400e54eb1d09.mp3",
-       "meta": {
-        "target": "ともだちになまえをよばれました",
-        "reading": "to mo da chi ni na ma e o yo ba re ma shi ta",
-        "meaning": "친구에게 이름을 불렸습니다",
-        "say": "ともだちになまえをよばれました"
-       },
-       "options": [
-        {
-         "text": "よばれます",
-         "correct": false
-        },
-        {
-         "text": "よびました",
-         "correct": false
-        },
-        {
-         "text": "なまえを",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "ともだちに",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "よばれました",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「어머니에게 혼났습니다」라고 씁니다.\nおかあさんに ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "しかられない",
-         "correct": false
-        },
-        {
-         "text": "しかられました",
-         "correct": true
-        },
-        {
-         "text": "しかりました",
-         "correct": false
-        },
-        {
-         "text": "しかりません",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "ほめられます",
-         "correct": false,
-         "meta": {
-          "pair": "ほめられます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "しかられます",
-         "correct": false,
-         "meta": {
-          "pair": "しかられます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "よばれます",
-         "correct": false,
-         "meta": {
-          "pair": "よばれます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "ふまれます",
-         "correct": false,
-         "meta": {
-          "pair": "ふまれます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "불립니다",
-         "correct": false,
-         "meta": {
-          "pair": "よばれます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "혼납니다",
-         "correct": false,
-         "meta": {
-          "pair": "しかられます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "칭찬받습니다",
-         "correct": false,
-         "meta": {
-          "pair": "ほめられます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "밟힙니다",
-         "correct": false,
-         "meta": {
-          "pair": "ふまれます",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/353312e18341.mp3",
-       "meta": {
-        "target": "あめに ふられました。",
-        "reading": "a me ni fu ra re ma shi ta",
-        "meaning": "비를 맞았습니다",
-        "say": "あめに ふられました。"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "しらない ひとに みちを きかれました",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "모르는 사람이 길을 잃었습니다",
-         "correct": false
-        },
-        {
-         "text": "모르는 사람과 길을 걸었습니다",
-         "correct": false
-        },
-        {
-         "text": "모르는 사람에게 길을 질문받았습니다",
-         "correct": true
-        },
-        {
-         "text": "모르는 사람에게 길을 물었습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/edc88f8a79b4.mp3",
-       "meta": {
-        "say": "せんせいに なまえを よばれました。"
-       },
-       "options": [
-        {
-         "text": "선생님의 이름을 불렀습니다",
-         "correct": false
-        },
-        {
-         "text": "선생님께 이름을 물었습니다",
-         "correct": false
-        },
-        {
-         "text": "선생님께 이름을 불렸습니다",
-         "correct": true
-        },
-        {
-         "text": "선생님을 만났습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 동생에게 케이크를 먹혀 버렸습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/d30bd1b57b13.mp3",
-       "meta": {
-        "target": "おとうとにケーキをたべられました",
-        "reading": "o to u to ni kee ki o ta be ra re ma shi ta",
-        "meaning": "동생에게 케이크를 먹혀 버렸습니다",
-        "say": "おとうとにケーキをたべられました"
-       },
-       "options": [
-        {
-         "text": "おとうとに",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "ケーキを",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "たべます",
-         "correct": false
-        },
-        {
-         "text": "たべられました",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "たべました",
-         "correct": false
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "11-4 〜ようにします・〜ようになりました",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "건강을 위해 걷도록 하고 있습니다.\nけんこうの ため、あるく___にしています。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "노력·습관은 〜ようにします: ~하도록 하다."
-       },
-       "options": [
-        {
-         "text": "よう",
-         "correct": true
-        },
-        {
-         "text": "そう",
-         "correct": false
-        },
-        {
-         "text": "ため",
-         "correct": false
-        },
-        {
-         "text": "こと",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "まいあさ うんどうするように しています",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "매일 아침 운동할 수 있습니다",
-         "correct": false
-        },
-        {
-         "text": "매일 아침 운동하고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "매일 아침 운동하도록 하고 있습니다",
-         "correct": true
-        },
-        {
-         "text": "매일 아침 운동했습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/fcf7441e517a.mp3",
-       "meta": {
-        "say": "あまいものは たべないように しています。"
-       },
-       "options": [
-        {
-         "text": "먹었었습니다",
-         "correct": false
-        },
-        {
-         "text": "먹을 수 없습니다",
-         "correct": false
-        },
-        {
-         "text": "단 것은 먹지 않도록 하고 있습니다",
-         "correct": true
-        },
-        {
-         "text": "단 것을 좋아합니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 지각하지 않도록 일찍 나옵니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/095bc31ccbaf.mp3",
-       "meta": {
-        "target": "ちこくしないようにはやく でます",
-        "reading": "chi ko ku shi na i yo u ni ha ya ku de ma su",
-        "meaning": "지각하지 않도록 일찍 나옵니다",
-        "say": "ちこくしないようにはやく でます"
-       },
-       "options": [
-        {
-         "text": "ちこくしない",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "ように",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "はやく でます",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "はやくない",
-         "correct": false
-        },
-        {
-         "text": "でかけました",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "일본어를 할 수 있게 되었습니다.\nにほんごが はなせる___に なりました。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "변화는 〜ようになりました: 할 수 없었다 → 할 수 있게 되었다."
-       },
-       "options": [
-        {
-         "text": "そう",
-         "correct": false
-        },
-        {
-         "text": "こと",
-         "correct": false
-        },
-        {
-         "text": "ため",
-         "correct": false
-        },
-        {
-         "text": "よう",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "TRACE",
-       "question": "한자를 손으로 따라 쓰세요",
-       "level": 4,
-       "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/df3bbd5232a0.mp3",
-       "meta": {
-        "target": "火",
-        "reading": "ひ",
-        "meaning": "불"
-       },
-       "options": []
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/3d8924007d2c.mp3",
-       "meta": {
-        "target": "まいにち かんじを おぼえるように します。",
-        "reading": "ma i ni chi ka n ji o o bo e ru yo u ni shi ma su",
-        "meaning": "매일 한자를 외우도록 하고 있습니다",
-        "say": "まいにち かんじを おぼえるように します。"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "およげるように なりました",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "수영할 수 있게 되었습니다",
-         "correct": true
-        },
-        {
-         "text": "수영하고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "수영할 수 없습니다",
-         "correct": false
-        },
-        {
-         "text": "수영했습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/c0c27523babb.mp3",
-       "meta": {
-        "say": "せいかつが べんりに なるように、いろいろ します。"
-       },
-       "options": [
-        {
-         "text": "여행하고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "생활이 편해지도록 여러 가지를 합니다",
-         "correct": true
-        },
-        {
-         "text": "생활이 편리해졌습니다",
-         "correct": false
-        },
-        {
-         "text": "편리하지 않습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 일본 요리를 먹을 수 있게 되었습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/73634e4f3b4d.mp3",
-       "meta": {
-        "target": "にほんりょうりがたべられるように なりました",
-        "reading": "ni ho n ryo u ri ga ta be ra re ru yo u ni na ri ma shi ta",
-        "meaning": "일본 요리를 먹을 수 있게 되었습니다",
-        "say": "にほんりょうりがたべられるように なりました"
-       },
-       "options": [
-        {
-         "text": "たべません",
-         "correct": false
-        },
-        {
-         "text": "たべたいです",
-         "correct": false
-        },
-        {
-         "text": "にほんりょうりが",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "たべられる",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "ように なりました",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "11-5 수수 표현 (あげます・くれます・もらいます)",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "나는 친구에게 선물을 주었습니다.\nわたしは ともだちに プレゼントを ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "かしました",
-         "correct": false
-        },
-        {
-         "text": "くれました",
-         "correct": false
-        },
-        {
-         "text": "もらいました",
-         "correct": false
-        },
-        {
-         "text": "あげました",
-         "correct": true
-        }
-       ],
-       "meta": {
-        "explanation": "내가 남에게 주면 あげます, 남이 나에게 주면 くれます, 내가 받으면 もらいます."
-       }
-      },
-      {
-       "type": "SELECT",
-       "question": "친구가 나에게 책을 주었습니다.\nともだちは わたしに ほんを ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "おしえました",
-         "correct": false
-        },
-        {
-         "text": "あげました",
-         "correct": false
-        },
-        {
-         "text": "くれました",
-         "correct": true
-        },
-        {
-         "text": "もらいました",
-         "correct": false
-        }
-       ],
-       "meta": {
-        "explanation": "주는 사람이 남이고 받는 사람이 나(우리 쪽)일 때는 くれます."
-       }
-      },
-      {
-       "type": "ASSIST",
-       "question": "せんせいに じしょを もらいました",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "선생님께 사전을 받았습니다",
-         "correct": true
-        },
-        {
-         "text": "선생님께 사전을 드렸습니다",
-         "correct": false
-        },
-        {
-         "text": "선생님께 사전을 보여 드렸습니다",
-         "correct": false
-        },
-        {
-         "text": "선생님이 사전을 빌렸습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/23d2804292da.mp3",
-       "meta": {
-        "say": "たんじょうびに ははが とけいを くれました。"
-       },
-       "options": [
-        {
-         "text": "생일에 어머니께 시계를 드렸습니다",
-         "correct": false
-        },
-        {
-         "text": "생일에 어머니와 시계를 샀습니다",
-         "correct": false
-        },
-        {
-         "text": "생일에 어머니가 시계를 받았습니다",
-         "correct": false
-        },
-        {
-         "text": "생일에 어머니가 시계를 주셨습니다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 친구가 일본어를 가르쳐 주었습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/a3830861b2e2.mp3",
-       "meta": {
-        "target": "ともだちがにほんごをおしえてくれました",
-        "reading": "to mo da chi ga ni ho n go o o shi e te ku re ma shi ta",
-        "meaning": "친구가 일본어를 가르쳐 주었습니다",
-        "say": "ともだちがにほんごをおしえてくれました"
-       },
-       "options": [
-        {
-         "text": "おしえてもらいます",
-         "correct": false
-        },
-        {
-         "text": "おしえて",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "おしえてあげました",
-         "correct": false
-        },
-        {
-         "text": "くれました",
-         "correct": true,
-         "meta": {
-          "order": 4
-         }
-        },
-        {
-         "text": "ともだちが",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "にほんごを",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "あげます",
-         "correct": false,
-         "meta": {
-          "pair": "あげます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "くれます",
-         "correct": false,
-         "meta": {
-          "pair": "くれます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "もらいます",
-         "correct": false,
-         "meta": {
-          "pair": "もらいます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜てもらいます",
-         "correct": false,
-         "meta": {
-          "pair": "〜てもらいます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "(내가 남에게) 줍니다",
-         "correct": false,
-         "meta": {
-          "pair": "あげます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~해 받습니다 (부탁해서)",
-         "correct": false,
-         "meta": {
-          "pair": "〜てもらいます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "받습니다",
-         "correct": false,
-         "meta": {
-          "pair": "もらいます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "(남이 나에게) 줍니다",
-         "correct": false,
-         "meta": {
-          "pair": "くれます",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "나는 김 씨에게 사진을 찍어 받았습니다. (=김 씨가 찍어 줌)\nわたしは キムさんに しゃしんを ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "とってあげました",
-         "correct": false
-        },
-        {
-         "text": "とりました",
-         "correct": false
-        },
-        {
-         "text": "とってくれました",
-         "correct": false
-        },
-        {
-         "text": "とってもらいました",
-         "correct": true
-        }
-       ],
-       "meta": {
-        "explanation": "〜てもらう: 내가 남에게 부탁해서 ~해 받다. 행위자에는 に."
-       }
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/b4dd58dbaf46.mp3",
-       "meta": {
-        "target": "ともだちに かさを かしてあげました。",
-        "reading": "to mo da chi ni ka sa o ka shi te a ge ma shi ta",
-        "meaning": "친구에게 우산을 빌려주었습니다",
-        "say": "ともだちに かさを かしてあげました。"
-       },
-       "options": []
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/7745fa7d607b.mp3",
-       "meta": {
-        "say": "だれが てつだって くれましたか。"
-       },
-       "options": [
-        {
-         "text": "누구에게 부탁했습니까?",
-         "correct": false
-        },
-        {
-         "text": "누가 도와주었습니까?",
-         "correct": true
-        },
-        {
-         "text": "누구를 도와주었습니까?",
-         "correct": false
-        },
-        {
-         "text": "누가 도움을 받았습니까?",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 아버지가 차를 사 주었습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/43547a91971c.mp3",
-       "meta": {
-        "target": "ちちがくるまをかってくれました",
-        "reading": "chi chi ga ku ru ma o ka t te ku re ma shi ta",
-        "meaning": "아버지가 차를 사 주었습니다",
-        "say": "ちちがくるまをかってくれました"
-       },
-       "options": [
-        {
-         "text": "かってあげました",
-         "correct": false
-        },
-        {
-         "text": "ちちが",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "くるまを",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "くれました",
-         "correct": true,
-         "meta": {
-          "order": 4
-         }
-        },
-        {
-         "text": "かいました",
-         "correct": false
-        },
-        {
-         "text": "かって",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "11-6 11주차 복습",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "「비가 온다고 합니다」라고 씁니다.\nあめが ふる___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "でしょう",
-         "correct": false
-        },
-        {
-         "text": "そうです",
-         "correct": true
-        },
-        {
-         "text": "そうですか",
-         "correct": false
-        },
-        {
-         "text": "そうだでした",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/37ac6b4b81d5.mp3",
-       "meta": {
-        "say": "うんどうするように しています。"
-       },
-       "options": [
-        {
-         "text": "운동했습니다",
-         "correct": false
-        },
-        {
-         "text": "운동할 수 없습니다",
-         "correct": false
-        },
-        {
-         "text": "운동하도록 하고 있습니다",
-         "correct": true
-        },
-        {
-         "text": "운동을 좋아합니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "〜と",
-         "correct": false,
-         "meta": {
-          "pair": "필연",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜そうだ",
-         "correct": false,
-         "meta": {
-          "pair": "전문",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜ように",
-         "correct": false,
-         "meta": {
-          "pair": "목적·요망",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜たら",
-         "correct": false,
-         "meta": {
-          "pair": "가정",
-          "side": "left"
-         }
-        },
-        {
-         "text": "~하면 항상",
-         "correct": false,
-         "meta": {
-          "pair": "필연",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~라고 한다",
-         "correct": false,
-         "meta": {
-          "pair": "전문",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하도록",
-         "correct": false,
-         "meta": {
-          "pair": "목적·요망",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하면",
-         "correct": false,
-         "meta": {
-          "pair": "가정",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 할 수 있게 되었습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/48174eea4b88.mp3",
-       "meta": {
-        "target": "できるようになりました",
-        "reading": "de ki ru yo u ni na ri ma shi ta",
-        "meaning": "할 수 있게 되었습니다",
-        "say": "できるようになりました"
-       },
-       "options": [
-        {
-         "text": "なりました",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "できました",
-         "correct": false
-        },
-        {
-         "text": "できます",
-         "correct": false
-        },
-        {
-         "text": "できる",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "ように",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        }
-       ]
-      },
-      {
-       "type": "TRACE",
-       "question": "한자를 손으로 따라 쓰세요",
-       "level": 4,
-       "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/eab619fba24a.mp3",
-       "meta": {
-        "target": "水",
-        "reading": "みず",
-        "meaning": "물"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "みちが こんでいるそうだ",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "길이 막히고 있습니다",
-         "correct": false
-        },
-        {
-         "text": "길이 막혔었습니다",
-         "correct": false
-        },
-        {
-         "text": "길이 막히지 않았다",
-         "correct": false
-        },
-        {
-         "text": "길이 막힌다고 한다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「잊지 않도록 메모합니다」라고 씁니다.\nわすれない___、メモします。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "ように",
-         "correct": true
-        },
-        {
-         "text": "ため",
-         "correct": false
-        },
-        {
-         "text": "ことに",
-         "correct": false
-        },
-        {
-         "text": "そうに",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/4a9a4a661867.mp3",
-       "meta": {
-        "target": "はやく なおるように いのります。",
-        "reading": "ha ya ku na o ru yo u ni i no ri ma su",
-        "meaning": "빨리 낫도록 빕니다",
-        "say": "はやく なおるように いのります。"
-       },
-       "options": []
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/d010546740e8.mp3",
-       "meta": {
-        "say": "らいしゅう てんじかいが あるそうです。"
-       },
-       "options": [
-        {
-         "text": "전시회가 없다고 합니다",
-         "correct": false
-        },
-        {
-         "text": "다음 주에 전시회가 있다고 합니다",
-         "correct": true
-        },
-        {
-         "text": "전시회에 가고 있습니다",
-         "correct": false
-        },
-        {
-         "text": "전시회에 갔었습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「지각하지 않도록 하겠습니다」라고 씁니다.\nちこくしない___にします。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "もの",
-         "correct": false
-        },
-        {
-         "text": "ため",
-         "correct": false
-        },
-        {
-         "text": "よう",
-         "correct": true
-        },
-        {
-         "text": "そう",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 전시회가 있다고 합니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/cde24e2e66b3.mp3",
-       "meta": {
-        "target": "てんじかいがあるそうです",
-        "reading": "te n ji ka i ga a ru so u de su",
-        "meaning": "전시회가 있다고 합니다",
-        "say": "てんじかいがあるそうです"
-       },
-       "options": [
-        {
-         "text": "ある",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "そうです",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "ありません",
-         "correct": false
-        },
-        {
-         "text": "あるでしょうか",
-         "correct": false
-        },
-        {
-         "text": "てんじかいが",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        }
-       ]
-      }
-     ]
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

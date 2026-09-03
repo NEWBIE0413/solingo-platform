@@ -1,1944 +1,1944 @@
 {
- "id": "ja-jlpt",
- "title": "일본어 JLPT",
- "units": [
-  {
-   "title": "10주차 · 가정과 충고",
-   "description": "가정 〜たら, 가능형(〜ことができます・かける・たべられる), 충고 〜たほうがいい, 과함 〜すぎる, て형 보조동사 〜てみる/〜ておく/〜てしまう.",
-   "lessons": [
+  "id": "ja-jlpt",
+  "title": "일본어 JLPT",
+  "units": [
     {
-     "title": "10-1 〜たら (하면)",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "집에 도착하면 연락하세요.\nうちに ついたら、___。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "조건·가정은 た形+ら: ~하면(다 되면)."
-       },
-       "options": [
+      "title": "10주차 · 가정과 충고",
+      "description": "가정 〜たら, 가능형(〜ことができます・かける・たべられる), 충고 〜たほうがいい, 과함 〜すぎる, て형 보조동사 〜てみる/〜ておく/〜てしまう.",
+      "lessons": [
         {
-         "text": "れんらくしないで",
-         "correct": false
+          "title": "10-1 〜たら (하면)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "집에 도착하면 연락하세요.\nうちに ついたら、___。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "조건·가정은 た形+ら: ~하면(다 되면)."
+              },
+              "options": [
+                {
+                  "text": "れんらくしないで",
+                  "correct": false
+                },
+                {
+                  "text": "れんらくしてください",
+                  "correct": true
+                },
+                {
+                  "text": "れんらくします",
+                  "correct": false
+                },
+                {
+                  "text": "れんらくしました",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "あしたに なったら、いきます",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "내일 가지 않습니다",
+                  "correct": false
+                },
+                {
+                  "text": "가려고 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "내일이 되면 갑니다",
+                  "correct": true
+                },
+                {
+                  "text": "내일 갔습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/9019a1cd154d.mp3",
+              "meta": {
+                "say": "やすんだら、おきてください。"
+              },
+              "options": [
+                {
+                  "text": "쉬면서 일어나 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "쉬지 마세요",
+                  "correct": false
+                },
+                {
+                  "text": "일어나서 쉬세요",
+                  "correct": false
+                },
+                {
+                  "text": "쉬었으면(쉬고 나면) 일어나 주세요",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 비가 그치면 갑니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/5b698473598b.mp3",
+              "meta": {
+                "target": "あめがやんだらいきます",
+                "reading": "a me ga ya n da ra i ki ma su",
+                "meaning": "비가 그치면 갑니다",
+                "say": "あめがやんだらいきます"
+              },
+              "options": [
+                {
+                  "text": "あめが",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "やんだら",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "いきます",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "やんだ",
+                  "correct": false
+                },
+                {
+                  "text": "いきません",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「시간이 있으면 봐 주세요」라고 씁니다.\nじかんが あったら、___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "みてください",
+                  "correct": true
+                },
+                {
+                  "text": "みます",
+                  "correct": false
+                },
+                {
+                  "text": "みました",
+                  "correct": false
+                },
+                {
+                  "text": "みましょうか",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "〜と",
+                  "correct": false,
+                  "meta": {
+                    "pair": "필연",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜から",
+                  "correct": false,
+                  "meta": {
+                    "pair": "이유",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜けど",
+                  "correct": false,
+                  "meta": {
+                    "pair": "대조",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜たら",
+                  "correct": false,
+                  "meta": {
+                    "pair": "조건",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "~하면 (항상)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "필연",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~니까",
+                  "correct": false,
+                  "meta": {
+                    "pair": "이유",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하지만",
+                  "correct": false,
+                  "meta": {
+                    "pair": "대조",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하면 (가정)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "조건",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/e32e9c3ded7f.mp3",
+              "meta": {
+                "target": "きょうとへ いったら、おてらを みます。",
+                "reading": "kyo u to e i t ta ra o te ra o mi ma su",
+                "meaning": "교토에 가면 절을 봅니다",
+                "say": "きょうとへ いったら、おてらを みます。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "あつくなったら、まどを あけます",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "창문을 열지 않습니다",
+                  "correct": false
+                },
+                {
+                  "text": "더워지면 창문을 엽니다",
+                  "correct": true
+                },
+                {
+                  "text": "더워져서 닫습니다",
+                  "correct": false
+                },
+                {
+                  "text": "더웁니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/9c69924ea084.mp3",
+              "meta": {
+                "say": "わからなかったら、きいてください。"
+              },
+              "options": [
+                {
+                  "text": "묻지 마세요",
+                  "correct": false
+                },
+                {
+                  "text": "알겠습니다",
+                  "correct": false
+                },
+                {
+                  "text": "모르겠으면 물어보세요",
+                  "correct": true
+                },
+                {
+                  "text": "모르니까 쓰세요",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 끝나면 말해 주세요",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/4934895864d3.mp3",
+              "meta": {
+                "target": "おわったらいってください",
+                "reading": "o wa t ta ra i t te ku da sa i",
+                "meaning": "끝나면 말해 주세요",
+                "say": "おわったらいってください"
+              },
+              "options": [
+                {
+                  "text": "いいます",
+                  "correct": false
+                },
+                {
+                  "text": "おわったら",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "いってください",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "おわって",
+                  "correct": false
+                }
+              ]
+            }
+          ]
         },
         {
-         "text": "れんらくしてください",
-         "correct": true
+          "title": "10-2 가능형 (〜ことができます・かける・たべられる)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "일본어를 말할 수 있습니다.\nにほんごを はなす___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ことにします",
+                  "correct": false
+                },
+                {
+                  "text": "ことができます",
+                  "correct": true
+                },
+                {
+                  "text": "ことがあります",
+                  "correct": false
+                },
+                {
+                  "text": "ことです",
+                  "correct": false
+                }
+              ],
+              "meta": {
+                "explanation": "사전형+ことができます = ~할 수 있다."
+              }
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "かく",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かく",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のむ",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のむ",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべる",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "する",
+                  "correct": false,
+                  "meta": {
+                    "pair": "する",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべられる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべる",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "のめる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のむ",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "かける",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かく",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "できる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "する",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "かんじが よめます",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "한자를 읽습니다",
+                  "correct": false
+                },
+                {
+                  "text": "한자를 읽고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "한자를 읽었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "한자를 읽을 수 있습니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/a0a0f655569d.mp3",
+              "meta": {
+                "say": "わたしは およげません。"
+              },
+              "options": [
+                {
+                  "text": "나는 수영을 못 합니다",
+                  "correct": true
+                },
+                {
+                  "text": "나는 수영을 좋아합니다",
+                  "correct": false
+                },
+                {
+                  "text": "나는 수영하지 않았습니다",
+                  "correct": false
+                },
+                {
+                  "text": "나는 수영을 합니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "가능형의 대상에는 조사 が: 피아노를 칠 수 있습니다.\nピアノ___ ひけます。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "に",
+                  "correct": false
+                },
+                {
+                  "text": "を",
+                  "correct": false
+                },
+                {
+                  "text": "で",
+                  "correct": false
+                },
+                {
+                  "text": "が",
+                  "correct": true
+                }
+              ],
+              "meta": {
+                "explanation": "1그룹은 う단→え단+る (ひく→ひける). 가능형 앞의 목적어는 を 대신 が를 자주 씁니다."
+              }
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 나는 자전거를 탈 수 있습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/acc89aae2b5b.mp3",
+              "meta": {
+                "target": "わたしはじてんしゃにのれます",
+                "reading": "wa ta shi wa ji te n sha ni no re ma su",
+                "meaning": "나는 자전거를 탈 수 있습니다",
+                "say": "わたしはじてんしゃにのれます"
+              },
+              "options": [
+                {
+                  "text": "のれます",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "のられます",
+                  "correct": false
+                },
+                {
+                  "text": "わたしは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "じてんしゃに",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "のります",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/59597aec856d.mp3",
+              "meta": {
+                "target": "すこし にほんごが はなせます。",
+                "reading": "su ko shi ni ho n go ga ha na se ma su",
+                "meaning": "조금 일본어를 할 수 있습니다",
+                "say": "すこし にほんごが はなせます。"
+              },
+              "options": []
+            },
+            {
+              "type": "SELECT",
+              "question": "「먹다(たべる)」의 가능형은?\nたべる → ___",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "たべできる",
+                  "correct": false
+                },
+                {
+                  "text": "たべえる",
+                  "correct": false
+                },
+                {
+                  "text": "たべれる",
+                  "correct": false
+                },
+                {
+                  "text": "たべられる",
+                  "correct": true
+                }
+              ],
+              "meta": {
+                "explanation": "2그룹은 る→られる. たべれる(ら抜き)는 구어체라 시험에서는 たべられる."
+              }
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/35a3b64a502c.mp3",
+              "meta": {
+                "say": "あしたは こられますか。"
+              },
+              "options": [
+                {
+                  "text": "내일 올 수 있습니까?",
+                  "correct": true
+                },
+                {
+                  "text": "내일 오고 싶습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "내일 옵니까?",
+                  "correct": false
+                },
+                {
+                  "text": "내일 왔습니까?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 여기서는 사진을 찍을 수 없습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/5f726f8e1818.mp3",
+              "meta": {
+                "target": "ここではしゃしんがとれません",
+                "reading": "ko ko de wa sha shi n ga to re ma se n",
+                "meaning": "여기서는 사진을 찍을 수 없습니다",
+                "say": "ここではしゃしんがとれません"
+              },
+              "options": [
+                {
+                  "text": "とれます",
+                  "correct": false
+                },
+                {
+                  "text": "しゃしんが",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "とりません",
+                  "correct": false
+                },
+                {
+                  "text": "とれません",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "ここでは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
-         "text": "れんらくします",
-         "correct": false
+          "title": "10-3 〜たほうがいい (충고)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "빨리 가는 편이 좋습니다.\nはやく ___。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "충고는 た形+ほうがいいです: ~하는 편이 좋다."
+              },
+              "options": [
+                {
+                  "text": "いかなければ",
+                  "correct": false
+                },
+                {
+                  "text": "いったほうがいいです",
+                  "correct": true
+                },
+                {
+                  "text": "いくほうがいいです",
+                  "correct": false
+                },
+                {
+                  "text": "いったほうです",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "やすんだほうがいいです",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "쉬고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "쉬고 싶지 않습니다",
+                  "correct": false
+                },
+                {
+                  "text": "쉬는 편이 좋습니다",
+                  "correct": true
+                },
+                {
+                  "text": "쉬면 안 됩니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/cbe27d459fc1.mp3",
+              "meta": {
+                "say": "びょういんへ いったほうがいいですよ。"
+              },
+              "options": [
+                {
+                  "text": "병원에 가면 안 됩니다",
+                  "correct": false
+                },
+                {
+                  "text": "병원에 가고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "병원에 안 가요",
+                  "correct": false
+                },
+                {
+                  "text": "병원에 가는 편이 좋아요",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 묻는 편이 좋습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/cddfe76230f8.mp3",
+              "meta": {
+                "target": "きいたほうがいいです",
+                "reading": "ki i ta ho u ga i i de su",
+                "meaning": "묻는 편이 좋습니다",
+                "say": "きいたほうがいいです"
+              },
+              "options": [
+                {
+                  "text": "きいた",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ほうがいいです",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "きかない",
+                  "correct": false
+                },
+                {
+                  "text": "ききます",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "담배를 피우지 않는 편이 좋습니다.\nたばこは すわない___いいです。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ほうが",
+                  "correct": true
+                },
+                {
+                  "text": "ことが",
+                  "correct": false
+                },
+                {
+                  "text": "ものが",
+                  "correct": false
+                },
+                {
+                  "text": "ための",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "TRACE",
+              "question": "한자를 손으로 따라 쓰세요",
+              "level": 4,
+              "tag": "kanji",
+              "audioSrc": "/audio/ja-jlpt/86fa9c82d812.mp3",
+              "meta": {
+                "target": "山",
+                "reading": "やま",
+                "meaning": "산"
+              },
+              "options": []
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/5f9ed904848b.mp3",
+              "meta": {
+                "target": "もっと べんきょうしたほうがいいです。",
+                "reading": "mo t to be n kyo u shi ta ho u ga i i de su",
+                "meaning": "더 공부하는 편이 좋습니다",
+                "say": "もっと べんきょうしたほうがいいです。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "かさを もったほうがいいですよ",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "비가 왔어요",
+                  "correct": false
+                },
+                {
+                  "text": "우산을 가지고 가는 편이 좋아요",
+                  "correct": true
+                },
+                {
+                  "text": "우산을 빌려 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "우산은 필요 없어요",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/6dce9645301d.mp3",
+              "meta": {
+                "say": "いま でかけないほうがいいです。"
+              },
+              "options": [
+                {
+                  "text": "외출해 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "외출해도 됩니다",
+                  "correct": false
+                },
+                {
+                  "text": "지금 외출하지 않는 편이 좋습니다",
+                  "correct": true
+                },
+                {
+                  "text": "지금 외출하고 있습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 천천히 말하는 편이 좋아요",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/47b810ea54d0.mp3",
+              "meta": {
+                "target": "ゆっくりはなしたほうがいいですよ",
+                "reading": "yu k ku ri ha na shi ta ho u ga i i de su yo",
+                "meaning": "천천히 말하는 편이 좋아요",
+                "say": "ゆっくりはなしたほうがいいですよ"
+              },
+              "options": [
+                {
+                  "text": "ゆっくり",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "はなした",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ほうがいいですよ",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "はやく",
+                  "correct": false
+                },
+                {
+                  "text": "はなします",
+                  "correct": false
+                }
+              ]
+            }
+          ]
         },
         {
-         "text": "れんらくしました",
-         "correct": false
+          "title": "10-4 〜すぎる (너무 ~하다)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "너무 먹었어요(과식했어요).\nたべ___。",
+              "level": 4,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "과함은 ます형 어간+すぎる: たべすぎる."
+              },
+              "options": [
+                {
+                  "text": "ました",
+                  "correct": false
+                },
+                {
+                  "text": "たいです",
+                  "correct": false
+                },
+                {
+                  "text": "ましょう",
+                  "correct": false
+                },
+                {
+                  "text": "すぎました",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "きのうは のみすぎました",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "어제는 너무(많이) 마셨습니다",
+                  "correct": true
+                },
+                {
+                  "text": "어제는 안 마셨습니다",
+                  "correct": false
+                },
+                {
+                  "text": "마시고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "마시러 갑니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/69ee1ea03756.mp3",
+              "meta": {
+                "say": "テレビを みすぎて、めが いたいです。"
+              },
+              "options": [
+                {
+                  "text": "텔레비전을 보고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "텔레비전을 너무 봐서 눈이 아픕니다",
+                  "correct": true
+                },
+                {
+                  "text": "텔레비전을 조금 봤습니다",
+                  "correct": false
+                },
+                {
+                  "text": "눈이 아프지만 봅니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 말이 너무 빠릅니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/090039321381.mp3",
+              "meta": {
+                "target": "はなしかたがはやすぎます",
+                "reading": "ha na shi ka ta ga ha ya su gi ma su",
+                "meaning": "말이 너무 빠릅니다",
+                "say": "はなしかたがはやすぎます"
+              },
+              "options": [
+                {
+                  "text": "はやすぎます",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "はやいです",
+                  "correct": false
+                },
+                {
+                  "text": "はやくない",
+                  "correct": false
+                },
+                {
+                  "text": "はなしかたが",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "이 방은 너무 작아요.\nこの へやは ちいさ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "たいです",
+                  "correct": false
+                },
+                {
+                  "text": "ながら",
+                  "correct": false
+                },
+                {
+                  "text": "すぎます",
+                  "correct": true
+                },
+                {
+                  "text": "ます",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "はたらきすぎる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はたらきすぎる",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべすぎる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべすぎる",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のみすぎる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみすぎる",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かいすぎる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいすぎる",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "너무 마시다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみすぎる",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "너무 사다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいすぎる",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "너무 먹다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべすぎる",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "너무 일하다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はたらきすぎる",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/f0b49b4db989.mp3",
+              "meta": {
+                "target": "きょうは あつすぎますね。",
+                "reading": "kyo u wa a tsu su gi ma su ne",
+                "meaning": "오늘은 너무 덥네요",
+                "say": "きょうは あつすぎますね。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "しごとが おおすぎます",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "일이 많지 않습니다",
+                  "correct": false
+                },
+                {
+                  "text": "일이 적습니다",
+                  "correct": false
+                },
+                {
+                  "text": "일하려고 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "일이 너무 많습니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/a2cf5a3358b2.mp3",
+              "meta": {
+                "say": "この かばんは たかすぎて、かえません。"
+              },
+              "options": [
+                {
+                  "text": "이 가방은 너무 비싸서 살 수 없습니다",
+                  "correct": true
+                },
+                {
+                  "text": "이 가방은 쌉니다",
+                  "correct": false
+                },
+                {
+                  "text": "이 가방을 샀습니다",
+                  "correct": false
+                },
+                {
+                  "text": "이 가방은 싸서 샀습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 어제는 너무 많이 마셨습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/7d4af057f005.mp3",
+              "meta": {
+                "target": "きのうはのみすぎました",
+                "reading": "ki no u wa no mi su gi ma shi ta",
+                "meaning": "어제는 너무 많이 마셨습니다",
+                "say": "きのうはのみすぎました"
+              },
+              "options": [
+                {
+                  "text": "のみすぎました",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "のみすぎます",
+                  "correct": false
+                },
+                {
+                  "text": "のみました",
+                  "correct": false
+                },
+                {
+                  "text": "きのうは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "10-5 〜てみます・〜ておきます・〜てしまいます",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "이 옷을 입어 보겠습니다.\nこの ふくを ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "きてしまいます",
+                  "correct": false
+                },
+                {
+                  "text": "きておきます",
+                  "correct": false
+                },
+                {
+                  "text": "きています",
+                  "correct": false
+                },
+                {
+                  "text": "きてみます",
+                  "correct": true
+                }
+              ],
+              "meta": {
+                "explanation": "시도는 て형+みます (~해 보다)."
+              }
+            },
+            {
+              "type": "ASSIST",
+              "question": "まどを あけておきました",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "창문을 열어 두었습니다",
+                  "correct": true
+                },
+                {
+                  "text": "창문을 열어 버렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "창문을 열어 봤습니다",
+                  "correct": false
+                },
+                {
+                  "text": "창문이 열려 있습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/e963a7391471.mp3",
+              "meta": {
+                "say": "さいふを わすれてしまいました。"
+              },
+              "options": [
+                {
+                  "text": "지갑을 잊어 봅니다",
+                  "correct": false
+                },
+                {
+                  "text": "지갑을 잊지 않도록 해 두었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "지갑을 잊어버리고 말았습니다",
+                  "correct": true
+                },
+                {
+                  "text": "지갑을 찾아봤습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 일본 요리를 만들어 보고 싶습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/7efb94392899.mp3",
+              "meta": {
+                "target": "にほんりょうりをつくってみたいです",
+                "reading": "ni ho n ryo u ri o tsu ku t te mi ta i de su",
+                "meaning": "일본 요리를 만들어 보고 싶습니다",
+                "say": "にほんりょうりをつくってみたいです"
+              },
+              "options": [
+                {
+                  "text": "つくりたいです",
+                  "correct": false
+                },
+                {
+                  "text": "みたいです",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "にほんりょうりを",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "つくって",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "つくっておきます",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "파티 전에 음료를 사 둡시다. (준비)\nパーティーの まえに のみものを ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "かってみましょう",
+                  "correct": false
+                },
+                {
+                  "text": "かってしまいましょう",
+                  "correct": false
+                },
+                {
+                  "text": "かっていましょう",
+                  "correct": false
+                },
+                {
+                  "text": "かっておきましょう",
+                  "correct": true
+                }
+              ],
+              "meta": {
+                "explanation": "미리 준비해 두는 것은 て형+おきます."
+              }
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "〜てみます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜てみます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜ておきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜ておきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜てしまいます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜てしまいます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜ています",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜ています",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "~해 봅니다 (시도)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜てみます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하고 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜ています",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~해 버립니다 (완료·유감)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜てしまいます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~해 둡니다 (준비)",
+                  "correct": false,
+                  "meta": {
+                    "pair": "〜ておきます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/4f0bec3d7c17.mp3",
+              "meta": {
+                "target": "ケーキを ぜんぶ たべてしまいました。",
+                "reading": "kee ki o ze n bu ta be te shi ma i ma shi ta",
+                "meaning": "케이크를 전부 먹어 버렸습니다",
+                "say": "ケーキを ぜんぶ たべてしまいました。"
+              },
+              "options": []
+            },
+            {
+              "type": "SELECT",
+              "question": "전철에 우산을 두고 와 버렸습니다. (유감)\nでんしゃに かさを ___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "わすれておきました",
+                  "correct": false
+                },
+                {
+                  "text": "わすれてみました",
+                  "correct": false
+                },
+                {
+                  "text": "わすれてしまいました",
+                  "correct": true
+                },
+                {
+                  "text": "わすれています",
+                  "correct": false
+                }
+              ],
+              "meta": {
+                "explanation": "てしまう는 완료 또는 「아차」 하는 유감을 나타냅니다."
+              }
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/ece04f535f5a.mp3",
+              "meta": {
+                "say": "この くつを はいてみても いいですか。"
+              },
+              "options": [
+                {
+                  "text": "이 신발을 신어 버렸습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "이 신발을 신어 두었습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "이 신발을 신고 있습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "이 신발을 신어 봐도 됩니까?",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 호텔을 예약해 두었습니다",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/b249636d3718.mp3",
+              "meta": {
+                "target": "ホテルをよやくしておきました",
+                "reading": "ho te ru o yo ya ku shi te o ki ma shi ta",
+                "meaning": "호텔을 예약해 두었습니다",
+                "say": "ホテルをよやくしておきました"
+              },
+              "options": [
+                {
+                  "text": "おきました",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "よやくして",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ホテルを",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "よやくします",
+                  "correct": false
+                },
+                {
+                  "text": "よやくしてしまいました",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "10-6 10주차 복습",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "「모르면 물어보세요」라고 씁니다.\nわからなかったら、___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "きいてください",
+                  "correct": true
+                },
+                {
+                  "text": "きかないでください",
+                  "correct": false
+                },
+                {
+                  "text": "ききます",
+                  "correct": false
+                },
+                {
+                  "text": "ききました",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/563adf7b000f.mp3",
+              "meta": {
+                "say": "あしたに なったら、はなします。"
+              },
+              "options": [
+                {
+                  "text": "이야기하고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "내일이 되면 이야기하겠습니다",
+                  "correct": true
+                },
+                {
+                  "text": "오늘 이야기했습니다",
+                  "correct": false
+                },
+                {
+                  "text": "내일 이야기하지 않겠습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "〜すぎる",
+                  "correct": false,
+                  "meta": {
+                    "pair": "과함",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜ませんか",
+                  "correct": false,
+                  "meta": {
+                    "pair": "제안",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜たら",
+                  "correct": false,
+                  "meta": {
+                    "pair": "가정",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜たほうがいい",
+                  "correct": false,
+                  "meta": {
+                    "pair": "충고",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "너무 ~하다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "과함",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하지 않을래요?",
+                  "correct": false,
+                  "meta": {
+                    "pair": "제안",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하면",
+                  "correct": false,
+                  "meta": {
+                    "pair": "가정",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하는 편이 좋다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "충고",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 너무 먹지 마세요",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/160fcca0a6a9.mp3",
+              "meta": {
+                "target": "たべすぎないでください",
+                "reading": "ta be su gi na i de ku da sa i",
+                "meaning": "너무 먹지 마세요",
+                "say": "たべすぎないでください"
+              },
+              "options": [
+                {
+                  "text": "たべ",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "すぎないで",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ください",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "たべて",
+                  "correct": false
+                },
+                {
+                  "text": "たべます",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "TRACE",
+              "question": "한자를 손으로 따라 쓰세요",
+              "level": 4,
+              "tag": "kanji",
+              "audioSrc": "/audio/ja-jlpt/e130dbe0a5c2.mp3",
+              "meta": {
+                "target": "川",
+                "reading": "かわ",
+                "meaning": "강"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "やすんだほうがいいと おもいます",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "쉬겠습니다",
+                  "correct": false
+                },
+                {
+                  "text": "쉬고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "쉬는 편이 좋다고 생각합니다",
+                  "correct": true
+                },
+                {
+                  "text": "쉬면 안 된다고 생각합니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「너무 샀습니다」라고 씁니다.\nかい___。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ました",
+                  "correct": false
+                },
+                {
+                  "text": "たいです",
+                  "correct": false
+                },
+                {
+                  "text": "ましょう",
+                  "correct": false
+                },
+                {
+                  "text": "すぎました",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 4,
+              "tag": "vocab",
+              "audioSrc": "/audio/ja-jlpt/f2174aa3151f.mp3",
+              "meta": {
+                "target": "そろそろ かえりましょうか。",
+                "reading": "so ro so ro ka e ri ma sho u ka",
+                "meaning": "슬슬 돌아갈까요?",
+                "say": "そろそろ かえりましょうか。"
+              },
+              "options": []
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 4,
+              "tag": "listening",
+              "audioSrc": "/audio/ja-jlpt/2328d6e18691.mp3",
+              "meta": {
+                "say": "じかんが なかったら、タクシーで いきましょう。"
+              },
+              "options": [
+                {
+                  "text": "시간이 없으면 택시로 갑시다",
+                  "correct": true
+                },
+                {
+                  "text": "시간이 있으면 걷습니다",
+                  "correct": false
+                },
+                {
+                  "text": "택시가 없습니다",
+                  "correct": false
+                },
+                {
+                  "text": "택시로 갔습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「오늘은 일찍 자는 편이 좋겠어요」라고 씁니다.\nきょうは はやくねた___ いいです。",
+              "level": 4,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ときが",
+                  "correct": false
+                },
+                {
+                  "text": "ほうが",
+                  "correct": true
+                },
+                {
+                  "text": "ことが",
+                  "correct": false
+                },
+                {
+                  "text": "あとが",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 너무 더워요",
+              "level": 4,
+              "tag": "grammar",
+              "audioSrc": "/audio/ja-jlpt/b2c7c83e074b.mp3",
+              "meta": {
+                "target": "あつすぎます",
+                "reading": "a tsu su gi ma su",
+                "meaning": "너무 더워요",
+                "say": "あつすぎます"
+              },
+              "options": [
+                {
+                  "text": "あつくないです",
+                  "correct": false
+                },
+                {
+                  "text": "あついです",
+                  "correct": false
+                },
+                {
+                  "text": "あつ",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "すぎます",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            }
+          ]
         }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "あしたに なったら、いきます",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "내일 가지 않습니다",
-         "correct": false
-        },
-        {
-         "text": "가려고 합니다",
-         "correct": false
-        },
-        {
-         "text": "내일이 되면 갑니다",
-         "correct": true
-        },
-        {
-         "text": "내일 갔습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/9019a1cd154d.mp3",
-       "meta": {
-        "say": "やすんだら、おきてください。"
-       },
-       "options": [
-        {
-         "text": "쉬면서 일어나 주세요",
-         "correct": false
-        },
-        {
-         "text": "쉬지 마세요",
-         "correct": false
-        },
-        {
-         "text": "일어나서 쉬세요",
-         "correct": false
-        },
-        {
-         "text": "쉬었으면(쉬고 나면) 일어나 주세요",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 비가 그치면 갑니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/5b698473598b.mp3",
-       "meta": {
-        "target": "あめがやんだらいきます",
-        "reading": "a me ga ya n da ra i ki ma su",
-        "meaning": "비가 그치면 갑니다",
-        "say": "あめがやんだらいきます"
-       },
-       "options": [
-        {
-         "text": "あめが",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "やんだら",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "いきます",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "やんだ",
-         "correct": false
-        },
-        {
-         "text": "いきません",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「시간이 있으면 봐 주세요」라고 씁니다.\nじかんが あったら、___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "みてください",
-         "correct": true
-        },
-        {
-         "text": "みます",
-         "correct": false
-        },
-        {
-         "text": "みました",
-         "correct": false
-        },
-        {
-         "text": "みましょうか",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "〜と",
-         "correct": false,
-         "meta": {
-          "pair": "필연",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜から",
-         "correct": false,
-         "meta": {
-          "pair": "이유",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜けど",
-         "correct": false,
-         "meta": {
-          "pair": "대조",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜たら",
-         "correct": false,
-         "meta": {
-          "pair": "조건",
-          "side": "left"
-         }
-        },
-        {
-         "text": "~하면 (항상)",
-         "correct": false,
-         "meta": {
-          "pair": "필연",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~니까",
-         "correct": false,
-         "meta": {
-          "pair": "이유",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하지만",
-         "correct": false,
-         "meta": {
-          "pair": "대조",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하면 (가정)",
-         "correct": false,
-         "meta": {
-          "pair": "조건",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/e32e9c3ded7f.mp3",
-       "meta": {
-        "target": "きょうとへ いったら、おてらを みます。",
-        "reading": "kyo u to e i t ta ra o te ra o mi ma su",
-        "meaning": "교토에 가면 절을 봅니다",
-        "say": "きょうとへ いったら、おてらを みます。"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "あつくなったら、まどを あけます",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "창문을 열지 않습니다",
-         "correct": false
-        },
-        {
-         "text": "더워지면 창문을 엽니다",
-         "correct": true
-        },
-        {
-         "text": "더워져서 닫습니다",
-         "correct": false
-        },
-        {
-         "text": "더웁니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/9c69924ea084.mp3",
-       "meta": {
-        "say": "わからなかったら、きいてください。"
-       },
-       "options": [
-        {
-         "text": "묻지 마세요",
-         "correct": false
-        },
-        {
-         "text": "알겠습니다",
-         "correct": false
-        },
-        {
-         "text": "모르겠으면 물어보세요",
-         "correct": true
-        },
-        {
-         "text": "모르니까 쓰세요",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 끝나면 말해 주세요",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/4934895864d3.mp3",
-       "meta": {
-        "target": "おわったらいってください",
-        "reading": "o wa t ta ra i t te ku da sa i",
-        "meaning": "끝나면 말해 주세요",
-        "say": "おわったらいってください"
-       },
-       "options": [
-        {
-         "text": "いいます",
-         "correct": false
-        },
-        {
-         "text": "おわったら",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "いってください",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "おわって",
-         "correct": false
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "10-2 가능형 (〜ことができます・かける・たべられる)",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "일본어를 말할 수 있습니다.\nにほんごを はなす___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "ことにします",
-         "correct": false
-        },
-        {
-         "text": "ことができます",
-         "correct": true
-        },
-        {
-         "text": "ことがあります",
-         "correct": false
-        },
-        {
-         "text": "ことです",
-         "correct": false
-        }
-       ],
-       "meta": {
-        "explanation": "사전형+ことができます = ~할 수 있다."
-       }
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "かく",
-         "correct": false,
-         "meta": {
-          "pair": "かく",
-          "side": "left"
-         }
-        },
-        {
-         "text": "のむ",
-         "correct": false,
-         "meta": {
-          "pair": "のむ",
-          "side": "left"
-         }
-        },
-        {
-         "text": "たべる",
-         "correct": false,
-         "meta": {
-          "pair": "たべる",
-          "side": "left"
-         }
-        },
-        {
-         "text": "する",
-         "correct": false,
-         "meta": {
-          "pair": "する",
-          "side": "left"
-         }
-        },
-        {
-         "text": "たべられる",
-         "correct": false,
-         "meta": {
-          "pair": "たべる",
-          "side": "right"
-         }
-        },
-        {
-         "text": "のめる",
-         "correct": false,
-         "meta": {
-          "pair": "のむ",
-          "side": "right"
-         }
-        },
-        {
-         "text": "かける",
-         "correct": false,
-         "meta": {
-          "pair": "かく",
-          "side": "right"
-         }
-        },
-        {
-         "text": "できる",
-         "correct": false,
-         "meta": {
-          "pair": "する",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "かんじが よめます",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "한자를 읽습니다",
-         "correct": false
-        },
-        {
-         "text": "한자를 읽고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "한자를 읽었습니다",
-         "correct": false
-        },
-        {
-         "text": "한자를 읽을 수 있습니다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/a0a0f655569d.mp3",
-       "meta": {
-        "say": "わたしは およげません。"
-       },
-       "options": [
-        {
-         "text": "나는 수영을 못 합니다",
-         "correct": true
-        },
-        {
-         "text": "나는 수영을 좋아합니다",
-         "correct": false
-        },
-        {
-         "text": "나는 수영하지 않았습니다",
-         "correct": false
-        },
-        {
-         "text": "나는 수영을 합니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "가능형의 대상에는 조사 が: 피아노를 칠 수 있습니다.\nピアノ___ ひけます。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "に",
-         "correct": false
-        },
-        {
-         "text": "を",
-         "correct": false
-        },
-        {
-         "text": "で",
-         "correct": false
-        },
-        {
-         "text": "が",
-         "correct": true
-        }
-       ],
-       "meta": {
-        "explanation": "1그룹은 う단→え단+る (ひく→ひける). 가능형 앞의 목적어는 を 대신 が를 자주 씁니다."
-       }
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 나는 자전거를 탈 수 있습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/acc89aae2b5b.mp3",
-       "meta": {
-        "target": "わたしはじてんしゃにのれます",
-        "reading": "wa ta shi ha ji te n sha ni no re ma su",
-        "meaning": "나는 자전거를 탈 수 있습니다",
-        "say": "わたしはじてんしゃにのれます"
-       },
-       "options": [
-        {
-         "text": "のれます",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "のられます",
-         "correct": false
-        },
-        {
-         "text": "わたしは",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "じてんしゃに",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "のります",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/59597aec856d.mp3",
-       "meta": {
-        "target": "すこし にほんごが はなせます。",
-        "reading": "su ko shi ni ho n go ga ha na se ma su",
-        "meaning": "조금 일본어를 할 수 있습니다",
-        "say": "すこし にほんごが はなせます。"
-       },
-       "options": []
-      },
-      {
-       "type": "SELECT",
-       "question": "「먹다(たべる)」의 가능형은?\nたべる → ___",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "たべできる",
-         "correct": false
-        },
-        {
-         "text": "たべえる",
-         "correct": false
-        },
-        {
-         "text": "たべれる",
-         "correct": false
-        },
-        {
-         "text": "たべられる",
-         "correct": true
-        }
-       ],
-       "meta": {
-        "explanation": "2그룹은 る→られる. たべれる(ら抜き)는 구어체라 시험에서는 たべられる."
-       }
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/35a3b64a502c.mp3",
-       "meta": {
-        "say": "あしたは こられますか。"
-       },
-       "options": [
-        {
-         "text": "내일 올 수 있습니까?",
-         "correct": true
-        },
-        {
-         "text": "내일 오고 싶습니까?",
-         "correct": false
-        },
-        {
-         "text": "내일 옵니까?",
-         "correct": false
-        },
-        {
-         "text": "내일 왔습니까?",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 여기서는 사진을 찍을 수 없습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/5f726f8e1818.mp3",
-       "meta": {
-        "target": "ここではしゃしんがとれません",
-        "reading": "ko ko de ha sha shi n ga to re ma se n",
-        "meaning": "여기서는 사진을 찍을 수 없습니다",
-        "say": "ここではしゃしんがとれません"
-       },
-       "options": [
-        {
-         "text": "とれます",
-         "correct": false
-        },
-        {
-         "text": "しゃしんが",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "とりません",
-         "correct": false
-        },
-        {
-         "text": "とれません",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "ここでは",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "10-3 〜たほうがいい (충고)",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "빨리 가는 편이 좋습니다.\nはやく ___。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "충고는 た形+ほうがいいです: ~하는 편이 좋다."
-       },
-       "options": [
-        {
-         "text": "いかなければ",
-         "correct": false
-        },
-        {
-         "text": "いったほうがいいです",
-         "correct": true
-        },
-        {
-         "text": "いくほうがいいです",
-         "correct": false
-        },
-        {
-         "text": "いったほうです",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "やすんだほうがいいです",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "쉬고 있습니다",
-         "correct": false
-        },
-        {
-         "text": "쉬고 싶지 않습니다",
-         "correct": false
-        },
-        {
-         "text": "쉬는 편이 좋습니다",
-         "correct": true
-        },
-        {
-         "text": "쉬면 안 됩니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/cbe27d459fc1.mp3",
-       "meta": {
-        "say": "びょういんへ いったほうがいいですよ。"
-       },
-       "options": [
-        {
-         "text": "병원에 가면 안 됩니다",
-         "correct": false
-        },
-        {
-         "text": "병원에 가고 있습니다",
-         "correct": false
-        },
-        {
-         "text": "병원에 안 가요",
-         "correct": false
-        },
-        {
-         "text": "병원에 가는 편이 좋아요",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 묻는 편이 좋습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/cddfe76230f8.mp3",
-       "meta": {
-        "target": "きいたほうがいいです",
-        "reading": "ki i ta ho u ga i i de su",
-        "meaning": "묻는 편이 좋습니다",
-        "say": "きいたほうがいいです"
-       },
-       "options": [
-        {
-         "text": "きいた",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "ほうがいいです",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "きかない",
-         "correct": false
-        },
-        {
-         "text": "ききます",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "담배를 피우지 않는 편이 좋습니다.\nたばこは すわない___いいです。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "ほうが",
-         "correct": true
-        },
-        {
-         "text": "ことが",
-         "correct": false
-        },
-        {
-         "text": "ものが",
-         "correct": false
-        },
-        {
-         "text": "ための",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "TRACE",
-       "question": "한자를 손으로 따라 쓰세요",
-       "level": 4,
-       "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/86fa9c82d812.mp3",
-       "meta": {
-        "target": "山",
-        "reading": "やま",
-        "meaning": "산"
-       },
-       "options": []
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/5f9ed904848b.mp3",
-       "meta": {
-        "target": "もっと べんきょうしたほうがいいです。",
-        "reading": "mo t to be n kyo u shi ta ho u ga i i de su",
-        "meaning": "더 공부하는 편이 좋습니다",
-        "say": "もっと べんきょうしたほうがいいです。"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "かさを もったほうがいいですよ",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "비가 왔어요",
-         "correct": false
-        },
-        {
-         "text": "우산을 가지고 가는 편이 좋아요",
-         "correct": true
-        },
-        {
-         "text": "우산을 빌려 주세요",
-         "correct": false
-        },
-        {
-         "text": "우산은 필요 없어요",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/6dce9645301d.mp3",
-       "meta": {
-        "say": "いま でかけないほうがいいです。"
-       },
-       "options": [
-        {
-         "text": "외출해 주세요",
-         "correct": false
-        },
-        {
-         "text": "외출해도 됩니다",
-         "correct": false
-        },
-        {
-         "text": "지금 외출하지 않는 편이 좋습니다",
-         "correct": true
-        },
-        {
-         "text": "지금 외출하고 있습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 천천히 말하는 편이 좋아요",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/47b810ea54d0.mp3",
-       "meta": {
-        "target": "ゆっくりはなしたほうがいいですよ",
-        "reading": "yu k ku ri ha na shi ta ho u ga i i de su yo",
-        "meaning": "천천히 말하는 편이 좋아요",
-        "say": "ゆっくりはなしたほうがいいですよ"
-       },
-       "options": [
-        {
-         "text": "ゆっくり",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "はなした",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "ほうがいいですよ",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "はやく",
-         "correct": false
-        },
-        {
-         "text": "はなします",
-         "correct": false
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "10-4 〜すぎる (너무 ~하다)",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "너무 먹었어요(과식했어요).\nたべ___。",
-       "level": 4,
-       "tag": "grammar",
-       "meta": {
-        "explanation": "과함은 ます형 어간+すぎる: たべすぎる."
-       },
-       "options": [
-        {
-         "text": "ました",
-         "correct": false
-        },
-        {
-         "text": "たいです",
-         "correct": false
-        },
-        {
-         "text": "ましょう",
-         "correct": false
-        },
-        {
-         "text": "すぎました",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "ASSIST",
-       "question": "きのうは のみすぎました",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "어제는 너무(많이) 마셨습니다",
-         "correct": true
-        },
-        {
-         "text": "어제는 안 마셨습니다",
-         "correct": false
-        },
-        {
-         "text": "마시고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "마시러 갑니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/69ee1ea03756.mp3",
-       "meta": {
-        "say": "テレビを みすぎて、めが いたいです。"
-       },
-       "options": [
-        {
-         "text": "텔레비전을 보고 싶습니다",
-         "correct": false
-        },
-        {
-         "text": "텔레비전을 너무 봐서 눈이 아픕니다",
-         "correct": true
-        },
-        {
-         "text": "텔레비전을 조금 봤습니다",
-         "correct": false
-        },
-        {
-         "text": "눈이 아프지만 봅니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 말이 너무 빠릅니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/090039321381.mp3",
-       "meta": {
-        "target": "はなしかたがはやすぎます",
-        "reading": "ha na shi ka ta ga ha ya su gi ma su",
-        "meaning": "말이 너무 빠릅니다",
-        "say": "はなしかたがはやすぎます"
-       },
-       "options": [
-        {
-         "text": "はやすぎます",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "はやいです",
-         "correct": false
-        },
-        {
-         "text": "はやくない",
-         "correct": false
-        },
-        {
-         "text": "はなしかたが",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "이 방은 너무 작아요.\nこの へやは ちいさ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "たいです",
-         "correct": false
-        },
-        {
-         "text": "ながら",
-         "correct": false
-        },
-        {
-         "text": "すぎます",
-         "correct": true
-        },
-        {
-         "text": "ます",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "はたらきすぎる",
-         "correct": false,
-         "meta": {
-          "pair": "はたらきすぎる",
-          "side": "left"
-         }
-        },
-        {
-         "text": "たべすぎる",
-         "correct": false,
-         "meta": {
-          "pair": "たべすぎる",
-          "side": "left"
-         }
-        },
-        {
-         "text": "のみすぎる",
-         "correct": false,
-         "meta": {
-          "pair": "のみすぎる",
-          "side": "left"
-         }
-        },
-        {
-         "text": "かいすぎる",
-         "correct": false,
-         "meta": {
-          "pair": "かいすぎる",
-          "side": "left"
-         }
-        },
-        {
-         "text": "너무 마시다",
-         "correct": false,
-         "meta": {
-          "pair": "のみすぎる",
-          "side": "right"
-         }
-        },
-        {
-         "text": "너무 사다",
-         "correct": false,
-         "meta": {
-          "pair": "かいすぎる",
-          "side": "right"
-         }
-        },
-        {
-         "text": "너무 먹다",
-         "correct": false,
-         "meta": {
-          "pair": "たべすぎる",
-          "side": "right"
-         }
-        },
-        {
-         "text": "너무 일하다",
-         "correct": false,
-         "meta": {
-          "pair": "はたらきすぎる",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/f0b49b4db989.mp3",
-       "meta": {
-        "target": "きょうは あつすぎますね。",
-        "reading": "kyo u wa a tsu su gi ma su ne",
-        "meaning": "오늘은 너무 덥네요",
-        "say": "きょうは あつすぎますね。"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "しごとが おおすぎます",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "일이 많지 않습니다",
-         "correct": false
-        },
-        {
-         "text": "일이 적습니다",
-         "correct": false
-        },
-        {
-         "text": "일하려고 합니다",
-         "correct": false
-        },
-        {
-         "text": "일이 너무 많습니다",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/a2cf5a3358b2.mp3",
-       "meta": {
-        "say": "この かばんは たかすぎて、かえません。"
-       },
-       "options": [
-        {
-         "text": "이 가방은 너무 비싸서 살 수 없습니다",
-         "correct": true
-        },
-        {
-         "text": "이 가방은 쌉니다",
-         "correct": false
-        },
-        {
-         "text": "이 가방을 샀습니다",
-         "correct": false
-        },
-        {
-         "text": "이 가방은 싸서 샀습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 어제는 너무 많이 마셨습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/7d4af057f005.mp3",
-       "meta": {
-        "target": "きのうはのみすぎました",
-        "reading": "ki no u ha no mi su gi ma shi ta",
-        "meaning": "어제는 너무 많이 마셨습니다",
-        "say": "きのうはのみすぎました"
-       },
-       "options": [
-        {
-         "text": "のみすぎました",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "のみすぎます",
-         "correct": false
-        },
-        {
-         "text": "のみました",
-         "correct": false
-        },
-        {
-         "text": "きのうは",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "10-5 〜てみます・〜ておきます・〜てしまいます",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "이 옷을 입어 보겠습니다.\nこの ふくを ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "きてしまいます",
-         "correct": false
-        },
-        {
-         "text": "きておきます",
-         "correct": false
-        },
-        {
-         "text": "きています",
-         "correct": false
-        },
-        {
-         "text": "きてみます",
-         "correct": true
-        }
-       ],
-       "meta": {
-        "explanation": "시도는 て형+みます (~해 보다)."
-       }
-      },
-      {
-       "type": "ASSIST",
-       "question": "まどを あけておきました",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "창문을 열어 두었습니다",
-         "correct": true
-        },
-        {
-         "text": "창문을 열어 버렸습니다",
-         "correct": false
-        },
-        {
-         "text": "창문을 열어 봤습니다",
-         "correct": false
-        },
-        {
-         "text": "창문이 열려 있습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/e963a7391471.mp3",
-       "meta": {
-        "say": "さいふを わすれてしまいました。"
-       },
-       "options": [
-        {
-         "text": "지갑을 잊어 봅니다",
-         "correct": false
-        },
-        {
-         "text": "지갑을 잊지 않도록 해 두었습니다",
-         "correct": false
-        },
-        {
-         "text": "지갑을 잊어버리고 말았습니다",
-         "correct": true
-        },
-        {
-         "text": "지갑을 찾아봤습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 일본 요리를 만들어 보고 싶습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/7efb94392899.mp3",
-       "meta": {
-        "target": "にほんりょうりをつくってみたいです",
-        "reading": "ni ho n ryo u ri o tsu ku t te mi ta i de su",
-        "meaning": "일본 요리를 만들어 보고 싶습니다",
-        "say": "にほんりょうりをつくってみたいです"
-       },
-       "options": [
-        {
-         "text": "つくりたいです",
-         "correct": false
-        },
-        {
-         "text": "みたいです",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "にほんりょうりを",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "つくって",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "つくっておきます",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "파티 전에 음료를 사 둡시다. (준비)\nパーティーの まえに のみものを ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "かってみましょう",
-         "correct": false
-        },
-        {
-         "text": "かってしまいましょう",
-         "correct": false
-        },
-        {
-         "text": "かっていましょう",
-         "correct": false
-        },
-        {
-         "text": "かっておきましょう",
-         "correct": true
-        }
-       ],
-       "meta": {
-        "explanation": "미리 준비해 두는 것은 て형+おきます."
-       }
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "〜てみます",
-         "correct": false,
-         "meta": {
-          "pair": "〜てみます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜ておきます",
-         "correct": false,
-         "meta": {
-          "pair": "〜ておきます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜てしまいます",
-         "correct": false,
-         "meta": {
-          "pair": "〜てしまいます",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜ています",
-         "correct": false,
-         "meta": {
-          "pair": "〜ています",
-          "side": "left"
-         }
-        },
-        {
-         "text": "~해 봅니다 (시도)",
-         "correct": false,
-         "meta": {
-          "pair": "〜てみます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하고 있습니다",
-         "correct": false,
-         "meta": {
-          "pair": "〜ています",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~해 버립니다 (완료·유감)",
-         "correct": false,
-         "meta": {
-          "pair": "〜てしまいます",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~해 둡니다 (준비)",
-         "correct": false,
-         "meta": {
-          "pair": "〜ておきます",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/4f0bec3d7c17.mp3",
-       "meta": {
-        "target": "ケーキを ぜんぶ たべてしまいました。",
-        "reading": "kee ki o ze n bu ta be te shi ma i ma shi ta",
-        "meaning": "케이크를 전부 먹어 버렸습니다",
-        "say": "ケーキを ぜんぶ たべてしまいました。"
-       },
-       "options": []
-      },
-      {
-       "type": "SELECT",
-       "question": "전철에 우산을 두고 와 버렸습니다. (유감)\nでんしゃに かさを ___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "わすれておきました",
-         "correct": false
-        },
-        {
-         "text": "わすれてみました",
-         "correct": false
-        },
-        {
-         "text": "わすれてしまいました",
-         "correct": true
-        },
-        {
-         "text": "わすれています",
-         "correct": false
-        }
-       ],
-       "meta": {
-        "explanation": "てしまう는 완료 또는 「아차」 하는 유감을 나타냅니다."
-       }
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/ece04f535f5a.mp3",
-       "meta": {
-        "say": "この くつを はいてみても いいですか。"
-       },
-       "options": [
-        {
-         "text": "이 신발을 신어 버렸습니까?",
-         "correct": false
-        },
-        {
-         "text": "이 신발을 신어 두었습니까?",
-         "correct": false
-        },
-        {
-         "text": "이 신발을 신고 있습니까?",
-         "correct": false
-        },
-        {
-         "text": "이 신발을 신어 봐도 됩니까?",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 호텔을 예약해 두었습니다",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/b249636d3718.mp3",
-       "meta": {
-        "target": "ホテルをよやくしておきました",
-        "reading": "ho te ru o yo ya ku shi te o ki ma shi ta",
-        "meaning": "호텔을 예약해 두었습니다",
-        "say": "ホテルをよやくしておきました"
-       },
-       "options": [
-        {
-         "text": "おきました",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "よやくして",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "ホテルを",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "よやくします",
-         "correct": false
-        },
-        {
-         "text": "よやくしてしまいました",
-         "correct": false
-        }
-       ]
-      }
-     ]
-    },
-    {
-     "title": "10-6 10주차 복습",
-     "challenges": [
-      {
-       "type": "SELECT",
-       "question": "「모르면 물어보세요」라고 씁니다.\nわからなかったら、___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "きいてください",
-         "correct": true
-        },
-        {
-         "text": "きかないでください",
-         "correct": false
-        },
-        {
-         "text": "ききます",
-         "correct": false
-        },
-        {
-         "text": "ききました",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/563adf7b000f.mp3",
-       "meta": {
-        "say": "あしたに なったら、はなします。"
-       },
-       "options": [
-        {
-         "text": "이야기하고 있습니다",
-         "correct": false
-        },
-        {
-         "text": "내일이 되면 이야기하겠습니다",
-         "correct": true
-        },
-        {
-         "text": "오늘 이야기했습니다",
-         "correct": false
-        },
-        {
-         "text": "내일 이야기하지 않겠습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "MATCH",
-       "question": "짝을 맞추세요",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "〜すぎる",
-         "correct": false,
-         "meta": {
-          "pair": "과함",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜ませんか",
-         "correct": false,
-         "meta": {
-          "pair": "제안",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜たら",
-         "correct": false,
-         "meta": {
-          "pair": "가정",
-          "side": "left"
-         }
-        },
-        {
-         "text": "〜たほうがいい",
-         "correct": false,
-         "meta": {
-          "pair": "충고",
-          "side": "left"
-         }
-        },
-        {
-         "text": "너무 ~하다",
-         "correct": false,
-         "meta": {
-          "pair": "과함",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하지 않을래요?",
-         "correct": false,
-         "meta": {
-          "pair": "제안",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하면",
-         "correct": false,
-         "meta": {
-          "pair": "가정",
-          "side": "right"
-         }
-        },
-        {
-         "text": "~하는 편이 좋다",
-         "correct": false,
-         "meta": {
-          "pair": "충고",
-          "side": "right"
-         }
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 너무 먹지 마세요",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/160fcca0a6a9.mp3",
-       "meta": {
-        "target": "たべすぎないでください",
-        "reading": "ta be su gi na i de ku da sa i",
-        "meaning": "너무 먹지 마세요",
-        "say": "たべすぎないでください"
-       },
-       "options": [
-        {
-         "text": "たべ",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "すぎないで",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        },
-        {
-         "text": "ください",
-         "correct": true,
-         "meta": {
-          "order": 3
-         }
-        },
-        {
-         "text": "たべて",
-         "correct": false
-        },
-        {
-         "text": "たべます",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "TRACE",
-       "question": "한자를 손으로 따라 쓰세요",
-       "level": 4,
-       "tag": "kanji",
-       "audioSrc": "/audio/ja-jlpt/e130dbe0a5c2.mp3",
-       "meta": {
-        "target": "川",
-        "reading": "かわ",
-        "meaning": "강"
-       },
-       "options": []
-      },
-      {
-       "type": "ASSIST",
-       "question": "やすんだほうがいいと おもいます",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "쉬겠습니다",
-         "correct": false
-        },
-        {
-         "text": "쉬고 있습니다",
-         "correct": false
-        },
-        {
-         "text": "쉬는 편이 좋다고 생각합니다",
-         "correct": true
-        },
-        {
-         "text": "쉬면 안 된다고 생각합니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「너무 샀습니다」라고 씁니다.\nかい___。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "ました",
-         "correct": false
-        },
-        {
-         "text": "たいです",
-         "correct": false
-        },
-        {
-         "text": "ましょう",
-         "correct": false
-        },
-        {
-         "text": "すぎました",
-         "correct": true
-        }
-       ]
-      },
-      {
-       "type": "SPEAK",
-       "question": "따라 읽어보세요",
-       "level": 4,
-       "tag": "vocab",
-       "audioSrc": "/audio/ja-jlpt/f2174aa3151f.mp3",
-       "meta": {
-        "target": "そろそろ かえりましょうか。",
-        "reading": "so ro so ro ka e ri ma sho u ka",
-        "meaning": "슬슬 돌아갈까요?",
-        "say": "そろそろ かえりましょうか。"
-       },
-       "options": []
-      },
-      {
-       "type": "LISTEN",
-       "question": "들리는 문장의 뜻은?",
-       "level": 4,
-       "tag": "listening",
-       "audioSrc": "/audio/ja-jlpt/2328d6e18691.mp3",
-       "meta": {
-        "say": "じかんが なかったら、タクシーで いきましょう。"
-       },
-       "options": [
-        {
-         "text": "시간이 없으면 택시로 갑시다",
-         "correct": true
-        },
-        {
-         "text": "시간이 있으면 걷습니다",
-         "correct": false
-        },
-        {
-         "text": "택시가 없습니다",
-         "correct": false
-        },
-        {
-         "text": "택시로 갔습니다",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "SELECT",
-       "question": "「오늘은 일찍 자는 편이 좋겠어요」라고 씁니다.\nきょうは はやくねた___ いいです。",
-       "level": 4,
-       "tag": "grammar",
-       "options": [
-        {
-         "text": "ときが",
-         "correct": false
-        },
-        {
-         "text": "ほうが",
-         "correct": true
-        },
-        {
-         "text": "ことが",
-         "correct": false
-        },
-        {
-         "text": "あとが",
-         "correct": false
-        }
-       ]
-      },
-      {
-       "type": "BUILD",
-       "question": "문장을 만드세요: 너무 더워요",
-       "level": 4,
-       "tag": "grammar",
-       "audioSrc": "/audio/ja-jlpt/b2c7c83e074b.mp3",
-       "meta": {
-        "target": "あつすぎます",
-        "reading": "a tsu su gi ma su",
-        "meaning": "너무 더워요",
-        "say": "あつすぎます"
-       },
-       "options": [
-        {
-         "text": "あつくないです",
-         "correct": false
-        },
-        {
-         "text": "あついです",
-         "correct": false
-        },
-        {
-         "text": "あつ",
-         "correct": true,
-         "meta": {
-          "order": 1
-         }
-        },
-        {
-         "text": "すぎます",
-         "correct": true,
-         "meta": {
-          "order": 2
-         }
-        }
-       ]
-      }
-     ]
+      ]
     }
-   ]
-  }
- ]
+  ]
 }
