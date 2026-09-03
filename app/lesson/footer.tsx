@@ -20,7 +20,7 @@ export const Footer = ({ onCheck, status, disabled, lessonId, wrongHint, explana
           </div>
         )}
         <div className="flex gap-3">
-          {status === "completed" && (
+          {status === "completed" && lessonId != null && (
             <Button variant="default" size="lg" className="flex-1" onClick={() => (window.location.href = `/lesson/${lessonId}`)}>다시 연습하기</Button>
           )}
           <Button disabled={disabled} aria-disabled={disabled} onClick={onCheck} size="lg" className="h-14 flex-1 text-base" variant={status === "wrong" ? "danger" : "secondary"}>
