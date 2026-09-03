@@ -1,13 +1,14 @@
 import { cache } from "react";
 
 import { auth } from "@/lib/session";
-import { eq } from "drizzle-orm";
+import { eq, inArray, sql } from "drizzle-orm";
 
 import { EVERYONE_IS_PRO } from "@/constants";
 
 import db from "./drizzle";
 import {
   challengeProgress,
+  challenges,
   courses,
   lessons,
   units,
@@ -16,6 +17,79 @@ import {
 } from "./schema";
 
 const DAY_IN_MS = 86_400_000;
+
+// 약점 복습: the engine's "틀린 것이 다시 나온다" promise. Collects the active
+// course's challenges the user answered wrong on their first attempt and never
+// got right since; tops the set up to 10 with random completed challenges when
+// wrongs are scarce. No schema changes — reads attempts + progress only.
+export const getPracticeChallenges = cache(async () => {
+  const { userId } = await auth();
+  if (!userId) return null;
+
+  const courseProgress = await getUserProgress();
+  const courseId = courseProgress?.activeCourseId;
+  if (!courseId) return null;
+
+  const wrongs = await db.execute(sql`
+    WITH course_challenges AS (
+      SELECT c.id FROM challenges c
+      JOIN lessons l ON l.id = c.lesson_id
+      JOIN units u ON u.id = l.unit_id
+      WHERE u.course_id = ${courseId}
+    ),
+    stats AS (
+      SELECT a.challenge_id,
+             MIN(a.created_at) AS first_at,
+             BOOL_OR(a.correct) AS ever_correct
+      FROM challenge_attempts a
+      JOIN course_challenges cc ON cc.id = a.challenge_id
+      WHERE a.user_id = ${userId}
+      GROUP BY a.challenge_id
+    )
+    SELECT s.challenge_id AS id
+    FROM stats s
+    WHERE NOT s.ever_correct
+    ORDER BY s.first_at DESC
+    LIMIT 12
+  `);
+  let ids = wrongs.rows.map((r) => Number(r.id));
+
+  if (ids.length < 10) {
+    const notIn = ids.length
+      ? sql`c.id NOT IN (${sql.join(ids.map((i) => sql`${i}`), sql`, `)})`
+      : sql`TRUE`;
+    const fill = await db.execute(sql`
+      SELECT c.id FROM challenges c
+      JOIN challenge_progress p ON p.challenge_id = c.id AND p.user_id = ${userId} AND p.completed
+      JOIN lessons l ON l.id = c.lesson_id
+      JOIN units u ON u.id = l.unit_id
+      WHERE u.course_id = ${courseId} AND ${notIn}
+      ORDER BY random()
+      LIMIT ${10 - ids.length}
+    `);
+    ids = [...ids, ...fill.rows.map((r) => Number(r.id))];
+  }
+
+  if (!ids.length) return null;
+
+  const data = await db.query.challenges.findMany({
+    where: inArray(challenges.id, ids),
+    with: {
+      challengeOptions: true,
+      challengeProgress: {
+        where: eq(challengeProgress.userId, userId),
+      },
+    },
+  });
+  const byId = new Map(data.map((c) => [c.id, c]));
+  const ordered = ids
+    .map((id) => byId.get(id))
+    .filter((c): c is (typeof data)[number] => !!c && c.challengeOptions.length > 0);
+
+  // Practice never reads or writes completion state; mark everything undone so
+  // the runner starts from the first card.
+  return ordered.map((c) => ({ ...c, completed: false }));
+});
 
 export const getCourses = cache(async () => {
   const data = await db.query.courses.findMany();
