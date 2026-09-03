@@ -69,7 +69,7 @@
        "audioSrc": "/audio/ja-jlpt/c0e89a293bd3.mp3",
        "meta": {
         "target": "こんにちは",
-        "reading": "ko n ni chi ha",
+        "reading": "ko n ni chi wa",
         "meaning": "안녕하세요 (낮)",
         "say": "こんにちは"
        },
@@ -207,7 +207,7 @@
        "audioSrc": "/audio/ja-jlpt/c0e89a293bd3.mp3",
        "meta": {
         "target": "こんにちは",
-        "reading": "ko n ni chi ha",
+        "reading": "ko n ni chi wa",
         "meaning": "안녕하세요 (낮)",
         "say": "こんにちは"
        },
