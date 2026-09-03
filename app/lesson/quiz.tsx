@@ -9,6 +9,7 @@ import { useAudio, useWindowSize, useMount } from "react-use";
 import { toast } from "sonner";
 
 import { upsertChallengeProgress } from "@/actions/challenge-progress";
+import { recordAttempt } from "@/actions/attempts";
 import { recordLessonComplete } from "@/actions/streak";
 import { reduceHearts } from "@/actions/user-progress";
 import { MAX_HEARTS } from "@/constants";
@@ -122,6 +123,8 @@ export const Quiz = ({
     const correctOption = options.find((option) => option.correct);
 
     if (!correctOption) return;
+
+    void recordAttempt(challenge.id, correctOption.id === selectedOption).catch(() => {});
 
     if (correctOption.id === selectedOption) {
       startTransition(() => {
