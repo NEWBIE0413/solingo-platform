@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -84,7 +84,7 @@ export const Quiz = ({
   });
 
   const [answer, setAnswer] = useState<Answer | null>(null);
-  const [attended, setAttended] = useState(false);
+  const attended = useRef(false); // ref, not state: React dev StrictMode runs effects twice before state settles → double attendance
   const [status, setStatus] = useState<"none" | "wrong" | "correct">("none");
 
   const challenge = challenges[activeIndex];
@@ -107,10 +107,10 @@ export const Quiz = ({
 
   // 출석: the moment the lesson runs out of challenges, once.
   useEffect(() => {
-    if (challenge || attended) return;
-    setAttended(true);
+    if (challenge || attended.current) return;
+    attended.current = true;
     void recordLessonComplete().catch(() => {});
-  }, [challenge, attended]);
+  }, [challenge]);
 
   const onNext = () => {
     setActiveIndex((current) => current + 1);
