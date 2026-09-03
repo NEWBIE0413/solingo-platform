@@ -333,3 +333,11 @@ export const getTopTenUsers = cache(async () => {
 
   return data;
 });
+
+// Admin 레벨 결과 열람: the picker's options (everyone with progress rows).
+export const getUsersWithProgress = cache(async () => {
+  return db.query.userProgress.findMany({
+    orderBy: (userProgress, { desc }) => [desc(userProgress.points)],
+    columns: { userId: true, userName: true, userImageSrc: true, points: true },
+  });
+});
