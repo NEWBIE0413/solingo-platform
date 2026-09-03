@@ -17,7 +17,8 @@ import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
 
-import { Challenge } from "./challenge";
+import { type Answer, Challenge } from "./challenge";
+import { play } from "./audio";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
@@ -80,7 +81,7 @@ export const Quiz = ({
     return uncompletedIndex === -1 ? 0 : uncompletedIndex;
   });
 
-  const [selectedOption, setSelectedOption] = useState<number>();
+  const [answer, setAnswer] = useState<Answer | null>(null);
   const [attended, setAttended] = useState(false);
   const [status, setStatus] = useState<"none" | "wrong" | "correct">("none");
 
@@ -98,51 +99,46 @@ export const Quiz = ({
     setActiveIndex((current) => current + 1);
   };
 
-  const onSelect = (id: number) => {
-    if (status !== "none") return;
+  const meta = (challenge?.meta ?? {}) as { target?: string; reading?: string };
 
-    setSelectedOption(id);
+  // One place that knows what "right" means for every exercise type.
+  const judge = (): boolean | null => {
+    if (!challenge || !answer) return null;
+    switch (challenge.type) {
+      case "SELECT": case "ASSIST": case "LISTEN": {
+        const correct = options.find((o) => o.correct); return answer.kind === "option" && !!correct && correct.id === answer.id; }
+      case "BUILD": return answer.kind === "build" && answer.text === meta.target;
+      case "MATCH": return answer.kind === "match";           // finishing the board is the win; misses just cost taps
+      case "TRACE": return answer.kind === "trace";           // self-judged
+      case "SPEAK": return answer.kind === "speak" && answer.ok;
+      default: return null;
+    }
   };
+  const wrongHint = challenge?.type === "BUILD" ? `정답: ${meta.target ?? ""}` : ["SELECT", "LISTEN"].includes(challenge?.type ?? "") ? `정답: ${options.find((o) => o.correct)?.text ?? ""}` : challenge?.type === "ASSIST" ? `정답: ${options.find((o) => o.correct)?.text ?? ""}` : undefined;
 
   const onContinue = () => {
-    if (!selectedOption) return;
+    if (!answer) return;
 
     if (status === "wrong") {
-      setStatus("none");
-      setSelectedOption(undefined);
-      return;
+      // Duolingo moves on after showing the answer; the item comes back later via practice.
+      onNext(); setStatus("none"); setAnswer(null); return;
     }
+    if (status === "correct") { onNext(); setStatus("none"); setAnswer(null); return; }
 
-    if (status === "correct") {
-      onNext();
-      setStatus("none");
-      setSelectedOption(undefined);
-      return;
-    }
+    const ok = judge();
+    if (ok === null) return;
+    void recordAttempt(challenge.id, ok).catch(() => {});
+    if (challenge.audioSrc && challenge.type !== "TRACE") play(challenge.audioSrc);
 
-    const correctOption = options.find((option) => option.correct);
-
-    if (!correctOption) return;
-
-    void recordAttempt(challenge.id, correctOption.id === selectedOption).catch(() => {});
-
-    if (correctOption.id === selectedOption) {
+    if (ok) {
       startTransition(() => {
         upsertChallengeProgress(challenge.id)
           .then((response) => {
-            if (response?.error === "hearts") {
-              openHeartsModal();
-              return;
-            }
-
+            if (response?.error === "hearts") { openHeartsModal(); return; }
             void correctControls.play();
             setStatus("correct");
             setPercentage((prev) => prev + 100 / challenges.length);
-
-            // This is a practice
-            if (initialPercentage === 100) {
-              setHearts((prev) => Math.min(prev + 1, MAX_HEARTS));
-            }
+            if (initialPercentage === 100) setHearts((prev) => Math.min(prev + 1, MAX_HEARTS));
           })
           .catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
       });
@@ -150,14 +146,9 @@ export const Quiz = ({
       startTransition(() => {
         reduceHearts(challenge.id)
           .then((response) => {
-            if (response?.error === "hearts") {
-              openHeartsModal();
-              return;
-            }
-
+            if (response?.error === "hearts") { openHeartsModal(); return; }
             void incorrectControls.play();
             setStatus("wrong");
-
             if (!response?.error) setHearts((prev) => Math.max(prev - 1, 0));
           })
           .catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
@@ -216,9 +207,7 @@ export const Quiz = ({
   }
 
   const title =
-    challenge.type === "ASSIST"
-      ? "알맞은 뜻을 고르세요"
-      : challenge.question;
+    challenge.type === "ASSIST" ? (challenge.tag === "word" ? "무슨 뜻일까요?" : "어떻게 읽어요?") : challenge.question;
 
   return (
     <>
@@ -232,8 +221,8 @@ export const Quiz = ({
 
       <div className="flex-1">
         <div className="flex h-full items-center justify-center">
-          <div className="flex w-full flex-col gap-y-12 px-6 lg:min-h-[350px] lg:w-[600px] lg:px-0">
-            <h1 className="text-center text-lg font-bold text-neutral-700 lg:text-start lg:text-3xl">
+          <div className="flex w-full flex-col gap-y-8 px-5 py-4 lg:min-h-[350px] lg:w-[600px] lg:px-0">
+            <h1 className="text-center text-2xl font-bold text-neutral-700 lg:text-start lg:text-3xl">
               {title}
             </h1>
 
@@ -243,12 +232,12 @@ export const Quiz = ({
               )}
 
               <Challenge
-                options={options}
-                onSelect={onSelect}
+                challenge={challenge}
+                answer={answer}
+                onAnswer={(a) => { if (status === "none") setAnswer(a); }}
                 status={status}
-                selectedOption={selectedOption}
                 disabled={pending}
-                type={challenge.type}
+                lang="ja-JP"
               />
             </div>
           </div>
@@ -256,9 +245,10 @@ export const Quiz = ({
       </div>
 
       <Footer
-        disabled={pending || !selectedOption}
+        disabled={pending || !answer}
         status={status}
         onCheck={onContinue}
+        wrongHint={wrongHint}
       />
     </>
   );
