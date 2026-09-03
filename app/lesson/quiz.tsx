@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -86,7 +86,22 @@ export const Quiz = ({
   const [status, setStatus] = useState<"none" | "wrong" | "correct">("none");
 
   const challenge = challenges[activeIndex];
-  const options = challenge?.challengeOptions ?? [];
+  // Deterministic per-challenge shuffle: content authors can't always balance the correct
+  // position, and answer-position patterns defeat the measurement. Stable per challenge so
+  // re-renders (and re-checks) don't reorder under the user's finger.
+  const options = useMemo(() => {
+    const list = challenge?.challengeOptions ?? [];
+    if (list.length < 2 || !challenge) return list;
+    let seed = 0;
+    for (const ch of String(challenge.id)) seed = (seed * 31 + ch.charCodeAt(0)) >>> 0;
+    const rand = () => { seed = (seed * 1103515245 + 12345) >>> 0; return seed / 2 ** 32; };
+    const out = [...list];
+    for (let i = out.length - 1; i > 0; i--) {
+      const j = Math.floor(rand() * (i + 1));
+      [out[i], out[j]] = [out[j], out[i]];
+    }
+    return out;
+  }, [challenge]);
 
   // 출석: the moment the lesson runs out of challenges, once.
   useEffect(() => {
@@ -99,7 +114,7 @@ export const Quiz = ({
     setActiveIndex((current) => current + 1);
   };
 
-  const meta = (challenge?.meta ?? {}) as { target?: string; reading?: string };
+  const meta = (challenge?.meta ?? {}) as { target?: string; reading?: string; explanation?: string };
 
   // One place that knows what "right" means for every exercise type.
   const judge = (): boolean | null => {
@@ -226,7 +241,7 @@ export const Quiz = ({
       <div className="flex-1">
         <div className="flex h-full items-center justify-center">
           <div className="flex w-full flex-col gap-y-8 px-5 py-4 lg:min-h-[350px] lg:w-[600px] lg:px-0">
-            <h1 className={longTitle ? "whitespace-pre-line text-left text-lg font-semibold leading-relaxed text-neutral-700 lg:text-xl" : "whitespace-pre-line text-center text-2xl font-bold text-neutral-700 lg:text-start lg:text-3xl"}>
+            <h1 className={longTitle ? "whitespace-pre-line text-left text-lg font-semibold leading-relaxed [word-break:keep-all] [overflow-wrap:anywhere] text-neutral-700 lg:text-xl" : "whitespace-pre-line text-center text-2xl font-bold [word-break:keep-all] [overflow-wrap:anywhere] text-neutral-700 lg:text-start lg:text-3xl"}>
               {title}
             </h1>
 
@@ -253,6 +268,7 @@ export const Quiz = ({
         status={status}
         onCheck={onContinue}
         wrongHint={wrongHint}
+        explanation={status === "wrong" ? meta.explanation : undefined}
       />
     </>
   );

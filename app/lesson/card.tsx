@@ -21,7 +21,7 @@ type CardProps = {
   big?: boolean; // kana / short glyphs get the large treatment
 };
 
-const isScript = (t: string) => /[぀-ヿ가-힣一-龯]/.test(t) && t.length <= 6;
+const isScript = (t: string) => /[぀-ヿ가-힣一-龯]/.test(t) && t.length <= 2;
 
 export const Card = ({ text, imageSrc, audioSrc, shortcut, selected, onClick, status, disabled, layout, big }: CardProps) => {
   const handleClick = useCallback(() => {
@@ -52,8 +52,8 @@ export const Card = ({ text, imageSrc, audioSrc, shortcut, selected, onClick, st
       )}
       <p
         className={cn(
-          "text-center text-neutral-700",
-          large ? "kana text-4xl leading-none lg:text-5xl" : layout === "grid" ? "text-2xl font-bold lg:text-3xl" : "text-xl font-bold lg:text-2xl",
+          "text-center text-neutral-700 [word-break:keep-all] [overflow-wrap:anywhere]",
+          large ? "kana text-3xl leading-none lg:text-4xl" : layout === "grid" ? "text-xl font-bold lg:text-2xl" : "text-lg font-bold lg:text-xl",
           selected && "text-sky-500",
           selected && status === "correct" && "text-green-500",
           selected && status === "wrong" && "text-rose-500"
