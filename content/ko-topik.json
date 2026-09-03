@@ -1,0 +1,1706 @@
+{
+ "id": "ko-topik",
+ "title": "한국어 TOPIK",
+ "units": [
+  {
+   "title": "레벨 테스트",
+   "description": "지금 실력을 정확히 재기 위한 진단 테스트. 틀려도 괜찮아요.",
+   "lessons": [
+    {
+     "title": "진단 1",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "어제 밤늦게까지 보고서를 ___ 잠을 거의 못 잤어요.",
+       "level": 3,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "쓰느라고",
+         "correct": true
+        },
+        {
+         "text": "쓰더니",
+         "correct": false
+        },
+        {
+         "text": "쓰자마자",
+         "correct": false
+        },
+        {
+         "text": "쓰도록",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "회사에서 새로 나온 제품을 ___ 위해 광고를 많이 하고 있어요.",
+       "level": 4,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "홍보하기",
+         "correct": true
+        },
+        {
+         "text": "보관하기",
+         "correct": false
+        },
+        {
+         "text": "예방하기",
+         "correct": false
+        },
+        {
+         "text": "회복하기",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "다음 신문 기사의 제목을 가장 잘 설명한 것은?\n\n「폭염에 전력 사용 급증, 전력 수급 비상」",
+       "level": 5,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "더위로 전기 사용이 크게 늘어 전기 공급이 부족해질 위험이 있다",
+         "correct": true
+        },
+        {
+         "text": "전기 요금이 올라서 사람들이 전기를 아끼고 있다",
+         "correct": false
+        },
+        {
+         "text": "전기 사용이 줄어서 발전소 운영이 어려워졌다",
+         "correct": false
+        },
+        {
+         "text": "폭염으로 정전이 일어나 사람들이 불편을 겪었다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "아무리 돈이 ___ 건강을 잃으면 무슨 소용이 있겠어요?",
+       "level": 6,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "많은들",
+         "correct": true
+        },
+        {
+         "text": "많을뿐더러",
+         "correct": false
+        },
+        {
+         "text": "많거니와",
+         "correct": false
+        },
+        {
+         "text": "많되",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "눈코 뜰 새 없다",
+       "level": 3,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "매우 바쁘다",
+         "correct": true
+        },
+        {
+         "text": "매우 졸리다",
+         "correct": false
+        },
+        {
+         "text": "매우 슬프다",
+         "correct": false
+        },
+        {
+         "text": "매우 놀라다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "누구나 나이가 들면 기억력이 ___.",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "떨어지기 마련이에요",
+         "correct": true
+        },
+        {
+         "text": "떨어질 리가 없어요",
+         "correct": false
+        },
+        {
+         "text": "떨어지는 척해요",
+         "correct": false
+        },
+        {
+         "text": "떨어지고 말았어요",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "정부는 청년 실업 문제를 해결하기 위해 새로운 정책을 ___.",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "마련했다",
+         "correct": true
+        },
+        {
+         "text": "극복했다",
+         "correct": false
+        },
+        {
+         "text": "회복했다",
+         "correct": false
+        },
+        {
+         "text": "발견했다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "과학 기술의 발전은 인류에게 편리함을 가져다주었지만, 그 편리함이 곧 행복을 보장하는 것은 아니다. 오히려 기술에 대한 지나친 의존은 인간이 스스로 생각하고 판단하는 능력을 약화시킬 수 있다. 기술은 어디까지나 수단일 뿐, 그것을 어떻게 쓸지는 결국 인간의 몫이다.\n\n이 글의 중심 생각으로 알맞은 것은?",
+       "level": 6,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "기술은 수단이므로 인간이 주체적으로 활용해야 한다",
+         "correct": true
+        },
+        {
+         "text": "기술의 발전은 인류의 행복을 보장한다",
+         "correct": false
+        },
+        {
+         "text": "기술에 의존할수록 인간의 판단력은 좋아진다",
+         "correct": false
+        },
+        {
+         "text": "편리함을 위해서라면 기술에 의존해도 괜찮다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "새로 산 휴대폰이 고장 나서 서비스 센터에 ___ 맡겼어요.",
+       "level": 3,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "수리를",
+         "correct": true
+        },
+        {
+         "text": "수정을",
+         "correct": false
+        },
+        {
+         "text": "수술을",
+         "correct": false
+        },
+        {
+         "text": "수집을",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "그렇게 대충 ___ 아예 안 하는 게 낫겠어요.",
+       "level": 6,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "할 바에야",
+         "correct": true
+        },
+        {
+         "text": "하기로서니",
+         "correct": false
+        },
+        {
+         "text": "할지언정",
+         "correct": false
+        },
+        {
+         "text": "하고자",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "저는 요즘 아침마다 30분씩 걷습니다. 처음에는 귀찮아서 며칠 하다가 그만둘 줄 알았는데, 이제는 걷지 않으면 하루가 허전할 정도입니다. 몸이 가벼워진 것은 물론이고 밤에 잠도 잘 옵니다.\n\n이 글의 중심 생각으로 알맞은 것은?",
+       "level": 4,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "아침 걷기를 습관으로 만들었더니 생활이 좋아졌다",
+         "correct": true
+        },
+        {
+         "text": "운동은 처음 며칠이 가장 즐겁다",
+         "correct": false
+        },
+        {
+         "text": "잠이 안 올 때는 밤에 걷는 것이 좋다",
+         "correct": false
+        },
+        {
+         "text": "아침에는 걷기보다 잠을 더 자야 한다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "발 벗고 나서다",
+       "level": 5,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "적극적으로 나서서 돕다",
+         "correct": true
+        },
+        {
+         "text": "몰래 자리를 피하다",
+         "correct": false
+        },
+        {
+         "text": "신발을 벗고 들어가다",
+         "correct": false
+        },
+        {
+         "text": "할 일을 뒤로 미루다",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "진단 2",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "어제 백화점에 갔는데 옷이 너무 ___ 한 벌 샀어요.",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "예쁘길래",
+         "correct": true
+        },
+        {
+         "text": "예쁘더라도",
+         "correct": false
+        },
+        {
+         "text": "예쁠까 봐",
+         "correct": false
+        },
+        {
+         "text": "예쁜 반면에",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "[안내] 이번 주 토요일 오전 9시부터 12시까지 아파트 물탱크 청소를 합니다. 이 시간에는 물이 나오지 않으니 미리 물을 받아 두시기 바랍니다. 불편을 드려 죄송합니다.\n\n이 글의 내용과 같은 것은?",
+       "level": 3,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "토요일 오전에는 물을 쓸 수 없다",
+         "correct": true
+        },
+        {
+         "text": "청소는 토요일 오후에 한다",
+         "correct": false
+        },
+        {
+         "text": "청소하는 동안 집 밖으로 나가야 한다",
+         "correct": false
+        },
+        {
+         "text": "물은 청소가 끝난 후에 받아야 한다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "월급이 ___ 오히려 줄었어요.",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "오르기는커녕",
+         "correct": true
+        },
+        {
+         "text": "오를 뿐만 아니라",
+         "correct": false
+        },
+        {
+         "text": "오르는 대로",
+         "correct": false
+        },
+        {
+         "text": "오르는 한",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "그 학자는 평생 한국 고대사 연구에 ___.",
+       "level": 6,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "매진했다",
+         "correct": true
+        },
+        {
+         "text": "매도했다",
+         "correct": false
+        },
+        {
+         "text": "매장했다",
+         "correct": false
+        },
+        {
+         "text": "매수했다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "환불",
+       "level": 3,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "산 물건을 돌려주고 돈을 다시 받는 것",
+         "correct": true
+        },
+        {
+         "text": "물건값을 깎는 것",
+         "correct": false
+        },
+        {
+         "text": "물건을 다른 것으로 바꾸는 것",
+         "correct": false
+        },
+        {
+         "text": "물건을 미리 주문하는 것",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "비록 집은 ___ 마음만은 넉넉하게 살고 싶어요.",
+       "level": 6,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "작을망정",
+         "correct": true
+        },
+        {
+         "text": "작기 십상이라",
+         "correct": false
+        },
+        {
+         "text": "작음으로써",
+         "correct": false
+        },
+        {
+         "text": "작을 턱이 없어",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "한국의 전통 시장은 대형 마트에 밀려 한때 손님이 크게 줄었다. 그러나 최근에는 젊은 상인들이 들어와 카페와 공방을 열면서 다시 사람들이 찾기 시작했다. 특히 주말에는 외국인 관광객도 많이 볼 수 있다.\n\n이 글의 내용과 같은 것은?",
+       "level": 4,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "젊은 상인들 덕분에 전통 시장에 손님이 다시 늘었다",
+         "correct": true
+        },
+        {
+         "text": "전통 시장은 대형 마트보다 항상 손님이 많았다",
+         "correct": false
+        },
+        {
+         "text": "전통 시장 안에서는 카페를 열 수 없다",
+         "correct": false
+        },
+        {
+         "text": "외국인 관광객은 주로 평일에 시장을 찾는다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "친구가 시험에 떨어져 속상해하는데 옆에서 자기 합격 소식을 자랑하다니, 그야말로 ___ 격이네요.",
+       "level": 5,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "불난 집에 부채질하는",
+         "correct": true
+        },
+        {
+         "text": "누워서 떡 먹는",
+         "correct": false
+        },
+        {
+         "text": "소 잃고 외양간 고치는",
+         "correct": false
+        },
+        {
+         "text": "하늘의 별 따는",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "갑자기 비가 ___ 소풍이 취소되었어요.",
+       "level": 3,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "오는 바람에",
+         "correct": true
+        },
+        {
+         "text": "오는 대신에",
+         "correct": false
+        },
+        {
+         "text": "오는 김에",
+         "correct": false
+        },
+        {
+         "text": "오는 대로",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "번거롭다",
+       "level": 4,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "일이 복잡하고 귀찮다",
+         "correct": true
+        },
+        {
+         "text": "돈이 많이 들다",
+         "correct": false
+        },
+        {
+         "text": "시간이 오래 걸리다",
+         "correct": false
+        },
+        {
+         "text": "위험하고 무섭다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "최근 여러 기업이 주 4일 근무제를 시범 도입하고 있다. 근무 시간이 줄면 생산성이 떨어질 것이라는 우려가 있었지만, 실제로는 직원들의 집중도가 높아져 업무 효율이 오히려 ( ) 결과가 많았다. 다만 업종에 따라 적용이 어려운 경우도 있어 신중한 접근이 필요하다.\n\n( )에 들어갈 말로 알맞은 것은?",
+       "level": 5,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "개선되었다는",
+         "correct": true
+        },
+        {
+         "text": "유지되지 않았다는",
+         "correct": false
+        },
+        {
+         "text": "악화되었다는",
+         "correct": false
+        },
+        {
+         "text": "무의미해졌다는",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "그렇게 밤을 자주 새우면 건강을 ___.",
+       "level": 6,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "해치기 십상이에요",
+         "correct": true
+        },
+        {
+         "text": "해칠 리 만무해요",
+         "correct": false
+        },
+        {
+         "text": "해칠 턱이 없어요",
+         "correct": false
+        },
+        {
+         "text": "해치는 셈 쳐요",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "진단 3",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "그때 조금만 더 ___ 시험에 합격했을 텐데.",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "노력했더라면",
+         "correct": true
+        },
+        {
+         "text": "노력하고서야",
+         "correct": false
+        },
+        {
+         "text": "노력하는 이상",
+         "correct": false
+        },
+        {
+         "text": "노력한 나머지",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "그 배우는 연기력이 ___ 상을 많이 받았어요.",
+       "level": 3,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "뛰어나서",
+         "correct": true
+        },
+        {
+         "text": "떨어져서",
+         "correct": false
+        },
+        {
+         "text": "넘어져서",
+         "correct": false
+        },
+        {
+         "text": "다가와서",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "아무리 ___ 어른에게 그렇게 말하면 안 되지.",
+       "level": 6,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "화가 나기로서니",
+         "correct": true
+        },
+        {
+         "text": "화가 날뿐더러",
+         "correct": false
+        },
+        {
+         "text": "화가 남으로써",
+         "correct": false
+        },
+        {
+         "text": "화가 날 바에야",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "발이 넓다",
+       "level": 4,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "아는 사람이 많다",
+         "correct": true
+        },
+        {
+         "text": "걸음이 빠르다",
+         "correct": false
+        },
+        {
+         "text": "여행을 많이 다닌다",
+         "correct": false
+        },
+        {
+         "text": "키가 크다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "하루 종일 촉촉하게! 건조한 피부에 바르는 순간 부드러워집니다.\n\n무엇에 대한 글인지 고르세요.",
+       "level": 3,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "화장품",
+         "correct": true
+        },
+        {
+         "text": "세제",
+         "correct": false
+        },
+        {
+         "text": "음료수",
+         "correct": false
+        },
+        {
+         "text": "가구",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "매일 한국 드라마를 ___ 듣기 실력이 늘었어요.",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "보다 보니",
+         "correct": true
+        },
+        {
+         "text": "보다 보면",
+         "correct": false
+        },
+        {
+         "text": "보든지",
+         "correct": false
+        },
+        {
+         "text": "볼 바에야",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "두 나라는 오랜 협상 끝에 무역 협정을 ___.",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "체결했다",
+         "correct": true
+        },
+        {
+         "text": "결제했다",
+         "correct": false
+        },
+        {
+         "text": "체험했다",
+         "correct": false
+        },
+        {
+         "text": "결심했다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "일부에서는 인공지능이 예술가를 대체할 것이라고 말한다. 그러나 예술의 가치는 결과물의 완성도가 아니라 그것을 만든 사람의 경험과 고민에서 나온다. 인공지능이 그럴듯한 그림을 그려 낼 수는 있어도 그 안에 담긴 삶은 흉내 낼 수 없다.\n\n필자의 태도로 알맞은 것은?",
+       "level": 6,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "인공지능이 예술가를 대체한다는 주장에 회의적이다",
+         "correct": true
+        },
+        {
+         "text": "인공지능 예술의 완성도를 높이 평가하고 있다",
+         "correct": false
+        },
+        {
+         "text": "예술가들이 인공지능을 적극 활용하기를 기대하고 있다",
+         "correct": false
+        },
+        {
+         "text": "인공지능이 인간의 경험을 재현할 수 있다고 확신한다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "제가 요리를 ___ 설거지는 네가 해 줘.",
+       "level": 3,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "할 테니까",
+         "correct": true
+        },
+        {
+         "text": "하더라도",
+         "correct": false
+        },
+        {
+         "text": "하느라고",
+         "correct": false
+        },
+        {
+         "text": "하자마자",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "다음 문장의 「 」 부분과 의미가 가장 비슷한 것은?\n그 정치인의 발언은 큰 「물의」를 일으켰다.",
+       "level": 6,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "논란",
+         "correct": true
+        },
+        {
+         "text": "감동",
+         "correct": false
+        },
+        {
+         "text": "관심",
+         "correct": false
+        },
+        {
+         "text": "이익",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "지금 ___ 이미 기차는 떠났을 거예요.",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "출발해 봤자",
+         "correct": true
+        },
+        {
+         "text": "출발하기에",
+         "correct": false
+        },
+        {
+         "text": "출발하느니",
+         "correct": false
+        },
+        {
+         "text": "출발하는 한",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "이 약은 하루 세 번 식사 후에 ___.",
+       "level": 4,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "복용하세요",
+         "correct": true
+        },
+        {
+         "text": "복습하세요",
+         "correct": false
+        },
+        {
+         "text": "복구하세요",
+         "correct": false
+        },
+        {
+         "text": "복제하세요",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "진단 4",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "시험에 ___ 걱정이 돼서 잠이 안 와요.",
+       "level": 3,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "떨어질까 봐",
+         "correct": true
+        },
+        {
+         "text": "떨어지는 대로",
+         "correct": false
+        },
+        {
+         "text": "떨어질 정도로",
+         "correct": false
+        },
+        {
+         "text": "떨어지는 반면에",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "요즘 스마트폰 때문에 책을 읽는 사람이 줄고 있다고 한다. 하지만 짧은 글만 읽다 보면 긴 글을 이해하는 힘이 ( ). 하루에 10분이라도 종이책을 읽는 습관이 필요한 이유다.\n\n( )에 들어갈 말로 알맞은 것은?",
+       "level": 4,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "약해질 수밖에 없다",
+         "correct": true
+        },
+        {
+         "text": "강해지기 마련이다",
+         "correct": false
+        },
+        {
+         "text": "변하지 않을 것이다",
+         "correct": false
+        },
+        {
+         "text": "필요 없게 된다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "너무 ___ 할 말을 잊어버렸어요.",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "당황한 나머지",
+         "correct": true
+        },
+        {
+         "text": "당황하기는커녕",
+         "correct": false
+        },
+        {
+         "text": "당황할 겸",
+         "correct": false
+        },
+        {
+         "text": "당황하는 한",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "설상가상",
+       "level": 6,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "어려운 일이 겹쳐서 일어남",
+         "correct": true
+        },
+        {
+         "text": "말과 행동이 서로 다름",
+         "correct": false
+        },
+        {
+         "text": "처음부터 끝까지 한결같음",
+         "correct": false
+        },
+        {
+         "text": "겉과 속이 다름",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "감기에 걸려서 목이 ___ 말을 하기가 힘들어요.",
+       "level": 3,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "부어서",
+         "correct": true
+        },
+        {
+         "text": "불어서",
+         "correct": false
+        },
+        {
+         "text": "붙어서",
+         "correct": false
+        },
+        {
+         "text": "부러져서",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "정부는 세금을 ___ 부족한 예산을 마련하려고 한다.",
+       "level": 6,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "올림으로써",
+         "correct": true
+        },
+        {
+         "text": "올릴망정",
+         "correct": false
+        },
+        {
+         "text": "올린들",
+         "correct": false
+        },
+        {
+         "text": "올리기로서니",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "타당하다",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "이치에 맞다",
+         "correct": true
+        },
+        {
+         "text": "정도가 지나치다",
+         "correct": false
+        },
+        {
+         "text": "매우 부족하다",
+         "correct": false
+        },
+        {
+         "text": "서로 비슷하다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "월세와 관리비를 합하면 한 달에 백만 원을 ___.",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "내는 셈이에요",
+         "correct": true
+        },
+        {
+         "text": "낼 리가 없어요",
+         "correct": false
+        },
+        {
+         "text": "내는 척해요",
+         "correct": false
+        },
+        {
+         "text": "낼 뻔했어요",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "친구가 비밀을 잘 지켜서 믿을 수 있어요. 정말 ___.",
+       "level": 3,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "입이 무거워요",
+         "correct": true
+        },
+        {
+         "text": "입이 짧아요",
+         "correct": false
+        },
+        {
+         "text": "입이 가벼워요",
+         "correct": false
+        },
+        {
+         "text": "입이 커요",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "한국의 1인 가구는 전체 가구의 3분의 1을 넘어섰다. 이에 따라 소포장 식품과 소형 가전의 판매가 크게 늘었고, 혼자 식사하는 손님을 위한 1인석을 갖춘 식당도 흔해졌다. 그러나 1인 가구의 증가는 고독사와 같은 사회 문제로도 이어지고 있어 대책이 요구된다.\n\n이 글의 내용과 같은 것은?",
+       "level": 5,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "1인 가구가 늘면서 혼자 먹기 좋은 식당이 많아졌다",
+         "correct": true
+        },
+        {
+         "text": "1인 가구는 전체 가구의 절반을 넘는다",
+         "correct": false
+        },
+        {
+         "text": "소형 가전의 판매는 오히려 줄었다",
+         "correct": false
+        },
+        {
+         "text": "1인 가구의 증가는 사회 문제와 관련이 없다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "오랜 가뭄으로 농작물 피해가 ___ 것으로 예상된다.",
+       "level": 6,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "막대할",
+         "correct": true
+        },
+        {
+         "text": "막연할",
+         "correct": false
+        },
+        {
+         "text": "막중할",
+         "correct": false
+        },
+        {
+         "text": "막막할",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "아무리 ___ 약속은 지켜야지요.",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "바쁘더라도",
+         "correct": true
+        },
+        {
+         "text": "바쁘길래",
+         "correct": false
+        },
+        {
+         "text": "바쁘느라고",
+         "correct": false
+        },
+        {
+         "text": "바쁜 대신에",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "진단 5",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "이 집은 교통이 ___ 집세도 싸서 인기가 많아요.",
+       "level": 4,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "편리한 데다가",
+         "correct": true
+        },
+        {
+         "text": "편리한 반면에",
+         "correct": false
+        },
+        {
+         "text": "편리하더라도",
+         "correct": false
+        },
+        {
+         "text": "편리한 탓에",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "저는 요리를 잘 못합니다. 그래서 주로 밖에서 사 먹습니다. ( ) 매일 사 먹으니까 돈이 너무 많이 듭니다. 그래서 이번 달부터 요리를 배우기로 했습니다.\n\n( )에 들어갈 말로 알맞은 것은?",
+       "level": 3,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "그런데",
+         "correct": true
+        },
+        {
+         "text": "그래서",
+         "correct": false
+        },
+        {
+         "text": "그러면",
+         "correct": false
+        },
+        {
+         "text": "예를 들면",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "그렇게 스트레스를 받으면서 ___ 차라리 그만두는 게 낫겠어요.",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "일하느니",
+         "correct": true
+        },
+        {
+         "text": "일하다시피",
+         "correct": false
+        },
+        {
+         "text": "일할지라도",
+         "correct": false
+        },
+        {
+         "text": "일하는 김에",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "여실히",
+       "level": 6,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "있는 그대로 분명하게",
+         "correct": true
+        },
+        {
+         "text": "조금씩 천천히",
+         "correct": false
+        },
+        {
+         "text": "예상과 다르게",
+         "correct": false
+        },
+        {
+         "text": "남몰래 조용히",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "너무 놀라서 심장이 ___ 뛰었어요.",
+       "level": 4,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "두근두근",
+         "correct": true
+        },
+        {
+         "text": "반짝반짝",
+         "correct": false
+        },
+        {
+         "text": "살금살금",
+         "correct": false
+        },
+        {
+         "text": "데굴데굴",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "너무 피곤해서 옷을 ___ 잠이 들었어요.",
+       "level": 3,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "입은 채로",
+         "correct": true
+        },
+        {
+         "text": "입는 김에",
+         "correct": false
+        },
+        {
+         "text": "입을 만큼",
+         "correct": false
+        },
+        {
+         "text": "입은 탓에",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "두 사람의 의견이 ___ 회의가 길어졌다.",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "엇갈려서",
+         "correct": true
+        },
+        {
+         "text": "겹쳐서",
+         "correct": false
+        },
+        {
+         "text": "맞물려서",
+         "correct": false
+        },
+        {
+         "text": "쏠려서",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "조선 시대의 신문고는 억울한 일을 당한 백성이 직접 북을 쳐서 임금에게 호소할 수 있도록 만든 제도였다. 그러나 실제로는 절차가 까다롭고 지방 백성이 궁궐까지 오기가 어려워 이용하는 사람이 많지 않았다. 그럼에도 이 제도는 백성의 목소리를 듣고자 한 의지를 보여 준다는 점에서 의미가 있다.\n\n이 글의 내용과 같은 것은?",
+       "level": 6,
+       "tag": "reading",
+       "options": [
+        {
+         "text": "신문고는 절차가 복잡해 실제 이용은 활발하지 않았다",
+         "correct": true
+        },
+        {
+         "text": "신문고는 지방 백성이 주로 이용했다",
+         "correct": false
+        },
+        {
+         "text": "신문고는 관리들만 칠 수 있었다",
+         "correct": false
+        },
+        {
+         "text": "신문고 제도는 아무런 의미가 없었다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "동생이 아침부터 계속 ___ 결국 병원에 갔어요.",
+       "level": 3,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "기침을 하더니",
+         "correct": true
+        },
+        {
+         "text": "기침을 하려면",
+         "correct": false
+        },
+        {
+         "text": "기침을 하든지",
+         "correct": false
+        },
+        {
+         "text": "기침을 할수록",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "다음 문장의 「 」 부분과 의미가 가장 비슷한 것은?\n이 지역은 관광객이 「점점」 늘고 있다.",
+       "level": 4,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "갈수록",
+         "correct": true
+        },
+        {
+         "text": "마침내",
+         "correct": false
+        },
+        {
+         "text": "도대체",
+         "correct": false
+        },
+        {
+         "text": "여전히",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "그렇게 열심히 준비했으면 ___ 왜 떨어졌을까요?",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "합격할 법도 한데",
+         "correct": true
+        },
+        {
+         "text": "합격하기는커녕",
+         "correct": false
+        },
+        {
+         "text": "합격한 이상",
+         "correct": false
+        },
+        {
+         "text": "합격하다시피",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "10년 동안 함께 일한 동료가 회사 돈을 빼돌리고 사라졌다니, ___ 격이네요.",
+       "level": 6,
+       "tag": "expression",
+       "options": [
+        {
+         "text": "믿는 도끼에 발등 찍힌",
+         "correct": true
+        },
+        {
+         "text": "우물 안 개구리인",
+         "correct": false
+        },
+        {
+         "text": "티끌 모아 태산인",
+         "correct": false
+        },
+        {
+         "text": "쇠귀에 경 읽는",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "진단 6 · 듣기",
+     "challenges": [
+      {
+       "type": "LISTEN",
+       "question": "들은 내용과 같은 것을 고르세요.",
+       "level": 4,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/b6e8f4fb2b1f.mp3",
+       "meta": {
+        "say": "다음 주 월요일부터 시내버스 요금이 백 원 오릅니다. 시는 기름값이 올라 버스 회사의 부담이 커졌다고 설명했습니다. 다만 학생과 노인 요금은 그대로 유지됩니다."
+       },
+       "options": [
+        {
+         "text": "학생 요금은 오르지 않는다",
+         "correct": true
+        },
+        {
+         "text": "버스 요금은 이번 주부터 오른다",
+         "correct": false
+        },
+        {
+         "text": "요금이 오르는 이유는 인건비 때문이다",
+         "correct": false
+        },
+        {
+         "text": "노인 요금도 백 원 오른다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들은 내용과 같은 것을 고르세요.",
+       "level": 3,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/b7ae6b72ebcd.mp3",
+       "meta": {
+        "say": "잠시 안내 말씀 드리겠습니다. 오늘 오후 세 시부터 지하 주차장 청소가 있습니다. 주차장을 이용하시는 분들은 두 시까지 차를 밖으로 옮겨 주시기 바랍니다."
+       },
+       "options": [
+        {
+         "text": "청소는 오후 세 시에 시작한다",
+         "correct": true
+        },
+        {
+         "text": "청소는 두 시간 동안 진행된다",
+         "correct": false
+        },
+        {
+         "text": "차는 세 시까지 옮기면 된다",
+         "correct": false
+        },
+        {
+         "text": "지하 주차장은 오늘 하루 종일 쓸 수 없다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들은 내용과 같은 것을 고르세요.",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/ba7a51a6b7c1.mp3",
+       "meta": {
+        "say": "최근 편의점에서 파는 도시락의 판매량이 지난해보다 두 배 가까이 늘었습니다. 물가가 오르면서 식당에서 먹는 대신 도시락으로 끼니를 해결하는 직장인이 많아졌기 때문입니다. 편의점들은 이에 맞춰 영양을 고려한 프리미엄 도시락을 잇달아 내놓고 있습니다."
+       },
+       "options": [
+        {
+         "text": "물가 상승으로 편의점 도시락을 찾는 직장인이 늘었다",
+         "correct": true
+        },
+        {
+         "text": "편의점 도시락 판매량이 지난해보다 줄었다",
+         "correct": false
+        },
+        {
+         "text": "직장인들이 식당을 더 자주 이용하게 되었다",
+         "correct": false
+        },
+        {
+         "text": "편의점들은 도시락 종류를 줄이고 있다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "말하는 사람의 태도로 알맞은 것을 고르세요.",
+       "level": 6,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/60bfd0d172c7.mp3",
+       "meta": {
+        "say": "우리는 흔히 침묵을 대화의 실패로 여깁니다. 그러나 어떤 문화권에서는 침묵이 상대의 말을 깊이 받아들이고 있다는 존중의 표현입니다. 말의 양이 곧 소통의 질을 결정하지는 않습니다. 오히려 적절한 침묵이 말보다 많은 것을 전달하기도 합니다."
+       },
+       "options": [
+        {
+         "text": "침묵의 소통 기능을 긍정적으로 평가하고 있다",
+         "correct": true
+        },
+        {
+         "text": "침묵을 대화의 실패로 보고 있다",
+         "correct": false
+        },
+        {
+         "text": "말을 많이 할수록 소통이 잘된다고 본다",
+         "correct": false
+        },
+        {
+         "text": "문화 차이는 소통에 영향을 주지 않는다고 본다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "여자가 이 메시지를 남긴 이유를 고르세요.",
+       "level": 3,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/ce9276f90343.mp3",
+       "meta": {
+        "say": "민수 씨, 저 지영이에요. 내일 회의 시간이 오전 열 시에서 오후 두 시로 바뀌었어요. 회의 자료는 제가 미리 메일로 보낼게요. 확인하고 연락 주세요."
+       },
+       "options": [
+        {
+         "text": "회의 시간이 바뀐 것을 알리려고",
+         "correct": true
+        },
+        {
+         "text": "회의 자료를 부탁하려고",
+         "correct": false
+        },
+        {
+         "text": "회의 장소를 물어보려고",
+         "correct": false
+        },
+        {
+         "text": "회의에 못 간다고 말하려고",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "남자가 요리를 시작한 이유를 고르세요.",
+       "level": 4,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/5bcc35764d46.mp3",
+       "meta": {
+        "say": "저는 원래 요리를 전혀 못 했어요. 그런데 혼자 살기 시작하면서 매일 사 먹는 게 부담이 돼서 유튜브를 보고 하나씩 따라 해 봤죠. 지금은 친구들을 초대해서 대접할 정도가 됐어요."
+       },
+       "options": [
+        {
+         "text": "혼자 살면서 외식비가 부담스러워서",
+         "correct": true
+        },
+        {
+         "text": "친구들을 초대하고 싶어서",
+         "correct": false
+        },
+        {
+         "text": "유튜브에 요리 영상을 올리려고",
+         "correct": false
+        },
+        {
+         "text": "원래 요리에 관심이 많아서",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들은 내용과 같은 것을 고르세요.",
+       "level": 6,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/fd7c1b481153.mp3",
+       "meta": {
+        "say": "도시의 열섬 현상을 줄이려면 건물 옥상에 정원을 만드는 것이 효과적입니다. 옥상 정원은 여름철 건물 온도를 낮출 뿐만 아니라 빗물을 머금어 홍수 피해를 줄이는 데도 도움이 됩니다. 다만 건물이 그 무게를 견딜 수 있는지 사전에 반드시 점검해야 합니다."
+       },
+       "options": [
+        {
+         "text": "옥상 정원을 만들기 전에 건물이 무게를 견디는지 확인해야 한다",
+         "correct": true
+        },
+        {
+         "text": "옥상 정원은 겨울철 난방비를 줄이는 데 효과적이다",
+         "correct": false
+        },
+        {
+         "text": "옥상 정원은 홍수 피해를 키울 수 있다",
+         "correct": false
+        },
+        {
+         "text": "열섬 현상은 옥상 정원과 관계가 없다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "말하는 사람의 중심 생각을 고르세요.",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "/audio/ko-topik/1f2bc7ad066f.mp3",
+       "meta": {
+        "say": "많은 사람들이 실패를 두려워합니다. 하지만 실패는 무언가를 시도했다는 증거입니다. 아무것도 하지 않으면 실패도 없지만 배우는 것도 없습니다. 중요한 것은 실패 자체가 아니라 실패한 뒤에 무엇을 하느냐입니다."
+       },
+       "options": [
+        {
+         "text": "실패는 배움의 기회이므로 두려워할 필요가 없다",
+         "correct": true
+        },
+        {
+         "text": "실패하지 않으려면 신중하게 계획해야 한다",
+         "correct": false
+        },
+        {
+         "text": "시도하지 않는 것이 실패보다 낫다",
+         "correct": false
+        },
+        {
+         "text": "실패의 원인을 다른 사람에게서 찾아야 한다",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
