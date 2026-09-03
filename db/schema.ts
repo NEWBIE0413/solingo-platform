@@ -167,4 +167,20 @@ export const kanaState = pgTable("kana_state", {
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 }, (t) => [primaryKey({ columns: [t.userId, t.courseId] })]);
 
+// 출석: a day (Asia/Seoul) counts once at least one lesson — or one 히라가나 session — is completed.
+export const dailyActivity = pgTable("daily_activity", {
+  userId: text("user_id").notNull(),
+  day: text("day").notNull(), // YYYY-MM-DD in Asia/Seoul
+  lessons: integer("lessons").notNull().default(0),
+}, (t) => [primaryKey({ columns: [t.userId, t.day] })]);
+
+// 커플: two accounts linked by an invite code. The couple streak counts consecutive days both were active.
+export const couples = pgTable("couples", {
+  id: serial("id").primaryKey(),
+  code: text("code").notNull().unique(),
+  userA: text("user_a").notNull().unique(),
+  userB: text("user_b").unique(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
 export * from "./auth-schema";

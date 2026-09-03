@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const siteConfig: Metadata = {
   title: "Solingo",
   description:
-    "Interactive platform for language learning with lessons, quizzes, and progress tracking.",
+    "레슨·퀴즈·진도 관리가 있는 언어 학습 플랫폼.",
   keywords: [
     "reactjs",
     "nextjs",

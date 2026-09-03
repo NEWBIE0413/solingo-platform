@@ -11,11 +11,11 @@ export const Quests = ({ points }: QuestsProps) => {
   return (
     <div className="space-y-4 rounded-xl border-2 p-4">
       <div className="flex w-full items-center justify-between space-y-2">
-        <h3 className="text-lg font-bold">Quests</h3>
+        <h3 className="text-lg font-bold">퀘스트</h3>
 
         <Link href="/quests" prefetch>
           <Button size="sm" variant="primaryOutline">
-            View all
+            전체 보기
           </Button>
         </Link>
       </div>
