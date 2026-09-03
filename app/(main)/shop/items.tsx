@@ -83,8 +83,12 @@ export const Items = ({
           </p>
         </div>
 
-        <Button onClick={onUpgrade} disabled={pending} aria-disabled={pending}>
-          {hasActiveSubscription ? "settings" : "upgrade"}
+        <Button
+          onClick={onUpgrade}
+          disabled={pending || hasActiveSubscription}
+          aria-disabled={pending || hasActiveSubscription}
+        >
+          {hasActiveSubscription ? "슈퍼 이용 중" : "업그레이드"}
         </Button>
       </div>
     </ul>

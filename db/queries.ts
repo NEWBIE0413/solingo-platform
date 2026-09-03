@@ -3,6 +3,8 @@ import { cache } from "react";
 import { auth } from "@/lib/session";
 import { eq } from "drizzle-orm";
 
+import { EVERYONE_IS_PRO } from "@/constants";
+
 import db from "./drizzle";
 import {
   challengeProgress,
@@ -209,6 +211,19 @@ export const getUserSubscription = cache(async () => {
   const { userId } = await auth();
 
   if (!userId) return null;
+
+  if (EVERYONE_IS_PRO) {
+    // Synthetic active subscription: every signed-in user is on the 슈퍼 plan.
+    return {
+      id: 0,
+      userId,
+      stripeCustomerId: "",
+      stripeSubscriptionId: "",
+      stripePriceId: "super",
+      stripeCurrentPeriodEnd: new Date(Date.now() + 365 * DAY_IN_MS),
+      isActive: true,
+    };
+  }
 
   const data = await db.query.userSubscription.findFirst({
     where: eq(userSubscription.userId, userId),
