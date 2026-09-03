@@ -1,0 +1,2079 @@
+{
+  "id": "ja-jlpt",
+  "title": "일본어 JLPT",
+  "units": [
+    {
+      "title": "5주차 · て形과 요청·진행",
+      "description": "동사 て形(かいて·のんで·いって·まって), 부탁 〜てください, 진행 〜ています, 상태 〜ています(すんでいる·결혼한·알고 있는). 「잠깐만 기다려 주세요」는 ちょっと まってください.",
+      "lessons": [
+        {
+          "title": "5-1 て形 만들기",
+          "challenges": [
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "かきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のみます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "いきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "いきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かいて",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "のんで",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "いって",
+                  "correct": false,
+                  "meta": {
+                    "pair": "いきます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "たべて",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "동사 「まちます」의 て형은?\nまちます → ___",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "まちます는 5단동사라 ます를 떼고 ち→って: まちます → まって."
+              },
+              "options": [
+                {
+                  "text": "まって",
+                  "correct": true
+                },
+                {
+                  "text": "まいて",
+                  "correct": false
+                },
+                {
+                  "text": "まちって",
+                  "correct": false
+                },
+                {
+                  "text": "まった",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "あそんで",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "あそびます의 て형은 あそんで. び→んで로 바뀝니다."
+              },
+              "options": [
+                {
+                  "text": "마셔서",
+                  "correct": false
+                },
+                {
+                  "text": "놀아서(놀고)",
+                  "correct": true
+                },
+                {
+                  "text": "일해서",
+                  "correct": false
+                },
+                {
+                  "text": "사서",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 て형의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "かいて"
+              },
+              "options": [
+                {
+                  "text": "마시고",
+                  "correct": false
+                },
+                {
+                  "text": "사서",
+                  "correct": false
+                },
+                {
+                  "text": "쓰고(써서)",
+                  "correct": true
+                },
+                {
+                  "text": "먹고(먹어서)",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 쓰고, 읽습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "かいてよみます",
+                "reading": "ka i te yo mi ma su",
+                "meaning": "쓰고, 읽습니다",
+                "say": "かいてよみます"
+              },
+              "options": [
+                {
+                  "text": "かきます",
+                  "correct": false
+                },
+                {
+                  "text": "かいて",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "よみます",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "よんで",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "동사 「よみます」의 て형은?\nよみます → ___",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "み로 끝나는 5단동사는 んで: よみます → よんで."
+              },
+              "options": [
+                {
+                  "text": "よって",
+                  "correct": false
+                },
+                {
+                  "text": "よみて",
+                  "correct": false
+                },
+                {
+                  "text": "よんだ",
+                  "correct": false
+                },
+                {
+                  "text": "よんで",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "かいて、のんで、たべて。",
+                "reading": "ka i te no n de ta be te",
+                "meaning": "쓰고, 마시고, 먹고",
+                "say": "かいて、のんで、たべて。"
+              },
+              "options": []
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "みます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "みます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "ききます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "ききます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "はなします",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はなします",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "まちます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まちます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "みて",
+                  "correct": false,
+                  "meta": {
+                    "pair": "みます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "きいて",
+                  "correct": false,
+                  "meta": {
+                    "pair": "ききます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "はなして",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はなします",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "まって",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まちます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 て형의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "あそんで"
+              },
+              "options": [
+                {
+                  "text": "놀아서(놀고)",
+                  "correct": true
+                },
+                {
+                  "text": "쉬어서",
+                  "correct": false
+                },
+                {
+                  "text": "울어서",
+                  "correct": false
+                },
+                {
+                  "text": "노래해서",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 기다리고, 듣습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "まってききます",
+                "reading": "ma t te ki ki ma su",
+                "meaning": "기다리고, 듣습니다",
+                "say": "まってききます"
+              },
+              "options": [
+                {
+                  "text": "ききます",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "まちて",
+                  "correct": false
+                },
+                {
+                  "text": "みます",
+                  "correct": false
+                },
+                {
+                  "text": "まって",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5-2 〜てください (부탁)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "잠깐만 기다려 주세요.\nちょっと ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "부탁은 て形+ください. まちます의 て形は まって."
+              },
+              "options": [
+                {
+                  "text": "まちます",
+                  "correct": false
+                },
+                {
+                  "text": "まってください",
+                  "correct": true
+                },
+                {
+                  "text": "まちてください",
+                  "correct": false
+                },
+                {
+                  "text": "まっていました",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "まどを あけてください",
+              "level": 5,
+              "tag": "vocab",
+              "meta": {
+                "explanation": "あけてください = て形+ください, '~해 주세요'."
+              },
+              "options": [
+                {
+                  "text": "창문이 열려 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "창문을 열고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "창문을 열어 주세요",
+                  "correct": true
+                },
+                {
+                  "text": "창문을 닫아 주세요",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "もういちど ゆっくり いってください。",
+                "explanation": "いって = いう의 て形. ゆっくりは '천천히'."
+              },
+              "options": [
+                {
+                  "text": "다시 빨리 말해 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "한 번만 말해 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "다시 천천히 써 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "다시 천천히 말해 주세요",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 사진을 찍어 주세요",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "しゃしんをとってください",
+                "reading": "sha shin o to tte ku da sa i",
+                "meaning": "사진을 찍어 주세요",
+                "say": "しゃしんをとってください"
+              },
+              "options": [
+                {
+                  "text": "とらない",
+                  "correct": false
+                },
+                {
+                  "text": "しゃしんが",
+                  "correct": false
+                },
+                {
+                  "text": "しゃしんを",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "とって",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ください",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "まってください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まってください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かいてください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいてください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "みてください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "みてください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべてください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべてください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "기다려 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まってください",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "써 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいてください",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "봐 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "みてください",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "먹어 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべてください",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "가르쳐 주세요.\nおしえて ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "'~해 주세요'는 て形+ください. おしえます → おしえて."
+              },
+              "options": [
+                {
+                  "text": "ください",
+                  "correct": true
+                },
+                {
+                  "text": "ます",
+                  "correct": false
+                },
+                {
+                  "text": "ました",
+                  "correct": false
+                },
+                {
+                  "text": "ましたか",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "もういちど おねがいします。",
+                "reading": "mo u i chi do o ne ga i shi ma su",
+                "meaning": "다시 한번 부탁합니다",
+                "say": "もういちど おねがいします。"
+              },
+              "options": []
+            },
+            {
+              "type": "SELECT",
+              "question": "지우개를 빌려 주세요.\nけしゴムを ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "빌려 주다 = かして(かします의 て形)+ください."
+              },
+              "options": [
+                {
+                  "text": "かしていました",
+                  "correct": false
+                },
+                {
+                  "text": "かしてください",
+                  "correct": true
+                },
+                {
+                  "text": "かいます",
+                  "correct": false
+                },
+                {
+                  "text": "かしてくださいません",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "ゆっくり はなしてください。"
+              },
+              "options": [
+                {
+                  "text": "천천히 걸어 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "말하지 말아 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "천천히 말해 주세요",
+                  "correct": true
+                },
+                {
+                  "text": "빨리 말해 주세요",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 천천히 말해 주세요",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "ゆっくりはなしてください",
+                "reading": "yu k ku ri ha na shi te ku da sa i",
+                "meaning": "천천히 말해 주세요",
+                "say": "ゆっくりはなしてください"
+              },
+              "options": [
+                {
+                  "text": "はなして",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ください",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "はやく",
+                  "correct": false
+                },
+                {
+                  "text": "はなします",
+                  "correct": false
+                },
+                {
+                  "text": "ゆっくり",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5-3 〜ています (지금 ~하고 있습니다)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "지금 밥을 먹고 있습니다.\nいま ごはんを ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "지금 하고 있는 동작은 て形+います: たべています."
+              },
+              "options": [
+                {
+                  "text": "たべます",
+                  "correct": false
+                },
+                {
+                  "text": "たべました",
+                  "correct": false
+                },
+                {
+                  "text": "たべましょう",
+                  "correct": false
+                },
+                {
+                  "text": "たべています",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "でんわを かけています",
+              "level": 5,
+              "tag": "vocab",
+              "meta": {
+                "explanation": "かけています = かけて(かける의 て形)+います, 진행."
+              },
+              "options": [
+                {
+                  "text": "전화를 걸고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "전화를 걸었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "전화를 겁니다",
+                  "correct": false
+                },
+                {
+                  "text": "전화번호입니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "ともだちは いま テレビを みています。"
+              },
+              "options": [
+                {
+                  "text": "친구는 지금 텔레비전을 보고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "친구는 지금 텔레비전을 보고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "친구는 지금 텔레비전을 봤습니다",
+                  "correct": false
+                },
+                {
+                  "text": "친구는 지금 음악을 듣고 있습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 지금 일본어를 공부하고 있습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "いまにほんごをべんきょうしています",
+                "reading": "i ma ni ho n go o be n kyo o shi te i ma su",
+                "meaning": "지금 일본어를 공부하고 있습니다",
+                "say": "いまにほんごをべんきょうしています"
+              },
+              "options": [
+                {
+                  "text": "にほんじんを",
+                  "correct": false
+                },
+                {
+                  "text": "いま",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "にほんごを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "べんきょうしています",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "べんきょうしました",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "かきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "よみます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "よみます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のみます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かいています",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "よんでいます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "よみます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "たべています",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "のんでいます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "지금 비가 오고 있습니다.\nいま あめが ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "ふります(내리다)의 て形 ふって+います = 오고 있다."
+              },
+              "options": [
+                {
+                  "text": "ふりました",
+                  "correct": false
+                },
+                {
+                  "text": "ふってください",
+                  "correct": false
+                },
+                {
+                  "text": "ふっています",
+                  "correct": true
+                },
+                {
+                  "text": "ふります",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "いま、なにを していますか。",
+                "reading": "i ma na ni o shi te i ma su ka",
+                "meaning": "지금 무엇을 하고 있습니까?",
+                "say": "いま、なにを していますか。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "しゅくだいを しています",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "する의 て形は して. しています = 하고 있습니다."
+              },
+              "options": [
+                {
+                  "text": "숙제를 했습니다",
+                  "correct": false
+                },
+                {
+                  "text": "숙제를 하고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "숙제를 합시다",
+                  "correct": false
+                },
+                {
+                  "text": "숙제를 하고 있습니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "とうさんは しんぶんを よんでいます。"
+              },
+              "options": [
+                {
+                  "text": "아버지는 신문을 읽고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "아버지는 신문을 읽었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "어머니는 신문을 쓰고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "아버지는 신문을 읽습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 지금 라디오를 듣고 있습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "いまラジオをきいています",
+                "reading": "i ma ra ji o o ki i te i ma su",
+                "meaning": "지금 라디오를 듣고 있습니다",
+                "say": "いまラジオをきいています"
+              },
+              "options": [
+                {
+                  "text": "きいています",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "ききました",
+                  "correct": false
+                },
+                {
+                  "text": "ラジオが",
+                  "correct": false
+                },
+                {
+                  "text": "いま",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ラジオを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5-4 〜ています (상태)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "나는 도쿄에 살고 있습니다.\nわたしは とうきょうに ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "살고 있는 '상태'도 て形+います: すんでいます. 장소 조사는 に."
+              },
+              "options": [
+                {
+                  "text": "あります",
+                  "correct": false
+                },
+                {
+                  "text": "すんでいます",
+                  "correct": true
+                },
+                {
+                  "text": "すみました",
+                  "correct": false
+                },
+                {
+                  "text": "いっています",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "vocab",
+              "options": [
+                {
+                  "text": "もっています",
+                  "correct": false,
+                  "meta": {
+                    "pair": "もっています",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "しっています",
+                  "correct": false,
+                  "meta": {
+                    "pair": "しっています",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "すんでいます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "すんでいます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "けっこんしています",
+                  "correct": false,
+                  "meta": {
+                    "pair": "けっこんしています",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "가지고 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "もっています",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "알고 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "しっています",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "살고 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "すんでいます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "결혼한 상태입니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "けっこんしています",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "けっこんしています",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "けっこんしています는 '결혼하고 있는 상태' = 기혼."
+              },
+              "options": [
+                {
+                  "text": "결혼하지 않았습니다",
+                  "correct": false
+                },
+                {
+                  "text": "결혼하고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "결혼한 상태입니다",
+                  "correct": true
+                },
+                {
+                  "text": "결혼할 예정입니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 우산을 가지고 있습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "かさをもっています",
+                "reading": "ka sa o mo t te i ma su",
+                "meaning": "우산을 가지고 있습니다",
+                "say": "かさをもっています"
+              },
+              "options": [
+                {
+                  "text": "かします",
+                  "correct": false
+                },
+                {
+                  "text": "かさを",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "もって",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "います",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "もらい",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "그 이야기를 알고 있습니다.\nその はなしを ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "'알다'는 わかります이지만 '알고 있다'는 しっています."
+              },
+              "options": [
+                {
+                  "text": "あります",
+                  "correct": false
+                },
+                {
+                  "text": "しりません",
+                  "correct": false
+                },
+                {
+                  "text": "わかります",
+                  "correct": false
+                },
+                {
+                  "text": "しっています",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "わたしは たろうさんを しっています。"
+              },
+              "options": [
+                {
+                  "text": "나는 타로 씨를 알고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "나는 타로 씨를 모릅니다",
+                  "correct": false
+                },
+                {
+                  "text": "나는 타로 씨를 만났습니다",
+                  "correct": false
+                },
+                {
+                  "text": "나는 타로 씨와 결혼했습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "とうきょうに すんでいます。",
+                "reading": "to u kyo u ni su n de i ma su",
+                "meaning": "도쿄에 살고 있습니다",
+                "say": "とうきょうに すんでいます。"
+              },
+              "options": []
+            },
+            {
+              "type": "SELECT",
+              "question": "동생은 결혼한 상태입니다.\nおとうとは ___。",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "けっこんしたいです",
+                  "correct": false
+                },
+                {
+                  "text": "けっこんしています",
+                  "correct": true
+                },
+                {
+                  "text": "けっこんします",
+                  "correct": false
+                },
+                {
+                  "text": "けっこんしました",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "かさを もっていません",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "부정은 て形+いません: もっていません."
+              },
+              "options": [
+                {
+                  "text": "우산을 빌렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "우산이 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "우산을 가지고 있지 않습니다",
+                  "correct": true
+                },
+                {
+                  "text": "우산을 가지고 갑니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 혼자 살고 있습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "ひとりですんでいます",
+                "reading": "hi to ri de su n de i ma su",
+                "meaning": "혼자 살고 있습니다",
+                "say": "ひとりですんでいます"
+              },
+              "options": [
+                {
+                  "text": "けっこんしています",
+                  "correct": false
+                },
+                {
+                  "text": "ひとりで",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "すんでいます",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ひとりが",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5-5 상황 · 부탁과 전화",
+          "challenges": [
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "すみません、ちょっと まってください。"
+              },
+              "options": [
+                {
+                  "text": "잠깐만 기다렸습니다",
+                  "correct": false
+                },
+                {
+                  "text": "조금 걸어 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "잠깐 만나 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "잠깐만 기다려 주세요",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "가게에서: 「이것을 주세요」라고 말하고 싶습니다.\nすみません、___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "'이것을 주세요'는 これを ください. 가게 필수 표현."
+              },
+              "options": [
+                {
+                  "text": "これを ください",
+                  "correct": true
+                },
+                {
+                  "text": "ここを ください",
+                  "correct": false
+                },
+                {
+                  "text": "これを します",
+                  "correct": false
+                },
+                {
+                  "text": "これが あります",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "ちょっと まってください",
+              "level": 5,
+              "tag": "vocab",
+              "options": [
+                {
+                  "text": "기다립시다",
+                  "correct": false
+                },
+                {
+                  "text": "잠깐만 기다려 주세요",
+                  "correct": true
+                },
+                {
+                  "text": "조금 웃어 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "잠깐만 갑니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 여기에 서명해 주세요",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "ここにサインをしてください",
+                "reading": "ko ko ni sa i n o shi te ku da sa i",
+                "meaning": "여기에 서명해 주세요",
+                "say": "ここにサインをしてください"
+              },
+              "options": [
+                {
+                  "text": "サインを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "してください",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "サインが",
+                  "correct": false
+                },
+                {
+                  "text": "しまして",
+                  "correct": false
+                },
+                {
+                  "text": "ここに",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "しめてください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "しめてください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "もってきてください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "もってきてください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かしてください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かしてください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "あけてください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あけてください",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "닫아 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "しめてください",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "가져다 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "もってきてください",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "빌려 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かしてください",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "열어 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あけてください",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "もういちど いってください。"
+              },
+              "options": [
+                {
+                  "text": "다시 써 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "그만 말해 주세요",
+                  "correct": false
+                },
+                {
+                  "text": "다시 말해 주세요",
+                  "correct": true
+                },
+                {
+                  "text": "한 번 봐 주세요",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "지금 전화를 걸고 있습니다.\nいま でんわを ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "전화를 걸다 = でんわを かける. 진행은 かけています."
+              },
+              "options": [
+                {
+                  "text": "かけます",
+                  "correct": false
+                },
+                {
+                  "text": "かけました",
+                  "correct": false
+                },
+                {
+                  "text": "かけてください",
+                  "correct": false
+                },
+                {
+                  "text": "かけています",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "すみません、えんぴつを かしてください。",
+                "reading": "su mi ma se n e n pi tsu o ka shi te ku da sa i",
+                "meaning": "죄송합니다, 연필을 빌려 주세요",
+                "say": "すみません、えんぴつを かしてください。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "なまえを かいてください",
+              "level": 5,
+              "tag": "vocab",
+              "options": [
+                {
+                  "text": "이름을 써 주세요",
+                  "correct": true
+                },
+                {
+                  "text": "이름을 부르세요",
+                  "correct": false
+                },
+                {
+                  "text": "이름입니다",
+                  "correct": false
+                },
+                {
+                  "text": "이름을 지우세요",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 잠깐만 기다려 주세요",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "ちょっとまってください",
+                "reading": "cho t te ma t te ku da sa i",
+                "meaning": "잠깐만 기다려 주세요",
+                "say": "ちょっとまってください"
+              },
+              "options": [
+                {
+                  "text": "まちます",
+                  "correct": false
+                },
+                {
+                  "text": "ちょっと",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "まって",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ください",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "まちて",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "5-6 5주차 복습",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "동사 「かいます」의 て형은?\nかいます → ___",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "い로 끝나는 5단동사는 って: かいます → かって."
+              },
+              "options": [
+                {
+                  "text": "かった",
+                  "correct": false
+                },
+                {
+                  "text": "かって",
+                  "correct": true
+                },
+                {
+                  "text": "かいて",
+                  "correct": false
+                },
+                {
+                  "text": "かいって",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "いま あめが ふっています。"
+              },
+              "options": [
+                {
+                  "text": "내일 비가 올 겁니다",
+                  "correct": false
+                },
+                {
+                  "text": "지금 눈이 오고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "지금 비가 오고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "지금 비가 그쳤습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "とって ください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "부탁2",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "まって ください",
+                  "correct": false,
+                  "meta": {
+                    "pair": "부탁1",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべて います",
+                  "correct": false,
+                  "meta": {
+                    "pair": "진행1",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "すんで います",
+                  "correct": false,
+                  "meta": {
+                    "pair": "상태1",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "찍어 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "부탁2",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "기다려 주세요",
+                  "correct": false,
+                  "meta": {
+                    "pair": "부탁1",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "먹고 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "진행1",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "살고 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "상태1",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 지금 전화를 걸고 있습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "いまでんわをかけています",
+                "reading": "i ma de n wa o ka ke te i ma su",
+                "meaning": "지금 전화를 걸고 있습니다",
+                "say": "いまでんわをかけています"
+              },
+              "options": [
+                {
+                  "text": "でんわを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "かけています",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "かけました",
+                  "correct": false
+                },
+                {
+                  "text": "でんわが",
+                  "correct": false
+                },
+                {
+                  "text": "いま",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "しっています",
+              "level": 5,
+              "tag": "vocab",
+              "meta": {
+                "explanation": "しっています = 알고 있다. 부정은 わかりません(모릅니다)."
+              },
+              "options": [
+                {
+                  "text": "모르고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "잊었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "보고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "알고 있습니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "친구는 지금 공부하고 있습니다.\nともだちは いま べんきょうを ___。",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "しています",
+                  "correct": true
+                },
+                {
+                  "text": "します",
+                  "correct": false
+                },
+                {
+                  "text": "しました",
+                  "correct": false
+                },
+                {
+                  "text": "したいです",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "もういちど ゆっくり はなしてください。",
+                "reading": "mo u i chi do yu k ku ri ha na shi te ku da sa i",
+                "meaning": "다시 한번 천천히 말해 주세요",
+                "say": "もういちど ゆっくり はなしてください。"
+              },
+              "options": []
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "とうきょうに すんでいます。"
+              },
+              "options": [
+                {
+                  "text": "도쿄로 놀러 갑니다",
+                  "correct": false
+                },
+                {
+                  "text": "도쿄에 살고 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "도쿄에 살았습니다",
+                  "correct": false
+                },
+                {
+                  "text": "도쿄에 가고 싶습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「기다려 주세요」라고 말하고 싶습니다.\nちょっと ___。",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "まっていました",
+                  "correct": false
+                },
+                {
+                  "text": "まってしまいます",
+                  "correct": false
+                },
+                {
+                  "text": "まってください",
+                  "correct": true
+                },
+                {
+                  "text": "まちます",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 나는 도쿄에 살고 있습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "わたしはとうきょうにすんでいます",
+                "reading": "wa ta shi wa to u kyo u ni su n de i ma su",
+                "meaning": "나는 도쿄에 살고 있습니다",
+                "say": "わたしはとうきょうにすんでいます"
+              },
+              "options": [
+                {
+                  "text": "わたしは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "とうきょうに",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "すんでいます",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "すみました",
+                  "correct": false
+                },
+                {
+                  "text": "とうきょうを",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

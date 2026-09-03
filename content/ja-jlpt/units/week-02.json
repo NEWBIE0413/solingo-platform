@@ -1,0 +1,2119 @@
+{
+ "id": "ja-jlpt",
+ "title": "일본어 JLPT",
+ "units": [
+  {
+   "title": "2주차 · 이것·그것·저것, 장소, 숫자와 시간",
+   "description": "가나 코스와 병행. これ/それ/あれ, この/その/あの+명사, 〜の(의), ここ/そこ/あそこ/どこ, 숫자 11~100, 시간과 요일.",
+   "lessons": [
+    {
+     "title": "2-1 これ・それ・あれ (이것·그것·저것)",
+     "challenges": [
+      {
+       "type": "ASSIST",
+       "question": "これ",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "그것",
+         "correct": false
+        },
+        {
+         "text": "이것",
+         "correct": true
+        },
+        {
+         "text": "저것",
+         "correct": false
+        },
+        {
+         "text": "어느 것",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "ほん",
+         "correct": false,
+         "meta": {
+          "pair": "ほん",
+          "side": "left"
+         }
+        },
+        {
+         "text": "かばん",
+         "correct": false,
+         "meta": {
+          "pair": "かばん",
+          "side": "left"
+         }
+        },
+        {
+         "text": "とけい",
+         "correct": false,
+         "meta": {
+          "pair": "とけい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "かさ",
+         "correct": false,
+         "meta": {
+          "pair": "かさ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "우산",
+         "correct": false,
+         "meta": {
+          "pair": "かさ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "시계",
+         "correct": false,
+         "meta": {
+          "pair": "とけい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "책",
+         "correct": false,
+         "meta": {
+          "pair": "ほん",
+          "side": "right"
+         }
+        },
+        {
+         "text": "가방",
+         "correct": false,
+         "meta": {
+          "pair": "かばん",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "이것은 책입니다.\n___は ほんです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "これ",
+         "correct": true
+        },
+        {
+         "text": "どれ",
+         "correct": false
+        },
+        {
+         "text": "それ",
+         "correct": false
+        },
+        {
+         "text": "あれ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "それは かばんです。"
+       },
+       "options": [
+        {
+         "text": "그것은 책입니다",
+         "correct": false
+        },
+        {
+         "text": "이것은 가방입니다",
+         "correct": false
+        },
+        {
+         "text": "저것은 가방입니다",
+         "correct": false
+        },
+        {
+         "text": "그것은 가방입니다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 저것은 시계입니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "あれはとけいです",
+        "reading": "a re wa to ke i de su",
+        "meaning": "저것은 시계입니다",
+        "say": "あれはとけいです"
+       },
+       "options": [
+        {
+         "text": "あれは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "これは",
+         "correct": false
+        },
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "かばん",
+         "correct": false
+        },
+        {
+         "text": "とけい",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "あれ",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "저기",
+         "correct": false
+        },
+        {
+         "text": "이것",
+         "correct": false
+        },
+        {
+         "text": "그것",
+         "correct": false
+        },
+        {
+         "text": "저것",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "これは ほんです。",
+        "reading": "ko re wa ho n de su",
+        "meaning": "이것은 책입니다",
+        "say": "これは ほんです。"
+       },
+       "options": []
+      },
+      {
+       "type": "SELECT",
+       "question": "이것은 무엇입니까?\nこれは ___ですか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "だれ",
+         "correct": false
+        },
+        {
+         "text": "どこ",
+         "correct": false
+        },
+        {
+         "text": "どれ",
+         "correct": false
+        },
+        {
+         "text": "なん",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "これは なんですか。"
+       },
+       "options": [
+        {
+         "text": "이것은 책입니까?",
+         "correct": false
+        },
+        {
+         "text": "이것은 무엇입니까?",
+         "correct": true
+        },
+        {
+         "text": "이것은 누구입니까?",
+         "correct": false
+        },
+        {
+         "text": "이것은 어디입니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 그것은 우산입니까?",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "それはかさですか",
+        "reading": "so re wa ka sa de su ka",
+        "meaning": "그것은 우산입니까?",
+        "say": "それはかさですか"
+       },
+       "options": [
+        {
+         "text": "かさ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "これは",
+         "correct": false
+        },
+        {
+         "text": "です",
+         "correct": false
+        },
+        {
+         "text": "それは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "ですか",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "2-2 この・その・あの + 명사, 〜の (의)",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "이 책은 나의 책입니다.\n___ほんは わたしの ほんです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "これ",
+         "correct": false
+        },
+        {
+         "text": "あの",
+         "correct": false
+        },
+        {
+         "text": "その",
+         "correct": false
+        },
+        {
+         "text": "この",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "わたしの かばん",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "이 가방",
+         "correct": false
+        },
+        {
+         "text": "당신의 가방",
+         "correct": false
+        },
+        {
+         "text": "나의 가방",
+         "correct": true
+        },
+        {
+         "text": "그 가방",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "この",
+         "correct": false,
+         "meta": {
+          "pair": "この",
+          "side": "left"
+         }
+        },
+        {
+         "text": "その",
+         "correct": false,
+         "meta": {
+          "pair": "その",
+          "side": "left"
+         }
+        },
+        {
+         "text": "あの",
+         "correct": false,
+         "meta": {
+          "pair": "あの",
+          "side": "left"
+         }
+        },
+        {
+         "text": "どの",
+         "correct": false,
+         "meta": {
+          "pair": "どの",
+          "side": "left"
+         }
+        },
+        {
+         "text": "이 (+명사)",
+         "correct": false,
+         "meta": {
+          "pair": "この",
+          "side": "right"
+         }
+        },
+        {
+         "text": "저 (+명사)",
+         "correct": false,
+         "meta": {
+          "pair": "あの",
+          "side": "right"
+         }
+        },
+        {
+         "text": "어느 (+명사)",
+         "correct": false,
+         "meta": {
+          "pair": "どの",
+          "side": "right"
+         }
+        },
+        {
+         "text": "그 (+명사)",
+         "correct": false,
+         "meta": {
+          "pair": "その",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 그 시계는 선생님의 것입니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "そのとけいはせんせいのです",
+        "reading": "so no to ke i wa se n se i no de su",
+        "meaning": "그 시계는 선생님의 것입니다",
+        "say": "そのとけいはせんせいのです"
+       },
+       "options": [
+        {
+         "text": "この",
+         "correct": false
+        },
+        {
+         "text": "とけいは",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "その",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "せんせいの",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "わたしの",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "あの ひとは だれですか。"
+       },
+       "options": [
+        {
+         "text": "저 사람은 학생입니까?",
+         "correct": false
+        },
+        {
+         "text": "저 사람은 누구입니까?",
+         "correct": true
+        },
+        {
+         "text": "저것은 무엇입니까?",
+         "correct": false
+        },
+        {
+         "text": "이 사람은 누구입니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "저 사람은 나의 친구입니다.\nあの ひとは わたし___ ともだちです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "も",
+         "correct": false
+        },
+        {
+         "text": "か",
+         "correct": false
+        },
+        {
+         "text": "は",
+         "correct": false
+        },
+        {
+         "text": "の",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "だれ",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "어디",
+         "correct": false
+        },
+        {
+         "text": "무엇",
+         "correct": false
+        },
+        {
+         "text": "누구",
+         "correct": true
+        },
+        {
+         "text": "어느 것",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "これは わたしの けいたいです。",
+        "reading": "ko re wa wa ta shi no ke i ta i de su",
+        "meaning": "이것은 나의 휴대폰입니다",
+        "say": "これは わたしの けいたいです。"
+       },
+       "options": []
+      },
+      {
+       "type": "SELECT",
+       "question": "이것은 누구의 우산입니까?\nこれは ___の かさですか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "なん",
+         "correct": false
+        },
+        {
+         "text": "どこ",
+         "correct": false
+        },
+        {
+         "text": "だれ",
+         "correct": true
+        },
+        {
+         "text": "これ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 이 펜은 김 씨의 펜입니까?",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "このペンはキムさんのペンですか",
+        "reading": "ko no pe n wa ki mu sa n no pe n de su ka",
+        "meaning": "이 펜은 김 씨의 펜입니까?",
+        "say": "このペンはキムさんのペンですか"
+       },
+       "options": [
+        {
+         "text": "キムさんの",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "ペンですか",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "わたしの",
+         "correct": false
+        },
+        {
+         "text": "この",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "その",
+         "correct": false
+        },
+        {
+         "text": "ペンは",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "2-3 ここ・そこ・あそこ・どこ (여기·거기·저기·어디)",
+     "challenges": [
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "ここ",
+         "correct": false,
+         "meta": {
+          "pair": "ここ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "そこ",
+         "correct": false,
+         "meta": {
+          "pair": "そこ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "あそこ",
+         "correct": false,
+         "meta": {
+          "pair": "あそこ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "どこ",
+         "correct": false,
+         "meta": {
+          "pair": "どこ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "거기",
+         "correct": false,
+         "meta": {
+          "pair": "そこ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "여기",
+         "correct": false,
+         "meta": {
+          "pair": "ここ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "어디",
+         "correct": false,
+         "meta": {
+          "pair": "どこ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "저기",
+         "correct": false,
+         "meta": {
+          "pair": "あそこ",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "トイレは どこですか。"
+       },
+       "options": [
+        {
+         "text": "화장실은 여기입니다",
+         "correct": false
+        },
+        {
+         "text": "화장실은 저기입니다",
+         "correct": false
+        },
+        {
+         "text": "화장실은 어디입니까?",
+         "correct": true
+        },
+        {
+         "text": "역은 어디입니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "역은 저기입니다.\nえきは ___です。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "あそこ",
+         "correct": true
+        },
+        {
+         "text": "ここ",
+         "correct": false
+        },
+        {
+         "text": "そこ",
+         "correct": false
+        },
+        {
+         "text": "どこ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "がっこう",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "학교",
+         "correct": true
+        },
+        {
+         "text": "역",
+         "correct": false
+        },
+        {
+         "text": "가게",
+         "correct": false
+        },
+        {
+         "text": "집",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 여기는 학교입니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "ここはがっこうです",
+        "reading": "ko ko wa ga k ko u de su",
+        "meaning": "여기는 학교입니다",
+        "say": "ここはがっこうです"
+       },
+       "options": [
+        {
+         "text": "そこは",
+         "correct": false
+        },
+        {
+         "text": "えき",
+         "correct": false
+        },
+        {
+         "text": "ここは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "がっこう",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "가게는 어디입니까?\nみせは ___ですか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "なん",
+         "correct": false
+        },
+        {
+         "text": "どこ",
+         "correct": true
+        },
+        {
+         "text": "どれ",
+         "correct": false
+        },
+        {
+         "text": "だれ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "うちは あそこです。",
+        "reading": "u chi wa a so ko de su",
+        "meaning": "집은 저기입니다",
+        "say": "うちは あそこです。"
+       },
+       "options": []
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "えき",
+         "correct": false,
+         "meta": {
+          "pair": "えき",
+          "side": "left"
+         }
+        },
+        {
+         "text": "みせ",
+         "correct": false,
+         "meta": {
+          "pair": "みせ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "うち",
+         "correct": false,
+         "meta": {
+          "pair": "うち",
+          "side": "left"
+         }
+        },
+        {
+         "text": "トイレ",
+         "correct": false,
+         "meta": {
+          "pair": "トイレ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "역",
+         "correct": false,
+         "meta": {
+          "pair": "えき",
+          "side": "right"
+         }
+        },
+        {
+         "text": "화장실",
+         "correct": false,
+         "meta": {
+          "pair": "トイレ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "가게",
+         "correct": false,
+         "meta": {
+          "pair": "みせ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "집",
+         "correct": false,
+         "meta": {
+          "pair": "うち",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "ここは えきじゃありません。"
+       },
+       "options": [
+        {
+         "text": "여기는 역이 아닙니다",
+         "correct": true
+        },
+        {
+         "text": "여기는 학교가 아닙니다",
+         "correct": false
+        },
+        {
+         "text": "여기는 역입니다",
+         "correct": false
+        },
+        {
+         "text": "저기는 역이 아닙니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 화장실은 거기입니까?",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "トイレはそこですか",
+        "reading": "to i re wa so ko de su ka",
+        "meaning": "화장실은 거기입니까?",
+        "say": "トイレはそこですか"
+       },
+       "options": [
+        {
+         "text": "トイレは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "です",
+         "correct": false
+        },
+        {
+         "text": "ここ",
+         "correct": false
+        },
+        {
+         "text": "そこ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "ですか",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "2-4 숫자 11~100",
+     "challenges": [
+      {
+       "type": "LISTEN",
+       "question": "들리는 숫자는?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "じゅういち"
+       },
+       "options": [
+        {
+         "text": "1",
+         "correct": false
+        },
+        {
+         "text": "12",
+         "correct": false
+        },
+        {
+         "text": "11",
+         "correct": true
+        },
+        {
+         "text": "10",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "「20」은?",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "じゅう",
+         "correct": false
+        },
+        {
+         "text": "にじゅうに",
+         "correct": false
+        },
+        {
+         "text": "にじゅう",
+         "correct": true
+        },
+        {
+         "text": "じゅうに",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "さんじゅう",
+         "correct": false,
+         "meta": {
+          "pair": "さんじゅう",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ごじゅう",
+         "correct": false,
+         "meta": {
+          "pair": "ごじゅう",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ななじゅう",
+         "correct": false,
+         "meta": {
+          "pair": "ななじゅう",
+          "side": "left"
+         }
+        },
+        {
+         "text": "きゅうじゅう",
+         "correct": false,
+         "meta": {
+          "pair": "きゅうじゅう",
+          "side": "left"
+         }
+        },
+        {
+         "text": "90",
+         "correct": false,
+         "meta": {
+          "pair": "きゅうじゅう",
+          "side": "right"
+         }
+        },
+        {
+         "text": "50",
+         "correct": false,
+         "meta": {
+          "pair": "ごじゅう",
+          "side": "right"
+         }
+        },
+        {
+         "text": "70",
+         "correct": false,
+         "meta": {
+          "pair": "ななじゅう",
+          "side": "right"
+         }
+        },
+        {
+         "text": "30",
+         "correct": false,
+         "meta": {
+          "pair": "さんじゅう",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "じゅうご",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "15",
+         "correct": true
+        },
+        {
+         "text": "51",
+         "correct": false
+        },
+        {
+         "text": "50",
+         "correct": false
+        },
+        {
+         "text": "5",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "단어를 만드세요: 23",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "にじゅうさん",
+        "reading": "ni ju u sa n",
+        "meaning": "23",
+        "say": "にじゅうさん"
+       },
+       "options": [
+        {
+         "text": "ご",
+         "correct": false
+        },
+        {
+         "text": "に",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "よん",
+         "correct": false
+        },
+        {
+         "text": "さん",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "じゅう",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 숫자는?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "よんじゅうご"
+       },
+       "options": [
+        {
+         "text": "40",
+         "correct": false
+        },
+        {
+         "text": "15",
+         "correct": false
+        },
+        {
+         "text": "45",
+         "correct": true
+        },
+        {
+         "text": "54",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "「78」은?",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "はちじゅうなな",
+         "correct": false
+        },
+        {
+         "text": "ななじゅうはち",
+         "correct": true
+        },
+        {
+         "text": "じゅうはち",
+         "correct": false
+        },
+        {
+         "text": "ななじゅう",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "ひゃく",
+        "reading": "hya ku",
+        "meaning": "100",
+        "say": "ひゃく"
+       },
+       "options": []
+      },
+      {
+       "type": "ASSIST",
+       "question": "ろくじゅうに",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "60",
+         "correct": false
+        },
+        {
+         "text": "62",
+         "correct": true
+        },
+        {
+         "text": "6",
+         "correct": false
+        },
+        {
+         "text": "26",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "じゅうに",
+         "correct": false,
+         "meta": {
+          "pair": "じゅうに",
+          "side": "left"
+         }
+        },
+        {
+         "text": "にじゅう",
+         "correct": false,
+         "meta": {
+          "pair": "にじゅう",
+          "side": "left"
+         }
+        },
+        {
+         "text": "にじゅういち",
+         "correct": false,
+         "meta": {
+          "pair": "にじゅういち",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ひゃく",
+         "correct": false,
+         "meta": {
+          "pair": "ひゃく",
+          "side": "left"
+         }
+        },
+        {
+         "text": "21",
+         "correct": false,
+         "meta": {
+          "pair": "にじゅういち",
+          "side": "right"
+         }
+        },
+        {
+         "text": "12",
+         "correct": false,
+         "meta": {
+          "pair": "じゅうに",
+          "side": "right"
+         }
+        },
+        {
+         "text": "100",
+         "correct": false,
+         "meta": {
+          "pair": "ひゃく",
+          "side": "right"
+         }
+        },
+        {
+         "text": "20",
+         "correct": false,
+         "meta": {
+          "pair": "にじゅう",
+          "side": "right"
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "2-5 시간과 요일",
+     "challenges": [
+      {
+       "type": "ASSIST",
+       "question": "いま なんじですか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "지금 몇 시입니까?",
+         "correct": true
+        },
+        {
+         "text": "지금 어디입니까?",
+         "correct": false
+        },
+        {
+         "text": "오늘 무슨 요일입니까?",
+         "correct": false
+        },
+        {
+         "text": "내일은 몇 시입니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "「4시」는?",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "ようじ",
+         "correct": false
+        },
+        {
+         "text": "よんじ",
+         "correct": false
+        },
+        {
+         "text": "しじ",
+         "correct": false
+        },
+        {
+         "text": "よじ",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "いちじ",
+         "correct": false,
+         "meta": {
+          "pair": "いちじ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "さんじ",
+         "correct": false,
+         "meta": {
+          "pair": "さんじ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "しちじ",
+         "correct": false,
+         "meta": {
+          "pair": "しちじ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "くじ",
+         "correct": false,
+         "meta": {
+          "pair": "くじ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "1시",
+         "correct": false,
+         "meta": {
+          "pair": "いちじ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "3시",
+         "correct": false,
+         "meta": {
+          "pair": "さんじ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "7시",
+         "correct": false,
+         "meta": {
+          "pair": "しちじ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "9시",
+         "correct": false,
+         "meta": {
+          "pair": "くじ",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "いま ろくじはんです。"
+       },
+       "options": [
+        {
+         "text": "지금 7시 반입니다",
+         "correct": false
+        },
+        {
+         "text": "지금 6시입니다",
+         "correct": false
+        },
+        {
+         "text": "지금 6시 반입니다",
+         "correct": true
+        },
+        {
+         "text": "지금 8시 반입니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 지금 9시입니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "いまくじです",
+        "reading": "i ma ku ji de su",
+        "meaning": "지금 9시입니다",
+        "say": "いまくじです"
+       },
+       "options": [
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "きゅうじ",
+         "correct": false
+        },
+        {
+         "text": "いま",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "くじ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "なんじ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "きんようび",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "월요일",
+         "correct": false
+        },
+        {
+         "text": "수요일",
+         "correct": false
+        },
+        {
+         "text": "금요일",
+         "correct": true
+        },
+        {
+         "text": "토요일",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "げつようび",
+         "correct": false,
+         "meta": {
+          "pair": "げつようび",
+          "side": "left"
+         }
+        },
+        {
+         "text": "すいようび",
+         "correct": false,
+         "meta": {
+          "pair": "すいようび",
+          "side": "left"
+         }
+        },
+        {
+         "text": "どようび",
+         "correct": false,
+         "meta": {
+          "pair": "どようび",
+          "side": "left"
+         }
+        },
+        {
+         "text": "にちようび",
+         "correct": false,
+         "meta": {
+          "pair": "にちようび",
+          "side": "left"
+         }
+        },
+        {
+         "text": "수요일",
+         "correct": false,
+         "meta": {
+          "pair": "すいようび",
+          "side": "right"
+         }
+        },
+        {
+         "text": "일요일",
+         "correct": false,
+         "meta": {
+          "pair": "にちようび",
+          "side": "right"
+         }
+        },
+        {
+         "text": "월요일",
+         "correct": false,
+         "meta": {
+          "pair": "げつようび",
+          "side": "right"
+         }
+        },
+        {
+         "text": "토요일",
+         "correct": false,
+         "meta": {
+          "pair": "どようび",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "오늘은 무슨 요일입니까?\nきょうは ___ですか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "なんじ",
+         "correct": false
+        },
+        {
+         "text": "だれ",
+         "correct": false
+        },
+        {
+         "text": "なんようび",
+         "correct": true
+        },
+        {
+         "text": "どこ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "きょうは もくようびです。",
+        "reading": "kyo u wa mo ku yo u bi de su",
+        "meaning": "오늘은 목요일입니다",
+        "say": "きょうは もくようびです。"
+       },
+       "options": []
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "あしたは かようびです。"
+       },
+       "options": [
+        {
+         "text": "오늘은 화요일입니다",
+         "correct": false
+        },
+        {
+         "text": "어제는 화요일입니다",
+         "correct": false
+        },
+        {
+         "text": "내일은 수요일입니다",
+         "correct": false
+        },
+        {
+         "text": "내일은 화요일입니다",
+         "correct": true
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "2-6 2주차 복습",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "이것은 나의 열쇠입니다.\n___は わたしの かぎです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "これ",
+         "correct": true
+        },
+        {
+         "text": "この",
+         "correct": false
+        },
+        {
+         "text": "それ",
+         "correct": false
+        },
+        {
+         "text": "ここ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "それは なんですか。"
+       },
+       "options": [
+        {
+         "text": "이것은 무엇입니까?",
+         "correct": false
+        },
+        {
+         "text": "그것은 무엇입니까?",
+         "correct": true
+        },
+        {
+         "text": "그것은 누구입니까?",
+         "correct": false
+        },
+        {
+         "text": "저것은 무엇입니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "くるま",
+         "correct": false,
+         "meta": {
+          "pair": "くるま",
+          "side": "left"
+         }
+        },
+        {
+         "text": "みず",
+         "correct": false,
+         "meta": {
+          "pair": "みず",
+          "side": "left"
+         }
+        },
+        {
+         "text": "でんわ",
+         "correct": false,
+         "meta": {
+          "pair": "でんわ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "いす",
+         "correct": false,
+         "meta": {
+          "pair": "いす",
+          "side": "left"
+         }
+        },
+        {
+         "text": "전화",
+         "correct": false,
+         "meta": {
+          "pair": "でんわ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "물",
+         "correct": false,
+         "meta": {
+          "pair": "みず",
+          "side": "right"
+         }
+        },
+        {
+         "text": "차 (자동차)",
+         "correct": false,
+         "meta": {
+          "pair": "くるま",
+          "side": "right"
+         }
+        },
+        {
+         "text": "의자",
+         "correct": false,
+         "meta": {
+          "pair": "いす",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 저 사람은 일본인이 아닙니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "あのひとはにほんじんじゃありません",
+        "reading": "a no hi to wa ni ho n ji n ja a ri ma se n",
+        "meaning": "저 사람은 일본인이 아닙니다",
+        "say": "あのひとはにほんじんじゃありません"
+       },
+       "options": [
+        {
+         "text": "この",
+         "correct": false
+        },
+        {
+         "text": "です",
+         "correct": false
+        },
+        {
+         "text": "あの",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "にほんじん",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "ひとは",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "じゃありません",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "コーヒー",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "차 (자동차)",
+         "correct": false
+        },
+        {
+         "text": "커피",
+         "correct": true
+        },
+        {
+         "text": "우산",
+         "correct": false
+        },
+        {
+         "text": "물",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "역은 어디입니까?\nえきは ___ですか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "どこ",
+         "correct": true
+        },
+        {
+         "text": "どれ",
+         "correct": false
+        },
+        {
+         "text": "だれ",
+         "correct": false
+        },
+        {
+         "text": "なん",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "あの かばんは だれのですか。",
+        "reading": "a no ka ba n wa da re no de su ka",
+        "meaning": "저 가방은 누구의 것입니까?",
+        "say": "あの かばんは だれのですか。"
+       },
+       "options": []
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "いま じゅうじはんです。"
+       },
+       "options": [
+        {
+         "text": "지금 11시 반입니다",
+         "correct": false
+        },
+        {
+         "text": "지금 10시 반입니다",
+         "correct": true
+        },
+        {
+         "text": "지금 4시 반입니다",
+         "correct": false
+        },
+        {
+         "text": "지금 10시입니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "「38」은?",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "さんじゅうはち",
+         "correct": true
+        },
+        {
+         "text": "はちじゅうさん",
+         "correct": false
+        },
+        {
+         "text": "さんじゅう",
+         "correct": false
+        },
+        {
+         "text": "じゅうはち",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 오늘은 토요일입니까?",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "きょうはどようびですか",
+        "reading": "kyo u wa do yo u bi de su ka",
+        "meaning": "오늘은 토요일입니까?",
+        "say": "きょうはどようびですか"
+       },
+       "options": [
+        {
+         "text": "あしたは",
+         "correct": false
+        },
+        {
+         "text": "きょうは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "ですか",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "どようび",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "です",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

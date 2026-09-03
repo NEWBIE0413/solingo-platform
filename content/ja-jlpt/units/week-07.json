@@ -1,0 +1,2067 @@
+{
+  "id": "ja-jlpt",
+  "title": "일본어 JLPT",
+  "units": [
+    {
+      "title": "7주차 · た形과 경험, ない형",
+      "description": "た形(과거형), 경험 〜たことがあります, 나열 〜たり〜たりします, ない形(する→しない·くる→こない), なにも/ぜんぜん+부정. N5 문법의 마지막 주.",
+      "lessons": [
+        {
+          "title": "7-1 た形 만들기",
+          "challenges": [
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "たべます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のみます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "いきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "いきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべた",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "かいた",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "のんだ",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "いった",
+                  "correct": false,
+                  "meta": {
+                    "pair": "いきます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "동사 「よみます」의 た形은?\nよみます → ___",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "て形의 で→だ, って→った: よんで→よんだ."
+              },
+              "options": [
+                {
+                  "text": "よって",
+                  "correct": false
+                },
+                {
+                  "text": "よみた",
+                  "correct": false
+                },
+                {
+                  "text": "よんだです",
+                  "correct": false
+                },
+                {
+                  "text": "よんだ",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "すわった",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "앉았다",
+                  "correct": true
+                },
+                {
+                  "text": "앉는다",
+                  "correct": false
+                },
+                {
+                  "text": "앉아라",
+                  "correct": false
+                },
+                {
+                  "text": "앉고 있다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 た形의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "のんだ"
+              },
+              "options": [
+                {
+                  "text": "기다렸다",
+                  "correct": false
+                },
+                {
+                  "text": "마셨다",
+                  "correct": true
+                },
+                {
+                  "text": "먹었다",
+                  "correct": false
+                },
+                {
+                  "text": "샀다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 어제 책을 읽었다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "きのうほんをよんだ",
+                "reading": "ki no u ho n o yo n da",
+                "meaning": "어제 책을 읽었다",
+                "say": "きのうほんをよんだ"
+              },
+              "options": [
+                {
+                  "text": "きのうが",
+                  "correct": false
+                },
+                {
+                  "text": "きのう",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ほんを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "よんだ",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "よんで",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "동사 「かいます」의 た形은?\nかいます → ___",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "かいます의 て形은 かって이므로 た形은 かった."
+              },
+              "options": [
+                {
+                  "text": "かいった",
+                  "correct": false
+                },
+                {
+                  "text": "かって",
+                  "correct": false
+                },
+                {
+                  "text": "かった",
+                  "correct": true
+                },
+                {
+                  "text": "かいた",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "きのう、えいがを みた。",
+                "reading": "ki no u e i ga o mi ta",
+                "meaning": "어제 영화를 봤다",
+                "say": "きのう、えいがを みた。"
+              },
+              "options": []
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "かいます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "はなします",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はなします",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "まちます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まちます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "あそびます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あそびます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かった",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "はなした",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はなします",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "まった",
+                  "correct": false,
+                  "meta": {
+                    "pair": "まちます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "あそんだ",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あそびます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 た形의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "いった"
+              },
+              "options": [
+                {
+                  "text": "말했다",
+                  "correct": false
+                },
+                {
+                  "text": "간 적이 있다",
+                  "correct": false
+                },
+                {
+                  "text": "가자",
+                  "correct": false
+                },
+                {
+                  "text": "갔다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 어제 친구를 만났다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "きのうともだちにあった",
+                "reading": "ki no u to mo da chi ni a t ta",
+                "meaning": "어제 친구를 만났다",
+                "say": "きのうともだちにあった"
+              },
+              "options": [
+                {
+                  "text": "ともだちに",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "あった",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "あったを",
+                  "correct": false
+                },
+                {
+                  "text": "あいます",
+                  "correct": false
+                },
+                {
+                  "text": "きのう",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "7-2 〜たことがあります (해 본 적 있다)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "스시를 먹은 적이 있습니까?\nすしを たべた___ありますか。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "경험은 た形+ことがあります: 한 번이라도 해 본 적 있다."
+              },
+              "options": [
+                {
+                  "text": "ことが",
+                  "correct": true
+                },
+                {
+                  "text": "ものが",
+                  "correct": false
+                },
+                {
+                  "text": "ところが",
+                  "correct": false
+                },
+                {
+                  "text": "たいが",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "にほんへ いったことがあります",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "일본에 가 보겠습니다",
+                  "correct": false
+                },
+                {
+                  "text": "일본에 간 적이 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "일본에 갑니다",
+                  "correct": false
+                },
+                {
+                  "text": "일본에 가고 싶습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "すもうを みたことがあります。"
+              },
+              "options": [
+                {
+                  "text": "스모를 보고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "스모를 보고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "스모를 본 적이 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "스모를 봅시다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "아니요, 먹은 적이 없습니다.\nいいえ、___。",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "たべませんでした",
+                  "correct": false
+                },
+                {
+                  "text": "たべたくないです",
+                  "correct": false
+                },
+                {
+                  "text": "たべたことがあります",
+                  "correct": false
+                },
+                {
+                  "text": "たべたことがありません",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 피아노를 친 적이 있습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "ピアノをひいたことがあります",
+                "reading": "pi a no o hi i ta ko to ga a ri ma su",
+                "meaning": "피아노를 친 적이 있습니다",
+                "say": "ピアノをひいたことがあります"
+              },
+              "options": [
+                {
+                  "text": "ピアノを",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "ひいた",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ことがあります",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "ひきます",
+                  "correct": false
+                },
+                {
+                  "text": "ピアノが",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "いった ことがあります",
+                  "correct": false,
+                  "meta": {
+                    "pair": "경험 있음",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "いった ことがありません",
+                  "correct": false,
+                  "meta": {
+                    "pair": "경험 없음",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "いきました",
+                  "correct": false,
+                  "meta": {
+                    "pair": "지나(과거)",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "いきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "현재",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "가 본 적이 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "경험 있음",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "가 본 적이 없습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "경험 없음",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "갔습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "지나(과거)",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "갑니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "현재",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "あさ ごはんを たべたことがありますか。",
+                "reading": "a sa go ha n o ta be ta ko to ga a ri ma su ka",
+                "meaning": "아침 밥을 먹은 적이 있습니까?",
+                "say": "あさ ごはんを たべたことがありますか。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "かったことがありません",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "산 적이 없습니다",
+                  "correct": true
+                },
+                {
+                  "text": "사고 싶지 않습니다",
+                  "correct": false
+                },
+                {
+                  "text": "사지 않았습니다",
+                  "correct": false
+                },
+                {
+                  "text": "삽니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "フランスりょうりを たべたことがありますか。"
+              },
+              "options": [
+                {
+                  "text": "프랑스 요리를 만들고 싶습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "프랑스 요리를 먹어 본 적이 있습니까?",
+                  "correct": true
+                },
+                {
+                  "text": "프랑스 요리를 먹으러 갑시다",
+                  "correct": false
+                },
+                {
+                  "text": "프랑스 요리를 먹었습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 한 번 본 적이 없습니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "いちどみたことがありません",
+                "reading": "i chi do mi ta ko to ga a ri ma se n",
+                "meaning": "한 번 본 적이 없습니다",
+                "say": "いちどみたことがありません"
+              },
+              "options": [
+                {
+                  "text": "ことがありません",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "みません",
+                  "correct": false
+                },
+                {
+                  "text": "いちどが",
+                  "correct": false
+                },
+                {
+                  "text": "いちど",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "みた",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "7-3 〜たり〜たりします (나열)",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "일요일에는 책을 읽거나 음악을 듣습니다.\nにちようびは ほんを ___、おんがくを ききます。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "동작을 나열할 때 た形+り: よんだり、きいたりします."
+              },
+              "options": [
+                {
+                  "text": "よんだ",
+                  "correct": false
+                },
+                {
+                  "text": "よみます",
+                  "correct": false
+                },
+                {
+                  "text": "よんだり",
+                  "correct": true
+                },
+                {
+                  "text": "よんで",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "かいものしたり、あそんだりします",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "쇼핑하러 가고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "쇼핑만 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "쇼핑했습니다",
+                  "correct": false
+                },
+                {
+                  "text": "쇼핑하고 놀고 합니다(등등)",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "しゅうまつは そうじしたり、せんたくしたりします。"
+              },
+              "options": [
+                {
+                  "text": "주말에는 청소하고 빨래하고 합니다",
+                  "correct": true
+                },
+                {
+                  "text": "주말에는 청소만 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "주말에 청소를 했습니다",
+                  "correct": false
+                },
+                {
+                  "text": "주말에는 쉬고 싶습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 일요일에는 쉬거나 공부합니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "にちようびはやすんだりべんきょうしたりします",
+                "reading": "ni chi yo u bi wa ya su mi ta ri be n kyo o shi ta ri shi ma su",
+                "meaning": "일요일에는 쉬거나 공부합니다",
+                "say": "にちようびはやすんだりべんきょうしたりします"
+              },
+              "options": [
+                {
+                  "text": "にちようびは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "やすんだり",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "べんきょうしたりします",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "やすむ",
+                  "correct": false
+                },
+                {
+                  "text": "やすんだです",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「〜たり〜たり」뒤에 오는 말은?\nひらがなを かいたり、よんだり___。",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "ください",
+                  "correct": false
+                },
+                {
+                  "text": "します",
+                  "correct": true
+                },
+                {
+                  "text": "あります",
+                  "correct": false
+                },
+                {
+                  "text": "います",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "はなしたり",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はなしたり",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かいたり",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいたり",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のんだり",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のんだり",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべたり",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべたり",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "이야기하거나",
+                  "correct": false,
+                  "meta": {
+                    "pair": "はなしたり",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "쓰거나",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かいたり",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "마시거나",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のんだり",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "먹거나",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべたり",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "にちようびは あそんだり べんきょうしたりします。",
+                "reading": "ni chi yo u bi wa a so n da ri be n kyo o shi ta ri shi ma su",
+                "meaning": "일요일에는 놀거나 공부하거나 합니다",
+                "say": "にちようびは あそんだり べんきょうしたりします。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "はなしたり、きいたりします",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "이야기하려고 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "이야기했습니다",
+                  "correct": false
+                },
+                {
+                  "text": "이야기하고 듣고 합니다",
+                  "correct": true
+                },
+                {
+                  "text": "이야기만 합니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "ひるごはんは パンを たべたり、おにぎりを たべたりします。"
+              },
+              "options": [
+                {
+                  "text": "점심은 늘 빵을 먹습니다",
+                  "correct": false
+                },
+                {
+                  "text": "점심은 빵을 먹었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "점심에 오니기리를 먹고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "점심은 빵을 먹거나 주먹밥을 먹거나 합니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 커피를 마시거나 차를 마시거나 합니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "コーヒーをのんだりおちゃを のんだりします",
+                "reading": "koo hii o no n da ri o cha o no n da ri shi ma su",
+                "meaning": "커피를 마시거나 차를 마시거나 합니다",
+                "say": "コーヒーをのんだりおちゃを のんだりします"
+              },
+              "options": [
+                {
+                  "text": "のみます",
+                  "correct": false
+                },
+                {
+                  "text": "おちゃが",
+                  "correct": false
+                },
+                {
+                  "text": "コーヒーを",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "のんだり",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "おちゃを のんだりします",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "7-4 ない形 만들기",
+          "challenges": [
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "のみます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "たべます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "かきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "いきます",
+                  "correct": false,
+                  "meta": {
+                    "pair": "いきます",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のまない",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のみます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "たべない",
+                  "correct": false,
+                  "meta": {
+                    "pair": "たべます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "かかない",
+                  "correct": false,
+                  "meta": {
+                    "pair": "かきます",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "いかない",
+                  "correct": false,
+                  "meta": {
+                    "pair": "いきます",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "동사 「よみます」의 ない形은?\nよみます → ___",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "み단 5단동사의 ない形は まない: よむ→よまない."
+              },
+              "options": [
+                {
+                  "text": "よまない",
+                  "correct": true
+                },
+                {
+                  "text": "よんでない",
+                  "correct": false
+                },
+                {
+                  "text": "よみない",
+                  "correct": false
+                },
+                {
+                  "text": "よわない",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "あさごはんを たべない",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "아침을 먹고 있다",
+                  "correct": false
+                },
+                {
+                  "text": "아침을 안 먹는다",
+                  "correct": true
+                },
+                {
+                  "text": "아침을 먹었다",
+                  "correct": false
+                },
+                {
+                  "text": "아침을 먹자",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 ない形의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "いかない"
+              },
+              "options": [
+                {
+                  "text": "가자",
+                  "correct": false
+                },
+                {
+                  "text": "가 본 적 없다",
+                  "correct": false
+                },
+                {
+                  "text": "안 간다",
+                  "correct": true
+                },
+                {
+                  "text": "가지 않았다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 오늘은 학교에 가지 않는다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "きょうはがっこうへいかない",
+                "reading": "kyo u wa ga k ko u e i ka na i",
+                "meaning": "오늘은 학교에 가지 않는다",
+                "say": "きょうはがっこうへいかない"
+              },
+              "options": [
+                {
+                  "text": "がっこうへ",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "いかない",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "いきます",
+                  "correct": false
+                },
+                {
+                  "text": "きょうが",
+                  "correct": false
+                },
+                {
+                  "text": "きょうは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "동사 「する」의 ない形은?\nする → ___",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "する는 불규칙: しない. くるも 불규칙으로 こない."
+              },
+              "options": [
+                {
+                  "text": "せない",
+                  "correct": false
+                },
+                {
+                  "text": "しんでない",
+                  "correct": false
+                },
+                {
+                  "text": "さない",
+                  "correct": false
+                },
+                {
+                  "text": "しない",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "まいにち はしらない。",
+                "reading": "ma i ni chi ha shi ra na i",
+                "meaning": "매일은 달리지 않는다",
+                "say": "まいにち はしらない。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "こない",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "오지 않는다",
+                  "correct": true
+                },
+                {
+                  "text": "온다",
+                  "correct": false
+                },
+                {
+                  "text": "왔다",
+                  "correct": false
+                },
+                {
+                  "text": "오지 마라",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "なにも かいません。"
+              },
+              "options": [
+                {
+                  "text": "아무것도 사지 않았다",
+                  "correct": false
+                },
+                {
+                  "text": "아무것도 먹지 않는다",
+                  "correct": true
+                },
+                {
+                  "text": "아무것도 먹고 싶지 않다",
+                  "correct": false
+                },
+                {
+                  "text": "아무것도 사지 않는다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 지금은 아무것도 쓰지 않는다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "いまはなにもかかない",
+                "reading": "i ma wa na ni mo ka ka na i",
+                "meaning": "지금은 아무것도 쓰지 않는다",
+                "say": "いまはなにもかかない"
+              },
+              "options": [
+                {
+                  "text": "なにもが",
+                  "correct": false
+                },
+                {
+                  "text": "いまは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "なにも",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "かかない",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "かきます",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "7-5 상황 · 여가 이야기",
+          "challenges": [
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "しゅうまつは なにを しましたか。"
+              },
+              "options": [
+                {
+                  "text": "주말에 뭘 하고 싶습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "주말에 뭘 하지 않았습니까?",
+                  "correct": false
+                },
+                {
+                  "text": "주말에 뭘 했습니까?",
+                  "correct": true
+                },
+                {
+                  "text": "주말에 뭘 합니까?",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「노래방에 가 본 적이 있습니까?」라고 묻습니다.\nカラオケに ___か。",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "いきましょう",
+                  "correct": false
+                },
+                {
+                  "text": "いきます",
+                  "correct": false
+                },
+                {
+                  "text": "いきたいです",
+                  "correct": false
+                },
+                {
+                  "text": "いったことがあります",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "かたことがありません",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "한 적이 없습니다",
+                  "correct": true
+                },
+                {
+                  "text": "하고 있습니다",
+                  "correct": false
+                },
+                {
+                  "text": "하고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "하겠습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 주말에 영화를 보거나 책을 읽거나 합니다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "しゅうまつはえいがを みたりほんを よんだりします",
+                "reading": "shu kyo u hi wa e i ga o mi ta ri ho n o yo n da ri shi ma su",
+                "meaning": "주말에 영화를 보거나 책을 읽거나 합니다",
+                "say": "しゅうまつはえいがを みたりほんを よんだりします"
+              },
+              "options": [
+                {
+                  "text": "ほんを よんだりします",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "みます",
+                  "correct": false
+                },
+                {
+                  "text": "よんだが",
+                  "correct": false
+                },
+                {
+                  "text": "しゅうまつは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "えいがを みたり",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "vocab",
+              "options": [
+                {
+                  "text": "うたった",
+                  "correct": false,
+                  "meta": {
+                    "pair": "うたった",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "のんだ",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のんだ",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "あそんだ",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あそんだ",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "おどった",
+                  "correct": false,
+                  "meta": {
+                    "pair": "おどった",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "노래했다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "うたった",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "마셨다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "のんだ",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "놀았다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "あそんだ",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "춤췄다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "おどった",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "にほんりょうりを つくったことがあります。"
+              },
+              "options": [
+                {
+                  "text": "일본 요리를 만들 겁니다",
+                  "correct": false
+                },
+                {
+                  "text": "일본 요리를 만들어 본 적이 있습니다",
+                  "correct": true
+                },
+                {
+                  "text": "일본 요리를 만들고 싶습니다",
+                  "correct": false
+                },
+                {
+                  "text": "일본 요리를 만들지 않았습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「담배를 피운 적이 있습니까?」라고 묻습니다.\nたばこを ___か。",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "すわないでください",
+                  "correct": false
+                },
+                {
+                  "text": "すいます",
+                  "correct": false
+                },
+                {
+                  "text": "すったことがあります",
+                  "correct": true
+                },
+                {
+                  "text": "すってもいいです",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "きょうとへ いったことがあります。",
+                "reading": "kyo u to e i t ta ko to ga a ri ma su",
+                "meaning": "교토에 가 본 적이 있습니다",
+                "say": "きょうとへ いったことがあります。"
+              },
+              "options": []
+            },
+            {
+              "type": "ASSIST",
+              "question": "やすんだり、うんてんしたりします",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "쉬고 운전합니다(단순 나열)",
+                  "correct": false
+                },
+                {
+                  "text": "쉬려고 합니다",
+                  "correct": false
+                },
+                {
+                  "text": "쉬었습니다",
+                  "correct": false
+                },
+                {
+                  "text": "쉬거나 운전하거나 합니다",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 오늘은 아무것도 먹지 않았다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "きょうはなにもたべなかった",
+                "reading": "kyo u wa na ni mo ta be na ka t ta",
+                "meaning": "오늘은 아무것도 먹지 않았다",
+                "say": "きょうはなにもたべなかった"
+              },
+              "options": [
+                {
+                  "text": "きょうは",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "なにも",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "たべなかった",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "たべない",
+                  "correct": false
+                },
+                {
+                  "text": "きょうが",
+                  "correct": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "7-6 7주차 복습",
+          "challenges": [
+            {
+              "type": "SELECT",
+              "question": "동사 「はなします」의 た形은?\nはなします → ___",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "はなした",
+                  "correct": true
+                },
+                {
+                  "text": "はなって",
+                  "correct": false
+                },
+                {
+                  "text": "はなしたです",
+                  "correct": false
+                },
+                {
+                  "text": "はなしだ",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "すもうを みたことがありません。"
+              },
+              "options": [
+                {
+                  "text": "스모를 봅시다",
+                  "correct": false
+                },
+                {
+                  "text": "스모를 본 적이 없습니다",
+                  "correct": true
+                },
+                {
+                  "text": "스모를 봤습니다",
+                  "correct": false
+                },
+                {
+                  "text": "스모를 보고 싶습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "MATCH",
+              "question": "짝을 맞추세요",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "〜ています",
+                  "correct": false,
+                  "meta": {
+                    "pair": "진행",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜てもいいです",
+                  "correct": false,
+                  "meta": {
+                    "pair": "허가",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜たことがあります",
+                  "correct": false,
+                  "meta": {
+                    "pair": "경험",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "〜たり〜たりします",
+                  "correct": false,
+                  "meta": {
+                    "pair": "나열",
+                    "side": "left"
+                  }
+                },
+                {
+                  "text": "~하고 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "진행",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~해도 됩니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "허가",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~해 본 적이 있습니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "경험",
+                    "side": "right"
+                  }
+                },
+                {
+                  "text": "~하거나 ~하거나 합니다",
+                  "correct": false,
+                  "meta": {
+                    "pair": "나열",
+                    "side": "right"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 어제 사진을 찍었다",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "きのうしゃしんをとった",
+                "reading": "ki no u sha shin o to t ta",
+                "meaning": "어제 사진을 찍었다",
+                "say": "きのうしゃしんをとった"
+              },
+              "options": [
+                {
+                  "text": "とった",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "とって",
+                  "correct": false
+                },
+                {
+                  "text": "とらない",
+                  "correct": false
+                },
+                {
+                  "text": "きのう",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                },
+                {
+                  "text": "しゃしんを",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "ASSIST",
+              "question": "かかない",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "썼다",
+                  "correct": false
+                },
+                {
+                  "text": "쓰고 있다",
+                  "correct": false
+                },
+                {
+                  "text": "쓰지 않는다",
+                  "correct": true
+                },
+                {
+                  "text": "쓴다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "동사 「くる」의 ない形은?\nくる → ___",
+              "level": 5,
+              "tag": "grammar",
+              "options": [
+                {
+                  "text": "くない",
+                  "correct": false
+                },
+                {
+                  "text": "こざない",
+                  "correct": false
+                },
+                {
+                  "text": "こらない",
+                  "correct": false
+                },
+                {
+                  "text": "こない",
+                  "correct": true
+                }
+              ]
+            },
+            {
+              "type": "SPEAK",
+              "question": "따라 읽어보세요",
+              "level": 5,
+              "tag": "vocab",
+              "audioSrc": "",
+              "meta": {
+                "target": "なにも しませんでした。",
+                "reading": "na ni mo shi ma se n de shi ta",
+                "meaning": "아무것도 하지 않았습니다",
+                "say": "なにも しませんでした。"
+              },
+              "options": []
+            },
+            {
+              "type": "LISTEN",
+              "question": "들리는 문장의 뜻은?",
+              "level": 5,
+              "tag": "listening",
+              "audioSrc": "",
+              "meta": {
+                "say": "どようびに えいがを みたり、かいものを したりしました。"
+              },
+              "options": [
+                {
+                  "text": "토요일에 영화를 보고 쇼핑을 하고 했습니다",
+                  "correct": true
+                },
+                {
+                  "text": "토요일에 영화만 봤습니다",
+                  "correct": false
+                },
+                {
+                  "text": "토요일에 영화를 보러 갑니다",
+                  "correct": false
+                },
+                {
+                  "text": "토요일에 영화를 보고 싶습니다",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "SELECT",
+              "question": "「아무것도 먹지 않는다」라고 씁니다.\nなにも ___。",
+              "level": 5,
+              "tag": "grammar",
+              "meta": {
+                "explanation": "なには 언제나 부정과 함께: 아무것도 ~않다."
+              },
+              "options": [
+                {
+                  "text": "たべたい",
+                  "correct": false
+                },
+                {
+                  "text": "たべない",
+                  "correct": true
+                },
+                {
+                  "text": "たべないで",
+                  "correct": false
+                },
+                {
+                  "text": "たべる",
+                  "correct": false
+                }
+              ]
+            },
+            {
+              "type": "BUILD",
+              "question": "문장을 만드세요: 가 본 적이 있습니까?",
+              "level": 5,
+              "tag": "grammar",
+              "audioSrc": "",
+              "meta": {
+                "target": "いったことがありますか",
+                "reading": "i t ta ko to ga a ri ma su ka",
+                "meaning": "가 본 적이 있습니까?",
+                "say": "いったことがありますか"
+              },
+              "options": [
+                {
+                  "text": "ことが",
+                  "correct": true,
+                  "meta": {
+                    "order": 2
+                  }
+                },
+                {
+                  "text": "ありますか",
+                  "correct": true,
+                  "meta": {
+                    "order": 3
+                  }
+                },
+                {
+                  "text": "いきます",
+                  "correct": false
+                },
+                {
+                  "text": "いったが",
+                  "correct": false
+                },
+                {
+                  "text": "いった",
+                  "correct": true,
+                  "meta": {
+                    "order": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

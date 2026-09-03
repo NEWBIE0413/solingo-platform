@@ -1,0 +1,2176 @@
+{
+ "id": "ja-jlpt",
+ "title": "일본어 JLPT",
+ "units": [
+  {
+   "title": "3주차 · 형용사와 「있다」",
+   "description": "N5 문법 시작. い형용사/な형용사의 현재·부정, あります/います와 위치 표현, 〜が(지만)·〜と·〜や, とても/あまり. 「〜が すきです」는 조사 が!",
+   "lessons": [
+    {
+     "title": "3-1 い형용사 (크다·작다·새롭다…)",
+     "challenges": [
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "おおきい",
+         "correct": false,
+         "meta": {
+          "pair": "おおきい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ちいさい",
+         "correct": false,
+         "meta": {
+          "pair": "ちいさい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "あたらしい",
+         "correct": false,
+         "meta": {
+          "pair": "あたらしい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ふるい",
+         "correct": false,
+         "meta": {
+          "pair": "ふるい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "크다",
+         "correct": false,
+         "meta": {
+          "pair": "おおきい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "낡다, 오래되다",
+         "correct": false,
+         "meta": {
+          "pair": "ふるい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "작다",
+         "correct": false,
+         "meta": {
+          "pair": "ちいさい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "새롭다",
+         "correct": false,
+         "meta": {
+          "pair": "あたらしい",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "이 가방은 큽니다.\nこの かばんは ___です。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "おおきいな",
+         "correct": false
+        },
+        {
+         "text": "おおきく",
+         "correct": false
+        },
+        {
+         "text": "おおき",
+         "correct": false
+        },
+        {
+         "text": "おおきい",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "たかい",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "싸다",
+         "correct": false
+        },
+        {
+         "text": "낡다",
+         "correct": false
+        },
+        {
+         "text": "크다",
+         "correct": false
+        },
+        {
+         "text": "비싸다, 높다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "この とけいは たかいです。"
+       },
+       "options": [
+        {
+         "text": "이 시계는 비쌉니다",
+         "correct": true
+        },
+        {
+         "text": "이 시계는 새롭습니다",
+         "correct": false
+        },
+        {
+         "text": "이 시계는 쌉니다",
+         "correct": false
+        },
+        {
+         "text": "이 시계는 큽니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 일본어는 어렵습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "にほんごはむずかしいです",
+        "reading": "ni ho n go wa mu zu ka shi i de su",
+        "meaning": "일본어는 어렵습니다",
+        "say": "にほんごはむずかしいです"
+       },
+       "options": [
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "むずかしい",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "にほんごは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "やさしい",
+         "correct": false
+        },
+        {
+         "text": "むずかしいな",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "맛있는 커피\n___ コーヒー",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "おいしいの",
+         "correct": false
+        },
+        {
+         "text": "おいしい",
+         "correct": true
+        },
+        {
+         "text": "おいしく",
+         "correct": false
+        },
+        {
+         "text": "おいしいな",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "この みせは やすいです。",
+        "reading": "ko no mi se wa ya su i de su",
+        "meaning": "이 가게는 쌉니다",
+        "say": "この みせは やすいです。"
+       },
+       "options": []
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "おいしい",
+         "correct": false,
+         "meta": {
+          "pair": "おいしい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "たのしい",
+         "correct": false,
+         "meta": {
+          "pair": "たのしい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "むずかしい",
+         "correct": false,
+         "meta": {
+          "pair": "むずかしい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "やさしい",
+         "correct": false,
+         "meta": {
+          "pair": "やさしい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "쉽다, 상냥하다",
+         "correct": false,
+         "meta": {
+          "pair": "やさしい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "어렵다",
+         "correct": false,
+         "meta": {
+          "pair": "むずかしい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "즐겁다",
+         "correct": false,
+         "meta": {
+          "pair": "たのしい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "맛있다",
+         "correct": false,
+         "meta": {
+          "pair": "おいしい",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "あたらしい けいたいです。"
+       },
+       "options": [
+        {
+         "text": "새 휴대폰입니다",
+         "correct": true
+        },
+        {
+         "text": "낡은 휴대폰입니다",
+         "correct": false
+        },
+        {
+         "text": "작은 휴대폰입니다",
+         "correct": false
+        },
+        {
+         "text": "비싼 휴대폰입니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 큰 개입니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "おおきいいぬです",
+        "reading": "o o ki i i nu de su",
+        "meaning": "큰 개입니다",
+        "say": "おおきいいぬです"
+       },
+       "options": [
+        {
+         "text": "おおきいな",
+         "correct": false
+        },
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "ねこ",
+         "correct": false
+        },
+        {
+         "text": "いぬ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "おおきい",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "3-2 な형용사 (조용하다·유명하다…), 〜が すきです",
+     "challenges": [
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "しずか",
+         "correct": false,
+         "meta": {
+          "pair": "しずか",
+          "side": "left"
+         }
+        },
+        {
+         "text": "にぎやか",
+         "correct": false,
+         "meta": {
+          "pair": "にぎやか",
+          "side": "left"
+         }
+        },
+        {
+         "text": "きれい",
+         "correct": false,
+         "meta": {
+          "pair": "きれい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ゆうめい",
+         "correct": false,
+         "meta": {
+          "pair": "ゆうめい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "예쁘다, 깨끗하다",
+         "correct": false,
+         "meta": {
+          "pair": "きれい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "유명하다",
+         "correct": false,
+         "meta": {
+          "pair": "ゆうめい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "번화하다",
+         "correct": false,
+         "meta": {
+          "pair": "にぎやか",
+          "side": "right"
+         }
+        },
+        {
+         "text": "조용하다",
+         "correct": false,
+         "meta": {
+          "pair": "しずか",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "조용한 마을\n___ まち",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "しずかな",
+         "correct": true
+        },
+        {
+         "text": "しずか",
+         "correct": false
+        },
+        {
+         "text": "しずかの",
+         "correct": false
+        },
+        {
+         "text": "しずかい",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "べんり",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "한가하다",
+         "correct": false
+        },
+        {
+         "text": "친절하다",
+         "correct": false
+        },
+        {
+         "text": "유명하다",
+         "correct": false
+        },
+        {
+         "text": "편리하다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "この へやは きれいです。"
+       },
+       "options": [
+        {
+         "text": "이 방은 큽니다",
+         "correct": false
+        },
+        {
+         "text": "이 방은 새롭습니다",
+         "correct": false
+        },
+        {
+         "text": "이 방은 깨끗합니다",
+         "correct": true
+        },
+        {
+         "text": "이 방은 조용합니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 이 마을은 번화합니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "このまちはにぎやかです",
+        "reading": "ko no ma chi wa ni gi ya ka de su",
+        "meaning": "이 마을은 번화합니다",
+        "say": "このまちはにぎやかです"
+       },
+       "options": [
+        {
+         "text": "にぎやかな",
+         "correct": false
+        },
+        {
+         "text": "この",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "しずかな",
+         "correct": false
+        },
+        {
+         "text": "まちは",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "にぎやか",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "유명한 가게입니다.\n___ みせです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "ゆうめいな",
+         "correct": true
+        },
+        {
+         "text": "ゆうめいい",
+         "correct": false
+        },
+        {
+         "text": "ゆうめい",
+         "correct": false
+        },
+        {
+         "text": "ゆうめいの",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "せんせいは しんせつです。",
+        "reading": "se n se i wa shi n se tsu de su",
+        "meaning": "선생님은 친절합니다",
+        "say": "せんせいは しんせつです。"
+       },
+       "options": []
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "げんき",
+         "correct": false,
+         "meta": {
+          "pair": "げんき",
+          "side": "left"
+         }
+        },
+        {
+         "text": "しんせつ",
+         "correct": false,
+         "meta": {
+          "pair": "しんせつ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ひま",
+         "correct": false,
+         "meta": {
+          "pair": "ひま",
+          "side": "left"
+         }
+        },
+        {
+         "text": "すき",
+         "correct": false,
+         "meta": {
+          "pair": "すき",
+          "side": "left"
+         }
+        },
+        {
+         "text": "좋아하다",
+         "correct": false,
+         "meta": {
+          "pair": "すき",
+          "side": "right"
+         }
+        },
+        {
+         "text": "건강하다, 활기차다",
+         "correct": false,
+         "meta": {
+          "pair": "げんき",
+          "side": "right"
+         }
+        },
+        {
+         "text": "친절하다",
+         "correct": false,
+         "meta": {
+          "pair": "しんせつ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "한가하다",
+         "correct": false,
+         "meta": {
+          "pair": "ひま",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "나는 커피를 좋아합니다. (좋아하다는 조사 が)\nわたしは コーヒー___ すきです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "は",
+         "correct": false
+        },
+        {
+         "text": "が",
+         "correct": true
+        },
+        {
+         "text": "に",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "にほんの たべものが すきです。"
+       },
+       "options": [
+        {
+         "text": "일본 음식을 좋아합니다",
+         "correct": true
+        },
+        {
+         "text": "한국 음식을 좋아합니다",
+         "correct": false
+        },
+        {
+         "text": "일본 음식은 맛있습니다",
+         "correct": false
+        },
+        {
+         "text": "일본 음식을 싫어합니다",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "3-3 형용사 부정 (〜くないです・〜じゃないです)",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "이 책은 비싸지 않습니다.\nこの ほんは ___です。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "たかくない",
+         "correct": true
+        },
+        {
+         "text": "たかじゃない",
+         "correct": false
+        },
+        {
+         "text": "たかくないい",
+         "correct": false
+        },
+        {
+         "text": "たかいない",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "さむくないです",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "덥지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "덥습니다",
+         "correct": false
+        },
+        {
+         "text": "춥지 않습니다",
+         "correct": true
+        },
+        {
+         "text": "춥습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 이 방은 조용하지 않습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "このへやはしずかじゃないです",
+        "reading": "ko no he ya wa shi zu ka ja na i de su",
+        "meaning": "이 방은 조용하지 않습니다",
+        "say": "このへやはしずかじゃないです"
+       },
+       "options": [
+        {
+         "text": "じゃないです",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "しずか",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "へやは",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "しずかくない",
+         "correct": false
+        },
+        {
+         "text": "この",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "です",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "この りょうりは おいしくないです。"
+       },
+       "options": [
+        {
+         "text": "이 요리는 싸지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "이 요리는 맛있습니다",
+         "correct": false
+        },
+        {
+         "text": "이 요리는 맛있지 않습니다",
+         "correct": true
+        },
+        {
+         "text": "이 요리는 비싸지 않습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "좋지 않습니다. (いい의 부정은 특별해요)\n___です。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "よくない",
+         "correct": true
+        },
+        {
+         "text": "いくない",
+         "correct": false
+        },
+        {
+         "text": "いいじゃない",
+         "correct": false
+        },
+        {
+         "text": "いいくない",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "おおきくない",
+         "correct": false,
+         "meta": {
+          "pair": "おおきくない",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ちいさくない",
+         "correct": false,
+         "meta": {
+          "pair": "ちいさくない",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ひまじゃない",
+         "correct": false,
+         "meta": {
+          "pair": "ひまじゃない",
+          "side": "left"
+         }
+        },
+        {
+         "text": "げんきじゃない",
+         "correct": false,
+         "meta": {
+          "pair": "げんきじゃない",
+          "side": "left"
+         }
+        },
+        {
+         "text": "한가하지 않다",
+         "correct": false,
+         "meta": {
+          "pair": "ひまじゃない",
+          "side": "right"
+         }
+        },
+        {
+         "text": "크지 않다",
+         "correct": false,
+         "meta": {
+          "pair": "おおきくない",
+          "side": "right"
+         }
+        },
+        {
+         "text": "건강하지 않다",
+         "correct": false,
+         "meta": {
+          "pair": "げんきじゃない",
+          "side": "right"
+         }
+        },
+        {
+         "text": "작지 않다",
+         "correct": false,
+         "meta": {
+          "pair": "ちいさくない",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "あまり むずかしくないです。",
+        "reading": "a ma ri mu zu ka shi ku na i de su",
+        "meaning": "그다지 어렵지 않습니다",
+        "say": "あまり むずかしくないです。"
+       },
+       "options": []
+      },
+      {
+       "type": "SELECT",
+       "question": "그 가게는 유명하지 않습니다.\nその みせは ___です。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "ゆうめいくない",
+         "correct": false
+        },
+        {
+         "text": "ゆうめいじゃない",
+         "correct": true
+        },
+        {
+         "text": "ゆうめいない",
+         "correct": false
+        },
+        {
+         "text": "ゆうめいのない",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 일본어는 그다지 어렵지 않습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "にほんごはあまりむずかしくないです",
+        "reading": "ni ho n go wa a ma ri mu zu ka shi ku na i de su",
+        "meaning": "일본어는 그다지 어렵지 않습니다",
+        "say": "にほんごはあまりむずかしくないです"
+       },
+       "options": [
+        {
+         "text": "むずかしい",
+         "correct": false
+        },
+        {
+         "text": "あまり",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "です",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "むずかしくない",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "とても",
+         "correct": false
+        },
+        {
+         "text": "にほんごは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "きょうは あつくないです。"
+       },
+       "options": [
+        {
+         "text": "오늘은 춥지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "오늘은 덥지 않습니다",
+         "correct": true
+        },
+        {
+         "text": "오늘은 춥습니다",
+         "correct": false
+        },
+        {
+         "text": "오늘은 덥습니다",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "3-4 あります・います (있다) + 위치",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "책상 위에 책이 있습니다.\nつくえの うえに ほんが ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "あります",
+         "correct": true
+        },
+        {
+         "text": "います",
+         "correct": false
+        },
+        {
+         "text": "です",
+         "correct": false
+        },
+        {
+         "text": "ですか",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "うえ",
+         "correct": false,
+         "meta": {
+          "pair": "うえ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "した",
+         "correct": false,
+         "meta": {
+          "pair": "した",
+          "side": "left"
+         }
+        },
+        {
+         "text": "なか",
+         "correct": false,
+         "meta": {
+          "pair": "なか",
+          "side": "left"
+         }
+        },
+        {
+         "text": "まえ",
+         "correct": false,
+         "meta": {
+          "pair": "まえ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "うしろ",
+         "correct": false,
+         "meta": {
+          "pair": "うしろ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "앞",
+         "correct": false,
+         "meta": {
+          "pair": "まえ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "뒤",
+         "correct": false,
+         "meta": {
+          "pair": "うしろ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "위",
+         "correct": false,
+         "meta": {
+          "pair": "うえ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "아래",
+         "correct": false,
+         "meta": {
+          "pair": "した",
+          "side": "right"
+         }
+        },
+        {
+         "text": "안",
+         "correct": false,
+         "meta": {
+          "pair": "なか",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "방에 고양이가 있습니다.\nへやに ねこが ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "ありません",
+         "correct": false
+        },
+        {
+         "text": "です",
+         "correct": false
+        },
+        {
+         "text": "います",
+         "correct": true
+        },
+        {
+         "text": "あります",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "いすの したに いぬが います。"
+       },
+       "options": [
+        {
+         "text": "의자 아래에 개가 있습니다",
+         "correct": true
+        },
+        {
+         "text": "의자 아래에 고양이가 있습니다",
+         "correct": false
+        },
+        {
+         "text": "의자 위에 개가 있습니다",
+         "correct": false
+        },
+        {
+         "text": "책상 아래에 개가 있습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 가방 안에 열쇠가 있습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "かばんのなかにかぎがあります",
+        "reading": "ka ba n no na ka ni ka gi ga a ri ma su",
+        "meaning": "가방 안에 열쇠가 있습니다",
+        "say": "かばんのなかにかぎがあります"
+       },
+       "options": [
+        {
+         "text": "かぎが",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "うえに",
+         "correct": false
+        },
+        {
+         "text": "かばんの",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "なかに",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "います",
+         "correct": false
+        },
+        {
+         "text": "あります",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "ありません",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "있습니다 (사물)",
+         "correct": false
+        },
+        {
+         "text": "없습니다 (사물)",
+         "correct": true
+        },
+        {
+         "text": "없습니다 (사람)",
+         "correct": false
+        },
+        {
+         "text": "아닙니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "「~에」(존재 장소)에 해당하는 조사는?\nえきの まえ___ みせが あります。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "へ",
+         "correct": false
+        },
+        {
+         "text": "が",
+         "correct": false
+        },
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "に",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "がっこうに せんせいが います。",
+        "reading": "ga k ko u ni se n se i ga i ma su",
+        "meaning": "학교에 선생님이 있습니다",
+        "say": "がっこうに せんせいが います。"
+       },
+       "options": []
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "あります",
+         "correct": false,
+         "meta": {
+          "pair": "あります",
+          "side": "left"
+         }
+        },
+        {
+         "text": "います",
+         "correct": false,
+         "meta": {
+          "pair": "います",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ありません",
+         "correct": false,
+         "meta": {
+          "pair": "ありません",
+          "side": "left"
+         }
+        },
+        {
+         "text": "いません",
+         "correct": false,
+         "meta": {
+          "pair": "いません",
+          "side": "left"
+         }
+        },
+        {
+         "text": "있다 (사물·식물)",
+         "correct": false,
+         "meta": {
+          "pair": "あります",
+          "side": "right"
+         }
+        },
+        {
+         "text": "있다 (사람·동물)",
+         "correct": false,
+         "meta": {
+          "pair": "います",
+          "side": "right"
+         }
+        },
+        {
+         "text": "없다 (사물)",
+         "correct": false,
+         "meta": {
+          "pair": "ありません",
+          "side": "right"
+         }
+        },
+        {
+         "text": "없다 (사람·동물)",
+         "correct": false,
+         "meta": {
+          "pair": "いません",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 역 앞에 은행이 있습니까?",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "えきのまえにぎんこうがありますか",
+        "reading": "e ki no ma e ni gi n ko u ga a ri ma su ka",
+        "meaning": "역 앞에 은행이 있습니까?",
+        "say": "えきのまえにぎんこうがありますか"
+       },
+       "options": [
+        {
+         "text": "ありますか",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "まえに",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "えきの",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "うしろに",
+         "correct": false
+        },
+        {
+         "text": "ぎんこうが",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "いますか",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "3-5 〜が(지만)・〜と・〜や・とても/あまり",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "이 가게는 싸지만 맛있지 않습니다.\nこの みせは やすいです___、おいしくないです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "も",
+         "correct": false
+        },
+        {
+         "text": "が",
+         "correct": true
+        },
+        {
+         "text": "と",
+         "correct": false
+        },
+        {
+         "text": "や",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "とても",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "조금",
+         "correct": false
+        },
+        {
+         "text": "매우, 아주",
+         "correct": true
+        },
+        {
+         "text": "자주",
+         "correct": false
+        },
+        {
+         "text": "그다지 (+부정)",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 책과 펜이 있습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "ほんとペンがあります",
+        "reading": "ho n to pe n ga a ri ma su",
+        "meaning": "책과 펜이 있습니다",
+        "say": "ほんとペンがあります"
+       },
+       "options": [
+        {
+         "text": "ほんや",
+         "correct": false
+        },
+        {
+         "text": "ほんと",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "ペンが",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "あります",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "います",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "つくえの うえに ほんや ペンが あります。"
+       },
+       "options": [
+        {
+         "text": "책상 위에 책과 펜만 있습니다",
+         "correct": false
+        },
+        {
+         "text": "책상 아래에 책과 펜이 있습니다",
+         "correct": false
+        },
+        {
+         "text": "책상 위에 책이 없습니다",
+         "correct": false
+        },
+        {
+         "text": "책상 위에 책이랑 펜 등이 있습니다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "이 요리는 매우 맛있습니다.\nこの りょうりは ___ おいしいです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "あまり",
+         "correct": false
+        },
+        {
+         "text": "いつも",
+         "correct": false
+        },
+        {
+         "text": "すこし",
+         "correct": false
+        },
+        {
+         "text": "とても",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "〜と",
+         "correct": false,
+         "meta": {
+          "pair": "〜と",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜や",
+         "correct": false,
+         "meta": {
+          "pair": "〜や",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜が",
+         "correct": false,
+         "meta": {
+          "pair": "〜が",
+          "side": "left"
+         }
+        },
+        {
+         "text": "あまり〜ない",
+         "correct": false,
+         "meta": {
+          "pair": "あまり〜ない",
+          "side": "left"
+         }
+        },
+        {
+         "text": "~지만",
+         "correct": false,
+         "meta": {
+          "pair": "〜が",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~와/과 (전부 나열)",
+         "correct": false,
+         "meta": {
+          "pair": "〜と",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~랑 (일부만 나열)",
+         "correct": false,
+         "meta": {
+          "pair": "〜や",
+          "side": "right"
+         }
+        },
+        {
+         "text": "그다지 ~않다",
+         "correct": false,
+         "meta": {
+          "pair": "あまり〜ない",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "にほんごは たのしいですが、むずかしいです。",
+        "reading": "ni ho n go wa ta no shi i de su ga mu zu ka shi i de su",
+        "meaning": "일본어는 즐겁지만 어렵습니다",
+        "say": "にほんごは たのしいですが、むずかしいです。"
+       },
+       "options": []
+      },
+      {
+       "type": "SELECT",
+       "question": "공원에 개랑 고양이 등이 있습니다. (일부만 나열)\nこうえんに いぬ___ ねこが います。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "が",
+         "correct": false
+        },
+        {
+         "text": "と",
+         "correct": false
+        },
+        {
+         "text": "も",
+         "correct": false
+        },
+        {
+         "text": "や",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "この まちは しずかですが、あまり べんりじゃないです。"
+       },
+       "options": [
+        {
+         "text": "이 마을은 번화하지만 편리하지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "이 마을은 조용하지 않지만 편리합니다",
+         "correct": false
+        },
+        {
+         "text": "이 마을은 조용하지만 그다지 편리하지 않습니다",
+         "correct": true
+        },
+        {
+         "text": "이 마을은 조용하고 편리합니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 이 방은 크지만 조용하지 않습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "このへやはおおきいですがしずかじゃないです",
+        "reading": "ko no he ya wa o o ki i de su ga shi zu ka ja na i de su",
+        "meaning": "이 방은 크지만 조용하지 않습니다",
+        "say": "このへやはおおきいですがしずかじゃないです"
+       },
+       "options": [
+        {
+         "text": "この",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "おおきいですと",
+         "correct": false
+        },
+        {
+         "text": "しずかじゃないです",
+         "correct": true,
+         "meta": {
+          "order": 4
+         }
+        },
+        {
+         "text": "へやは",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "おおきいですが",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "しずかです",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "3-6 3주차 복습",
+     "challenges": [
+      {
+       "type": "ASSIST",
+       "question": "いそがしい",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "바쁘다",
+         "correct": true
+        },
+        {
+         "text": "어렵다",
+         "correct": false
+        },
+        {
+         "text": "한가하다",
+         "correct": false
+        },
+        {
+         "text": "즐겁다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "이것은 새 컴퓨터입니다.\nこれは ___ パソコンです。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "あたらしく",
+         "correct": false
+        },
+        {
+         "text": "あたらしいの",
+         "correct": false
+        },
+        {
+         "text": "あたらしいな",
+         "correct": false
+        },
+        {
+         "text": "あたらしい",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "わたしの へやは ちいさいですが、きれいです。"
+       },
+       "options": [
+        {
+         "text": "내 방은 작지만 깨끗합니다",
+         "correct": true
+        },
+        {
+         "text": "내 방은 크고 깨끗합니다",
+         "correct": false
+        },
+        {
+         "text": "내 방은 작고 더럽습니다",
+         "correct": false
+        },
+        {
+         "text": "내 방은 작지만 조용합니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 정원에 꽃이 있습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "にわにはながあります",
+        "reading": "ni wa ni ha na ga a ri ma su",
+        "meaning": "정원에 꽃이 있습니다",
+        "say": "にわにはながあります"
+       },
+       "options": [
+        {
+         "text": "います",
+         "correct": false
+        },
+        {
+         "text": "はなが",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "にわに",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "はなは",
+         "correct": false
+        },
+        {
+         "text": "あります",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "あつい",
+         "correct": false,
+         "meta": {
+          "pair": "あつい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "さむい",
+         "correct": false,
+         "meta": {
+          "pair": "さむい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "おもしろい",
+         "correct": false,
+         "meta": {
+          "pair": "おもしろい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "わるい",
+         "correct": false,
+         "meta": {
+          "pair": "わるい",
+          "side": "left"
+         }
+        },
+        {
+         "text": "재미있다",
+         "correct": false,
+         "meta": {
+          "pair": "おもしろい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "나쁘다",
+         "correct": false,
+         "meta": {
+          "pair": "わるい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "덥다",
+         "correct": false,
+         "meta": {
+          "pair": "あつい",
+          "side": "right"
+         }
+        },
+        {
+         "text": "춥다",
+         "correct": false,
+         "meta": {
+          "pair": "さむい",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "선생님은 지금 학교에 없습니다.\nせんせいは いま がっこうに ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "ありません",
+         "correct": false
+        },
+        {
+         "text": "いません",
+         "correct": true
+        },
+        {
+         "text": "じゃありません",
+         "correct": false
+        },
+        {
+         "text": "いますか",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "この まちは とても にぎやかです。",
+        "reading": "ko no ma chi wa to te mo ni gi ya ka de su",
+        "meaning": "이 마을은 매우 번화합니다",
+        "say": "この まちは とても にぎやかです。"
+       },
+       "options": []
+      },
+      {
+       "type": "SELECT",
+       "question": "김 씨는 건강하지 않습니다.\nキムさんは ___です。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "げんきくない",
+         "correct": false
+        },
+        {
+         "text": "げんきない",
+         "correct": false
+        },
+        {
+         "text": "げんきいない",
+         "correct": false
+        },
+        {
+         "text": "げんきじゃない",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "かばんの なかに なにが ありますか。"
+       },
+       "options": [
+        {
+         "text": "가방 위에 무엇이 있습니까?",
+         "correct": false
+        },
+        {
+         "text": "가방은 어디에 있습니까?",
+         "correct": false
+        },
+        {
+         "text": "가방 안에 누가 있습니까?",
+         "correct": false
+        },
+        {
+         "text": "가방 안에 무엇이 있습니까?",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 나는 고양이를 좋아합니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "わたしはねこがすきです",
+        "reading": "wa ta shi wa ne ko ga su ki de su",
+        "meaning": "나는 고양이를 좋아합니다",
+        "say": "わたしはねこがすきです"
+       },
+       "options": [
+        {
+         "text": "ねこが",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "ねこを",
+         "correct": false
+        },
+        {
+         "text": "きらいです",
+         "correct": false
+        },
+        {
+         "text": "すきです",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "わたしは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

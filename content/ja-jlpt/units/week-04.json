@@ -1,0 +1,2039 @@
+{
+ "id": "ja-jlpt",
+ "title": "일본어 JLPT",
+ "units": [
+  {
+   "title": "4주차 · 동사 ます형과 조사",
+   "description": "동사 ます/ません/ました/ませんでした, 목적격 を, 시간 に·방향 へ·장소/수단 で, 〜から〜まで, 권유 〜ませんか/〜ましょう. 「만나다」는 〜に あいます.",
+   "lessons": [
+    {
+     "title": "4-1 동사 〜ます・〜ません + を",
+     "challenges": [
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "たべます",
+         "correct": false,
+         "meta": {
+          "pair": "たべます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "のみます",
+         "correct": false,
+         "meta": {
+          "pair": "のみます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "みます",
+         "correct": false,
+         "meta": {
+          "pair": "みます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ききます",
+         "correct": false,
+         "meta": {
+          "pair": "ききます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "마십니다",
+         "correct": false,
+         "meta": {
+          "pair": "のみます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "봅니다",
+         "correct": false,
+         "meta": {
+          "pair": "みます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "듣습니다",
+         "correct": false,
+         "meta": {
+          "pair": "ききます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "먹습니다",
+         "correct": false,
+         "meta": {
+          "pair": "たべます",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "밥을 먹습니다.\nごはん___ たべます。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "は",
+         "correct": false
+        },
+        {
+         "text": "を",
+         "correct": true
+        },
+        {
+         "text": "が",
+         "correct": false
+        },
+        {
+         "text": "に",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "よみます",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "삽니다",
+         "correct": false
+        },
+        {
+         "text": "읽습니다",
+         "correct": true
+        },
+        {
+         "text": "씁니다",
+         "correct": false
+        },
+        {
+         "text": "봅니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "まいにち コーヒーを のみます。"
+       },
+       "options": [
+        {
+         "text": "매일 커피를 삽니다",
+         "correct": false
+        },
+        {
+         "text": "매일 커피를 마십니다",
+         "correct": true
+        },
+        {
+         "text": "매일 커피를 마시지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "매일 우유를 마십니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 신문을 읽습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "しんぶんをよみます",
+        "reading": "shi n bu n o yo mi ma su",
+        "meaning": "신문을 읽습니다",
+        "say": "しんぶんをよみます"
+       },
+       "options": [
+        {
+         "text": "しんぶんを",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "しんぶんは",
+         "correct": false
+        },
+        {
+         "text": "かきます",
+         "correct": false
+        },
+        {
+         "text": "よみます",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "텔레비전을 보지 않습니다.\nテレビを ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "みますか",
+         "correct": false
+        },
+        {
+         "text": "みました",
+         "correct": false
+        },
+        {
+         "text": "みません",
+         "correct": true
+        },
+        {
+         "text": "みます",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "わたしは あさ パンを たべます。",
+        "reading": "wa ta shi wa a sa pa n o ta be ma su",
+        "meaning": "나는 아침에 빵을 먹습니다",
+        "say": "わたしは あさ パンを たべます。"
+       },
+       "options": []
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "かきます",
+         "correct": false,
+         "meta": {
+          "pair": "かきます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "かいます",
+         "correct": false,
+         "meta": {
+          "pair": "かいます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "はなします",
+         "correct": false,
+         "meta": {
+          "pair": "はなします",
+          "side": "left"
+         }
+        },
+        {
+         "text": "べんきょうします",
+         "correct": false,
+         "meta": {
+          "pair": "べんきょうします",
+          "side": "left"
+         }
+        },
+        {
+         "text": "씁니다",
+         "correct": false,
+         "meta": {
+          "pair": "かきます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "삽니다",
+         "correct": false,
+         "meta": {
+          "pair": "かいます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "공부합니다",
+         "correct": false,
+         "meta": {
+          "pair": "べんきょうします",
+          "side": "right"
+         }
+        },
+        {
+         "text": "이야기합니다",
+         "correct": false,
+         "meta": {
+          "pair": "はなします",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "おんがくを ききますか。"
+       },
+       "options": [
+        {
+         "text": "영화를 봅니까?",
+         "correct": false
+        },
+        {
+         "text": "음악을 듣지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "음악을 듣습니까?",
+         "correct": true
+        },
+        {
+         "text": "음악을 들었습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 나는 술을 마시지 않습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "わたしはおさけをのみません",
+        "reading": "wa ta shi wa o sa ke o no mi ma se n",
+        "meaning": "나는 술을 마시지 않습니다",
+        "say": "わたしはおさけをのみません"
+       },
+       "options": [
+        {
+         "text": "おさけは",
+         "correct": false
+        },
+        {
+         "text": "のみます",
+         "correct": false
+        },
+        {
+         "text": "おさけを",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "わたしは",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "のみません",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "4-2 과거 〜ました・〜ませんでした",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "어제 영화를 봤습니다.\nきのう えいがを ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "みません",
+         "correct": false
+        },
+        {
+         "text": "みませんでした",
+         "correct": false
+        },
+        {
+         "text": "みました",
+         "correct": true
+        },
+        {
+         "text": "みます",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "たべませんでした",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "먹었습니다",
+         "correct": false
+        },
+        {
+         "text": "먹지 않았습니다",
+         "correct": true
+        },
+        {
+         "text": "먹지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "먹습니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 지난주에 책을 샀습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "せんしゅうほんをかいました",
+        "reading": "se n shu u ho n o ka i ma shi ta",
+        "meaning": "지난주에 책을 샀습니다",
+        "say": "せんしゅうほんをかいました"
+       },
+       "options": [
+        {
+         "text": "かいました",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "ほんが",
+         "correct": false
+        },
+        {
+         "text": "ほんを",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "せんしゅう",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "かいます",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "けさ ごはんを たべませんでした。"
+       },
+       "options": [
+        {
+         "text": "매일 아침 밥을 먹습니다",
+         "correct": false
+        },
+        {
+         "text": "오늘 아침 밥을 먹지 않았습니다",
+         "correct": true
+        },
+        {
+         "text": "오늘 아침 밥을 먹었습니다",
+         "correct": false
+        },
+        {
+         "text": "오늘 아침 빵을 먹었습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "〜ます",
+         "correct": false,
+         "meta": {
+          "pair": "〜ます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜ません",
+         "correct": false,
+         "meta": {
+          "pair": "〜ません",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜ました",
+         "correct": false,
+         "meta": {
+          "pair": "〜ました",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜ませんでした",
+         "correct": false,
+         "meta": {
+          "pair": "〜ませんでした",
+          "side": "left"
+         }
+        },
+        {
+         "text": "~하지 않았습니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜ませんでした",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~하지 않습니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜ません",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~했습니다",
+         "correct": false,
+         "meta": {
+          "pair": "〜ました",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~합니다 (현재·미래)",
+         "correct": false,
+         "meta": {
+          "pair": "〜ます",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "어제는 공부하지 않았습니다.\nきのうは ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "べんきょうしません",
+         "correct": false
+        },
+        {
+         "text": "べんきょうしました",
+         "correct": false
+        },
+        {
+         "text": "べんきょうします",
+         "correct": false
+        },
+        {
+         "text": "べんきょうしませんでした",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "きのう ともだちに あいました。",
+        "reading": "ki no u to mo da chi ni a i ma shi ta",
+        "meaning": "어제 친구를 만났습니다",
+        "say": "きのう ともだちに あいました。"
+       },
+       "options": []
+      },
+      {
+       "type": "SELECT",
+       "question": "친구를 만났습니다. (「만나다」는 조사 に)\nともだち___ あいました。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "に",
+         "correct": true
+        },
+        {
+         "text": "へ",
+         "correct": false
+        },
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "が",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "せんしゅう にほんごを べんきょうしました。"
+       },
+       "options": [
+        {
+         "text": "지난주에 일본어를 공부하지 않았습니다",
+         "correct": false
+        },
+        {
+         "text": "어제 일본어를 공부했습니다",
+         "correct": false
+        },
+        {
+         "text": "다음 주에 일본어를 공부합니다",
+         "correct": false
+        },
+        {
+         "text": "지난주에 일본어를 공부했습니다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 오늘 아침 신문을 읽지 않았습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "けさしんぶんをよみませんでした",
+        "reading": "ke sa shi n bu n o yo mi ma se n de shi ta",
+        "meaning": "오늘 아침 신문을 읽지 않았습니다",
+        "say": "けさしんぶんをよみませんでした"
+       },
+       "options": [
+        {
+         "text": "しんぶんを",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "けさ",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "しんぶんは",
+         "correct": false
+        },
+        {
+         "text": "よみませんでした",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "よみました",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "4-3 조사 に(시간)・へ(방향)・で(장소/수단)",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "7시에 일어납니다.\nしちじ___ おきます。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "へ",
+         "correct": false
+        },
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "で",
+         "correct": false
+        },
+        {
+         "text": "に",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "학교에 갑니다. (방향)\nがっこう___ いきます。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "で",
+         "correct": false
+        },
+        {
+         "text": "へ",
+         "correct": true
+        },
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "が",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "としょかんで べんきょうします",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "도서관은 조용합니다",
+         "correct": false
+        },
+        {
+         "text": "도서관에 갑니다",
+         "correct": false
+        },
+        {
+         "text": "도서관에서 책을 삽니다",
+         "correct": false
+        },
+        {
+         "text": "도서관에서 공부합니다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "でんしゃで かいしゃへ いきます。"
+       },
+       "options": [
+        {
+         "text": "버스로 회사에 갑니다",
+         "correct": false
+        },
+        {
+         "text": "자전거로 회사에 갑니다",
+         "correct": false
+        },
+        {
+         "text": "전철로 집에 돌아갑니다",
+         "correct": false
+        },
+        {
+         "text": "전철로 회사에 갑니다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 레스토랑에서 밥을 먹습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "レストランでごはんをたべます",
+        "reading": "re su to ra n de go ha n o ta be ma su",
+        "meaning": "레스토랑에서 밥을 먹습니다",
+        "say": "レストランでごはんをたべます"
+       },
+       "options": [
+        {
+         "text": "レストランに",
+         "correct": false
+        },
+        {
+         "text": "レストランで",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "たべました",
+         "correct": false
+        },
+        {
+         "text": "たべます",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "ごはんを",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "〜に (시간)",
+         "correct": false,
+         "meta": {
+          "pair": "〜に (시간)",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜へ",
+         "correct": false,
+         "meta": {
+          "pair": "〜へ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜で (장소)",
+         "correct": false,
+         "meta": {
+          "pair": "〜で (장소)",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜で (수단)",
+         "correct": false,
+         "meta": {
+          "pair": "〜で (수단)",
+          "side": "left"
+         }
+        },
+        {
+         "text": "~에/으로 (방향)",
+         "correct": false,
+         "meta": {
+          "pair": "〜へ",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~에서 (~에서 먹다)",
+         "correct": false,
+         "meta": {
+          "pair": "〜で (장소)",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~에 (7시에)",
+         "correct": false,
+         "meta": {
+          "pair": "〜に (시간)",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~로 (전철로)",
+         "correct": false,
+         "meta": {
+          "pair": "〜で (수단)",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "버스로 갑니다.\nバス___ いきます。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "に",
+         "correct": false
+        },
+        {
+         "text": "へ",
+         "correct": false
+        },
+        {
+         "text": "で",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "まいあさ ろくじに おきます。",
+        "reading": "ma i a sa ro ku ji ni o ki ma su",
+        "meaning": "매일 아침 6시에 일어납니다",
+        "say": "まいあさ ろくじに おきます。"
+       },
+       "options": []
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "きのう スーパーで パンを かいました。"
+       },
+       "options": [
+        {
+         "text": "어제 슈퍼에서 우유를 샀습니다",
+         "correct": false
+        },
+        {
+         "text": "어제 슈퍼에서 빵을 샀습니다",
+         "correct": true
+        },
+        {
+         "text": "어제 슈퍼에 갔습니다",
+         "correct": false
+        },
+        {
+         "text": "오늘 슈퍼에서 빵을 삽니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 밤 11시에 잡니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "よるじゅういちじにねます",
+        "reading": "yo ru ju u i chi ji ni ne ma su",
+        "meaning": "밤 11시에 잡니다",
+        "say": "よるじゅういちじにねます"
+       },
+       "options": [
+        {
+         "text": "ねます",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "じゅういちじで",
+         "correct": false
+        },
+        {
+         "text": "ねました",
+         "correct": false
+        },
+        {
+         "text": "じゅういちじに",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "よる",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "4-4 〜から〜まで・〜ませんか・〜ましょう",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "9시부터 5시까지 일합니다.\nくじ___ ごじ___ はたらきます。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "まで・から",
+         "correct": false
+        },
+        {
+         "text": "から・に",
+         "correct": false
+        },
+        {
+         "text": "から・まで",
+         "correct": true
+        },
+        {
+         "text": "に・まで",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "いっしょに えいがを みませんか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "같이 영화를 보지 않을래요?",
+         "correct": true
+        },
+        {
+         "text": "같이 영화를 봤습니까?",
+         "correct": false
+        },
+        {
+         "text": "영화를 봅시다",
+         "correct": false
+        },
+        {
+         "text": "영화를 보지 않습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 같이 점심을 먹지 않을래요?",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "いっしょにひるごはんをたべませんか",
+        "reading": "i s sho ni hi ru go ha n o ta be ma se n ka",
+        "meaning": "같이 점심을 먹지 않을래요?",
+        "say": "いっしょにひるごはんをたべませんか"
+       },
+       "options": [
+        {
+         "text": "たべます",
+         "correct": false
+        },
+        {
+         "text": "たべませんか",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "ひるごはんを",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "いっしょに",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "たべましょう",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "あした いっしょに としょかんへ いきましょう。"
+       },
+       "options": [
+        {
+         "text": "내일 같이 도서관에 갈까요?",
+         "correct": false
+        },
+        {
+         "text": "내일 도서관에 가지 않습니다",
+         "correct": false
+        },
+        {
+         "text": "어제 같이 도서관에 갔습니다",
+         "correct": false
+        },
+        {
+         "text": "내일 같이 도서관에 갑시다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "네, 갑시다.\nはい、___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "いきません",
+         "correct": false
+        },
+        {
+         "text": "いきませんか",
+         "correct": false
+        },
+        {
+         "text": "いきました",
+         "correct": false
+        },
+        {
+         "text": "いきましょう",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "〜ませんか",
+         "correct": false,
+         "meta": {
+          "pair": "〜ませんか",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜ましょう",
+         "correct": false,
+         "meta": {
+          "pair": "〜ましょう",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜から",
+         "correct": false,
+         "meta": {
+          "pair": "〜から",
+          "side": "left"
+         }
+        },
+        {
+         "text": "〜まで",
+         "correct": false,
+         "meta": {
+          "pair": "〜まで",
+          "side": "left"
+         }
+        },
+        {
+         "text": "~까지",
+         "correct": false,
+         "meta": {
+          "pair": "〜まで",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~하지 않을래요? (권유)",
+         "correct": false,
+         "meta": {
+          "pair": "〜ませんか",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~합시다",
+         "correct": false,
+         "meta": {
+          "pair": "〜ましょう",
+          "side": "right"
+         }
+        },
+        {
+         "text": "~부터",
+         "correct": false,
+         "meta": {
+          "pair": "〜から",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "げつようびから きんようびまで はたらきます。",
+        "reading": "ge tsu yo u bi ka ra ki n yo u bi ma de ha ta ra ki ma su",
+        "meaning": "월요일부터 금요일까지 일합니다",
+        "say": "げつようびから きんようびまで はたらきます。"
+       },
+       "options": []
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "ぎんこうは なんじから なんじまでですか。"
+       },
+       "options": [
+        {
+         "text": "은행은 어디부터 어디까지입니까?",
+         "correct": false
+        },
+        {
+         "text": "은행은 어디입니까?",
+         "correct": false
+        },
+        {
+         "text": "은행은 몇 시부터 몇 시까지입니까?",
+         "correct": true
+        },
+        {
+         "text": "은행은 몇 시에 엽니까?",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 함께 커피를 마십시다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "いっしょにコーヒーをのみましょう",
+        "reading": "i s sho ni koo hii o no mi ma sho u",
+        "meaning": "함께 커피를 마십시다",
+        "say": "いっしょにコーヒーをのみましょう"
+       },
+       "options": [
+        {
+         "text": "いっしょに",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "のみましょう",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "のみませんか",
+         "correct": false
+        },
+        {
+         "text": "コーヒーを",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "のみます",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "어제 몇 시까지 공부했습니까?\nきのう なんじ___ べんきょうしましたか。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "で",
+         "correct": false
+        },
+        {
+         "text": "まで",
+         "correct": true
+        },
+        {
+         "text": "から",
+         "correct": false
+        },
+        {
+         "text": "に",
+         "correct": false
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "4-5 하루 일과",
+     "challenges": [
+      {
+       "type": "LISTEN",
+       "question": "들은 내용과 같은 것은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "わたしは まいあさ しちじに おきます。パンと コーヒーを たべます。はちじに かいしゃへ いきます。"
+       },
+       "options": [
+        {
+         "text": "8시에 회사에 갑니다",
+         "correct": true
+        },
+        {
+         "text": "7시에 회사에 갑니다",
+         "correct": false
+        },
+        {
+         "text": "8시에 일어납니다",
+         "correct": false
+        },
+        {
+         "text": "아침에 밥을 먹습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "김 씨는 매일 아침 신문을 읽습니다.\nキムさんは まいあさ しんぶんを ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "よみます",
+         "correct": true
+        },
+        {
+         "text": "かきます",
+         "correct": false
+        },
+        {
+         "text": "よみました",
+         "correct": false
+        },
+        {
+         "text": "みました",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "かえります",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "갑니다",
+         "correct": false
+        },
+        {
+         "text": "옵니다",
+         "correct": false
+        },
+        {
+         "text": "쉽니다",
+         "correct": false
+        },
+        {
+         "text": "돌아갑니다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 6시에 집에 돌아갑니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "ろくじにうちへかえります",
+        "reading": "ro ku ji ni u chi e ka e ri ma su",
+        "meaning": "6시에 집에 돌아갑니다",
+        "say": "ろくじにうちへかえります"
+       },
+       "options": [
+        {
+         "text": "かえります",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "いきます",
+         "correct": false
+        },
+        {
+         "text": "ろくじに",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "うちで",
+         "correct": false
+        },
+        {
+         "text": "うちへ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "あさ",
+         "correct": false,
+         "meta": {
+          "pair": "あさ",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ひる",
+         "correct": false,
+         "meta": {
+          "pair": "ひる",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ばん",
+         "correct": false,
+         "meta": {
+          "pair": "ばん",
+          "side": "left"
+         }
+        },
+        {
+         "text": "よる",
+         "correct": false,
+         "meta": {
+          "pair": "よる",
+          "side": "left"
+         }
+        },
+        {
+         "text": "점심, 낮",
+         "correct": false,
+         "meta": {
+          "pair": "ひる",
+          "side": "right"
+         }
+        },
+        {
+         "text": "저녁",
+         "correct": false,
+         "meta": {
+          "pair": "ばん",
+          "side": "right"
+         }
+        },
+        {
+         "text": "밤",
+         "correct": false,
+         "meta": {
+          "pair": "よる",
+          "side": "right"
+         }
+        },
+        {
+         "text": "아침",
+         "correct": false,
+         "meta": {
+          "pair": "あさ",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "ばんごはんは うちで たべますか。"
+       },
+       "options": [
+        {
+         "text": "아침밥은 집에서 먹습니까?",
+         "correct": false
+        },
+        {
+         "text": "저녁밥은 레스토랑에서 먹습니까?",
+         "correct": false
+        },
+        {
+         "text": "저녁밥은 집에서 먹었습니다",
+         "correct": false
+        },
+        {
+         "text": "저녁밥은 집에서 먹습니까?",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "도서관에서 3시까지 공부했습니다.\nとしょかん___ さんじまで べんきょうしました。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "へ",
+         "correct": false
+        },
+        {
+         "text": "に",
+         "correct": false
+        },
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "で",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "よる じゅうじに ねます。",
+        "reading": "yo ru ju u ji ni ne ma su",
+        "meaning": "밤 10시에 잡니다",
+        "say": "よる じゅうじに ねます。"
+       },
+       "options": []
+      },
+      {
+       "type": "SELECT",
+       "question": "내일은 일하지 않습니다. 쉽니다.\nあしたは はたらきません。___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "やすみません",
+         "correct": false
+        },
+        {
+         "text": "やすみます",
+         "correct": true
+        },
+        {
+         "text": "はたらきます",
+         "correct": false
+        },
+        {
+         "text": "やすみました",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 일요일에 친구를 만났습니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "にちようびにともだちにあいました",
+        "reading": "ni chi yo u bi ni to mo da chi ni a i ma shi ta",
+        "meaning": "일요일에 친구를 만났습니다",
+        "say": "にちようびにともだちにあいました"
+       },
+       "options": [
+        {
+         "text": "ともだちを",
+         "correct": false
+        },
+        {
+         "text": "にちようびに",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "あいます",
+         "correct": false
+        },
+        {
+         "text": "ともだちに",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "あいました",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "4-6 4주차 복습",
+     "challenges": [
+      {
+       "type": "SELECT",
+       "question": "나는 매일 우유를 마십니다.\nわたしは まいにち ぎゅうにゅう___ のみます。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "で",
+         "correct": false
+        },
+        {
+         "text": "を",
+         "correct": true
+        },
+        {
+         "text": "に",
+         "correct": false
+        },
+        {
+         "text": "が",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "きのう としょかんで ほんを よみました。"
+       },
+       "options": [
+        {
+         "text": "어제 도서관에서 책을 읽었습니다",
+         "correct": true
+        },
+        {
+         "text": "어제 도서관에서 책을 샀습니다",
+         "correct": false
+        },
+        {
+         "text": "어제 도서관에 가지 않았습니다",
+         "correct": false
+        },
+        {
+         "text": "내일 도서관에서 책을 읽습니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "MATCH",
+       "question": "짝을 맞추세요",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "いきます",
+         "correct": false,
+         "meta": {
+          "pair": "いきます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "きます",
+         "correct": false,
+         "meta": {
+          "pair": "きます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "おきます",
+         "correct": false,
+         "meta": {
+          "pair": "おきます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "ねます",
+         "correct": false,
+         "meta": {
+          "pair": "ねます",
+          "side": "left"
+         }
+        },
+        {
+         "text": "옵니다",
+         "correct": false,
+         "meta": {
+          "pair": "きます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "잡니다",
+         "correct": false,
+         "meta": {
+          "pair": "ねます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "일어납니다",
+         "correct": false,
+         "meta": {
+          "pair": "おきます",
+          "side": "right"
+         }
+        },
+        {
+         "text": "갑니다",
+         "correct": false,
+         "meta": {
+          "pair": "いきます",
+          "side": "right"
+         }
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 자전거로 학교에 갑니다",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "じてんしゃでがっこうへいきます",
+        "reading": "ji te n sha de ga k ko u e i ki ma su",
+        "meaning": "자전거로 학교에 갑니다",
+        "say": "じてんしゃでがっこうへいきます"
+       },
+       "options": [
+        {
+         "text": "じてんしゃで",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        },
+        {
+         "text": "がっこうへ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "じてんしゃに",
+         "correct": false
+        },
+        {
+         "text": "きます",
+         "correct": false
+        },
+        {
+         "text": "いきます",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        }
+       ]
+      },
+      {
+       "type": "ASSIST",
+       "question": "やすみます",
+       "level": 5,
+       "tag": "vocab",
+       "options": [
+        {
+         "text": "일합니다",
+         "correct": false
+        },
+        {
+         "text": "일어납니다",
+         "correct": false
+        },
+        {
+         "text": "잡니다",
+         "correct": false
+        },
+        {
+         "text": "쉽니다",
+         "correct": true
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "어제는 아무것도 먹지 않았습니다. (なにも + 부정)\nきのうは なにも ___。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "たべませんでした",
+         "correct": true
+        },
+        {
+         "text": "たべません",
+         "correct": false
+        },
+        {
+         "text": "たべます",
+         "correct": false
+        },
+        {
+         "text": "たべました",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SPEAK",
+       "question": "따라 읽어보세요",
+       "level": 5,
+       "tag": "vocab",
+       "audioSrc": "",
+       "meta": {
+        "target": "いっしょに ばんごはんを たべませんか。",
+        "reading": "i s sho ni ba n go ha n o ta be ma se n ka",
+        "meaning": "같이 저녁을 먹지 않을래요?",
+        "say": "いっしょに ばんごはんを たべませんか。"
+       },
+       "options": []
+      },
+      {
+       "type": "LISTEN",
+       "question": "들리는 문장의 뜻은?",
+       "level": 5,
+       "tag": "listening",
+       "audioSrc": "",
+       "meta": {
+        "say": "かいしゃは くじから ろくじまでです。"
+       },
+       "options": [
+        {
+         "text": "회사는 9시부터 6시까지입니다",
+         "correct": true
+        },
+        {
+         "text": "회사는 9시에 시작합니다",
+         "correct": false
+        },
+        {
+         "text": "회사는 6시부터 9시까지입니다",
+         "correct": false
+        },
+        {
+         "text": "회사는 10시부터 6시까지입니다",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "SELECT",
+       "question": "어제 친구와 영화를 봤습니다.\nきのう ともだち___ えいがを みました。",
+       "level": 5,
+       "tag": "grammar",
+       "options": [
+        {
+         "text": "に",
+         "correct": false
+        },
+        {
+         "text": "と",
+         "correct": true
+        },
+        {
+         "text": "を",
+         "correct": false
+        },
+        {
+         "text": "へ",
+         "correct": false
+        }
+       ]
+      },
+      {
+       "type": "BUILD",
+       "question": "문장을 만드세요: 몇 시에 집에 돌아갑니까?",
+       "level": 5,
+       "tag": "grammar",
+       "audioSrc": "",
+       "meta": {
+        "target": "なんじにうちへかえりますか",
+        "reading": "na n ji ni u chi e ka e ri ma su ka",
+        "meaning": "몇 시에 집에 돌아갑니까?",
+        "say": "なんじにうちへかえりますか"
+       },
+       "options": [
+        {
+         "text": "うちへ",
+         "correct": true,
+         "meta": {
+          "order": 2
+         }
+        },
+        {
+         "text": "いきますか",
+         "correct": false
+        },
+        {
+         "text": "なんじで",
+         "correct": false
+        },
+        {
+         "text": "かえりますか",
+         "correct": true,
+         "meta": {
+          "order": 3
+         }
+        },
+        {
+         "text": "なんじに",
+         "correct": true,
+         "meta": {
+          "order": 1
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
