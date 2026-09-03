@@ -28,6 +28,7 @@ type QuizProps = {
   initialPercentage: number;
   initialHearts: number;
   initialLessonId: number;
+  practice?: boolean; // 약점 복습: runs on a bare challenge set; never touches challenge_progress
   initialLessonChallenges: (typeof challenges.$inferSelect & {
     completed: boolean;
     challengeOptions: (typeof challengeOptions.$inferSelect)[];
@@ -43,6 +44,7 @@ export const Quiz = ({
   initialPercentage,
   initialHearts,
   initialLessonId,
+  practice = false,
   initialLessonChallenges,
   userSubscription,
 }: QuizProps) => {
@@ -146,6 +148,14 @@ export const Quiz = ({
     if (challenge.audioSrc && challenge.type !== "TRACE") play(challenge.audioSrc);
 
     if (ok) {
+      if (practice) {
+        // Practice: celebrate without persisting completion — the original
+        // lesson's progress must stay exactly as it was.
+        void correctControls.play();
+        setStatus("correct");
+        setPercentage((prev) => prev + 100 / challenges.length);
+        return;
+      }
       startTransition(() => {
         upsertChallengeProgress(challenge.id)
           .then((response) => {
@@ -158,6 +168,12 @@ export const Quiz = ({
           .catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
       });
     } else {
+      if (practice) {
+        // Practice is free: wrong answers log an attempt but never cost hearts.
+        void incorrectControls.play();
+        setStatus("wrong");
+        return;
+      }
       startTransition(() => {
         reduceHearts(challenge.id)
           .then((response) => {
@@ -213,7 +229,7 @@ export const Quiz = ({
         </div>
 
         <Footer
-          lessonId={lessonId}
+          lessonId={practice ? undefined : lessonId}
           status="completed"
           onCheck={() => router.push("/learn")}
         />
