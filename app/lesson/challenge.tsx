@@ -20,6 +20,7 @@ export type Answer =
 type Meta = { target?: string; reading?: string; meaning?: string };
 type ChallengeProps = {
   challenge: typeof challenges.$inferSelect & { challengeOptions: (typeof challengeOptions.$inferSelect)[] };
+  options?: (typeof challengeOptions.$inferSelect)[]; // shuffled render order from the quiz
   answer: Answer | null;
   onAnswer: (a: Answer | null) => void;
   status: "correct" | "wrong" | "none";
@@ -28,8 +29,9 @@ type ChallengeProps = {
 };
 
 /* Renders one exercise by type. Option-based types share the Card grid; the rest are Solingo's own components. */
-export const Challenge = ({ challenge, answer, onAnswer, status, disabled, lang }: ChallengeProps) => {
-  const { type, challengeOptions: options } = challenge;
+export const Challenge = ({ challenge, options: optionsProp, answer, onAnswer, status, disabled, lang }: ChallengeProps) => {
+  const { type } = challenge;
+  const options = optionsProp ?? challenge.challengeOptions;
   const meta = (challenge.meta ?? {}) as Meta;
   const selected = answer?.kind === "option" ? answer.id : undefined;
 
