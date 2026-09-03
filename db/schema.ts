@@ -75,6 +75,8 @@ export const challenges = pgTable("challenges", {
   type: challengesEnum("type").notNull(),
   question: text("question").notNull(),
   order: integer("order").notNull(),
+  level: integer("level"), // e.g. TOPIK 3..6 — optional content metadata
+  tag: text("tag"),        // grammar / vocab / reading … — optional content metadata
 });
 
 export const challengesRelations = relations(challenges, ({ one, many }) => ({
@@ -180,6 +182,16 @@ export const couples = pgTable("couples", {
   code: text("code").notNull().unique(),
   userA: text("user_a").notNull().unique(),
   userB: text("user_b").unique(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+});
+
+// Every answer, right or wrong. challenge_progress only knows "eventually completed";
+// the level test needs first-attempt correctness to measure a learner honestly.
+export const challengeAttempts = pgTable("challenge_attempts", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull(),
+  challengeId: integer("challenge_id").references(() => challenges.id, { onDelete: "cascade" }).notNull(),
+  correct: boolean("correct").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
