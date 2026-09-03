@@ -51,3 +51,5 @@ question/meta UPDATE)은 오케스트레이터와 결정.
 - 적용 전 다정 씨 6레슨 완료 여부 확인 (오케스트레이터 담당).
 - LISTEN 신규 문항은 gen_course_audio.py로 클립 재렌더 필요 (ko-KR-SunHiNeural).
 - 순서 배열의 정답 옵션 4개는 "ㄱ-ㄷ-ㄴ-ㄹ" 형태 문자열 — SELECT로 충분.
+- 2026-09-03 밤 기준: ja-jlpt 5~13주차는 tutor 전수 검토로 레슨 10개 교체·82건 수정 완료,
+  gen/*.py·build.py는 삭제됨(JSON이 정본). 이 문서의 재설계안은 tutor가 직접 JSON 작성.
