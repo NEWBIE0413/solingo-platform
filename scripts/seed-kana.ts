@@ -39,9 +39,9 @@ const db = drizzle(new Pool({ connectionString: process.env.DATABASE_URL }), { s
 async function main() {
   console.log(`Seeding ${course.title}`);
   // idempotent: replace the course with the same title
-  const existing = await db.query.courses.findFirst({ where: eq(schema.courses.title, course.title) });
-  if (existing) await db.delete(schema.courses).where(eq(schema.courses.id, existing.id));
-  const [c] = await db.insert(schema.courses).values({ title: course.title, imageSrc: "/jp.svg" }).returning();
+  let c = await db.query.courses.findFirst({ where: eq(schema.courses.title, course.title) });
+  if (c) await db.delete(schema.units).where(eq(schema.units.courseId, c.id));
+  else [c] = await db.insert(schema.courses).values({ title: course.title, imageSrc: "/jp.svg" }).returning();
 
   let unitOrder = 0;
   // ---- symbol units: one lesson per grid row (あ행, か행 …), yōon in groups of 3 rows

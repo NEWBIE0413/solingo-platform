@@ -63,7 +63,8 @@ export const lessonsRelations = relations(lessons, ({ one, many }) => ({
   challenges: many(challenges),
 }));
 
-export const challengesEnum = pgEnum("type", ["SELECT", "ASSIST"]);
+// SELECT/ASSIST come from the clone; the rest are Solingo's script-level exercise types.
+export const challengesEnum = pgEnum("type", ["SELECT", "ASSIST", "LISTEN", "MATCH", "BUILD", "TRACE", "SPEAK"]);
 
 export const challenges = pgTable("challenges", {
   id: serial("id").primaryKey(),
@@ -77,6 +78,8 @@ export const challenges = pgTable("challenges", {
   order: integer("order").notNull(),
   level: integer("level"), // e.g. TOPIK 3..6 — optional content metadata
   tag: text("tag"),        // grammar / vocab / reading … — optional content metadata
+  audioSrc: text("audio_src"), // LISTEN: the clip to play; BUILD/SPEAK/TRACE: the target's clip
+  meta: jsonb("meta"),         // type-specific: BUILD/SPEAK/TRACE { target, reading, meaning }
 });
 
 export const challengesRelations = relations(challenges, ({ one, many }) => ({
@@ -99,6 +102,7 @@ export const challengeOptions = pgTable("challenge_options", {
   correct: boolean("correct").notNull(),
   imageSrc: text("image_src"),
   audioSrc: text("audio_src"),
+  meta: jsonb("meta"), // MATCH { pair, side: "left"|"right" }; BUILD { order } on correct tiles
 });
 
 export const challengeOptionsRelations = relations(
