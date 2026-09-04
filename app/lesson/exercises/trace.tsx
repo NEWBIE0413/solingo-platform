@@ -26,7 +26,7 @@ export const Trace = ({ target, reading, audioSrc, onStroke }: { target: string;
     c.strokeStyle = "#404040"; c.lineWidth = Math.max(6, W / 28); c.lineCap = "round"; c.lineJoin = "round";
     for (const st of [...strokes.current, cur.current].filter(Boolean) as number[][][]) { c.beginPath(); st.forEach((p, i) => (i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1]))); c.stroke(); }
   };
-  useEffect(() => { draw(); const t = setTimeout(() => play(audioSrc), 250); const ro = new ResizeObserver(draw); if (ref.current) ro.observe(ref.current); return () => { clearTimeout(t); ro.disconnect(); }; // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { draw(); play(audioSrc); const ro = new ResizeObserver(draw); if (ref.current) ro.observe(ref.current); return () => ro.disconnect(); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ghost, target]);
   const pt = (e: React.PointerEvent) => { const r = ref.current!.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
 

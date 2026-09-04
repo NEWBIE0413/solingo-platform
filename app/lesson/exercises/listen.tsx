@@ -8,7 +8,7 @@ import { play } from "../audio";
 
 // Big speaker that auto-plays on mount; the option grid is rendered by the parent below it.
 export const ListenPrompt = ({ audioSrc }: { audioSrc: string | null }) => {
-  useEffect(() => { const t = setTimeout(() => play(audioSrc), 250); return () => clearTimeout(t); }, [audioSrc]);
+  useEffect(() => { play(audioSrc); }, [audioSrc]);
   return (
     <div className="flex justify-center">
       <button

@@ -14,7 +14,7 @@ type Opt = typeof challengeOptions.$inferSelect;
 /* Word bank → answer line. The parent checks the joined text against meta.target. */
 export const Build = ({ options, audioSrc, reading, meaning, onChange, status, disabled }: { options: Opt[]; audioSrc: string | null; reading?: string; meaning?: string; onChange: (text: string) => void; status: "none" | "correct" | "wrong"; disabled?: boolean }) => {
   const [chosen, setChosen] = useState<Opt[]>([]);
-  useEffect(() => { const t = setTimeout(() => play(audioSrc), 250); return () => clearTimeout(t); }, [audioSrc]);
+  useEffect(() => { play(audioSrc); }, [audioSrc]);
   useEffect(() => { if (status === "none") setChosen([]); }, [status]);
   const set = (next: Opt[]) => { setChosen(next); onChange(next.map((o) => o.text).join("")); };
   const bank = options.filter((o) => !chosen.some((c) => c.id === o.id));
