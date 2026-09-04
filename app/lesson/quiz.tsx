@@ -16,7 +16,7 @@ import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
 
 import { type Answer, Challenge } from "./challenge";
-import { play, prefetch } from "./audio";
+import { installUnlock, play, prefetch } from "./audio";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
@@ -101,6 +101,9 @@ export const Quiz = ({
     }
     return out;
   }, [challenge]);
+
+  // iOS: allow auto-play after the first tap on this page.
+  useEffect(() => installUnlock(), []);
 
   // Warm upcoming clips while the learner answers this one. Options carry audio too — a
   // 짝 맞추기 board is a dozen tappable tiles, each of which would otherwise fetch on tap.
