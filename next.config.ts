@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   devIndicators: false,
   headers: async () => [
     {
+      // Clip filenames are content hashes (scripts/gen_course_audio.py), so a clip never
+      // changes under its name — cache it in the browser and at the edge indefinitely.
+      source: "/audio/:path*",
+      headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
+    },
+    {
       source: "/api/(.*)",
       headers: [
         {

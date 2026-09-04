@@ -16,7 +16,7 @@ import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
 
 import { type Answer, Challenge } from "./challenge";
-import { play } from "./audio";
+import { play, prefetch } from "./audio";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
@@ -101,6 +101,11 @@ export const Quiz = ({
     }
     return out;
   }, [challenge]);
+
+  // Warm the next few clips while the learner answers this one.
+  useEffect(() => {
+    prefetch(challenges.slice(activeIndex, activeIndex + 3).map((c) => c.audioSrc));
+  }, [challenges, activeIndex]);
 
   // 출석: the moment the lesson runs out of challenges, once.
   useEffect(() => {
