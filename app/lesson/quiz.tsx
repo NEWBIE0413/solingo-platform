@@ -102,9 +102,11 @@ export const Quiz = ({
     return out;
   }, [challenge]);
 
-  // Warm the next few clips while the learner answers this one.
+  // Warm upcoming clips while the learner answers this one. Options carry audio too — a
+  // 짝 맞추기 board is a dozen tappable tiles, each of which would otherwise fetch on tap.
   useEffect(() => {
-    prefetch(challenges.slice(activeIndex, activeIndex + 3).map((c) => c.audioSrc));
+    const upcoming = challenges.slice(activeIndex, activeIndex + 5);
+    prefetch(upcoming.flatMap((c) => [c.audioSrc, ...c.challengeOptions.map((o) => o.audioSrc)]));
   }, [challenges, activeIndex]);
 
   // 출석: the moment the lesson runs out of challenges, once.
@@ -121,8 +123,9 @@ export const Quiz = ({
   const meta = (challenge?.meta ?? {}) as { target?: string; reading?: string; explanation?: string };
 
   // One place that knows what "right" means for every exercise type.
-  const judge = (): boolean | null => {
-    if (!challenge || !answer) return null;
+  const judge = (a: Answer | null): boolean | null => {
+    if (!challenge || !a) return null;
+    const answer = a;
     switch (challenge.type) {
       case "SELECT": case "ASSIST": case "LISTEN": {
         const correct = options.find((o) => o.correct); return answer.kind === "option" && !!correct && correct.id === answer.id; }
@@ -135,16 +138,8 @@ export const Quiz = ({
   };
   const wrongHint = challenge?.type === "BUILD" ? `정답: ${meta.target ?? ""}` : ["SELECT", "LISTEN"].includes(challenge?.type ?? "") ? `정답: ${options.find((o) => o.correct)?.text ?? ""}` : challenge?.type === "ASSIST" ? `정답: ${options.find((o) => o.correct)?.text ?? ""}` : undefined;
 
-  const onContinue = () => {
-    if (!answer) return;
-
-    if (status === "wrong") {
-      // Duolingo moves on after showing the answer; the item comes back later via practice.
-      onNext(); setStatus("none"); setAnswer(null); return;
-    }
-    if (status === "correct") { onNext(); setStatus("none"); setAnswer(null); return; }
-
-    const ok = judge();
+  const check = (a: Answer) => {
+    const ok = judge(a);
     if (ok === null) return;
 
     // Paint the verdict from the client's own judgement. Waiting for the server first cost
@@ -164,6 +159,22 @@ export const Quiz = ({
     void submitAnswer(challenge.id, ok, practice)
       .then((res) => { if (res?.error === "hearts") openHeartsModal(); })
       .catch(() => toast.error("기록을 저장하지 못했어요. 연결을 확인해 주세요."));
+  };
+
+  const onAnswer = (a: Answer | null) => {
+    if (status !== "none") return;
+    setAnswer(a);
+    // A finished 짝 맞추기 board is already the answer — asking for 확인 on top of the last
+    // pair is a tap that carries no decision.
+    if (a && challenge?.type === "MATCH") check(a);
+  };
+
+  const onContinue = () => {
+    if (status === "wrong" || status === "correct") {
+      // Duolingo moves on after showing the answer; the item comes back later via practice.
+      onNext(); setStatus("none"); setAnswer(null); return;
+    }
+    if (answer) check(answer);
   };
 
   if (!challenge) {
@@ -249,7 +260,7 @@ export const Quiz = ({
                 challenge={challenge}
                 options={options}
                 answer={answer}
-                onAnswer={(a) => { if (status === "none") setAnswer(a); }}
+                onAnswer={onAnswer}
                 status={status}
                 lang="ja-JP"
               />

@@ -18,7 +18,7 @@ export const Speak = ({ target, reading, meaning, audioSrc, lang, onResult }: { 
   const [verdict, setVerdict] = useState<"" | "ok" | "no">("");
   const rec = useRef<any>(null);
   const SR = typeof window !== "undefined" ? (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition : null;
-  useEffect(() => { const t = setTimeout(() => play(audioSrc), 250); const s = setTimeout(() => onResult({ skip: true }), 4000); return () => { clearTimeout(t); clearTimeout(s); }; // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { play(audioSrc); const s = setTimeout(() => onResult({ skip: true }), 4000); return () => clearTimeout(s); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [audioSrc]);
 
   const start = () => {
