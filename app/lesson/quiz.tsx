@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -8,10 +8,8 @@ import Confetti from "react-confetti";
 import { useAudio, useWindowSize, useMount } from "react-use";
 import { toast } from "sonner";
 
-import { upsertChallengeProgress } from "@/actions/challenge-progress";
-import { recordAttempt } from "@/actions/attempts";
+import { submitAnswer } from "@/actions/attempts";
 import { recordLessonComplete } from "@/actions/streak";
-import { reduceHearts } from "@/actions/user-progress";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 import { useHeartsModal } from "@/store/use-hearts-modal";
@@ -61,7 +59,6 @@ export const Quiz = ({
   const { width, height } = useWindowSize();
 
   const router = useRouter();
-  const [pending, startTransition] = useTransition();
   const { open: openHeartsModal } = useHeartsModal();
   const { open: openPracticeModal } = usePracticeModal();
 
@@ -144,47 +141,24 @@ export const Quiz = ({
 
     const ok = judge();
     if (ok === null) return;
-    void recordAttempt(challenge.id, ok).catch(() => {});
+
+    // Paint the verdict from the client's own judgement. Waiting for the server first cost
+    // ~650ms of dead time per item and made the platform lessons feel sluggish next to the
+    // 히라가나 tab, which judges locally. Persistence follows in the background.
+    if (ok) {
+      void correctControls.play();
+      setStatus("correct");
+      setPercentage((prev) => prev + 100 / challenges.length);
+    } else {
+      void incorrectControls.play();
+      setStatus("wrong");
+      if (!practice) setHearts((prev) => (userSubscription?.isActive ? prev : Math.max(prev - 1, 0)));
+    }
     if (challenge.audioSrc && challenge.type !== "TRACE") play(challenge.audioSrc);
 
-    if (ok) {
-      if (practice) {
-        // Practice: celebrate without persisting completion — the original
-        // lesson's progress must stay exactly as it was.
-        void correctControls.play();
-        setStatus("correct");
-        setPercentage((prev) => prev + 100 / challenges.length);
-        return;
-      }
-      startTransition(() => {
-        upsertChallengeProgress(challenge.id)
-          .then((response) => {
-            if (response?.error === "hearts") { openHeartsModal(); return; }
-            void correctControls.play();
-            setStatus("correct");
-            setPercentage((prev) => prev + 100 / challenges.length);
-            if (initialPercentage === 100) setHearts((prev) => Math.min(prev + 1, MAX_HEARTS));
-          })
-          .catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
-      });
-    } else {
-      if (practice) {
-        // Practice is free: wrong answers log an attempt but never cost hearts.
-        void incorrectControls.play();
-        setStatus("wrong");
-        return;
-      }
-      startTransition(() => {
-        reduceHearts(challenge.id)
-          .then((response) => {
-            if (response?.error === "hearts") { openHeartsModal(); return; }
-            void incorrectControls.play();
-            setStatus("wrong");
-            if (!response?.error) setHearts((prev) => Math.max(prev - 1, 0));
-          })
-          .catch(() => toast.error("문제가 생겼어요. 다시 시도해 주세요."));
-      });
-    }
+    void submitAnswer(challenge.id, ok, practice)
+      .then((res) => { if (res?.error === "hearts") openHeartsModal(); })
+      .catch(() => toast.error("기록을 저장하지 못했어요. 연결을 확인해 주세요."));
   };
 
   if (!challenge) {
@@ -272,7 +246,6 @@ export const Quiz = ({
                 answer={answer}
                 onAnswer={(a) => { if (status === "none") setAnswer(a); }}
                 status={status}
-                disabled={pending}
                 lang="ja-JP"
               />
             </div>
@@ -281,7 +254,7 @@ export const Quiz = ({
       </div>
 
       <Footer
-        disabled={pending || !answer}
+        disabled={!answer}
         status={status}
         onCheck={onContinue}
         wrongHint={wrongHint}
