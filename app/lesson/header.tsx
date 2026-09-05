@@ -8,12 +8,14 @@ type HeaderProps = {
   hearts: number;
   percentage: number;
   hasActiveSubscription: boolean;
+  combo?: number; // consecutive correct answers in this lesson; shown from 2
 };
 
 export const Header = ({
   hearts,
   percentage,
   hasActiveSubscription,
+  combo = 0,
 }: HeaderProps) => {
   const { open } = useExitModal();
 
@@ -25,6 +27,12 @@ export const Header = ({
       />
 
       <Progress value={percentage} />
+
+      {combo >= 2 && (
+        <div key={combo} className="flex shrink-0 animate-[pop_.35s_ease-out] items-center gap-1 rounded-full bg-orange-100 px-2.5 py-1 text-sm font-extrabold text-orange-500">
+          🔥 {combo}
+        </div>
+      )}
 
       <div className="flex items-center font-bold text-rose-500">
         <Image

@@ -3,7 +3,8 @@
 import { revalidatePath } from "next/cache";
 
 import { auth } from "@/lib/session";
-import { createCouple, joinCouple, leaveCouple, recordActivity } from "@/lib/streak";
+import { getQuestBoard } from "@/lib/economy";
+import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity } from "@/lib/streak";
 
 /*
  Called once when a lesson, a practice round, or a 히라가나 session is completed. This is also
@@ -15,12 +16,15 @@ import { createCouple, joinCouple, leaveCouple, recordActivity } from "@/lib/str
 export const recordLessonComplete = async (kind: "lesson" | "practice" | "kana" = "lesson") => {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized.");
-  await recordActivity(userId, kind);
+  const { firstToday } = await recordActivity(userId, kind);
+  const [streak, board] = await Promise.all([getStreak(userId), getQuestBoard(userId, true)]);
   revalidatePath("/streak");
   revalidatePath("/learn");
   revalidatePath("/quests");
   revalidatePath("/leaderboard");
   revalidatePath("/shop");
+  // the end screen celebrates with these: first lesson of the day → streak moment; done-but-unclaimed quests → nudge
+  return { streak: streak.current, firstToday, claimable: board.quests.filter((q) => q.done && !q.claimed).length };
 };
 
 export const createCoupleAction = async () => {
