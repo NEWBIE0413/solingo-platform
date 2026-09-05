@@ -123,7 +123,7 @@ export const LevelView = ({
           </p>
 
           {cross.levels.length > 0 && (
-            <div className="mb-4 w-full overflow-x-auto rounded-2xl border-2 border-slate-200 p-5">
+            <div className="mb-4 w-full min-w-0 max-w-full overflow-x-auto rounded-2xl border-2 border-slate-200 p-4 sm:p-5">
               <h2 className="mb-3 text-lg font-bold text-neutral-700">급수×영역</h2>
               <table className="w-full min-w-[420px] text-sm">
                 <thead>

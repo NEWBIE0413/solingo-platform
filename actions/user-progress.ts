@@ -4,7 +4,7 @@ import { auth, currentUser } from "@/lib/session";
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 
-import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
+import { KANA_TRAINER_TITLE, MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
 import db from "@/db/drizzle";
 import {
   getCourseById,
@@ -28,7 +28,8 @@ export const upsertUserProgress = async (courseId: number): Promise<{ ok: true }
 
   if (!course) return { error: "코스를 찾을 수 없어요." };
 
-  if (!course.units.length || !course.units[0].lessons.length)
+  const isTrainer = course.title === KANA_TRAINER_TITLE;
+  if (!isTrainer && (!course.units.length || !course.units[0].lessons.length))
     return { error: "아직 레슨이 없는 코스예요." };
 
   const existingUserProgress = await getUserProgress();
