@@ -9,6 +9,7 @@ type UserProgressProps = {
   activeCourse: typeof courses.$inferSelect;
   hearts: number;
   points: number;
+  gems: number;
   hasActiveSubscription: boolean;
 };
 
@@ -16,6 +17,7 @@ export const UserProgress = ({
   activeCourse,
   hearts,
   points,
+  gems,
   hasActiveSubscription,
 }: UserProgressProps) => {
   return (
@@ -42,6 +44,19 @@ export const UserProgress = ({
             className="mr-2"
           />
           {points}
+        </Button>
+      </Link>
+
+      <Link href="/shop" prefetch>
+        <Button variant="ghost" className="text-sky-500">
+          <Image
+            src="/gem.svg"
+            height={22}
+            width={22}
+            alt="Gems"
+            className="mr-2"
+          />
+          {gems}
         </Button>
       </Link>
 

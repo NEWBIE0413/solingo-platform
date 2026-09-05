@@ -91,6 +91,29 @@ export const getPracticeChallenges = cache(async () => {
   return ordered.map((c) => ({ ...c, completed: false }));
 });
 
+/** 사이드바·학습 길의 "약점 복습" 카드에 보여줄 개수 — 위 쿼리의 가벼운 버전. */
+export const countWeakChallenges = cache(async () => {
+  const { userId } = await auth();
+  if (!userId) return 0;
+  const progress = await getUserProgress();
+  const courseId = progress?.activeCourseId;
+  if (!courseId) return 0;
+  const r = await db.execute(sql`
+    SELECT COUNT(*)::int AS n
+    FROM (
+      SELECT a.challenge_id, BOOL_OR(a.correct) AS ever_ok
+      FROM challenge_attempts a
+      JOIN challenges c ON c.id = a.challenge_id
+      JOIN lessons l ON l.id = c.lesson_id
+      JOIN units u ON u.id = l.unit_id
+      WHERE a.user_id = ${userId} AND u.course_id = ${courseId}
+      GROUP BY a.challenge_id
+    ) s
+    WHERE NOT s.ever_ok`);
+  const first = r.rows[0] as { n?: number } | undefined;
+  return first?.n ?? 0;
+});
+
 export const getCourses = cache(async () => {
   const data = await db.query.courses.findMany();
 
@@ -328,6 +351,7 @@ export const getTopTenUsers = cache(async () => {
       userName: true,
       userImageSrc: true,
       points: true,
+      equipped: true,
     },
   });
 

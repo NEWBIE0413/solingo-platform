@@ -288,7 +288,7 @@ document.addEventListener('click',e=>{const k=e.target.closest('.spk');if(k){sfx
 // ================= finish =================
 function finish(){
   const total=score.ok+score.no,pct=total?Math.round(score.ok/total*100):100,xp=10+Math.round(pct/10)+newK.length*2;
-  S.xp+=xp;pendingXP+=xp;S.days[today()]=(S.days[today()]||0)+1;save();clearPersist();
+  S.xp+=xp;pendingXP+=xp;S.days[today()]=(S.days[today()]||0)+1;save();clearPersist();apiPut({sessionComplete:true});
   let streak=0;for(let i=0;;i++){const d=new Date();d.setDate(d.getDate()-i);const k=d.toISOString().slice(0,10);if(S.days[k])streak++;else break}
   $('#l-meter').style.width='100%';sfx.done();haptic('done');confetti();
   const b=document.createElement('div');b.className='step in';$('#stage').innerHTML='';$('#stage').appendChild(b);

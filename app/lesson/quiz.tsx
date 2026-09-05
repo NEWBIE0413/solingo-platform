@@ -116,8 +116,8 @@ export const Quiz = ({
   useEffect(() => {
     if (challenge || attended.current) return;
     attended.current = true;
-    void recordLessonComplete().catch(() => {});
-  }, [challenge]);
+    void recordLessonComplete(practice ? "practice" : "lesson").catch(() => {});
+  }, [challenge, practice]);
 
   const onNext = () => {
     setActiveIndex((current) => current + 1);

@@ -30,17 +30,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
       <div className="flex flex-1 flex-col gap-y-2">
         <SidebarItem label="학습" href="/learn" iconSrc="/learn.svg" />
-        <SidebarItem label="히라가나" href="/kana" iconSrc="/jp.svg" />
-        <SidebarItem label="약점 복습" href="/practice" iconSrc="/practice.svg" />
-        <SidebarItem label="출석" href="/streak" iconSrc="/quests.svg" />
-        <SidebarItem label="레벨 결과" href="/level" iconSrc="/points.svg" />
-        <SidebarItem
-          label="리더보드"
-          href="/leaderboard"
-          iconSrc="/leaderboard.svg"
-        />
+        <SidebarItem label="리더보드" href="/leaderboard" iconSrc="/leaderboard.svg" />
         <SidebarItem label="퀘스트" href="/quests" iconSrc="/quests.svg" />
         <SidebarItem label="상점" href="/shop" iconSrc="/shop.svg" />
+        <SidebarItem label="출석" href="/streak" iconSrc="/quests.svg" />
+        <SidebarItem label="프로필" href="/profile" iconSrc="/girl.svg" />
       </div>
 
       <div className="p-4">

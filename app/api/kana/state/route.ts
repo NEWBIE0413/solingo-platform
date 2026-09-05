@@ -25,7 +25,7 @@ export async function PUT(req: Request) {
   const { userId } = await auth();
   if (!userId) return new NextResponse("Unauthorized.", { status: 401 });
   const courseId = courseOf(req);
-  const body = (await req.json().catch(() => ({}))) as { state?: unknown; session?: unknown; xpDelta?: number };
+  const body = (await req.json().catch(() => ({}))) as { state?: unknown; session?: unknown; xpDelta?: number; sessionComplete?: boolean };
   const set: Record<string, unknown> = { updatedAt: new Date() };
   if (body.state !== undefined) set.state = body.state;
   if (body.session !== undefined) set.session = body.session;
@@ -33,9 +33,14 @@ export async function PUT(req: Request) {
     .insert(kanaState)
     .values({ userId, courseId, state: (body.state as object) ?? {}, session: (body.session as object) ?? null })
     .onConflictDoUpdate({ target: [kanaState.userId, kanaState.courseId], set });
-  if (body.xpDelta && Number.isFinite(body.xpDelta) && body.xpDelta > 0) {
-    await recordActivity(userId); // a finished 히라가나 session counts as attendance
-    await db.update(userProgress).set({ points: sql`${userProgress.points} + ${Math.min(200, Math.round(body.xpDelta))}` }).where(eq(userProgress.userId, userId));
+  const xp = body.xpDelta && Number.isFinite(body.xpDelta) ? Math.min(200, Math.round(body.xpDelta)) : 0;
+  // XP alone is counter-neutral; only a finished session bumps the kana quest counter.
+  if (xp > 0) {
+    await recordActivity(userId, "xp", xp);
+    await db.update(userProgress).set({ points: sql`${userProgress.points} + ${xp}` }).where(eq(userProgress.userId, userId));
+  }
+  if (body.sessionComplete) {
+    await recordActivity(userId, "kana", 0);
   }
   return NextResponse.json({ ok: true });
 }

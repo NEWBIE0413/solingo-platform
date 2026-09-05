@@ -2,7 +2,7 @@ import { getSessionCookie } from "better-auth/cookies";
 import { type NextRequest, NextResponse } from "next/server";
 
 // Cheap cookie check for the signed-in area; pages still verify the session server-side.
-const PROTECTED = ["/learn", "/lesson", "/courses", "/shop", "/quests", "/leaderboard", "/admin", "/kana", "/streak", "/level"];
+const PROTECTED = ["/learn", "/lesson", "/courses", "/shop", "/quests", "/leaderboard", "/admin", "/kana", "/streak", "/level", "/practice", "/profile"];
 
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;

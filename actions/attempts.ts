@@ -7,6 +7,7 @@ import db from "@/db/drizzle";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { challengeAttempts, challengeProgress, userProgress } from "@/db/schema";
 import { auth } from "@/lib/session";
+import { recordActivity } from "@/lib/streak";
 
 /*
  One round trip per answer: log the attempt and persist progress/hearts together.
@@ -45,11 +46,13 @@ export const submitAnswer = async (
         .update(userProgress)
         .set({ hearts: Math.min(progress.hearts + 1, MAX_HEARTS), points: progress.points + 10 })
         .where(eq(userProgress.userId, userId));
+      await recordActivity(userId, "xp", 10);
       return {};
     }
 
     await db.insert(challengeProgress).values({ challengeId, userId, completed: true });
     await db.update(userProgress).set({ points: progress.points + 10 }).where(eq(userProgress.userId, userId));
+    await recordActivity(userId, "xp", 10);
     return {};
   }
 

@@ -145,6 +145,8 @@ export const userProgress = pgTable("user_progress", {
   }),
   hearts: integer("hearts").notNull().default(MAX_HEARTS),
   points: integer("points").notNull().default(0),
+  gems: integer("gems").notNull().default(0), // 퀘스트 보상 재화 — 상점에서 쓴다
+  equipped: jsonb("equipped").$type<{ frame?: string; title?: string; mascot?: string }>(), // 프로필 꾸미기 {frame,title,mascot}
 });
 
 export const userProgressRelations = relations(userProgress, ({ one }) => ({
@@ -178,7 +180,28 @@ export const dailyActivity = pgTable("daily_activity", {
   userId: text("user_id").notNull(),
   day: text("day").notNull(), // YYYY-MM-DD in Asia/Seoul
   lessons: integer("lessons").notNull().default(0),
+  xp: integer("xp").notNull().default(0),      // 오늘 번 XP — 퀘스트 xp50 계산용
+  practice: integer("practice").notNull().default(0), // 오늘 완료한 약점 복습 수
+  kana: integer("kana").notNull().default(0),  // 오늘 완료한 히라가나 세션 수
+  frozen: boolean("frozen").notNull().default(false), // 출석 보호(freeze)로 채워진 날
 }, (t) => [primaryKey({ columns: [t.userId, t.day] })]);
+
+// 퀘스트 수령 대장. PK(user, quest, day)가 이중 지급을 막는다 — 지급은 이 insert가
+// 성공할 때만 이뤄진다. 일회성 퀘스트(streak7 등)는 day를 '' 로 기록.
+export const questClaims = pgTable("quest_claims", {
+  userId: text("user_id").notNull(),
+  questKey: text("quest_key").notNull(),
+  day: text("day").notNull(), // YYYY-MM-DD in Asia/Seoul; '' for one-off quests
+  claimedAt: timestamp("claimed_at").notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.userId, t.questKey, t.day] })]);
+
+// 상점 소유물. 소모품(freeze)은 qty로 개수를 센다; 꾸미기는 qty 1 고정.
+export const userItems = pgTable("user_items", {
+  userId: text("user_id").notNull(),
+  itemKey: text("item_key").notNull(),
+  qty: integer("qty").notNull().default(1),
+  acquiredAt: timestamp("acquired_at").notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.userId, t.itemKey] })]);
 
 // 커플: two accounts linked by an invite code. The couple streak counts consecutive days both were active.
 export const couples = pgTable("couples", {
