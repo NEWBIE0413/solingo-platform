@@ -3,7 +3,6 @@
 import { auth, currentUser } from "@/lib/session";
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 import { MAX_HEARTS, POINTS_TO_REFILL } from "@/constants";
 import db from "@/db/drizzle";
@@ -14,18 +13,23 @@ import {
 } from "@/db/queries";
 import { challengeProgress, challenges, userProgress } from "@/db/schema";
 
-export const upsertUserProgress = async (courseId: number) => {
+/*
+ Switch the active course. Returns instead of redirect(): a redirect thrown inside a server
+ action reaches the client as a rejected promise in some environments (observed as an error
+ toast on the phone), so the client navigates itself after a clean result.
+*/
+export const upsertUserProgress = async (courseId: number): Promise<{ ok: true } | { error: string }> => {
   const { userId } = await auth();
   const user = await currentUser();
 
-  if (!userId || !user) throw new Error("Unauthorized.");
+  if (!userId || !user) return { error: "로그인이 풀렸어요. 다시 로그인해 주세요." };
 
   const course = await getCourseById(courseId);
 
-  if (!course) throw new Error("Course not found.");
+  if (!course) return { error: "코스를 찾을 수 없어요." };
 
   if (!course.units.length || !course.units[0].lessons.length)
-    throw new Error("Course is empty.");
+    return { error: "아직 레슨이 없는 코스예요." };
 
   const existingUserProgress = await getUserProgress();
 
@@ -38,22 +42,18 @@ export const upsertUserProgress = async (courseId: number) => {
         userImageSrc: user.image || "/mascot.svg",
       })
       .where(eq(userProgress.userId, userId));
-
-    revalidatePath("/courses");
-    revalidatePath("/learn");
-    redirect("/learn");
+  } else {
+    await db.insert(userProgress).values({
+      userId,
+      activeCourseId: courseId,
+      userName: user.name || "학습자",
+      userImageSrc: user.image || "/mascot.svg",
+    });
   }
-
-  await db.insert(userProgress).values({
-    userId,
-    activeCourseId: courseId,
-    userName: user.name || "학습자",
-    userImageSrc: user.image || "/mascot.svg",
-  });
 
   revalidatePath("/courses");
   revalidatePath("/learn");
-  redirect("/learn");
+  return { ok: true };
 };
 
 export const reduceHearts = async (challengeId: number) => {
