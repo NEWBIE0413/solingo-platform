@@ -48,6 +48,9 @@ type QuizProps = {
     | null;
 };
 
+// whitespace-insensitive compare for BUILD: authored targets may carry stray spaces around tiles
+const squash = (t: string) => t.replace(/\s+/g, " ").trim();
+
 export const Quiz = ({
   initialPercentage,
   initialHearts,
@@ -156,7 +159,7 @@ export const Quiz = ({
     switch (challenge.type) {
       case "SELECT": case "ASSIST": case "LISTEN": {
         const correct = options.find((o) => o.correct); return answer.kind === "option" && !!correct && correct.id === answer.id; }
-      case "BUILD": return answer.kind === "build" && answer.text === meta.target;
+      case "BUILD": return answer.kind === "build" && squash(answer.text) === squash(meta.target ?? "");
       case "MATCH": return answer.kind === "match";           // finishing the board is the win; misses just cost taps
       case "TRACE": return answer.kind === "trace";           // self-judged
       case "SPEAK": return answer.kind === "speak" && answer.ok;

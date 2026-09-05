@@ -16,7 +16,10 @@ export const Build = ({ options, audioSrc, reading, meaning, onChange, status, d
   const [chosen, setChosen] = useState<Opt[]>([]);
   useEffect(() => { play(audioSrc); }, [audioSrc]);
   useEffect(() => { if (status === "none") setChosen([]); }, [status]);
-  const set = (next: Opt[]) => { setChosen(next); onChange(next.map((o) => o.text).join("")); };
+  // Japanese tiles glue together (がっこうへ+いきます); Hangul tiles are words, so they join with a space.
+  // Tiles are trimmed first so authored trailing spaces neither help nor hurt.
+  const hangul = options.some((o) => /[가-힣]/.test(o.text));
+  const set = (next: Opt[]) => { setChosen(next); onChange(hangul ? next.map((o) => o.text.trim()).join(" ") : next.map((o) => o.text).join("")); };
   const bank = options.filter((o) => !chosen.some((c) => c.id === o.id));
   const tile = (o: Opt, onTap: () => void, tone?: string) => (
     <button key={o.id} type="button" disabled={disabled} onClick={onTap}
