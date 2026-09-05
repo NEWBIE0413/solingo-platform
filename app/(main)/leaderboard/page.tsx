@@ -9,11 +9,19 @@ import { StickyWrapper } from "@/components/sticky-wrapper";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { UserProgress } from "@/components/user-progress";
+import { cn } from "@/lib/utils";
 import {
   getTopTenUsers,
   getUserProgress,
   getUserSubscription,
 } from "@/db/queries";
+import { shopItem } from "@/lib/economy";
+
+const equippedRing = (frame?: string) => {
+  const color = frame?.split("_")[1] ?? "";
+  const map: Record<string, string> = { sky: "ring-2 ring-sky-400", rose: "ring-2 ring-rose-400", gold: "ring-2 ring-amber-400" };
+  return map[color] ?? "";
+};
 
 const LeaderboardPage = async () => {
   await auth.protect();
@@ -39,6 +47,7 @@ const LeaderboardPage = async () => {
           activeCourse={userProgress.activeCourse}
           hearts={userProgress.hearts}
           points={userProgress.points}
+          gems={userProgress.gems}
           hasActiveSubscription={isPro}
         />
         {!isPro && <Promo />}
@@ -69,7 +78,7 @@ const LeaderboardPage = async () => {
             >
               <p className="mr-4 font-bold text-lime-700">{i + 1}</p>
 
-              <Avatar className="ml-3 mr-6 h-12 w-12 border bg-green-500">
+              <Avatar className={cn("ml-3 mr-6 h-12 w-12 border bg-green-500", equippedRing((userProgress.equipped as { frame?: string } | null)?.frame))}>
                 <AvatarImage
                   src={userProgress.userImageSrc}
                   className="object-cover"
@@ -78,6 +87,11 @@ const LeaderboardPage = async () => {
 
               <p className="flex-1 font-bold text-neutral-800">
                 {userProgress.userName}
+                {userProgress.equipped?.title && (
+                  <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
+                    {shopItem(userProgress.equipped.title)?.name}
+                  </span>
+                )}
               </p>
               <p className="text-muted-foreground">{userProgress.points} XP</p>
             </div>

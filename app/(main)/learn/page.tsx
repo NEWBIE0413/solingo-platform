@@ -15,6 +15,7 @@ import {
 } from "@/db/queries";
 
 import { Header } from "./header";
+import { LearnExtras } from "./learn-extras";
 import { Unit } from "./unit";
 
 const LearnPage = async () => {
@@ -52,6 +53,7 @@ const LearnPage = async () => {
           activeCourse={userProgress.activeCourse}
           hearts={userProgress.hearts}
           points={userProgress.points}
+          gems={userProgress.gems}
           hasActiveSubscription={isPro}
         />
 
@@ -60,6 +62,7 @@ const LearnPage = async () => {
       </StickyWrapper>
       <FeedWrapper>
         <Header title={userProgress.activeCourse.title} />
+        <LearnExtras courseTitle={userProgress.activeCourse.title} />
         {units.map((unit) => (
           <div key={unit.id} className="mb-10">
             <Unit
