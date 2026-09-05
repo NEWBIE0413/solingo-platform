@@ -7,6 +7,7 @@ import { toast } from "sonner";
 
 import { buyItemAction } from "@/actions/economy";
 import { Button } from "@/components/ui/button";
+import { useCelebrate } from "@/store/use-celebrate";
 import { type ShopItem, SHOP_ITEMS } from "@/lib/economy-defs";
 
 type Owned = Record<string, number>;
@@ -17,6 +18,7 @@ export const Items = ({ gems, owned, hasActiveSubscription }: { gems: number; ow
   const [pending, startTransition] = useTransition();
   const [ownedQty, setOwnedQty] = useState<Owned>(owned);
   const [busy, setBusy] = useState<string | null>(null);
+  const celebrate = useCelebrate((s) => s.fire);
 
   const onBuy = (key: string) => {
     if (pending) return;
@@ -26,7 +28,8 @@ export const Items = ({ gems, owned, hasActiveSubscription }: { gems: number; ow
         .then((r) => {
           if (r.ok) {
             setOwnedQty((prev) => ({ ...prev, [key]: ("qty" in r && r.qty) || 1 }));
-            toast.success("구매 완료!");
+            const item = SHOP_ITEMS.find((i) => i.key === key);
+            celebrate({ kind: "purchase", title: item?.name ?? "구매 완료", subtitle: item?.kind === "consumable" ? "연속 출석을 지켜줄게요" : "프로필에서 장착해 보세요", image: item && item.kind === "mascot" && "icon" in item ? item.icon : undefined });
           } else {
             const msg: Record<string, string> = {
               "not-enough-gems": "젬이 부족해요.",

@@ -14,6 +14,7 @@ import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
+import { useCelebrate } from "@/store/use-celebrate";
 
 import { type Answer, Challenge } from "./challenge";
 import { installUnlock, play, prefetch } from "./audio";
@@ -70,6 +71,7 @@ export const Quiz = ({
   const router = useRouter();
   const { open: openHeartsModal } = useHeartsModal();
   const { open: openPracticeModal } = usePracticeModal();
+  const celebrate = useCelebrate((s) => s.fire);
 
   useMount(() => {
     if (initialPercentage === 100) openPracticeModal();
@@ -131,7 +133,10 @@ export const Quiz = ({
   useEffect(() => {
     if (challenge || attended.current) return;
     attended.current = true;
-    recordLessonComplete(practice ? "practice" : "lesson").then(setDone).catch(() => {});
+    recordLessonComplete(practice ? "practice" : "lesson").then((d) => {
+      setDone(d);
+      if (d.firstToday && d.streak > 0) setTimeout(() => celebrate({ kind: "streak", title: `🔥 ${d.streak}일 연속!`, subtitle: "오늘 몫을 채웠어요" }), 400);
+    }).catch(() => {});
   }, [challenge, practice]);
 
   const onNext = () => {
@@ -167,7 +172,11 @@ export const Quiz = ({
       void correctControls.play();
       setStatus("correct");
       if (!reasks.current.has(challenge.id)) stats.current.firstTryCorrect++; else stats.current.recovered.add(challenge.id);
-      setCombo((c) => { const n = c + 1; stats.current.bestCombo = Math.max(stats.current.bestCombo, n); return n; });
+      setCombo((c) => {
+        const n = c + 1; stats.current.bestCombo = Math.max(stats.current.bestCombo, n);
+        if (n === 3 || n === 5 || n === 10 || (n > 10 && n % 5 === 0)) setTimeout(() => celebrate({ kind: "combo", title: `🔥 ${n}연속!`, light: true }), 120);
+        return n;
+      });
     } else {
       void incorrectControls.play();
       setStatus("wrong");
