@@ -8,7 +8,7 @@ import Confetti from "react-confetti";
 import { useAudio, useWindowSize, useMount } from "react-use";
 import { toast } from "sonner";
 
-import { submitAnswer } from "@/actions/attempts";
+import { completeLesson, submitAnswer } from "@/actions/attempts";
 import { recordLessonComplete } from "@/actions/streak";
 import { MAX_HEARTS } from "@/constants";
 import { challengeOptions, challenges, userSubscription } from "@/db/schema";
@@ -136,7 +136,8 @@ export const Quiz = ({
   useEffect(() => {
     if (challenge || attended.current) return;
     attended.current = true;
-    recordLessonComplete(practice ? "practice" : "lesson").then((d) => {
+    // mark the lesson done first so the /learn revalidation inside recordLessonComplete sees it
+    (practice ? Promise.resolve() : completeLesson(lessonId)).then(() => recordLessonComplete(practice ? "practice" : "lesson")).then((d) => {
       setDone(d);
       const streakMoment = d.firstToday && d.streak > 0;
       if (streakMoment) setTimeout(() => celebrate({ kind: "streak", title: `🔥 ${d.streak}일 연속!`, subtitle: "오늘 몫을 채웠어요" }), 400);

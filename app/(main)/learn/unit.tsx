@@ -28,7 +28,7 @@ export const Unit = ({
 }: UnitProps) => {
   return (
     <>
-      <UnitBanner title={title} description={description} />
+      <UnitBanner title={title} description={description} done={lessons.filter((l) => l.completed).length} total={lessons.length} />
 
       <div className="relative flex flex-col items-center">
         {lessons.map((lesson, i) => {

@@ -1,11 +1,11 @@
 "use server";
 
-import { and, eq } from "drizzle-orm";
+import { and, eq, inArray } from "drizzle-orm";
 
 import { MAX_HEARTS } from "@/constants";
 import db from "@/db/drizzle";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
-import { challengeAttempts, challengeProgress, userProgress } from "@/db/schema";
+import { challengeAttempts, challengeProgress, challenges, userProgress } from "@/db/schema";
 import { auth } from "@/lib/session";
 import { recordActivity } from "@/lib/streak";
 
@@ -64,4 +64,23 @@ export const submitAnswer = async (
     .set({ hearts: Math.max(progress.hearts - 1, 0) })
     .where(eq(userProgress.userId, userId));
   return {};
+};
+
+/*
+ Reaching the end of a lesson completes it. Items answered wrong three times still count
+ as seen — the learner went through everything, and the attempts log already feeds those
+ items into 약점 복습. Without this the path kept saying "0/6" after a finished lesson.
+*/
+export const completeLesson = async (lessonId: number) => {
+  const { userId } = await auth();
+  if (!userId) return;
+  const rows = await db.query.challenges.findMany({
+    where: eq(challenges.lessonId, lessonId),
+    columns: { id: true },
+    with: { challengeProgress: { where: eq(challengeProgress.userId, userId), columns: { id: true, completed: true } } },
+  });
+  const missing = rows.filter((c) => !c.challengeProgress.length).map((c) => ({ userId, challengeId: c.id, completed: true }));
+  const stale = rows.flatMap((c) => c.challengeProgress.filter((p) => !p.completed).map((p) => p.id));
+  if (missing.length) await db.insert(challengeProgress).values(missing);
+  if (stale.length) await db.update(challengeProgress).set({ completed: true }).where(inArray(challengeProgress.id, stale));
 };
