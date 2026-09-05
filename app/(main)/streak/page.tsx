@@ -10,6 +10,7 @@ import { auth } from "@/lib/session";
 import { getCoupleStatus, getStreak } from "@/lib/streak";
 
 import { CoupleCard } from "./couple-card";
+import { WeekCalendar } from "./week";
 
 const StreakPage = async () => {
   const { userId } = await auth.protect().then((s) => ({ userId: s.user.id }));
@@ -30,10 +31,12 @@ const StreakPage = async () => {
           <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">출석</h1>
           <p className="mb-6 text-center text-lg text-muted-foreground">하루에 레슨 하나만 끝내면 출석이에요. 히라가나 세션도 인정됩니다.</p>
 
+          <WeekCalendar userId={userId} />
+
           <div className="mb-6 grid w-full grid-cols-2 gap-4">
             <div className={`rounded-2xl border-2 p-5 text-center ${mine.todayDone ? "border-orange-400 bg-orange-50" : "border-slate-200"}`}>
-              <div className="text-4xl">🔥</div>
-              <div className="mt-1 text-3xl font-extrabold text-orange-500">{mine.current}<span className="ml-1 text-base font-bold text-neutral-500">일</span></div>
+              <div className="text-5xl">🔥</div>
+              <div className="mt-1 text-5xl font-extrabold text-orange-500">{mine.current}<span className="ml-1 text-base font-bold text-neutral-500">일</span></div>
               <div className="text-sm font-bold text-neutral-600">내 연속 출석</div>
               <div className="mt-1 text-xs text-muted-foreground">{mine.todayDone ? "오늘 출석 완료" : "오늘 아직이에요"} · 최고 {mine.longest}일</div>
             </div>
