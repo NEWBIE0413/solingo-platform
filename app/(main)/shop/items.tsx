@@ -7,7 +7,7 @@ import { toast } from "sonner";
 
 import { buyItemAction } from "@/actions/economy";
 import { Button } from "@/components/ui/button";
-import { type ShopItem, SHOP_ITEMS } from "@/lib/economy";
+import { type ShopItem, SHOP_ITEMS } from "@/lib/economy-defs";
 
 type Owned = Record<string, number>;
 
@@ -73,6 +73,16 @@ export const Items = ({ gems, owned, hasActiveSubscription }: { gems: number; ow
           </div>
         );
       })}
+      {hasActiveSubscription && (
+        <div className="flex w-full items-center gap-x-4 border-t-2 p-4 pt-8">
+          <Image src="/unlimited.svg" alt="" height={60} width={60} />
+          <div className="flex-1">
+            <p className="text-base font-bold text-neutral-700 lg:text-xl">무제한 하트</p>
+            <p className="text-sm text-muted-foreground">슈퍼 요금제에 포함돼 있어요</p>
+          </div>
+          <Button disabled variant="secondary">슈퍼 이용 중</Button>
+        </div>
+      )}
     </ul>
   );
 };
