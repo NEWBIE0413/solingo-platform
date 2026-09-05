@@ -68,7 +68,7 @@ export const ProfileView = ({
   const equippedTitle = equipped.title ? shopItem(equipped.title)?.name : null;
 
   return (
-    <div className="flex w-full flex-col items-center">
+    <div className="flex w-full min-w-0 flex-col items-stretch">
       <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">프로필{isAdmin && !isSelf ? <span className="block text-base font-semibold text-neutral-500">— {targetName}</span> : null}</h1>
 
       <div className="flex w-full flex-col items-center rounded-2xl border-2 border-slate-200 p-6">
@@ -80,7 +80,7 @@ export const ProfileView = ({
             value={name}
             onChange={(e) => setName(e.target.value)}
             onBlur={() => { if (name.trim() && name !== targetName) void saveName(name.trim()); }}
-            className="mt-3 w-48 rounded-lg border-2 border-transparent bg-transparent text-center text-xl font-bold text-neutral-800 outline-none focus:border-slate-200"
+            className="mt-3 w-full max-w-[12rem] rounded-lg border-2 border-transparent bg-transparent text-center text-xl font-bold text-neutral-800 outline-none focus:border-slate-200"
             aria-label="이름"
           />
         ) : (
@@ -132,7 +132,7 @@ export const ProfileView = ({
         </div>
       )}
 
-      <div className="mt-4 w-full">
+      <div className="mt-4 w-full min-w-0">
         <h2 className="mb-3 text-lg font-bold text-neutral-700">레벨 테스트 결과</h2>
         <LevelView report={report} users={users} targetUserId={targetUserId} targetName={targetName} isAdmin={isAdmin} />
       </div>
