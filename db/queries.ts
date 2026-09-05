@@ -20,8 +20,9 @@ const DAY_IN_MS = 86_400_000;
 
 // 약점 복습: the engine's "틀린 것이 다시 나온다" promise. Collects the active
 // course's challenges the user answered wrong on their first attempt and never
-// got right since; tops the set up to 10 with random completed challenges when
-// wrongs are scarce. No schema changes — reads attempts + progress only.
+// got right since; falls back to completed challenges — 오래된 순(first-seen)으로 —
+// to always offer 10. /practice redirects only when there is nothing to replay
+// at all. No schema changes — reads attempts + progress only.
 export const getPracticeChallenges = cache(async () => {
   const { userId } = await auth();
   if (!userId) return null;
@@ -59,12 +60,15 @@ export const getPracticeChallenges = cache(async () => {
       ? sql`c.id NOT IN (${sql.join(ids.map((i) => sql`${i}`), sql`, `)})`
       : sql`TRUE`;
     const fill = await db.execute(sql`
-      SELECT c.id FROM challenges c
+      SELECT c.id
+      FROM challenges c
       JOIN challenge_progress p ON p.challenge_id = c.id AND p.user_id = ${userId} AND p.completed
       JOIN lessons l ON l.id = c.lesson_id
       JOIN units u ON u.id = l.unit_id
+      LEFT JOIN challenge_attempts a ON a.challenge_id = c.id AND a.user_id = ${userId}
       WHERE u.course_id = ${courseId} AND ${notIn}
-      ORDER BY random()
+      GROUP BY c.id
+      ORDER BY MIN(a.created_at) ASC NULLS LAST, c.id ASC
       LIMIT ${10 - ids.length}
     `);
     ids = [...ids, ...fill.rows.map((r) => Number(r.id))];
@@ -110,6 +114,24 @@ export const countWeakChallenges = cache(async () => {
       GROUP BY a.challenge_id
     ) s
     WHERE NOT s.ever_ok`);
+  const first = r.rows[0] as { n?: number } | undefined;
+  return first?.n ?? 0;
+});
+
+/** 학습 카드 문구용: 활성 코스에서 완료한 문항 수 — 복습 폴백이 열리는지 판단한다. */
+export const countCompletedChallenges = cache(async () => {
+  const { userId } = await auth();
+  if (!userId) return 0;
+  const progress = await getUserProgress();
+  const courseId = progress?.activeCourseId;
+  if (!courseId) return 0;
+  const r = await db.execute(sql`
+    SELECT COUNT(*)::int AS n
+    FROM challenge_progress p
+    JOIN challenges c ON c.id = p.challenge_id
+    JOIN lessons l ON l.id = c.lesson_id
+    JOIN units u ON u.id = l.unit_id
+    WHERE p.user_id = ${userId} AND p.completed AND u.course_id = ${courseId}`);
   const first = r.rows[0] as { n?: number } | undefined;
   return first?.n ?? 0;
 });

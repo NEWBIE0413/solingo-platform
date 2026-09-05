@@ -3,7 +3,9 @@
 import { useState, useTransition } from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { Trophy } from "lucide-react";
 import { toast } from "sonner";
 
 import { equipItemAction, updateUserNameAction } from "@/actions/economy";
@@ -70,6 +72,11 @@ export const ProfileView = ({
   return (
     <div className="flex w-full min-w-0 flex-col items-stretch">
       <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">프로필{isAdmin && !isSelf ? <span className="block text-base font-semibold text-neutral-500">— {targetName}</span> : null}</h1>
+
+      <Link href="/leaderboard" prefetch className="mx-auto mb-4 flex h-11 items-center gap-1.5 rounded-xl px-4 text-sm font-bold text-amber-500 transition-colors hover:bg-amber-50">
+        <Trophy className="h-5 w-5 fill-amber-200" />
+        순위 보기
+      </Link>
 
       <div className="flex w-full flex-col items-center rounded-2xl border-2 border-slate-200 p-6">
         <AvatarFrame frame={equipped.frame}>

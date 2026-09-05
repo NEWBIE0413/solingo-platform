@@ -1,4 +1,4 @@
-import { and, eq, or, sql } from "drizzle-orm";
+import { and, eq, inArray, or, sql } from "drizzle-orm";
 
 import db from "@/db/drizzle";
 import { couples, dailyActivity, userItems, userProgress } from "@/db/schema";
@@ -88,6 +88,26 @@ export async function consumeFreeze(userId: string, day: string): Promise<boolea
 
 export async function getStreak(userId: string) {
   return streakFrom(await activeDays(userId), userId);
+}
+
+/** 이번 주(월~일, KST) 7일의 출석 상태 — /streak 주간 달력의 데이터.
+ * 행이 있으면 출석(frozen=false)이거나 보호권으로 메운 날(frozen=true); 없으면 결석. */
+export async function weekDays(userId: string, today = dayKey()) {
+  const weekday = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(
+    new Intl.DateTimeFormat("en-US", { timeZone: TZ, weekday: "short" }).format(new Date(`${today}T00:00:00Z`)),
+  );
+  const week = Array.from({ length: 7 }, (_, i) => shift(shift(today, -((weekday + 6) % 7)), i));
+  const rows = await db
+    .select({ day: dailyActivity.day, frozen: dailyActivity.frozen })
+    .from(dailyActivity)
+    .where(and(eq(dailyActivity.userId, userId), inArray(dailyActivity.day, week)));
+  const byDay = new Map(rows.map((r) => [r.day, r.frozen]));
+  return week.map((day) => ({
+    day,
+    isToday: day === today,
+    frozen: byDay.get(day) === true,
+    attended: byDay.has(day) && byDay.get(day) !== true,
+  }));
 }
 
 export async function getCouple(userId: string) {
