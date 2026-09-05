@@ -7,6 +7,7 @@ import { toast } from "sonner";
 
 import { claimQuestAction } from "@/actions/economy";
 import { Button } from "@/components/ui/button";
+import { useCelebrate } from "@/store/use-celebrate";
 
 type Quest = {
   key: string;
@@ -26,6 +27,7 @@ export const QuestList = ({ quests, initialGems }: { quests: Quest[]; initialGem
     Object.fromEntries(quests.map((q) => [q.key, { claimed: q.claimed, have: q.have }]))
   );
   const [busy, setBusy] = useState<string | null>(null);
+  const celebrate = useCelebrate((s) => s.fire);
 
   const onClaim = (key: string) => {
     if (pending) return;
@@ -36,7 +38,8 @@ export const QuestList = ({ quests, initialGems }: { quests: Quest[]; initialGem
           if (r.ok) {
             setState((prev) => ({ ...prev, [key]: { claimed: true, have: prev[key]?.have ?? 0 } }));
             const reward = "reward" in r && typeof r.reward === "number" ? r.reward : undefined;
-            toast.success(reward !== undefined ? `젬 +${reward}! (보유 ${"gems" in r ? r.gems : "?"})` : "받았어요!");
+            const q = quests.find((x) => x.key === key);
+            celebrate({ kind: "quest", title: "퀘스트 달성!", subtitle: q?.name, gems: reward });
           } else {
             const msg: Record<string, string> = {
               "already-claimed": "이미 받았어요.",
