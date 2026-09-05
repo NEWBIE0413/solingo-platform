@@ -11,8 +11,11 @@ export type ActivityKind = "lesson" | "practice" | "kana" | "xp";
 
 /** Mark today as active for a user. kind bumps that counter; every kind counts as attendance.
  * "xp" is the counter-neutral kind: it only adds xpDelta (per-answer XP credit). */
-export async function recordActivity(userId: string, kind: ActivityKind = "lesson", xpDelta = 0) {
+export async function recordActivity(userId: string, kind: ActivityKind = "lesson", xpDelta = 0): Promise<{ firstToday: boolean }> {
   const day = dayKey();
+  // "first today" = no completed lesson/practice/kana session yet (per-answer xp rows don't count)
+  const prev = await db.query.dailyActivity.findFirst({ where: and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, day)) });
+  const firstToday = !prev || prev.lessons + prev.practice + prev.kana === 0;
   await db.insert(dailyActivity).values({ userId, day, lessons: kind === "lesson" ? 1 : 0, xp: Math.max(0, Math.round(xpDelta)), practice: kind === "practice" ? 1 : 0, kana: kind === "kana" ? 1 : 0 })
     .onConflictDoUpdate({
       target: [dailyActivity.userId, dailyActivity.day],
@@ -23,6 +26,7 @@ export async function recordActivity(userId: string, kind: ActivityKind = "lesso
         kana: sql`${dailyActivity.kana} + ${kind === "kana" ? 1 : 0}`,
       },
     });
+  return { firstToday };
 }
 
 /** Active days for streak purposes = real activity + days a freeze filled in (frozen=true). */

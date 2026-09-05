@@ -20,7 +20,16 @@ import { installUnlock, play, prefetch } from "./audio";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
-import { ResultCard } from "./result-card";
+
+const EndStat = ({ label, value, tone }: { label: string; value: string; tone: "orange" | "sky" | "green" }) => {
+  const c = tone === "orange" ? "border-orange-400 bg-orange-400 text-orange-500" : tone === "green" ? "border-green-500 bg-green-500 text-green-600" : "border-sky-400 bg-sky-400 text-sky-500";
+  return (
+    <div className={`overflow-hidden rounded-2xl border-2 ${c.split(" ")[0]}`}>
+      <div className={`px-1 py-1 text-[11px] font-bold uppercase tracking-wide text-white ${c.split(" ")[1]}`}>{label}</div>
+      <div className={`bg-white px-1 py-3 text-base font-extrabold tabular-nums ${c.split(" ")[2]}`}>{value}</div>
+    </div>
+  );
+};
 
 type QuizProps = {
   initialPercentage: number;
@@ -68,23 +77,29 @@ export const Quiz = ({
 
   const [lessonId] = useState(initialLessonId);
   const [hearts, setHearts] = useState(initialHearts);
-  const [percentage, setPercentage] = useState(() => {
-    return initialPercentage === 100 ? 0 : initialPercentage;
-  });
-  const [challenges] = useState(initialLessonChallenges);
+  /*
+   The lesson is a queue, not a fixed list: a missed item is appended and comes back before
+   the lesson can end (Duolingo's "you get it right eventually" mechanic, and the reason a
+   lesson only counts as complete once every item was answered correctly). Capped at two
+   re-asks per item so a lesson always ends.
+  */
+  const [queue, setQueue] = useState(initialLessonChallenges);
   const [activeIndex, setActiveIndex] = useState(() => {
-    const uncompletedIndex = challenges.findIndex(
-      (challenge) => !challenge.completed
-    );
-
+    const uncompletedIndex = initialLessonChallenges.findIndex((challenge) => !challenge.completed);
     return uncompletedIndex === -1 ? 0 : uncompletedIndex;
   });
+  const reasks = useRef(new Map<number, number>());
+  const stats = useRef({ firstTryCorrect: 0, wrong: 0, bestCombo: 0, startedAt: Date.now(), recovered: new Set<number>() });
+  const [combo, setCombo] = useState(0);
+  const [done, setDone] = useState<{ streak: number; firstToday: boolean; claimable: number } | null>(null);
+  const unique = initialLessonChallenges.length;
+  const percentage = queue.length ? Math.min(100, (activeIndex / queue.length) * 100) : 0;
 
   const [answer, setAnswer] = useState<Answer | null>(null);
   const attended = useRef(false); // ref, not state: React dev StrictMode runs effects twice before state settles → double attendance
   const [status, setStatus] = useState<"none" | "wrong" | "correct">("none");
 
-  const challenge = challenges[activeIndex];
+  const challenge = queue[activeIndex];
   // Deterministic per-challenge shuffle: content authors can't always balance the correct
   // position, and answer-position patterns defeat the measurement. Stable per challenge so
   // re-renders (and re-checks) don't reorder under the user's finger.
@@ -108,15 +123,15 @@ export const Quiz = ({
   // Warm upcoming clips while the learner answers this one. Options carry audio too — a
   // 짝 맞추기 board is a dozen tappable tiles, each of which would otherwise fetch on tap.
   useEffect(() => {
-    const upcoming = challenges.slice(activeIndex, activeIndex + 5);
+    const upcoming = queue.slice(activeIndex, activeIndex + 5);
     prefetch(upcoming.flatMap((c) => [c.audioSrc, ...c.challengeOptions.map((o) => o.audioSrc)]));
-  }, [challenges, activeIndex]);
+  }, [queue, activeIndex]);
 
   // 출석: the moment the lesson runs out of challenges, once.
   useEffect(() => {
     if (challenge || attended.current) return;
     attended.current = true;
-    void recordLessonComplete(practice ? "practice" : "lesson").catch(() => {});
+    recordLessonComplete(practice ? "practice" : "lesson").then(setDone).catch(() => {});
   }, [challenge, practice]);
 
   const onNext = () => {
@@ -151,10 +166,13 @@ export const Quiz = ({
     if (ok) {
       void correctControls.play();
       setStatus("correct");
-      setPercentage((prev) => prev + 100 / challenges.length);
+      if (!reasks.current.has(challenge.id)) stats.current.firstTryCorrect++; else stats.current.recovered.add(challenge.id);
+      setCombo((c) => { const n = c + 1; stats.current.bestCombo = Math.max(stats.current.bestCombo, n); return n; });
     } else {
       void incorrectControls.play();
       setStatus("wrong");
+      stats.current.wrong++;
+      setCombo(0);
       if (!practice) setHearts((prev) => (userSubscription?.isActive ? prev : Math.max(prev - 1, 0)));
     }
     if (challenge.audioSrc && challenge.type !== "TRACE") play(challenge.audioSrc);
@@ -173,59 +191,63 @@ export const Quiz = ({
   };
 
   const onContinue = () => {
-    if (status === "wrong" || status === "correct") {
-      // Duolingo moves on after showing the answer; the item comes back later via practice.
+    if (status === "wrong") {
+      // Show the answer, move on — and bring the item back before the lesson ends.
+      const n = reasks.current.get(challenge.id) ?? 0;
+      if (n < 2) { reasks.current.set(challenge.id, n + 1); setQueue((q) => [...q, challenge]); }
       onNext(); setStatus("none"); setAnswer(null); return;
     }
+    if (status === "correct") { onNext(); setStatus("none"); setAnswer(null); return; }
     if (answer) check(answer);
   };
 
   if (!challenge) {
+    const xp = unique * 10;
+    const accuracy = unique ? Math.round((100 * stats.current.firstTryCorrect) / unique) : 100;
+    const secs = Math.max(1, Math.round((Date.now() - stats.current.startedAt) / 1000));
+    const timeLabel = secs >= 60 ? `${Math.floor(secs / 60)}분 ${secs % 60}초` : `${secs}초`;
+    const headline = accuracy === 100 ? "완벽해요!" : accuracy >= 80 ? "잘했어요!" : "끝까지 왔어요!";
     return (
       <>
         {finishAudio}
-        <Confetti
-          recycle={false}
-          numberOfPieces={500}
-          tweenDuration={10_000}
-          width={width}
-          height={height}
-        />
-        <div className="mx-auto flex h-full max-w-lg flex-col items-center justify-center gap-y-4 text-center lg:gap-y-8">
-          <Image
-            src="/finish.svg"
-            alt="Finish"
-            className="hidden lg:block"
-            height={100}
-            width={100}
-          />
-
-          <Image
-            src="/finish.svg"
-            alt="Finish"
-            className="block lg:hidden"
-            height={100}
-            width={100}
-          />
-
-          <h1 className="text-lg font-bold text-neutral-700 lg:text-3xl">
-            잘했어요! <br /> 레슨을 완료했어요.
-          </h1>
-
-          <div className="flex w-full items-center gap-x-4">
-            <ResultCard variant="points" value={challenges.length * 10} />
-            <ResultCard
-              variant="hearts"
-              value={userSubscription?.isActive ? Infinity : hearts}
-            />
+        <Confetti recycle={false} numberOfPieces={500} tweenDuration={10_000} width={width} height={height} />
+        <div className="mx-auto flex h-full w-full max-w-lg flex-col items-center justify-center gap-y-5 px-5 text-center">
+          <Image src="/finish.svg" alt="" height={100} width={100} />
+          <div>
+            <h1 className="text-2xl font-extrabold text-neutral-700 lg:text-3xl">{headline}</h1>
+            <p className="mt-1 text-muted-foreground">
+              {practice ? "약점 복습을 끝냈어요" : "레슨을 완료했어요"}
+              {unique - stats.current.firstTryCorrect > 0 && ` · 처음에 틀린 ${unique - stats.current.firstTryCorrect}개 중 ${stats.current.recovered.size}개를 다시 맞혔어요`}
+            </p>
           </div>
+
+          <div className="grid w-full grid-cols-3 gap-3">
+            <EndStat label="획득 XP" value={`⚡️ ${xp}`} tone="orange" />
+            <EndStat label="정확도" value={`${accuracy}%`} tone={accuracy >= 80 ? "green" : "sky"} />
+            <EndStat label="시간" value={timeLabel} tone="sky" />
+          </div>
+          {stats.current.bestCombo >= 3 && (
+            <p className="text-sm font-bold text-orange-500">🔥 최고 {stats.current.bestCombo}연속 정답</p>
+          )}
+
+          {done?.firstToday && done.streak > 0 && (
+            <div className="w-full animate-[pop_.5s_ease-out] rounded-2xl border-2 border-orange-300 bg-orange-50 p-4">
+              <div className="text-4xl">🔥</div>
+              <div className="mt-1 text-xl font-extrabold text-orange-600">{done.streak}일 연속 출석!</div>
+              <div className="text-sm text-orange-700/80">오늘 몫을 채웠어요. 내일도 하나만 하면 이어져요.</div>
+            </div>
+          )}
+          {done && !done.firstToday && done.streak > 0 && (
+            <p className="text-sm font-bold text-orange-500">🔥 연속 {done.streak}일 유지 중</p>
+          )}
+          {done && done.claimable > 0 && (
+            <button type="button" onClick={() => router.push("/quests")} className="w-full rounded-2xl border-2 border-b-4 border-sky-500 bg-sky-400 px-4 py-3 text-base font-bold text-white active:translate-y-[2px] active:border-b-2">
+              💎 퀘스트 {done.claimable}개 달성 — 젬 받으러 가기
+            </button>
+          )}
         </div>
 
-        <Footer
-          lessonId={practice ? undefined : lessonId}
-          status="completed"
-          onCheck={() => router.push("/learn")}
-        />
+        <Footer lessonId={practice ? undefined : lessonId} status="completed" onCheck={() => router.push("/learn")} />
       </>
     );
   }
@@ -245,6 +267,7 @@ export const Quiz = ({
         hearts={hearts}
         percentage={percentage}
         hasActiveSubscription={!!userSubscription?.isActive}
+        combo={combo}
       />
 
       <div className="flex-1">

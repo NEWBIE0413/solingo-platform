@@ -80,3 +80,7 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* used by the lesson runner: combo badge, streak banner, wrong-answer shake */
+@keyframes pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+@keyframes shake { 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
