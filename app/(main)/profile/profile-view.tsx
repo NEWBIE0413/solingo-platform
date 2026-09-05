@@ -8,7 +8,7 @@ import { toast } from "sonner";
 
 import { equipItemAction, updateUserNameAction } from "@/actions/economy";
 import { Button } from "@/components/ui/button";
-import { shopItem } from "@/lib/economy";
+import { shopItem } from "@/lib/economy-defs";
 
 import { LevelView } from "../level/level-view";
 

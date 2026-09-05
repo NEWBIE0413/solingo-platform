@@ -22,7 +22,8 @@ export const claimQuestAction = async (questKey: string) => {
     revalidatePath("/profile");
   }
   const progress = await getUserProgress();
-  return { ...r, gems: progress?.gems ?? r.gems };
+  // reward = what this claim paid out; gems = the balance afterwards
+  return { ...r, reward: r.gems, gems: progress?.gems ?? r.gems };
 };
 
 export const buyItemAction = async (itemKey: string) => {

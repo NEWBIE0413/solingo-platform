@@ -35,7 +35,8 @@ export const QuestList = ({ quests, initialGems }: { quests: Quest[]; initialGem
         .then((r) => {
           if (r.ok) {
             setState((prev) => ({ ...prev, [key]: { claimed: true, have: prev[key]?.have ?? 0 } }));
-            if ("gems" in r && typeof r.gems === "number") toast.success(`젬 +${r.gems}!`);
+            const reward = "reward" in r && typeof r.reward === "number" ? r.reward : undefined;
+            toast.success(reward !== undefined ? `젬 +${reward}! (보유 ${"gems" in r ? r.gems : "?"})` : "받았어요!");
           } else {
             const msg: Record<string, string> = {
               "already-claimed": "이미 받았어요.",

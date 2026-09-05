@@ -67,9 +67,14 @@ export async function consumeFreeze(userId: string, day: string): Promise<boolea
   const existing = await db.select().from(dailyActivity).where(and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, day)));
   if (existing.length) return true; // already active or already frozen — nothing to consume
   return db.transaction(async (tx) => {
+    // A freeze protects days missed *after* it was bought. Without this guard the walk back
+    // through history spent a freeze on an old gap (seen: bought 9/5, consumed for 9/2).
     const spent = await tx.update(userItems)
       .set({ qty: sql`${userItems.qty} - 1` })
-      .where(and(eq(userItems.userId, userId), eq(userItems.itemKey, "freeze"), sql`${userItems.qty} >= 1`))
+      .where(and(
+        eq(userItems.userId, userId), eq(userItems.itemKey, "freeze"), sql`${userItems.qty} >= 1`,
+        sql`to_char(${userItems.acquiredAt} at time zone 'Asia/Seoul', 'YYYY-MM-DD') <= ${day}`,
+      ))
       .returning({ qty: userItems.qty });
     if (!spent.length) return false;
     await tx.insert(dailyActivity).values({ userId, day, lessons: 0, frozen: true }).onConflictDoNothing();
@@ -98,7 +103,7 @@ export async function getCoupleStatus(userId: string) {
   const both = new Set([...mineDays].filter((d) => theirDays.has(d)));
   const partner = await db.query.userProgress.findFirst({ where: eq(userProgress.userId, partnerId), columns: { userName: true, userImageSrc: true } });
   const today = dayKey();
-  return { code: c.code, partner: { id: partnerId, name: partner?.userName ?? "학습자", image: partner?.userImageSrc ?? "/mascot.svg" }, streak: streakFrom(both), partnerTodayDone: theirDays.has(today), mine };
+  return { code: c.code, partner: { id: partnerId, name: partner?.userName ?? "학습자", image: partner?.userImageSrc ?? "/mascot.svg" }, streak: await streakFrom(both), partnerTodayDone: theirDays.has(today), mine };
 }
 
 const CODE_ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";

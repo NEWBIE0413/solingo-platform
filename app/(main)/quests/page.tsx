@@ -46,7 +46,11 @@ const QuestsPage = async () => {
             매일 새로고침돼요. 달성하면 젬을 받아가세요.
           </p>
 
-          <QuestList quests={board.quests} initialGems={userProgress.gems} />
+          {/* plain data only: QuestDef carries a progress() function, which a client component cannot receive */}
+          <QuestList
+            quests={board.quests.map(({ key, name, hint, gems, oneOff, goal, have, claimed, done }) => ({ key, name, hint, gems, oneOff, goal, have, claimed, done }))}
+            initialGems={userProgress.gems}
+          />
         </div>
       </FeedWrapper>
     </div>
