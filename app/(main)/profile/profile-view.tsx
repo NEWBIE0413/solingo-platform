@@ -10,7 +10,9 @@ import { toast } from "sonner";
 
 import { equipItemAction, updateUserNameAction } from "@/actions/economy";
 import { Button } from "@/components/ui/button";
+import type { AchievementView } from "@/lib/achievements-defs";
 import { shopItem } from "@/lib/economy-defs";
+import { cn } from "@/lib/utils";
 
 import { LevelView } from "../level/level-view";
 
@@ -32,6 +34,7 @@ export const ProfileView = ({
   users,
   createdLabel,
   completedLessons,
+  achievements,
 }: {
   selfUserId: string;
   targetUserId: string;
@@ -48,6 +51,7 @@ export const ProfileView = ({
   users: { userId: string; userName: string; points: number }[];
   createdLabel: string;
   completedLessons: number;
+  achievements: AchievementView[];
 }) => {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -104,7 +108,27 @@ export const ProfileView = ({
         <Stat label="가입일" value={createdLabel} />
       </div>
 
-      {couple?.partner && !isSelf && null}
+      <div className="mt-4 w-full rounded-2xl border-2 border-slate-200 p-5">
+        <div className="mb-3 flex items-baseline justify-between">
+          <h2 className="text-lg font-bold text-neutral-700">업적</h2>
+          <span className="text-sm font-bold text-neutral-400">{achievements.filter((a) => a.unlocked).length}/{achievements.length}</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3">
+          {achievements.map((a) => (
+            <div key={a.key} title={a.desc} className={cn("flex flex-col items-center rounded-2xl border-2 p-2 text-center", a.unlocked ? "border-amber-300 bg-amber-50" : "border-slate-200 bg-slate-50")}>
+              <div className={cn("flex h-12 w-12 items-center justify-center rounded-full text-2xl", a.unlocked ? "bg-white shadow-[0_2px_0_#fcd34d]" : "bg-slate-200 opacity-50 grayscale")}>{a.emoji}</div>
+              <div className={cn("mt-1.5 text-xs font-bold leading-tight", a.unlocked ? "text-neutral-700" : "text-neutral-400")}>{a.name}</div>
+              {!a.unlocked && (
+                <>
+                  <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-slate-200"><div className="h-full rounded-full bg-amber-300" style={{ width: `${Math.round((100 * a.progress) / a.goal)}%` }} /></div>
+                  <div className="mt-0.5 text-[10px] font-semibold text-neutral-400">{a.progress}/{a.goal}</div>
+                </>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {couple?.partner && (
         <div className="mt-4 flex w-full items-center gap-4 rounded-2xl border-2 border-rose-200 bg-rose-50 p-4">
           <Image src={couple.partner.image} alt="" height={44} width={44} className="rounded-full" />

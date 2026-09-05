@@ -9,6 +9,7 @@ import { getUsersWithProgress, getUserProgress, getUserSubscription } from "@/db
 import db from "@/db/drizzle";
 import { challengeProgress, userItems, user } from "@/db/schema";
 import { getIsAdmin } from "@/lib/admin";
+import { getAchievements } from "@/lib/achievements";
 import { levelReport } from "@/lib/level";
 import { auth } from "@/lib/session";
 import { getCoupleStatus, getStreak } from "@/lib/streak";
@@ -32,12 +33,13 @@ const ProfilePage = async ({ searchParams }: { searchParams: Promise<{ user?: st
   const requested = isAdmin && sp.user && users.some((u) => u.userId === sp.user) ? sp.user : userId;
   const viewingOther = requested !== userId;
 
-  const [ownedRows, streak, couple, report, completedRows] = await Promise.all([
+  const [ownedRows, streak, couple, report, completedRows, achievements] = await Promise.all([
     db.select().from(userItems).where(eq(userItems.userId, requested)),
     getStreak(requested),
     viewingOther ? Promise.resolve(null) : getCoupleStatus(userId),
     levelReport(requested),
     db.select({ id: challengeProgress.id }).from(challengeProgress).where(eq(challengeProgress.userId, requested)),
+    getAchievements(requested),
   ]);
   const owned = Object.fromEntries(ownedRows.map((r) => [r.itemKey, r.qty]));
   const userRow = await db.query.user.findFirst({ where: eq(user.id, requested), columns: { createdAt: true } });
@@ -65,6 +67,7 @@ const ProfilePage = async ({ searchParams }: { searchParams: Promise<{ user?: st
           users={users.map((u) => ({ userId: u.userId, userName: u.userName, points: u.points }))}
           createdLabel={createdLabel}
           completedLessons={completedRows.length}
+          achievements={achievements}
         />
       </FeedWrapper>
     </div>

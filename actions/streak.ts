@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { auth } from "@/lib/session";
 import { getQuestBoard } from "@/lib/economy";
 import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity } from "@/lib/streak";
+import { syncAchievements } from "@/lib/achievements";
 
 /*
  Called once when a lesson, a practice round, or a 히라가나 session is completed. This is also
@@ -17,14 +18,21 @@ export const recordLessonComplete = async (kind: "lesson" | "practice" | "kana" 
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized.");
   const { firstToday } = await recordActivity(userId, kind);
-  const [streak, board] = await Promise.all([getStreak(userId), getQuestBoard(userId, true)]);
+  const [streak, board, ach] = await Promise.all([getStreak(userId), getQuestBoard(userId, true), syncAchievements(userId)]);
   revalidatePath("/streak");
   revalidatePath("/learn");
   revalidatePath("/quests");
   revalidatePath("/leaderboard");
   revalidatePath("/shop");
-  // the end screen celebrates with these: first lesson of the day → streak moment; done-but-unclaimed quests → nudge
-  return { streak: streak.current, firstToday, claimable: board.quests.filter((q) => q.done && !q.claimed).length };
+  revalidatePath("/profile");
+  // the end screen celebrates with these: first lesson of the day → streak moment; done-but-unclaimed quests → nudge;
+  // achievements crossed by this session → badge moment
+  return {
+    streak: streak.current,
+    firstToday,
+    claimable: board.quests.filter((q) => q.done && !q.claimed).length,
+    achievements: ach.fresh.map(({ key, name, desc, emoji }) => ({ key, name, desc, emoji })),
+  };
 };
 
 export const createCoupleAction = async () => {

@@ -203,6 +203,14 @@ export const userItems = pgTable("user_items", {
   acquiredAt: timestamp("acquired_at").notNull().defaultNow(),
 }, (t) => [primaryKey({ columns: [t.userId, t.itemKey] })]);
 
+// 업적 해금 대장. 업적 자체는 기존 수치(출석·XP·학습 횟수…)에서 파생되고, 이 표는 "이미 축하했는지"만
+// 기억한다 — 레슨 끝에서 대장에 없는 달성 업적을 새 업적으로 알린다(lib/achievements.ts).
+export const userAchievements = pgTable("user_achievements", {
+  userId: text("user_id").notNull(),
+  key: text("key").notNull(),
+  unlockedAt: timestamp("unlocked_at").notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.userId, t.key] })]);
+
 // 커플: two accounts linked by an invite code. The couple streak counts consecutive days both were active.
 export const couples = pgTable("couples", {
   id: serial("id").primaryKey(),

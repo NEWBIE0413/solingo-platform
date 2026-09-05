@@ -93,7 +93,7 @@ export const Quiz = ({
   const reasks = useRef(new Map<number, number>());
   const stats = useRef({ firstTryCorrect: 0, wrong: 0, bestCombo: 0, startedAt: Date.now(), recovered: new Set<number>() });
   const [combo, setCombo] = useState(0);
-  const [done, setDone] = useState<{ streak: number; firstToday: boolean; claimable: number } | null>(null);
+  const [done, setDone] = useState<{ streak: number; firstToday: boolean; claimable: number; achievements: { key: string; name: string; desc: string; emoji: string }[] } | null>(null);
   const unique = initialLessonChallenges.length;
   const percentage = queue.length ? Math.min(100, (activeIndex / queue.length) * 100) : 0;
 
@@ -135,7 +135,11 @@ export const Quiz = ({
     attended.current = true;
     recordLessonComplete(practice ? "practice" : "lesson").then((d) => {
       setDone(d);
-      if (d.firstToday && d.streak > 0) setTimeout(() => celebrate({ kind: "streak", title: `🔥 ${d.streak}일 연속!`, subtitle: "오늘 몫을 채웠어요" }), 400);
+      const streakMoment = d.firstToday && d.streak > 0;
+      if (streakMoment) setTimeout(() => celebrate({ kind: "streak", title: `🔥 ${d.streak}일 연속!`, subtitle: "오늘 몫을 채웠어요" }), 400);
+      // badge moment after the streak one has played out (overlay lasts ~2.2s); only the first badge gets the mascot, the rest are listed below
+      const a = d.achievements[0];
+      if (a) setTimeout(() => celebrate({ kind: "lesson", title: `${a.emoji} ${a.name}`, subtitle: d.achievements.length > 1 ? `새 업적 ${d.achievements.length}개 달성!` : `새 업적 · ${a.desc}` }), streakMoment ? 3000 : 400);
     }).catch(() => {});
   }, [challenge, practice]);
 
@@ -248,6 +252,16 @@ export const Quiz = ({
           )}
           {done && !done.firstToday && done.streak > 0 && (
             <p className="text-sm font-bold text-orange-500">🔥 연속 {done.streak}일 유지 중</p>
+          )}
+          {done && done.achievements.length > 0 && (
+            <div className="w-full animate-[pop_.5s_ease-out] rounded-2xl border-2 border-amber-300 bg-amber-50 p-4">
+              <div className="text-sm font-extrabold text-amber-700">🏅 새 업적</div>
+              <div className="mt-2 flex flex-wrap justify-center gap-2">
+                {done.achievements.map((a) => (
+                  <span key={a.key} className="rounded-full border-2 border-amber-200 bg-white px-3 py-1 text-sm font-bold text-neutral-700">{a.emoji} {a.name}</span>
+                ))}
+              </div>
+            </div>
           )}
           {done && done.claimable > 0 && (
             <button type="button" onClick={() => router.push("/quests")} className="w-full rounded-2xl border-2 border-b-4 border-sky-500 bg-sky-400 px-4 py-3 text-base font-bold text-white active:translate-y-[2px] active:border-b-2">
