@@ -27,7 +27,12 @@ export default async function LevelPage({ searchParams }: { searchParams: Promis
         <UserProgress activeCourse={userProgress.activeCourse} hearts={userProgress.hearts} points={userProgress.points} gems={userProgress.gems} hasActiveSubscription={!!userSubscription?.isActive} />
       </StickyWrapper>
       <FeedWrapper>
-        <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">레벨 테스트 결과{isAdmin && requested !== userId ? <span className="block text-base font-semibold text-neutral-500">— {targetName}</span> : null}</h1>
+        <div className="mb-4 text-center">
+          <h1 className="text-xl font-extrabold text-neutral-800">
+            레벨 테스트 결과
+            {isAdmin && requested !== userId ? <span className="block text-sm font-semibold text-neutral-500">— {targetName}</span> : null}
+          </h1>
+        </div>
         <LevelView report={report} users={users.map((u) => ({ userId: u.userId, userName: u.userName, points: u.points }))} targetUserId={requested} targetName={targetName} isAdmin={isAdmin} />
       </FeedWrapper>
     </div>

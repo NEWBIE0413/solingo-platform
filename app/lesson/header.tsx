@@ -20,30 +20,33 @@ export const Header = ({
   const { open } = useExitModal();
 
   return (
-    <header className="mx-auto flex w-full max-w-[1140px] items-center justify-between gap-x-7 px-10 pt-[20px] lg:pt-[50px]">
+    <header className="mx-auto flex w-full max-w-[1140px] items-center justify-between gap-x-4 px-4 pt-3 sm:gap-x-7 sm:px-8 sm:pt-6 lg:pt-10">
       <X
         onClick={open}
-        className="cursor-pointer text-slate-500 transition hover:opacity-75"
+        className="cursor-pointer text-slate-500 transition hover:opacity-75 active:scale-95"
       />
 
       <Progress value={percentage} />
 
       {combo >= 2 && (
-        <div key={combo} className="flex shrink-0 animate-[pop_.35s_ease-out] items-center gap-1 rounded-full bg-orange-100 px-2.5 py-1 text-sm font-extrabold text-orange-500">
+        <div
+          key={combo}
+          className="flex shrink-0 animate-[pop_.35s_ease-out] items-center gap-1 rounded-full border border-orange-200 bg-orange-50 px-2.5 py-0.5 text-xs font-black text-orange-600 shadow-sm"
+        >
           🔥 {combo}
         </div>
       )}
 
-      <div className="flex items-center font-bold text-rose-500">
+      <div className="flex items-center text-sm font-extrabold text-rose-500 sm:text-base">
         <Image
           src="/heart.svg"
-          height={28}
-          width={28}
+          height={26}
+          width={26}
           alt="Heart"
-          className="mr-2"
+          className="mr-1.5"
         />
         {hasActiveSubscription ? (
-          <InfinityIcon className="h-6 w-6 shrink-0 stroke-[3]" />
+          <InfinityIcon className="h-5 w-5 shrink-0 stroke-[3]" />
         ) : (
           hearts
         )}

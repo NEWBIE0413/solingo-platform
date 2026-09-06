@@ -27,21 +27,21 @@ export const PracticeModal = () => {
     <Dialog open={isOpen} onOpenChange={close}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <div className="mb-5 flex w-full items-center justify-center">
-            <Image src="/heart.svg" alt="Heart" height={100} width={100} />
+          <div className="mb-4 flex w-full items-center justify-center">
+            <Image src="/heart.svg" alt="Heart" height={90} width={90} className="drop-shadow-md" />
           </div>
 
-          <DialogTitle className="text-center text-2xl font-bold">
+          <DialogTitle className="text-center text-2xl font-black tracking-tight text-neutral-800">
             연습 레슨
           </DialogTitle>
 
-          <DialogDescription className="text-center text-base">
+          <DialogDescription className="text-center text-sm font-medium text-neutral-500">
             연습 레슨으로 하트와 XP를 다시 얻을 수 있어요. 연습 레슨에서는 하트나 XP를 잃지 않아요.
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="mb-4">
-          <div className="flex w-full flex-col gap-y-4">
+        <DialogFooter className="mt-2">
+          <div className="flex w-full flex-col gap-y-3">
             <Button
               variant="primary"
               className="w-full"

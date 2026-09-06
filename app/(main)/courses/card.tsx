@@ -26,20 +26,21 @@ export const Card = ({
     <div
       onClick={() => onClick(id)}
       className={cn(
-        // min-w-0: a fixed 200px minimum made two columns overlap on a 390px phone
-        "flex h-full min-h-[180px] w-full min-w-0 cursor-pointer flex-col items-center justify-between rounded-xl border-2 border-b-[4px] p-3 pb-5 transition-[transform,background-color] hover:bg-black/5 active:translate-y-[2px] active:border-b-2 sm:min-h-[217px] sm:pb-6",
-        isActive && "border-green-300 bg-green-50",
+        "flex h-full min-h-[170px] w-full min-w-0 cursor-pointer flex-col items-center justify-between rounded-2xl border-2 border-b-4 p-3.5 pb-4 shadow-[0_2px_0_0_rgba(0,0,0,0.03)] transition-all active:translate-y-[2px] active:border-b-2 sm:min-h-[200px] sm:pb-5",
+        isActive
+          ? "border-emerald-400 bg-emerald-50/60 shadow-sm"
+          : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/80",
         disabled && "pointer-events-none opacity-60"
       )}
     >
       <div className="flex min-h-[24px] w-full items-center justify-end">
         {switching ? (
-          <div className="flex items-center justify-center rounded-md bg-green-600 p-1.5">
-            <Loader2 className="h-4 w-4 animate-spin stroke-[3] text-white" />
+          <div className="flex items-center justify-center rounded-full bg-emerald-600 p-1 shadow-sm">
+            <Loader2 className="h-3.5 w-3.5 animate-spin stroke-[3] text-white" />
           </div>
         ) : isActive ? (
-          <div className="flex items-center justify-center rounded-md bg-green-600 p-1.5">
-            <Check className="h-4 w-4 stroke-[4] text-white" />
+          <div className="flex items-center justify-center rounded-full bg-emerald-500 p-1 shadow-sm">
+            <Check className="h-3.5 w-3.5 stroke-[3.5] text-white" />
           </div>
         ) : null}
       </div>
@@ -47,12 +48,14 @@ export const Card = ({
       <Image
         src={imageSrc}
         alt={title}
-        height={70}
-        width={93.33}
-        className="rounded-lg border object-cover drop-shadow-md"
+        height={64}
+        width={85}
+        className="rounded-xl border border-slate-200 object-cover shadow-sm"
       />
 
-      <p className="mt-3 text-center font-bold leading-snug text-neutral-700 [word-break:keep-all]">{title}</p>
+      <p className="mt-2.5 text-center text-sm font-bold leading-snug tracking-tight text-neutral-800 [word-break:keep-all] sm:text-base">
+        {title}
+      </p>
     </div>
   );
 };

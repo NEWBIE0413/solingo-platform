@@ -93,18 +93,14 @@ export const LevelView = ({
 
   return (
     <div className="flex w-full flex-col items-center">
-      <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
-        레벨 테스트 결과{isAdmin && targetName ? <span className="block text-base font-semibold text-neutral-500">— {targetName}</span> : null}
-      </h1>
-
       {isAdmin && (
-        <div className="mb-4 flex w-full max-w-sm flex-col gap-1">
-          <label htmlFor="level-user" className="text-sm font-semibold text-neutral-600">결과를 볼 학습자</label>
+        <div className="mb-4 flex w-full max-w-sm flex-col gap-1.5">
+          <label htmlFor="level-user" className="text-xs font-bold text-neutral-500">결과를 볼 학습자</label>
           <select
             id="level-user"
             value={targetUserId}
             onChange={(e) => router.push(`/level?user=${e.target.value}`)}
-            className="h-11 rounded-xl border-2 border-slate-200 bg-white px-3 text-neutral-700"
+            className="h-11 rounded-xl border-2 border-border bg-white px-3 text-sm font-bold text-neutral-700 shadow-sm transition active:scale-[0.99]"
           >
             {users.map((u) => (
               <option key={u.userId} value={u.userId}>{u.userName} ({u.points}P)</option>
@@ -114,31 +110,33 @@ export const LevelView = ({
       )}
 
       {!report ? (
-        <p className="text-center text-muted-foreground">한국어 TOPIK 코스의 레벨 테스트가 아직 없어요.</p>
+        <div className="rounded-2xl border-2 border-border bg-white p-6 text-center text-sm font-medium text-muted-foreground shadow-sm">
+          한국어 TOPIK 코스의 레벨 테스트가 아직 없어요.
+        </div>
       ) : (
         <>
-          <p className="mb-4 text-center text-lg text-muted-foreground">
+          <p className="mb-4 text-center text-sm font-medium text-muted-foreground">
             {report.answered} / {report.total} 문항 응답 · 첫 시도 기준
-            {report.answered < report.total && <span className="block text-sm">코스에서 "레벨 테스트" 유닛을 끝까지 풀면 결과가 채워져요.</span>}
+            {report.answered < report.total && <span className="block text-xs text-neutral-400 mt-0.5">코스에서 "레벨 테스트" 유닛을 끝까지 풀면 결과가 채워져요.</span>}
           </p>
 
           {cross.levels.length > 0 && (
-            <div className="mb-4 w-full min-w-0 max-w-full overflow-x-auto rounded-2xl border-2 border-slate-200 p-4 sm:p-5">
-              <h2 className="mb-3 text-lg font-bold text-neutral-700">급수×영역</h2>
+            <div className="mb-4 w-full min-w-0 max-w-full overflow-x-auto rounded-2xl border-2 border-border bg-white p-4 shadow-sm sm:p-5">
+              <h2 className="mb-3 text-base font-extrabold text-neutral-800">급수×영역</h2>
               <table className="w-full min-w-[420px] text-sm">
                 <thead>
-                  <tr className="text-left text-neutral-500">
-                    <th className="py-1 pr-3 font-semibold">급수</th>
-                    {cross.tags.map((t) => <th key={t} className="py-1 pr-3 font-semibold">{TAG_LABEL[t] ?? t}</th>)}
+                  <tr className="text-left text-neutral-400">
+                    <th className="py-1 pr-3 text-xs font-bold">급수</th>
+                    {cross.tags.map((t) => <th key={t} className="py-1 pr-3 text-xs font-bold">{TAG_LABEL[t] ?? t}</th>)}
                   </tr>
                 </thead>
                 <tbody>
                   {cross.levels.map((l) => (
-                    <tr key={l} className="border-t border-slate-100">
-                      <td className="py-1.5 pr-3 font-bold text-neutral-600">{l}급</td>
+                    <tr key={l} className="border-t border-neutral-100">
+                      <td className="py-2 pr-3 font-extrabold text-neutral-700">{l}급</td>
                       {cross.tags.map((t) => {
                         const g = cross.at(l, t);
-                        return <td key={t} className="py-1.5 pr-3 text-neutral-600">{g ? cell(g.ok, g.answered) : "–"}</td>;
+                        return <td key={t} className="py-2 pr-3 font-medium text-neutral-600">{g ? cell(g.ok, g.answered) : "–"}</td>;
                       })}
                     </tr>
                   ))}
@@ -147,24 +145,24 @@ export const LevelView = ({
             </div>
           )}
 
-          <div className="w-full rounded-2xl border-2 border-slate-200 p-5">
-            <h2 className="mb-3 text-lg font-bold text-neutral-700">급수별</h2>
+          <div className="w-full rounded-2xl border-2 border-border bg-white p-4 shadow-sm sm:p-5">
+            <h2 className="mb-3 text-base font-extrabold text-neutral-800">급수별</h2>
             <div className="flex flex-col gap-3">
               {report.byLevel.map((g) => (
                 <div key={String(g.key)}>
-                  <div className="mb-1 flex justify-between text-sm font-bold text-neutral-600"><span>{g.key}급</span><span>{g.pct === null ? "–" : `${g.pct}%`} <span className="font-normal text-muted-foreground">({g.ok}/{g.answered})</span></span></div>
+                  <div className="mb-1 flex justify-between text-xs font-bold text-neutral-600"><span>{g.key}급</span><span>{g.pct === null ? "–" : `${g.pct}%`} <span className="font-normal text-muted-foreground">({g.ok}/{g.answered})</span></span></div>
                   <Bar pct={g.pct} />
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-4 w-full rounded-2xl border-2 border-slate-200 p-5">
-            <h2 className="mb-3 text-lg font-bold text-neutral-700">영역별</h2>
+          <div className="mt-4 w-full rounded-2xl border-2 border-border bg-white p-4 shadow-sm sm:p-5">
+            <h2 className="mb-3 text-base font-extrabold text-neutral-800">영역별</h2>
             <div className="flex flex-col gap-3">
               {report.byTag.map((g) => (
                 <div key={String(g.key)}>
-                  <div className="mb-1 flex justify-between text-sm font-bold text-neutral-600"><span>{TAG_LABEL[g.key as string] ?? g.key}</span><span>{g.pct === null ? "–" : `${g.pct}%`} <span className="font-normal text-muted-foreground">({g.ok}/{g.answered})</span></span></div>
+                  <div className="mb-1 flex justify-between text-xs font-bold text-neutral-600"><span>{TAG_LABEL[g.key as string] ?? g.key}</span><span>{g.pct === null ? "–" : `${g.pct}%`} <span className="font-normal text-muted-foreground">({g.ok}/{g.answered})</span></span></div>
                   <Bar pct={g.pct} />
                 </div>
               ))}
@@ -174,15 +172,15 @@ export const LevelView = ({
           <Button
             variant="default"
             size="lg"
-            className={cn("mt-6 h-14 w-full max-w-sm text-base")}
+            className={cn("mt-5 h-12 w-full max-w-sm rounded-2xl border-2 border-b-4 border-slate-300 active:translate-y-[2px] active:border-b-2 text-sm font-black")}
             onClick={copy}
             disabled={report.answered === 0}
             aria-label="결과를 마크다운으로 복사"
           >
-            {copied ? <Check className="mr-2 h-5 w-5" /> : <Copy className="mr-2 h-5 w-5" />}
+            {copied ? <Check className="mr-2 h-4 w-4" /> : <Copy className="mr-2 h-4 w-4" />}
             {copied ? "복사됐어요" : "마크다운 복사"}
           </Button>
-          {report.answered === 0 && <p className="mt-2 text-sm text-muted-foreground">응답이 있으면 복사할 수 있어요.</p>}
+          {report.answered === 0 && <p className="mt-2 text-xs text-muted-foreground">응답이 있으면 복사할 수 있어요.</p>}
         </>
       )}
     </div>

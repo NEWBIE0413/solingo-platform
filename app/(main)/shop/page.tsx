@@ -25,7 +25,7 @@ const ShopPage = async () => {
   const isPro = !!userSubscription?.isActive;
 
   return (
-    <div className="flex flex-row-reverse gap-[48px] px-6">
+    <div className="flex flex-row-reverse gap-[48px] px-4 sm:px-6">
       <StickyWrapper>
         <UserProgress
           activeCourse={userProgress.activeCourse}
@@ -38,14 +38,20 @@ const ShopPage = async () => {
 
       <FeedWrapper>
         <div className="flex w-full flex-col items-center">
-          <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
-            상점
-          </h1>
-          <p className="mb-6 text-center text-lg text-muted-foreground">
-            퀘스트로 모은 젬으로 아이템을 사세요.
-          </p>
+          <div className="mb-4 flex w-full flex-col items-center text-center lg:mb-6">
+            <h1 className="text-xl font-black tracking-tight text-neutral-800 lg:text-2xl">
+              상점
+            </h1>
+            <p className="mt-1 text-xs text-muted-foreground lg:text-sm">
+              퀘스트로 모은 젬으로 아이템을 사세요.
+            </p>
+          </div>
 
-          <Items gems={userProgress.gems} owned={owned} hasActiveSubscription={isPro} />
+          <Items
+            gems={userProgress.gems}
+            owned={owned}
+            hasActiveSubscription={isPro}
+          />
         </div>
       </FeedWrapper>
     </div>
