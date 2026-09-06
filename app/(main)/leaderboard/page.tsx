@@ -20,14 +20,24 @@ import Link from "next/link";
 
 const equippedRing = (frame?: string) => {
   const color = frame?.split("_")[1] ?? "";
-  const map: Record<string, string> = { sky: "ring-2 ring-sky-400", rose: "ring-2 ring-rose-400", gold: "ring-2 ring-amber-400" };
+  const map: Record<string, string> = {
+    sky: "ring-2 ring-sky-400",
+    rose: "ring-2 ring-rose-400",
+    gold: "ring-2 ring-amber-400",
+  };
   return map[color] ?? "";
 };
 
-const medal = (i: number) => (i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : String(i + 1));
-const md = (day: string) => `${Number(day.slice(5, 7))}/${Number(day.slice(8, 10))}`;
+const medal = (i: number) =>
+  i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : String(i + 1);
+const md = (day: string) =>
+  `${Number(day.slice(5, 7))}/${Number(day.slice(8, 10))}`;
 
-const LeaderboardPage = async ({ searchParams }: { searchParams: Promise<{ range?: string }> }) => {
+const LeaderboardPage = async ({
+  searchParams,
+}: {
+  searchParams: Promise<{ range?: string }>;
+}) => {
   const session = await auth.protect();
   const { range } = await searchParams;
   const weekly = range !== "all";
@@ -42,10 +52,12 @@ const LeaderboardPage = async ({ searchParams }: { searchParams: Promise<{ range
   if (!userProgress || !userProgress.activeCourse) redirect("/courses");
 
   const isPro = !!userSubscription?.isActive;
-  const leaderboard = weekly ? week.rows : allTime.map((u) => ({ ...u, weekXp: 0 }));
+  const leaderboard = weekly
+    ? week.rows
+    : allTime.map((u) => ({ ...u, weekXp: 0 }));
 
   return (
-    <div className="flex flex-row-reverse gap-[48px] px-6">
+    <div className="flex flex-row-reverse gap-[48px] px-4 sm:px-6">
       <StickyWrapper>
         <UserProgress
           activeCourse={userProgress.activeCourse}
@@ -62,48 +74,97 @@ const LeaderboardPage = async ({ searchParams }: { searchParams: Promise<{ range
           <Image
             src="/leaderboard.svg"
             alt="Leaderboard"
-            height={90}
-            width={90}
+            height={72}
+            width={72}
+            className="h-16 w-16 sm:h-20 sm:w-20"
           />
 
-          <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
+          <h1 className="mt-2 text-xl font-black tracking-tight text-neutral-800 lg:text-2xl">
             리더보드
           </h1>
-          <p className="mb-4 text-center text-lg text-muted-foreground">
-            {weekly ? `이번 주 (${md(week.start)} ~ ${md(week.end)}) · 월요일마다 새로 시작해요` : "지금까지 모은 XP 순위예요."}
+          <p className="mb-3.5 mt-1 text-center text-xs text-muted-foreground lg:text-sm">
+            {weekly
+              ? `이번 주 (${md(week.start)} ~ ${md(week.end)}) · 매주 월요일 초기화`
+              : "지금까지 모은 누적 XP 순위예요."}
           </p>
 
-          <div className="mb-5 inline-flex rounded-xl border-2 border-slate-200 p-1">
-            <Link href="/leaderboard" prefetch className={cn("rounded-lg px-4 py-1.5 text-sm font-bold", weekly ? "bg-green-500 text-white" : "text-neutral-500")}>이번 주</Link>
-            <Link href="/leaderboard?range=all" prefetch className={cn("rounded-lg px-4 py-1.5 text-sm font-bold", !weekly ? "bg-green-500 text-white" : "text-neutral-500")}>전체</Link>
+          <div className="mb-4 inline-flex rounded-2xl border-2 border-slate-200 bg-slate-100 p-1 shadow-inner">
+            <Link
+              href="/leaderboard"
+              prefetch
+              className={cn(
+                "rounded-xl px-4 py-1.5 text-xs font-black transition-all duration-150 active:scale-95",
+                weekly
+                  ? "border border-slate-200 bg-white text-neutral-800 shadow-sm"
+                  : "text-neutral-500 hover:text-neutral-700"
+              )}
+            >
+              이번 주
+            </Link>
+            <Link
+              href="/leaderboard?range=all"
+              prefetch
+              className={cn(
+                "rounded-xl px-4 py-1.5 text-xs font-black transition-all duration-150 active:scale-95",
+                !weekly
+                  ? "border border-slate-200 bg-white text-neutral-800 shadow-sm"
+                  : "text-neutral-500 hover:text-neutral-700"
+              )}
+            >
+              전체
+            </Link>
           </div>
 
-          <Separator className="mb-4 h-0.5 rounded-full" />
-          {leaderboard.map((userProgress, i) => (
-            <div
-              key={userProgress.userId}
-              className={cn("flex w-full items-center rounded-xl p-2 px-4 hover:bg-gray-200/50", userProgress.userId === session.user.id && "bg-green-50 ring-1 ring-green-200")}
-            >
-              <p className="mr-4 w-7 text-center text-lg font-bold text-lime-700">{medal(i)}</p>
+          <div className="w-full space-y-2 pb-8">
+            {leaderboard.map((userProgress, i) => {
+              const isMe = userProgress.userId === session.user.id;
+              const xp = weekly ? userProgress.weekXp : userProgress.points;
+              return (
+                <div
+                  key={userProgress.userId}
+                  className={cn(
+                    "flex w-full items-center gap-3 rounded-2xl border-2 p-3 shadow-[0_2px_0_0_rgba(0,0,0,0.03)] transition-all sm:px-4",
+                    isMe
+                      ? "border-emerald-300 bg-emerald-50/50"
+                      : "border-slate-200 bg-white hover:bg-slate-50/80"
+                  )}
+                >
+                  <p className="w-7 flex-none text-center text-sm font-black text-neutral-600 sm:text-base">
+                    {medal(i)}
+                  </p>
 
-              <Avatar className={cn("ml-3 mr-6 h-12 w-12 border bg-green-500", equippedRing((userProgress.equipped as { frame?: string } | null)?.frame))}>
-                <AvatarImage
-                  src={userProgress.userImageSrc}
-                  className="object-cover"
-                />
-              </Avatar>
+                  <Avatar
+                    className={cn(
+                      "h-10 w-10 flex-none rounded-full border border-slate-200 bg-slate-100 shadow-inner",
+                      equippedRing(
+                        (userProgress.equipped as { frame?: string } | null)
+                          ?.frame
+                      )
+                    )}
+                  >
+                    <AvatarImage
+                      src={userProgress.userImageSrc}
+                      className="object-cover"
+                    />
+                  </Avatar>
 
-              <p className="flex-1 font-bold text-neutral-800">
-                {userProgress.userName}
-                {userProgress.equipped?.title && (
-                  <span className="ml-2 rounded-full bg-amber-100 px-2 py-0.5 text-xs font-semibold text-amber-700">
-                    {shopItem(userProgress.equipped.title)?.name}
+                  <div className="flex min-w-0 flex-1 items-center gap-2">
+                    <p className="truncate text-sm font-bold tracking-tight text-neutral-800 sm:text-base">
+                      {userProgress.userName}
+                    </p>
+                    {userProgress.equipped?.title && (
+                      <span className="flex-none rounded-md border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[10px] font-black text-amber-700">
+                        {shopItem(userProgress.equipped.title)?.name}
+                      </span>
+                    )}
+                  </div>
+                  <span className="flex-none rounded-full border border-emerald-100 bg-emerald-50 px-2.5 py-1 text-xs font-black tabular-nums text-emerald-700">
+                    {xp} XP
                   </span>
-                )}
-              </p>
-              <p className="font-semibold tabular-nums text-muted-foreground">{weekly ? userProgress.weekXp : userProgress.points} XP</p>
-            </div>
-          ))}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </FeedWrapper>
     </div>
