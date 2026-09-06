@@ -5,7 +5,7 @@ import { useState, useTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Trophy } from "lucide-react";
+import { ClipboardList, ShoppingBag, Trophy } from "lucide-react";
 import { toast } from "sonner";
 
 import { equipItemAction, updateUserNameAction } from "@/actions/economy";
@@ -77,10 +77,18 @@ export const ProfileView = ({
     <div className="flex w-full min-w-0 flex-col items-stretch">
       <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">프로필{isAdmin && !isSelf ? <span className="block text-base font-semibold text-neutral-500">— {targetName}</span> : null}</h1>
 
-      <Link href="/leaderboard" prefetch className="mx-auto mb-4 flex h-11 items-center gap-1.5 rounded-xl px-4 text-sm font-bold text-amber-500 transition-colors hover:bg-amber-50">
-        <Trophy className="h-5 w-5 fill-amber-200" />
-        순위 보기
-      </Link>
+      {/* the things a phone can't reach from the tabs: rank, shop, the level-test report */}
+      <div className="mb-4 grid w-full grid-cols-3 gap-2">
+        <Link href="/leaderboard" prefetch className="flex h-12 items-center justify-center gap-1.5 rounded-xl border-2 border-b-4 border-amber-200 bg-amber-50 text-sm font-bold text-amber-600 active:translate-y-[2px] active:border-b-2">
+          <Trophy className="h-5 w-5 fill-amber-200" /> 순위
+        </Link>
+        <Link href="/shop" prefetch className="flex h-12 items-center justify-center gap-1.5 rounded-xl border-2 border-b-4 border-sky-200 bg-sky-50 text-sm font-bold text-sky-600 active:translate-y-[2px] active:border-b-2">
+          <ShoppingBag className="h-5 w-5" /> 상점
+        </Link>
+        <Link href={isSelf ? "/level" : `/level?user=${targetUserId}`} prefetch className="flex h-12 items-center justify-center gap-1.5 rounded-xl border-2 border-b-4 border-violet-200 bg-violet-50 text-sm font-bold text-violet-600 active:translate-y-[2px] active:border-b-2">
+          <ClipboardList className="h-5 w-5" /> 시험 결과
+        </Link>
+      </div>
 
       <div className="flex w-full flex-col items-center rounded-2xl border-2 border-slate-200 p-6">
         <AvatarFrame frame={equipped.frame}>
@@ -163,10 +171,6 @@ export const ProfileView = ({
         </div>
       )}
 
-      <div className="mt-4 w-full min-w-0">
-        <h2 className="mb-3 text-lg font-bold text-neutral-700">레벨 테스트 결과</h2>
-        <LevelView report={report} users={users} targetUserId={targetUserId} targetName={targetName} isAdmin={isAdmin} />
-      </div>
     </div>
   );
 

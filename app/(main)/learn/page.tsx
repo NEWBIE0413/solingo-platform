@@ -49,17 +49,11 @@ const LearnPage = async () => {
   // 히라가나 훈련 is a course without units: 학습 becomes the Solingo kana engine.
   if (userProgress.activeCourse.title === KANA_TRAINER_TITLE) {
     return (
-      <div className="flex flex-row-reverse gap-[48px] px-6">
-        <StickyWrapper>
-          <UserProgress activeCourse={userProgress.activeCourse} hearts={userProgress.hearts} points={userProgress.points} gems={userProgress.gems} hasActiveSubscription={isPro} />
-          {!isPro && <Promo />}
-        </StickyWrapper>
-        <FeedWrapper>
-          <Header title={userProgress.activeCourse.title} />
-          <div className="-mx-6 h-[calc(100vh-120px)] overflow-hidden rounded-none border-t-2 border-slate-200 lg:mx-0 lg:h-[calc(100vh-110px)] lg:rounded-2xl lg:border-2">
-            <iframe src="/kana/index.html?course=ja-kana" title="히라가나 훈련" className="h-full w-full border-0" allow="microphone; autoplay" />
-          </div>
-        </FeedWrapper>
+      // The engine owns the whole area between the header and the bottom tabs: one fixed box, so
+      // nothing overlaps and the only scrolling happens inside the engine. embed=1 hides its own
+      // stat row — the platform header already shows streak/gems, and two stat bars looked like a bug.
+      <div className="fixed inset-x-0 top-[50px] bottom-[calc(58px+env(safe-area-inset-bottom))] bg-white lg:left-[256px] lg:top-0 lg:bottom-0">
+        <iframe src="/kana/index.html?course=ja-kana&embed=1" title="히라가나 훈련" className="h-full w-full border-0" allow="microphone; autoplay" />
       </div>
     );
   }
