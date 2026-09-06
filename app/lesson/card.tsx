@@ -23,7 +23,18 @@ type CardProps = {
 
 const isScript = (t: string) => /[぀-ヿ가-힣一-龯]/.test(t) && t.length <= 2;
 
-export const Card = ({ text, imageSrc, audioSrc, shortcut, selected, onClick, status, disabled, layout, big }: CardProps) => {
+export const Card = ({
+  text,
+  imageSrc,
+  audioSrc,
+  shortcut,
+  selected,
+  onClick,
+  status,
+  disabled,
+  layout,
+  big,
+}: CardProps) => {
   const handleClick = useCallback(() => {
     if (disabled) return;
     play(audioSrc);
@@ -37,12 +48,18 @@ export const Card = ({ text, imageSrc, audioSrc, shortcut, selected, onClick, st
     <div
       onClick={handleClick}
       className={cn(
-        "cursor-pointer select-none rounded-xl border-2 border-b-4 bg-white p-4 hover:bg-black/5 active:border-b-2 active:translate-y-[2px] lg:p-6",
-        layout === "grid" ? "flex min-h-[92px] items-center justify-center" : "flex w-full items-center justify-between",
-        selected && "border-sky-300 bg-sky-100 hover:bg-sky-100",
-        selected && status === "correct" && "border-green-300 bg-green-100 hover:bg-green-100",
-        selected && status === "wrong" && "border-rose-300 bg-rose-100 hover:bg-rose-100",
-        disabled && "pointer-events-none hover:bg-white"
+        "cursor-pointer select-none rounded-2xl border-2 border-b-4 bg-white p-3.5 shadow-[0_2px_0_0_rgba(0,0,0,0.03)] transition-all hover:bg-slate-50 active:translate-y-[2px] active:border-b-2 sm:p-4 lg:p-6",
+        layout === "grid"
+          ? "flex min-h-[88px] items-center justify-center sm:min-h-[96px]"
+          : "flex w-full items-center justify-between",
+        selected && "border-sky-400 bg-sky-50 shadow-sm",
+        selected &&
+          status === "correct" &&
+          "border-emerald-500 bg-emerald-50 shadow-sm",
+        selected &&
+          status === "wrong" &&
+          "animate-[shake_.4s_ease-in-out] border-rose-500 bg-rose-50 shadow-sm",
+        disabled && "pointer-events-none opacity-60"
       )}
     >
       {imageSrc && (
@@ -52,17 +69,32 @@ export const Card = ({ text, imageSrc, audioSrc, shortcut, selected, onClick, st
       )}
       <p
         className={cn(
-          "text-center text-neutral-700 [word-break:keep-all] [overflow-wrap:anywhere]",
-          large ? "kana text-3xl leading-none lg:text-4xl" : layout === "grid" ? "text-xl font-bold lg:text-2xl" : "text-lg font-bold lg:text-xl",
-          selected && "text-sky-500",
-          selected && status === "correct" && "text-green-500",
-          selected && status === "wrong" && "text-rose-500"
+          "text-center font-bold tracking-tight text-neutral-800 [overflow-wrap:anywhere] [word-break:keep-all]",
+          large
+            ? "kana text-3xl leading-none lg:text-4xl"
+            : layout === "grid"
+              ? "text-lg font-black lg:text-2xl"
+              : "text-base font-bold lg:text-xl",
+          selected && "text-sky-600",
+          selected && status === "correct" && "text-emerald-600",
+          selected && status === "wrong" && "text-rose-600"
         )}
       >
         {text}
       </p>
       {layout === "list" && (
-        <div className={cn("flex h-[28px] w-[28px] flex-none items-center justify-center rounded-lg border-2 text-sm font-semibold text-neutral-400", selected && "border-sky-300 text-sky-500", selected && status === "correct" && "border-green-500 text-green-500", selected && status === "wrong" && "border-rose-500 text-rose-500")}>
+        <div
+          className={cn(
+            "flex h-7 w-7 flex-none items-center justify-center rounded-lg border-2 text-xs font-black text-neutral-400",
+            selected && "border-sky-400 bg-sky-100 text-sky-600",
+            selected &&
+              status === "correct" &&
+              "border-emerald-500 bg-emerald-100 text-emerald-600",
+            selected &&
+              status === "wrong" &&
+              "border-rose-500 bg-rose-100 text-rose-600"
+          )}
+        >
           {shortcut}
         </div>
       )}
