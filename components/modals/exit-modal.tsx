@@ -29,26 +29,27 @@ export const ExitModal = () => {
     <Dialog open={isOpen} onOpenChange={close}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <div className="mb-5 flex w-full items-center justify-center">
+          <div className="mb-4 flex w-full items-center justify-center">
             <Image
               src="/mascot_sad.svg"
               alt="Mascot Sad"
               height={80}
               width={80}
+              className="drop-shadow-md"
             />
           </div>
 
-          <DialogTitle className="text-center text-2xl font-bold">
+          <DialogTitle className="text-center text-2xl font-black tracking-tight text-neutral-800">
             잠깐, 가지 마세요!
           </DialogTitle>
 
-          <DialogDescription className="text-center text-base">
+          <DialogDescription className="text-center text-sm font-medium text-neutral-500">
             레슨을 나가려고 해요. 정말 나갈까요?
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="mb-4">
-          <div className="flex w-full flex-col gap-y-4">
+        <DialogFooter className="mt-2">
+          <div className="flex w-full flex-col gap-y-3">
             <Button
               variant="primary"
               className="w-full"

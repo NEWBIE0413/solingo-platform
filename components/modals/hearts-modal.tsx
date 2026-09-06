@@ -25,7 +25,7 @@ export const HeartsModal = () => {
 
   const onClick = () => {
     close();
-    router.push("/store");
+    router.push("/shop");
   };
 
   if (!isClient) return null;
@@ -34,26 +34,27 @@ export const HeartsModal = () => {
     <Dialog open={isOpen} onOpenChange={close}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <div className="mb-5 flex w-full items-center justify-center">
+          <div className="mb-4 flex w-full items-center justify-center">
             <Image
               src="/mascot_bad.svg"
               alt="Mascot Bad"
               height={80}
               width={80}
+              className="drop-shadow-md"
             />
           </div>
 
-          <DialogTitle className="text-center text-2xl font-bold">
+          <DialogTitle className="text-center text-2xl font-black tracking-tight text-neutral-800">
             하트를 다 썼어요!
           </DialogTitle>
 
-          <DialogDescription className="text-center text-base">
+          <DialogDescription className="text-center text-sm font-medium text-neutral-500">
             상점에서 XP로 하트를 채우거나, Pro로 무제한 하트를 받으세요.
           </DialogDescription>
         </DialogHeader>
 
-        <DialogFooter className="mb-4">
-          <div className="flex w-full flex-col gap-y-4">
+        <DialogFooter className="mt-2">
+          <div className="flex w-full flex-col gap-y-3">
             <Button
               variant="primary"
               className="w-full"
