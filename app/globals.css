@@ -1,3 +1,35 @@
+/*
+  =============================================================================
+  Solingo Design System Tokens (모바일 390px 우선, Apple 절제 + 듀오링고 밀도)
+  =============================================================================
+  1. Typography Scale:
+     - Screen Title: text-xl font-black text-neutral-800 tracking-tight lg:text-2xl
+     - Subtitle / Kicker: text-xs text-muted-foreground mt-0.5 lg:text-sm
+     - Unit / Section Title: text-lg font-black text-white leading-tight lg:text-xl
+     - Card Title: text-base font-bold text-neutral-800
+     - Body / Detail: text-xs sm:text-sm text-muted-foreground
+     - Badge / Pill: text-[11px] font-black uppercase tracking-wider
+     - Stat Number: text-3xl font-black tracking-tight (hero) / text-sm font-extrabold (header)
+
+  2. Spacing Rhythm:
+     - Phone Container Horizontal: px-4 (sm:px-6, max-w-[1056px])
+     - Section Vertical Gap: gap-3 / mb-3 (mobile) -> gap-6 / mb-6 (desktop)
+     - Card Internal Padding: p-3.5 or p-4 (mobile) -> p-5 (desktop)
+     - Header Height: 50px (mobile) / Sidebar: 256px (desktop)
+     - Bottom Nav: 56px + env(safe-area-inset-bottom)
+
+  3. Tactile Feedback (물리적 눌림 & 스프링):
+     - 3D Buttons: border-b-4 active:border-b-0 active:translate-y-1 transition-all duration-100 ease-out
+     - Path Lesson Nodes: border-b-8 active:border-b-2 active:translate-y-1.5 transition-all
+     - Touch Targets: min-h-[44px] min-w-[44px] for all interactive elements
+     - Reduced Motion: motion-reduce:transition-none motion-reduce:transform-none motion-reduce:animate-none
+
+  4. Cards & Containers:
+     - Standard Card: rounded-2xl border-2 border-slate-200 bg-white p-4 shadow-[0_2px_0_0_rgba(0,0,0,0.03)]
+     - Accent / Highlight Card: rounded-2xl border-2 border-sky-300 bg-sky-50/60
+  =============================================================================
+*/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +38,7 @@ html,
 body,
 :root {
   @apply h-full;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer base {
@@ -82,11 +115,81 @@ body,
 }
 
 /* used by the lesson runner: combo badge, streak banner, wrong-answer shake */
-@keyframes pop { from { transform: scale(0.85); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-@keyframes shake { 20% { transform: translateX(-7px); } 40% { transform: translateX(7px); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
+@keyframes pop {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes shake {
+  20% {
+    transform: translateX(-7px);
+  }
+  40% {
+    transform: translateX(7px);
+  }
+  60% {
+    transform: translateX(-4px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
 
 /* celebration overlay */
-@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
-@keyframes bounceIn { 0% { transform: translateY(60px) scale(.6); opacity: 0; } 60% { transform: translateY(-10px) scale(1.06); opacity: 1; } 100% { transform: translateY(0) scale(1); } }
-@keyframes spark { 0% { transform: rotate(var(--a)) translateY(0) scale(.4); opacity: 0; } 20% { opacity: 1; } 100% { transform: rotate(var(--a)) translateY(calc(var(--d) * -1)) scale(1); opacity: 0; } }
-@keyframes peek { 0% { transform: translateY(-40px); opacity: 0; } 15% { transform: translateY(0); opacity: 1; } 80% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(-40px); opacity: 0; } }
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes bounceIn {
+  0% {
+    transform: translateY(60px) scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-10px) scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes spark {
+  0% {
+    transform: rotate(var(--a)) translateY(0) scale(0.4);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(var(--a)) translateY(calc(var(--d) * -1)) scale(1);
+    opacity: 0;
+  }
+}
+@keyframes peek {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+  15% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}

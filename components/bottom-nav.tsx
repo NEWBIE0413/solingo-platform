@@ -20,7 +20,7 @@ export const BottomNav = () => {
   if (pathname === "/practice" || pathname.startsWith("/lesson")) return null;
 
   return (
-    <nav className="fixed bottom-0 left-0 z-50 flex w-full items-stretch border-t-2 border-slate-200 bg-white pb-[env(safe-area-inset-bottom)] lg:hidden">
+    <nav className="fixed bottom-0 left-0 z-50 flex w-full items-stretch border-t border-slate-200/80 bg-white/95 pb-[env(safe-area-inset-bottom)] shadow-[0_-1px_3px_rgba(0,0,0,0.02)] backdrop-blur-md lg:hidden">
       {TABS.map(({ href, label, icon: Icon }) => {
         const active = pathname === href;
         return (
@@ -29,12 +29,19 @@ export const BottomNav = () => {
             href={href}
             prefetch
             className={cn(
-              "flex min-h-[56px] flex-1 flex-col items-center justify-center gap-0.5 py-1",
-              active ? "text-green-500" : "text-slate-400",
+              "flex min-h-[56px] flex-1 flex-col items-center justify-center gap-1 py-1.5 transition-transform active:scale-90 motion-reduce:active:scale-100",
+              active ? "text-green-500" : "text-slate-400 hover:text-slate-600"
             )}
           >
-            <Icon className="h-6 w-6" strokeWidth={active ? 2.75 : 2} />
-            <span className={cn("text-[11px]", active ? "font-extrabold" : "font-semibold")}>{label}</span>
+            <Icon className="h-5 w-5" strokeWidth={active ? 2.5 : 2} />
+            <span
+              className={cn(
+                "text-[10px] tracking-tight",
+                active ? "font-black" : "font-semibold"
+              )}
+            >
+              {label}
+            </span>
           </Link>
         );
       })}

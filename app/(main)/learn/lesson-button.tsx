@@ -36,7 +36,7 @@ export const LessonButton = ({
   else if (cycleIndex <= 6) indentationLevel = 4 - cycleIndex;
   else indentationLevel = cycleIndex - 8;
 
-  const rightPosition = indentationLevel * 40;
+  const rightPosition = indentationLevel * 36;
 
   const isFirst = index === 0;
   const isLast = index === totalCount;
@@ -45,6 +45,8 @@ export const LessonButton = ({
   const Icon = isCompleted ? Check : isLast ? Crown : Star;
 
   const href = isCompleted ? `/lesson/${id}` : "/lesson";
+
+  const marginTop = isFirst ? (current ? 34 : 20) : 20;
 
   return (
     <Link
@@ -57,15 +59,15 @@ export const LessonButton = ({
         className="relative"
         style={{
           right: `${rightPosition}px`,
-          marginTop: isFirst && !isCompleted ? 60 : 24,
+          marginTop: `${marginTop}px`,
         }}
       >
         {current ? (
-          <div className="relative h-[102px] w-[102px]">
-            <div className="absolute -top-6 left-2.5 z-10 animate-bounce rounded-xl border-2 bg-white px-3 py-2.5 font-bold uppercase tracking-wide text-green-500">
+          <div className="relative h-[96px] w-[96px]">
+            <div className="absolute -top-7 left-1/2 z-10 -translate-x-1/2 animate-bounce whitespace-nowrap rounded-xl border border-slate-200 bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-green-600 shadow-sm motion-reduce:animate-none">
               시작
               <div
-                className="absolute -bottom-2 left-1/2 h-0 w-0 -translate-x-1/2 transform border-x-8 border-t-8 border-x-transparent"
+                className="absolute -bottom-1.5 left-1/2 h-0 w-0 -translate-x-1/2 transform border-x-[5px] border-t-[6px] border-x-transparent border-t-white"
                 aria-hidden
               />
             </div>
@@ -73,25 +75,28 @@ export const LessonButton = ({
               value={Number.isNaN(percentage) ? 0 : percentage}
               styles={{
                 path: {
-                  stroke: "#4ade80",
+                  stroke: "#22c55e",
+                  strokeWidth: 6,
+                  strokeLinecap: "round",
                 },
                 trail: {
-                  stroke: "#e5e7eb",
+                  stroke: "#e2e8f0",
+                  strokeWidth: 6,
                 },
               }}
             >
               <Button
                 size="rounded"
                 variant={locked ? "locked" : "secondary"}
-                className="h-[70px] w-[70px] border-b-8"
+                className="h-[68px] w-[68px] border-b-8 transition-all duration-100 ease-out active:translate-y-1.5 active:border-b-2 motion-reduce:active:translate-y-0"
               >
                 <Icon
                   className={cn(
-                    "h-10 w-10",
+                    "h-8 w-8",
                     locked
                       ? "fill-neutral-400 stroke-neutral-400 text-neutral-400"
                       : "fill-primary-foreground text-primary-foreground",
-                    isCompleted && "fill-none stroke-[4]"
+                    isCompleted && "fill-none stroke-[3.5]"
                   )}
                 />
               </Button>
@@ -101,15 +106,15 @@ export const LessonButton = ({
           <Button
             size="rounded"
             variant={locked ? "locked" : "secondary"}
-            className="h-[70px] w-[70px] border-b-8"
+            className="h-[68px] w-[68px] border-b-8 transition-all duration-100 ease-out active:translate-y-1.5 active:border-b-2 motion-reduce:active:translate-y-0"
           >
             <Icon
               className={cn(
-                "h-10 w-10",
+                "h-8 w-8",
                 locked
                   ? "fill-neutral-400 stroke-neutral-400 text-neutral-400"
                   : "fill-primary-foreground text-primary-foreground",
-                isCompleted && "fill-none stroke-[4]"
+                isCompleted && "fill-none stroke-[3.5]"
               )}
             />
           </Button>
