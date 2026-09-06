@@ -20,22 +20,22 @@ const buttonVariants = cva(
         primary:
           "bg-sky-400 text-primary-foreground hover:bg-sky-400/90 border-sky-500 border-b-4 active:border-b-0",
         primaryOutline:
-          "bg-white text-sky-500 hover:bg-slate-100 active:translate-y-0 active:scale-98",
+          "bg-white text-sky-500 hover:bg-slate-100 active:translate-y-0 active:scale-[0.98]",
 
         secondary:
           "bg-green-500 text-primary-foreground hover:bg-green-500/90 border-green-600 border-b-4 active:border-b-0",
         secondaryOutline:
-          "bg-white text-green-500 hover:bg-slate-100 active:translate-y-0 active:scale-98",
+          "bg-white text-green-500 hover:bg-slate-100 active:translate-y-0 active:scale-[0.98]",
 
         danger:
           "bg-rose-500 text-primary-foreground hover:bg-rose-500/90 border-rose-600 border-b-4 active:border-b-0",
         dangerOutline:
-          "bg-white text-rose-500 hover:bg-slate-100 active:translate-y-0 active:scale-98",
+          "bg-white text-rose-500 hover:bg-slate-100 active:translate-y-0 active:scale-[0.98]",
 
         super:
           "bg-indigo-500 text-primary-foreground hover:bg-indigo-500/90 border-indigo-600 border-b-4 active:border-b-0",
         superOutline:
-          "bg-white text-indigo-500 hover:bg-slate-100 active:translate-y-0 active:scale-98",
+          "bg-white text-indigo-500 hover:bg-slate-100 active:translate-y-0 active:scale-[0.98]",
 
         ghost:
           "bg-transparent text-slate-500 border-transparent border-0 hover:bg-slate-100 active:translate-y-0 active:scale-95",
