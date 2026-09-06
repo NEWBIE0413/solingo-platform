@@ -23,11 +23,16 @@ import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
 
 const EndStat = ({ label, value, tone }: { label: string; value: string; tone: "orange" | "sky" | "green" }) => {
-  const c = tone === "orange" ? "border-orange-400 bg-orange-400 text-orange-500" : tone === "green" ? "border-green-500 bg-green-500 text-green-600" : "border-sky-400 bg-sky-400 text-sky-500";
+  const c =
+    tone === "orange"
+      ? { border: "border-orange-300", header: "bg-orange-500 text-white", text: "text-orange-600" }
+      : tone === "green"
+        ? { border: "border-green-300", header: "bg-green-500 text-white", text: "text-green-600" }
+        : { border: "border-sky-300", header: "bg-sky-500 text-white", text: "text-sky-600" };
   return (
-    <div className={`overflow-hidden rounded-2xl border-2 ${c.split(" ")[0]}`}>
-      <div className={`px-1 py-1 text-[11px] font-bold uppercase tracking-wide text-white ${c.split(" ")[1]}`}>{label}</div>
-      <div className={`bg-white px-1 py-3 text-base font-extrabold tabular-nums ${c.split(" ")[2]}`}>{value}</div>
+    <div className={`overflow-hidden rounded-2xl border-2 ${c.border} bg-white shadow-sm`}>
+      <div className={`px-1 py-1 text-[11px] font-bold uppercase tracking-wide ${c.header}`}>{label}</div>
+      <div className={`bg-white px-1 py-3 text-base font-black tabular-nums ${c.text}`}>{value}</div>
     </div>
   );
 };
@@ -228,47 +233,53 @@ export const Quiz = ({
       <>
         {finishAudio}
         <Confetti recycle={false} numberOfPieces={500} tweenDuration={10_000} width={width} height={height} />
-        <div className="mx-auto flex h-full w-full max-w-lg flex-col items-center justify-center gap-y-5 px-5 text-center">
-          <Image src="/finish.svg" alt="" height={100} width={100} />
-          <div>
-            <h1 className="text-2xl font-extrabold text-neutral-700 lg:text-3xl">{headline}</h1>
-            <p className="mt-1 text-muted-foreground">
+        <div className="mx-auto flex h-full w-full max-w-lg flex-col items-center justify-center gap-y-4 px-5 text-center">
+          <div className="animate-[bounceIn_.6s_cubic-bezier(.16,1,.3,1)] motion-reduce:animate-none">
+            <Image src="/finish.svg" alt="" height={104} width={104} className="drop-shadow-lg" />
+          </div>
+          <div className="animate-[pop_.4s_.15s_cubic-bezier(.16,1,.3,1)_backwards] motion-reduce:animate-none">
+            <h1 className="text-2xl font-black tracking-tight text-neutral-800 lg:text-3xl">{headline}</h1>
+            <p className="mt-1 text-sm font-medium text-muted-foreground">
               {practice ? "약점 복습을 끝냈어요" : "레슨을 완료했어요"}
               {unique - stats.current.firstTryCorrect > 0 && ` · 처음에 틀린 ${unique - stats.current.firstTryCorrect}개 중 ${stats.current.recovered.size}개를 다시 맞혔어요`}
             </p>
           </div>
 
-          <div className="grid w-full grid-cols-3 gap-3">
+          <div className="grid w-full grid-cols-3 gap-2.5 animate-[pop_.4s_.25s_cubic-bezier(.16,1,.3,1)_backwards] motion-reduce:animate-none">
             <EndStat label="획득 XP" value={`⚡️ ${xp}`} tone="orange" />
             <EndStat label="정확도" value={`${accuracy}%`} tone={accuracy >= 80 ? "green" : "sky"} />
             <EndStat label="시간" value={timeLabel} tone="sky" />
           </div>
           {stats.current.bestCombo >= 3 && (
-            <p className="text-sm font-bold text-orange-500">🔥 최고 {stats.current.bestCombo}연속 정답</p>
+            <p className="text-sm font-bold text-orange-600">🔥 최고 {stats.current.bestCombo}연속 정답</p>
           )}
 
           {done?.firstToday && done.streak > 0 && (
-            <div className="w-full animate-[pop_.5s_ease-out] rounded-2xl border-2 border-orange-300 bg-orange-50 p-4">
+            <div className="w-full animate-[pop_.5s_ease-out] motion-reduce:animate-none rounded-2xl border-2 border-orange-200 bg-orange-50/90 p-4 shadow-sm">
               <div className="text-4xl">🔥</div>
-              <div className="mt-1 text-xl font-extrabold text-orange-600">{done.streak}일 연속 출석!</div>
-              <div className="text-sm text-orange-700/80">오늘 몫을 채웠어요. 내일도 하나만 하면 이어져요.</div>
+              <div className="mt-1 text-xl font-black tracking-tight text-orange-600">{done.streak}일 연속 출석!</div>
+              <div className="mt-0.5 text-xs font-semibold text-orange-700/80">오늘 몫을 채웠어요. 내일도 하나만 하면 이어져요.</div>
             </div>
           )}
           {done && !done.firstToday && done.streak > 0 && (
-            <p className="text-sm font-bold text-orange-500">🔥 연속 {done.streak}일 유지 중</p>
+            <p className="text-sm font-bold text-orange-600">🔥 연속 {done.streak}일 유지 중</p>
           )}
           {done && done.achievements.length > 0 && (
-            <div className="w-full animate-[pop_.5s_ease-out] rounded-2xl border-2 border-amber-300 bg-amber-50 p-4">
-              <div className="text-sm font-extrabold text-amber-700">🏅 새 업적</div>
+            <div className="w-full animate-[pop_.5s_ease-out] motion-reduce:animate-none rounded-2xl border-2 border-amber-200 bg-amber-50/90 p-4 shadow-sm">
+              <div className="text-sm font-black text-amber-800">🏅 새 업적 달성!</div>
               <div className="mt-2 flex flex-wrap justify-center gap-2">
                 {done.achievements.map((a) => (
-                  <span key={a.key} className="rounded-full border-2 border-amber-200 bg-white px-3 py-1 text-sm font-bold text-neutral-700">{a.emoji} {a.name}</span>
+                  <span key={a.key} className="rounded-full border-2 border-amber-200 bg-white px-3 py-1 text-xs font-bold text-neutral-700 shadow-sm">{a.emoji} {a.name}</span>
                 ))}
               </div>
             </div>
           )}
           {done && done.claimable > 0 && (
-            <button type="button" onClick={() => router.push("/quests")} className="w-full rounded-2xl border-2 border-b-4 border-sky-500 bg-sky-400 px-4 py-3 text-base font-bold text-white active:translate-y-[2px] active:border-b-2">
+            <button
+              type="button"
+              onClick={() => router.push("/quests")}
+              className="w-full rounded-2xl border-2 border-b-4 border-sky-600 bg-sky-500 px-4 py-3.5 text-base font-black text-white shadow-sm transition-all active:translate-y-[2px] active:border-b-2"
+            >
               💎 퀘스트 {done.claimable}개 달성 — 젬 받으러 가기
             </button>
           )}
