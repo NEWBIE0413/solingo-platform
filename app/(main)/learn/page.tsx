@@ -46,17 +46,8 @@ const LearnPage = async () => {
 
   const isPro = !!userSubscription?.isActive;
 
-  // 히라가나 훈련 is a course without units: 학습 becomes the Solingo kana engine.
-  if (userProgress.activeCourse.title === KANA_TRAINER_TITLE) {
-    return (
-      // The engine owns the whole area between the header and the bottom tabs: one fixed box, so
-      // nothing overlaps and the only scrolling happens inside the engine. embed=1 hides its own
-      // stat row — the platform header already shows streak/gems, and two stat bars looked like a bug.
-      <div className="fixed inset-x-0 top-[50px] bottom-[calc(58px+env(safe-area-inset-bottom))] bg-white lg:left-[256px] lg:top-0 lg:bottom-0">
-        <iframe src="/kana/index.html?course=ja-kana&embed=1" title="히라가나 훈련" className="h-full w-full border-0" allow="microphone; autoplay" />
-      </div>
-    );
-  }
+  // 히라가나 훈련 has no units: it runs full-screen at /trainer, like a lesson does.
+  if (userProgress.activeCourse.title === KANA_TRAINER_TITLE) redirect("/trainer");
 
   if (!courseProgress) redirect("/courses");
 
@@ -74,7 +65,7 @@ const LearnPage = async () => {
         {!isPro && <Promo />}
       </StickyWrapper>
       <FeedWrapper>
-        <Header title={userProgress.activeCourse.title} />
+        <div className="hidden lg:block"><Header title={userProgress.activeCourse.title} /></div>
         <LearnExtras />
         {units.map((unit) => (
           <div key={unit.id} className="mb-10">
