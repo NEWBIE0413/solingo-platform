@@ -9,12 +9,26 @@ import { buyItemAction } from "@/actions/economy";
 import { Button } from "@/components/ui/button";
 import { useCelebrate } from "@/store/use-celebrate";
 import { type ShopItem, SHOP_ITEMS } from "@/lib/economy-defs";
+import { cn } from "@/lib/utils";
 
 type Owned = Record<string, number>;
 
-const KIND_LABEL: Record<string, string> = { consumable: "소모품", frame: "아바타 테두리", title: "칭호", mascot: "마스코트 스킨" };
+const KIND_LABEL: Record<string, string> = {
+  consumable: "소모품",
+  frame: "아바타 테두리",
+  title: "칭호",
+  mascot: "마스코트 스킨",
+};
 
-export const Items = ({ gems, owned, hasActiveSubscription }: { gems: number; owned: Owned; hasActiveSubscription: boolean }) => {
+export const Items = ({
+  gems,
+  owned,
+  hasActiveSubscription,
+}: {
+  gems: number;
+  owned: Owned;
+  hasActiveSubscription: boolean;
+}) => {
   const [pending, startTransition] = useTransition();
   const [ownedQty, setOwnedQty] = useState<Owned>(owned);
   const [busy, setBusy] = useState<string | null>(null);
@@ -27,9 +41,23 @@ export const Items = ({ gems, owned, hasActiveSubscription }: { gems: number; ow
       buyItemAction(key)
         .then((r) => {
           if (r.ok) {
-            setOwnedQty((prev) => ({ ...prev, [key]: ("qty" in r && r.qty) || 1 }));
+            setOwnedQty((prev) => ({
+              ...prev,
+              [key]: ("qty" in r && r.qty) || 1,
+            }));
             const item = SHOP_ITEMS.find((i) => i.key === key);
-            celebrate({ kind: "purchase", title: item?.name ?? "구매 완료", subtitle: item?.kind === "consumable" ? "연속 출석을 지켜줄게요" : "프로필에서 장착해 보세요", image: item && item.kind === "mascot" && "icon" in item ? item.icon : undefined });
+            celebrate({
+              kind: "purchase",
+              title: item?.name ?? "구매 완료",
+              subtitle:
+                item?.kind === "consumable"
+                  ? "연속 출석을 지켜줄게요"
+                  : "프로필에서 장착해 보세요",
+              image:
+                item && item.kind === "mascot" && "icon" in item
+                  ? item.icon
+                  : undefined,
+            });
           } else {
             const msg: Record<string, string> = {
               "not-enough-gems": "젬이 부족해요.",
@@ -45,46 +73,108 @@ export const Items = ({ gems, owned, hasActiveSubscription }: { gems: number; ow
   };
 
   return (
-    <ul className="w-full">
+    <ul className="w-full space-y-3 pb-8">
       {SHOP_ITEMS.map((item) => {
         const qty = ownedQty[item.key] ?? owned[item.key] ?? 0;
         const isOwned = item.kind !== "consumable" && qty > 0;
         const maxed = item.kind === "consumable" && qty >= item.maxQty;
-        const disabled = pending || busy === item.key || isOwned || maxed || gems < item.gems;
+        const canAfford = gems >= item.gems;
+        const disabled =
+          pending || busy === item.key || isOwned || maxed || !canAfford;
         return (
-          <div className="flex w-full items-center gap-x-4 border-t-2 p-4" key={item.key}>
+          <li
+            key={item.key}
+            className={cn(
+              "flex w-full items-center gap-3.5 rounded-2xl border-2 p-3.5 shadow-[0_2px_0_0_rgba(0,0,0,0.03)] transition-all sm:p-4",
+              isOwned
+                ? "border-slate-200 bg-slate-50/50"
+                : "border-slate-200 bg-white"
+            )}
+          >
             <ItemIcon item={item} />
-            <div className="flex-1">
-              <p className="text-base font-bold text-neutral-700 lg:text-xl">{item.name}</p>
-              <p className="text-sm text-muted-foreground">
-                {("desc" in item ? item.desc : undefined) ?? KIND_LABEL[item.kind]}
-                {item.kind === "consumable" && qty > 0 && <span className="ml-2 font-semibold text-sky-600">보유 {qty}</span>}
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2">
+                <p className="truncate text-sm font-bold tracking-tight text-neutral-800 sm:text-base">
+                  {item.name}
+                </p>
+                <span className="rounded-md bg-slate-100 px-1.5 py-0.5 text-[10px] font-bold text-neutral-500">
+                  {KIND_LABEL[item.kind]}
+                </span>
+              </div>
+              <p className="mt-0.5 line-clamp-1 text-xs text-muted-foreground">
+                {("desc" in item ? item.desc : undefined) ??
+                  KIND_LABEL[item.kind]}
               </p>
+              {item.kind === "consumable" && qty > 0 && (
+                <span className="mt-1 inline-block text-[11px] font-bold text-sky-600">
+                  현재 {qty}개 보유
+                </span>
+              )}
             </div>
             <Button
+              size="sm"
               onClick={() => onBuy(item.key)}
-              disabled={pending || busy === item.key || isOwned || maxed || gems < item.gems}
-              variant={isOwned ? "secondary" : "default"}
+              disabled={disabled}
+              variant={
+                isOwned
+                  ? "ghost"
+                  : maxed
+                    ? "locked"
+                    : canAfford
+                      ? "default"
+                      : "locked"
+              }
+              className={cn(
+                "h-10 min-w-[76px] text-xs font-black",
+                isOwned && "font-bold text-neutral-400",
+                !isOwned &&
+                  !maxed &&
+                  canAfford &&
+                  "hover:border-sky-300 hover:bg-sky-50"
+              )}
             >
-              {isOwned ? "보유 중" : maxed ? "최대" : (
+              {isOwned ? (
+                "보유 중"
+              ) : maxed ? (
+                "최대"
+              ) : (
                 <span className="flex items-center gap-1">
-                  <Image src="/gem.svg" alt="" height={18} width={18} />
-                  {item.gems}
+                  <Image src="/gem.svg" alt="젬" height={16} width={16} />
+                  <span>{item.gems}</span>
                 </span>
               )}
             </Button>
-          </div>
+          </li>
         );
       })}
       {hasActiveSubscription && (
-        <div className="flex w-full items-center gap-x-4 border-t-2 p-4 pt-8">
-          <Image src="/unlimited.svg" alt="" height={60} width={60} />
-          <div className="flex-1">
-            <p className="text-base font-bold text-neutral-700 lg:text-xl">무제한 하트</p>
-            <p className="text-sm text-muted-foreground">슈퍼 요금제에 포함돼 있어요</p>
+        <li className="flex w-full items-center gap-3.5 rounded-2xl border-2 border-indigo-200 bg-indigo-50/50 p-3.5 shadow-sm sm:p-4">
+          <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl border border-indigo-100 bg-white p-1 shadow-inner">
+            <Image
+              src="/unlimited.svg"
+              alt="무제한 하트"
+              height={36}
+              width={36}
+              className="object-contain"
+            />
           </div>
-          <Button disabled variant="secondary">슈퍼 이용 중</Button>
-        </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-bold tracking-tight text-neutral-800 sm:text-base">
+              무제한 하트
+            </p>
+            <p className="mt-0.5 text-xs font-medium text-indigo-700/80">
+              슈퍼 요금제에 포함돼 있어요
+            </p>
+          </div>
+          <Button
+            size="sm"
+            disabled
+            variant="super"
+            className="h-10 min-w-[76px] text-xs font-black"
+          >
+            이용 중
+          </Button>
+        </li>
       )}
     </ul>
   );
@@ -92,7 +182,29 @@ export const Items = ({ gems, owned, hasActiveSubscription }: { gems: number; ow
 
 const ItemIcon = ({ item }: { item: ShopItem }) => {
   const icon = "icon" in item ? item.icon : undefined;
-  if (icon) return <Image src={icon} alt="" height={60} width={60} />;
-  if (item.kind === "title") return <div className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl bg-amber-100 text-2xl">🏷️</div>;
-  return <div className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl bg-slate-100 text-2xl">🎁</div>;
+  if (icon) {
+    return (
+      <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 p-1 shadow-inner">
+        <Image
+          src={icon}
+          alt={item.name}
+          height={40}
+          width={40}
+          className="object-contain"
+        />
+      </div>
+    );
+  }
+  if (item.kind === "title") {
+    return (
+      <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl border border-amber-100 bg-amber-50 text-2xl shadow-inner">
+        🏷️
+      </div>
+    );
+  }
+  return (
+    <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl border border-slate-100 bg-slate-50 text-2xl shadow-inner">
+      🎁
+    </div>
+  );
 };
