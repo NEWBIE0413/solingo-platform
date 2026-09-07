@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 
 import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 
+import { trainerLesson } from "@/lib/trainer";
+
 import { Quiz } from "../quiz";
 
 type LessonIdPageProps = {
@@ -27,6 +29,7 @@ const LessonIdPage = async ({ params }: LessonIdPageProps) => {
   ]);
 
   if (!lesson || !userProgress) return redirect("/learn");
+  if (await trainerLesson(lesson.id)) redirect(`/trainer?lesson=${lesson.id}`); // 히라가나 훈련 runs in the kana engine
 
   const initialPercentage =
     (lesson.challenges.filter((challenge) => challenge.completed).length /

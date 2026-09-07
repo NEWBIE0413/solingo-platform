@@ -47,8 +47,7 @@ const LearnPage = async () => {
   const isPro = !!userSubscription?.isActive;
 
   // 히라가나 훈련 has no units: it runs full-screen at /trainer, like a lesson does.
-  if (userProgress.activeCourse.title === KANA_TRAINER_TITLE)
-    redirect("/trainer");
+  const isTrainer = userProgress.activeCourse.title === KANA_TRAINER_TITLE; // its lessons run in the kana engine; no 약점 복습 row
 
   if (!courseProgress) redirect("/courses");
 
@@ -69,7 +68,7 @@ const LearnPage = async () => {
         <div className="hidden lg:block">
           <Header title={userProgress.activeCourse.title} />
         </div>
-        <LearnExtras />
+        {!isTrainer && <LearnExtras />}
         {units.map((unit) => (
           <div key={unit.id} className="mb-8 lg:mb-10">
             <Unit

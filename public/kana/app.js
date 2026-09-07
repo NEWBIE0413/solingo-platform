@@ -19,6 +19,11 @@ async function loadCourse(id){
 const KEY=()=>`solingo.${COURSE.id}.v2`, SKEY=()=>`solingo.${COURSE.id}.session`;
 const API=()=>`/api/kana/state?course=${encodeURIComponent(COURSE.id)}`;
 let S=null, ONLINE=true, pendingXP=0, saveT=null;
+// Lesson mode (platform path): ?lesson=<id>&focus=<chars> — start straight into a session for those
+// characters, and hand control back to the parent page when it ends. No home screen.
+const _q=new URLSearchParams(location.search);
+const LESSON=_q.get('lesson')?{id:_q.get('lesson'),focus:(_q.get('focus')||'').match(/[ぁ-ヿ][ゃゅょャュョ]?/g)||[]}:null;
+const tellParent=type=>{try{parent.postMessage({type,lesson:LESSON&&LESSON.id},location.origin)}catch{}};
 async function apiPut(body){try{const r=await fetch(API(),{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),credentials:'same-origin'});if(r.status===401){location.href='/sign-in?next=/kana';return false}ONLINE=r.ok;return r.ok}catch{ONLINE=false;return false}}
 function save(){try{localStorage.setItem(KEY(),JSON.stringify(S))}catch{}
   clearTimeout(saveT);saveT=setTimeout(()=>{const xp=pendingXP;pendingXP=0;apiPut({state:S,...(xp?{xpDelta:xp}:{})}).then(ok=>{if(!ok)pendingXP+=xp})},400)}
@@ -100,7 +105,7 @@ const norm=s=>(s||'').replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0
 function similar(a,b){a=norm(a);b=norm(b);if(!a||!b)return 0;if(a===b||a.includes(b)||b.includes(a))return 1;const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i,...Array(n).fill(0)]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return 1-d[m][n]/Math.max(m,n)}
 
 // ================= home =================
-function savedSession(){try{const s=JSON.parse(localStorage.getItem(SKEY()));return s&&s.si<s.steps.length?s:null}catch{return null}}
+function savedSession(){try{const s=JSON.parse(localStorage.getItem(SKEY()));if(!(s&&s.si<s.steps.length))return null;if((LESSON?LESSON.id:null)!==(s.lesson||null))return null;return s}catch{return null}}
 function renderHome(){
   let streak=0;for(let i=0;;i++){const d=new Date();d.setDate(d.getDate()-i);const k=d.toISOString().slice(0,10);if(S.days[k])streak++;else if(i===0)continue;else break}
   const L=learned();
@@ -121,13 +126,21 @@ function renderHome(){
 // ================= session engine =================
 let steps=[],si=0,checkFn=null,state='idle',score={ok:0,no:0},combo=0,newK=[];
 function buildSession(){
-  const L=learned(); const Ls=new Set(L);
-  const recent=L.slice(-4); const settled=recent.every(k=>lvl(k)>=2);
-  const n=L.length===0?3:(!settled?0:L.length<10?3:2);
-  newK=ORDER.filter(k=>!S.k[k]).slice(0,n); newK.forEach(k=>Ls.add(k));
+  const L=learned(); const Ls=new Set(L); let focus;
+  if(LESSON){
+    // the path decides the characters; unseen ones get introduced, the rest are quizzed weakest-first
+    const F=LESSON.focus.filter(k=>ORDER.includes(k));
+    newK=F.filter(k=>!S.k[k]).slice(0,5); newK.forEach(k=>Ls.add(k));
+    const rest=F.filter(k=>!newK.includes(k)).sort((a,b)=>lvl(a)-lvl(b)||Math.random()-.5);
+    focus=[...newK,...rest].slice(0,5);
+  } else {
+    const recent=L.slice(-4); const settled=recent.every(k=>lvl(k)>=2);
+    const n=L.length===0?3:(!settled?0:L.length<10?3:2);
+    newK=ORDER.filter(k=>!S.k[k]).slice(0,n); newK.forEach(k=>Ls.add(k));
+    const weak=L.filter(k=>!newK.includes(k)).sort((a,b)=>lvl(a)-lvl(b)||Math.random()-.5);
+    focus=[...newK,...weak.slice(0,Math.max(0,5-newK.length))].slice(0,5);
+  }
   const active=[...Ls];
-  const weak=L.filter(k=>!newK.includes(k)).sort((a,b)=>lvl(a)-lvl(b)||Math.random()-.5);
-  const focus=[...newK,...weak.slice(0,Math.max(0,5-newK.length))].slice(0,5);
   const dist=(k,m)=>pick(active.filter(x=>x!==k),m);
   const words=WORDS.filter(([w])=>wordKana(w).every(k=>Ls.has(k)));
   const fw=words.filter(([w])=>wordKana(w).some(k=>focus.includes(k)));
@@ -147,7 +160,7 @@ function buildSession(){
   return st.filter((s,i)=>!(i&&s.t===st[i-1].t&&s.k&&s.k===st[i-1].k));
 }
 let persistT=null;
-function persist(){const doc={steps,si,score,combo,newK,ts:Date.now()};try{localStorage.setItem(SKEY(),JSON.stringify(doc))}catch{}clearTimeout(persistT);persistT=setTimeout(()=>apiPut({session:doc}),300)}
+function persist(){const doc={steps,si,score,combo,newK,ts:Date.now(),lesson:LESSON?LESSON.id:null};try{localStorage.setItem(SKEY(),JSON.stringify(doc))}catch{}clearTimeout(persistT);persistT=setTimeout(()=>apiPut({session:doc}),300)}
 function clearPersist(){try{localStorage.removeItem(SKEY())}catch{}clearTimeout(persistT);apiPut({session:null})}
 function startSession(){
   const ss=savedSession();
@@ -155,7 +168,7 @@ function startSession(){
   $('#lesson').classList.add('on');$('#stage').innerHTML='';$('#l-combo').textContent=combo>=2?`🔥${combo}`:'';renderStep();persist();
 }
 $('#start').addEventListener('click',()=>{sfx.tap();if(S.sound===null)askPerm(startSession);else{if(S.sound){soundOn=true;unlockAudio()}startSession()}});
-$('#l-x').addEventListener('click',()=>{persist();save();state='idle';$('#lesson').classList.remove('on');renderHome();toast('저장했어요. 이어서 할 수 있어요')});
+$('#l-x').addEventListener('click',()=>{persist();save();if(LESSON){tellParent('solingo:exit');return}state='idle';$('#lesson').classList.remove('on');renderHome();toast('저장했어요. 이어서 할 수 있어요')});
 function setFoot(mode,label,verdict=''){const f=$('#l-foot');f.className='foot'+(mode?' '+mode:'');const b=$('#l-btn');b.textContent=label;b.className='btn lg '+(mode==='no'?'danger':'secondary');$('#l-verdict').innerHTML=verdict}
 function lock(v){const b=$('#l-btn');b.disabled=v}
 function renderStep(){
@@ -180,7 +193,7 @@ function onResult(r){
 }
 $('#l-btn').addEventListener('click',e=>{
   const b=e.currentTarget; if(b.disabled)return; sfx.tap();wave(b);
-  if(state==='home'){state='idle';clearPersist();renderHome();startSession();return}
+  if(state==='home'){state='idle';clearPersist();if(LESSON){tellParent('solingo:lesson-done');return}renderHome();startSession();return}
   if(state==='answer'){onResult(checkFn?checkFn():null);return}
   advance();
 });
@@ -311,4 +324,6 @@ for(const ev of ['pointerup','pointercancel'])document.addEventListener(ev,unpre
 document.addEventListener('touchstart',()=>{},{passive:true});
 
 // ================= boot =================
-(async()=>{const id=new URLSearchParams(location.search).get('course')||'ja-kana';await loadCourse(id);await loadState();if(!S)return;if(S.sound===true)soundOn=true;pickVoice();renderHome()})();
+(async()=>{const id=new URLSearchParams(location.search).get('course')||'ja-kana';await loadCourse(id);await loadState();if(!S)return;if(S.sound===true)soundOn=true;pickVoice();
+  if(LESSON){document.documentElement.classList.add('lesson-mode');if(S.sound===null)askPerm(startSession);else{if(S.sound){soundOn=true;unlockAudio()}startSession()}return}
+  renderHome()})();
