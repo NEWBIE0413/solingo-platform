@@ -166,9 +166,10 @@ function startSession(){
   const ss=savedSession();
   if(ss){({steps,si,score,combo,newK}=ss);newK=newK||[]}else{steps=buildSession();si=0;score={ok:0,no:0};combo=0}
   $('#lesson').classList.add('on');$('#stage').innerHTML='';$('#l-combo').textContent=combo>=2?`🔥${combo}`:'';renderStep();persist();
+  tellParent('solingo:session-start');
 }
 $('#start').addEventListener('click',()=>{sfx.tap();if(S.sound===null)askPerm(startSession);else{if(S.sound){soundOn=true;unlockAudio()}startSession()}});
-$('#l-x').addEventListener('click',()=>{persist();save();if(LESSON){tellParent('solingo:exit');return}state='idle';$('#lesson').classList.remove('on');renderHome();toast('저장했어요. 이어서 할 수 있어요')});
+$('#l-x').addEventListener('click',()=>{persist();save();if(LESSON){tellParent('solingo:exit');return}state='idle';$('#lesson').classList.remove('on');renderHome();tellParent('solingo:session-end');toast('저장했어요. 이어서 할 수 있어요')});
 function setFoot(mode,label,verdict=''){const f=$('#l-foot');f.className='foot'+(mode?' '+mode:'');const b=$('#l-btn');b.textContent=label;b.className='btn lg '+(mode==='no'?'danger':'secondary');$('#l-verdict').innerHTML=verdict}
 function lock(v){const b=$('#l-btn');b.disabled=v}
 function renderStep(){

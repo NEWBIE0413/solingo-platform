@@ -8,8 +8,6 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { challengeAttempts, challengeProgress, challenges, userProgress } from "@/db/schema";
 import { auth } from "@/lib/session";
 import { recordActivity } from "@/lib/streak";
-import { syncAchievements } from "@/lib/achievements";
-import { revalidatePath } from "next/cache";
 
 /*
  One round trip per answer: log the attempt and persist progress/hearts together.
@@ -87,15 +85,3 @@ export const completeLesson = async (lessonId: number) => {
   if (stale.length) await db.update(challengeProgress).set({ completed: true }).where(inArray(challengeProgress.id, stale));
 };
 
-/*
- 히라가나 훈련: the engine already credited XP and today's kana activity through /api/kana/state,
- so finishing the lesson only has to complete the path node and let badges catch up.
-*/
-export const finishTrainerLesson = async (lessonId: number) => {
-  const { userId } = await auth();
-  if (!userId) return;
-  await completeLesson(lessonId);
-  await syncAchievements(userId);
-  revalidatePath("/learn");
-  revalidatePath("/profile");
-};

@@ -16,6 +16,7 @@ import {
 import { KANA_TRAINER_TITLE } from "@/constants";
 
 import { Header } from "./header";
+import { KanaHome } from "./kana-home";
 import { LearnExtras } from "./learn-extras";
 import { Unit } from "./unit";
 
@@ -47,7 +48,8 @@ const LearnPage = async () => {
   const isPro = !!userSubscription?.isActive;
 
   // 히라가나 훈련 has no units: it runs full-screen at /trainer, like a lesson does.
-  const isTrainer = userProgress.activeCourse.title === KANA_TRAINER_TITLE; // its lessons run in the kana engine; no 약점 복습 row
+  // 히라가나 훈련 has no units: the kana engine's own home takes the path's place (see kana-home.tsx)
+  if (userProgress.activeCourse.title === KANA_TRAINER_TITLE) return <KanaHome />;
 
   if (!courseProgress) redirect("/courses");
 
@@ -68,7 +70,7 @@ const LearnPage = async () => {
         <div className="hidden lg:block">
           <Header title={userProgress.activeCourse.title} />
         </div>
-        {!isTrainer && <LearnExtras />}
+        <LearnExtras />
         {units.map((unit) => (
           <div key={unit.id} className="mb-8 lg:mb-10">
             <Unit

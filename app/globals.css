@@ -208,3 +208,6 @@ body,
     opacity: 0;
   }
 }
+
+/* 히라가나 훈련 세션 중: 레슨처럼 상단바·하단 탭을 치우고 엔진이 화면을 다 쓴다 (app/(main)/learn/kana-home.tsx) */
+.trainer-session nav.fixed { display: none; }
