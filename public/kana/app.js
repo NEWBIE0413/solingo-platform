@@ -6,7 +6,7 @@ const rom=k=>COURSE.items[k]?.r??k;
 function tok(w){const o=[];for(let i=0;i<w.length;i++){if(i+1<w.length&&JOIN.includes(w[i+1])){o.push(w[i]+w[i+1]);i++}else o.push(w[i])}return o}
 const wordKana=w=>tok(w).filter(k=>!FREE.has(k));
 async function loadCourse(id){
-  const c=await (await fetch(`courses/${id}.json`)).json();
+  const c=await (await fetch(`courses/${id}.json?v=9`)).json();
   COURSE=c;ORDER=c.order;FREE=new Set(Object.keys(c.items).filter(k=>c.items[k].free));WORDS=c.words.map(w=>[w.t,w.m]);SETS=c.sets;JOIN=c.tokenize?.joiners||'';
   document.title=`Solingo · ${c.title}`;
   // Pre-rendered audio (courses/<id>-audio/index.json maps text → file). Like the clone's per-option mp3s; TTS is only the fallback.
@@ -135,7 +135,7 @@ function buildSession(){
     focus=[...newK,...rest].slice(0,5);
   } else {
     const recent=L.slice(-4); const settled=recent.every(k=>lvl(k)>=2);
-    const n=L.length===0?3:(!settled?0:L.length<10?3:2);
+    const n=L.length===0?3:(!settled?0:(S.lastPct>=90?4:3)); // 기본 3자, 직전 세션 90%↑면 4자 — 가나는 정확도가 받쳐주면 밀어붙이는 편이 낫다
     newK=ORDER.filter(k=>!S.k[k]).slice(0,n); newK.forEach(k=>Ls.add(k));
     const weak=L.filter(k=>!newK.includes(k)).sort((a,b)=>lvl(a)-lvl(b)||Math.random()-.5);
     focus=[...newK,...weak.slice(0,Math.max(0,5-newK.length))].slice(0,5);
@@ -144,7 +144,7 @@ function buildSession(){
   const dist=(k,m)=>pick(active.filter(x=>x!==k),m);
   const words=WORDS.filter(([w])=>wordKana(w).every(k=>Ls.has(k)));
   const fw=words.filter(([w])=>wordKana(w).some(k=>focus.includes(k)));
-  const sw=pick(fw.length>=3?fw:[...fw,...pick(words.filter(x=>!fw.includes(x)),3-fw.length)],3);
+  const sw=pick(fw.length>=2?fw:[...fw,...pick(words.filter(x=>!fw.includes(x)),2-fw.length)],2); // 단어 2개: 세션이 짧아져 같은 시간에 새 글자를 더 본다
   const st=[];
   for(const k of newK){st.push({t:'intro',k});st.push({t:'trace',k})}
   const wordEx=(w,i)=>[{t:'build',w:w[0],m:w[1],extra:pick(active.filter(k=>!tok(w[0]).includes(k)),3)},{t:'word-mean',w:w[0],m:w[1],opts:pick(words.filter(x=>x!==w),3).map(x=>x[1])},{t:SR&&soundOn?'speak':'build',w:w[0],m:w[1],extra:pick(active.filter(k=>!tok(w[0]).includes(k)),3)},{t:'trace-word',w:w[0],m:w[1]}][i];
@@ -302,7 +302,7 @@ document.addEventListener('click',e=>{const k=e.target.closest('.spk');if(k){sfx
 // ================= finish =================
 function finish(){
   const total=score.ok+score.no,pct=total?Math.round(score.ok/total*100):100,xp=10+Math.round(pct/10)+newK.length*2;
-  S.xp+=xp;pendingXP+=xp;S.days[today()]=(S.days[today()]||0)+1;save();clearPersist();apiPut({sessionComplete:true});
+  S.lastPct=pct;S.xp+=xp;pendingXP+=xp;S.days[today()]=(S.days[today()]||0)+1;save();clearPersist();apiPut({sessionComplete:true});
   let streak=0;for(let i=0;;i++){const d=new Date();d.setDate(d.getDate()-i);const k=d.toISOString().slice(0,10);if(S.days[k])streak++;else break}
   $('#l-meter').style.width='100%';sfx.done();haptic('done');confetti();
   const b=document.createElement('div');b.className='step in';$('#stage').innerHTML='';$('#stage').appendChild(b);
