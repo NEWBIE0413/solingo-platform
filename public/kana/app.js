@@ -70,6 +70,29 @@ function unlockAudio(){
   if(AUDIO){for(const t of Object.keys(AUDIO).slice(0,0)){}}
   try{const u=new SpeechSynthesisUtterance(' ');u.volume=0;speechSynthesis.speak(u)}catch{}
 }
+/*
+ iOS keeps one audio session per page and moves it without telling us:
+  - the mic (말하기 문제) switches it to the phone-call route — earpiece, call volume — and it
+    does not always come back on its own;
+  - leaving the tab in the background deactivates it, after which cached <audio> elements
+    resolve play() while making no sound, and the WebAudio context sits suspended.
+ restoreRoute() plays a silent playback-only clip, which is the only lever a page has to make
+ iOS pick the media category again; wake() additionally throws away the element cache and
+ resumes the context, so the first tap after coming back actually sounds.
+*/
+const SILENT='/silent.wav';
+let liveRec=null; // the running SpeechRecognition, so we can drop the mic when the tab goes away
+function dropMic(){try{liveRec&&liveRec.abort()}catch{}liveRec=null}
+function restoreRoute(){try{const s=new Audio(SILENT);s.volume=.01;s.play().catch(()=>{})}catch{}try{AC&&AC.resume()}catch{}}
+function wake(){
+  for(const k in clipCache){try{clipCache[k].pause()}catch{}delete clipCache[k]}
+  curClip=null;
+  for(const s of Object.values(SND)){try{s.load()}catch{}}
+  try{AC&&AC.resume()}catch{}
+  restoreRoute();
+}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')wake();else{dropMic();try{speechSynthesis.cancel()}catch{}}});
+addEventListener('pageshow',e=>{if(e.persisted)wake()});
 const clipCache={};
 function clip(t){if(!AUDIO||!AUDIO[t])return null;return clipCache[t]||(clipCache[t]=new Audio(AUDIO_DIR+AUDIO[t]))}
 let curClip=null;
@@ -276,19 +299,19 @@ function speakEx(s,b){
   <button class="mic" id="mic">🎙 눌러서 말하기</button><div class="heard" id="heard"></div>
   <p class="tiny" style="text-align:center;margin-top:8px">인식이 안 되면 건너뛰어도 돼요.</p>`;
   setTimeout(()=>speak(s.w),300);
-  let rec=null,heard='',best=0,tries=0;
+  let rec=null,heard='',best=0,tries=0; // (liveRec mirrors this so the page-level handlers can reach it)
   const mic=$('#mic',b),out=$('#heard',b);
   const skip=()=>{lock(false);$('#l-btn').textContent='건너뛰기';checkFn=()=>null};
   setTimeout(skip,4000);
   mic.addEventListener('click',()=>{
     if(rec){rec.stop();return}
-    try{rec=new SR();rec.lang=COURSE.lang;rec.maxAlternatives=5;rec.interimResults=true;rec.continuous=false;
+    try{rec=liveRec=new SR();rec.lang=COURSE.lang;rec.maxAlternatives=5;rec.interimResults=true;rec.continuous=false;
       speechSynthesis.cancel();
       rec.onstart=()=>{mic.classList.add('listening');mic.textContent='듣는 중… 다시 누르면 멈춰요';out.textContent=''};
       rec.onresult=e=>{const alts=[...e.results].flatMap(r=>[...r].map(a=>a.transcript));heard=alts[0]||'';best=Math.max(...alts.map(a=>similar(a,s.w)),0);out.textContent=heard;
-        if(e.results[e.results.length-1].isFinal){finalize()}};
-      rec.onerror=e=>{mic.classList.remove('listening');mic.textContent='🎙 다시 말하기';out.textContent=e.error==='not-allowed'?'마이크 권한이 필요해요':e.error==='no-speech'?'소리가 안 들렸어요':'인식 오류: '+e.error;rec=null;skip()};
-      rec.onend=()=>{mic.classList.remove('listening');if(mic.textContent.startsWith('듣는'))mic.textContent='🎙 다시 말하기';rec=null};
+        if(e.results[e.results.length-1].isFinal){try{rec&&rec.abort()}catch{}finalize()}};
+      rec.onerror=e=>{mic.classList.remove('listening');mic.textContent='🎙 다시 말하기';out.textContent=e.error==='not-allowed'?'마이크 권한이 필요해요':e.error==='no-speech'?'소리가 안 들렸어요':'인식 오류: '+e.error;rec=liveRec=null;restoreRoute();skip()};
+      rec.onend=()=>{mic.classList.remove('listening');if(mic.textContent.startsWith('듣는'))mic.textContent='🎙 다시 말하기';rec=liveRec=null;restoreRoute()};
       rec.start();sfx.pop();haptic('tap')}catch(err){out.textContent='이 브라우저는 음성 인식을 지원하지 않아요';skip()}
   });
   function finalize(){tries++;const hasKanji=/[一-龯]/.test(heard);const ok=best>=.6||(hasKanji&&heard.length<=s.w.length+1);

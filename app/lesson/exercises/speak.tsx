@@ -6,7 +6,7 @@ import { Mic, Volume2 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import { play } from "../audio";
+import { play, restorePlayback } from "../audio";
 
 const norm = (s: string) => (s || "").replace(/[ァ-ヶ]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0x60)).replace(/[\s。、．，.!?！？ー]/g, "").toLowerCase();
 const similar = (a: string, b: string) => { a = norm(a); b = norm(b); if (!a || !b) return 0; if (a === b || a.includes(b) || b.includes(a)) return 1; const m = a.length, n = b.length; const d = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]); for (let j = 1; j <= n; j++) d[0][j] = j; for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return 1 - d[m][n] / Math.max(m, n); };
@@ -20,15 +20,21 @@ export const Speak = ({ target, reading, meaning, audioSrc, lang, onResult }: { 
   const SR = typeof window !== "undefined" ? (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition : null;
   useEffect(() => { play(audioSrc); const s = setTimeout(() => onResult({ skip: true }), 4000); return () => clearTimeout(s); // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [audioSrc]);
+  // leaving the item with the mic still open keeps iOS on the phone-call route
+  useEffect(() => {
+    const release = () => { if (document.visibilityState === "hidden") { try { rec.current?.abort(); } catch {} rec.current = null; setListening(false); } };
+    document.addEventListener("visibilitychange", release);
+    return () => { document.removeEventListener("visibilitychange", release); try { rec.current?.abort(); } catch {} restorePlayback(); };
+  }, []);
 
   const start = () => {
     if (!SR) { setHeard("이 브라우저는 음성 인식을 지원하지 않아요"); return; }
     if (rec.current) { rec.current.stop(); return; }
     const r = new SR(); rec.current = r; r.lang = lang; r.maxAlternatives = 5; r.interimResults = true; r.continuous = false;
     r.onstart = () => { setListening(true); setHeard(""); setVerdict(""); };
-    r.onresult = (e: any) => { const alts: string[] = [...e.results].flatMap((res: any) => [...res].map((a: any) => a.transcript)); const best = Math.max(...alts.map((a) => similar(a, target)), 0); setHeard(alts[0] || ""); if (e.results[e.results.length - 1].isFinal) { const hasKanji = /[一-龯]/.test(alts[0] || ""); const ok = best >= 0.6 || (hasKanji && (alts[0] || "").length <= target.length + 1); setVerdict(ok ? "ok" : "no"); onResult({ ok, heard: alts[0] || "" }); } };
-    r.onerror = (e: any) => { setListening(false); setHeard(e.error === "not-allowed" ? "마이크 권한이 필요해요" : e.error === "no-speech" ? "소리가 안 들렸어요" : "인식 오류"); rec.current = null; };
-    r.onend = () => { setListening(false); rec.current = null; };
+    r.onresult = (e: any) => { const alts: string[] = [...e.results].flatMap((res: any) => [...res].map((a: any) => a.transcript)); const best = Math.max(...alts.map((a) => similar(a, target)), 0); setHeard(alts[0] || ""); if (e.results[e.results.length - 1].isFinal) { const hasKanji = /[一-龯]/.test(alts[0] || ""); const ok = best >= 0.6 || (hasKanji && (alts[0] || "").length <= target.length + 1); setVerdict(ok ? "ok" : "no"); try { r.abort(); } catch {} onResult({ ok, heard: alts[0] || "" }); } };
+    r.onerror = (e: any) => { setListening(false); restorePlayback(); setHeard(e.error === "not-allowed" ? "마이크 권한이 필요해요" : e.error === "no-speech" ? "소리가 안 들렸어요" : "인식 오류"); rec.current = null; };
+    r.onend = () => { setListening(false); rec.current = null; restorePlayback(); };
     r.start();
   };
 

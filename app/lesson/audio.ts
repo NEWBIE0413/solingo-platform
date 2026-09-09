@@ -10,7 +10,13 @@
  - iOS refuses programmatic play until a user gesture has played media on this page. A
    lesson is a fresh document, so its first listening item stays silent until tapped. The
    first pointerdown anywhere unlocks audio and replays whatever was refused.
+ - iOS owns one audio session per page and moves it around behind our back. The mic (SPEAK)
+   switches it to the phone-call route — earpiece, call volume — and leaving the tab in the
+   background deactivates it entirely, after which cached elements resolve play() while
+   staying silent. Both are handled below: restorePlayback() pushes the session back to
+   media, and returning to the tab throws the element cache away so the next play is fresh.
 */
+const SILENT = "/silent.wav"; // half a second of silence: long enough for iOS to actually start a playback session
 const elements = new Map<string, HTMLAudioElement>(); // src → element
 const blobs = new Map<string, string>();               // src → object URL
 const warming = new Set<string>();
@@ -26,6 +32,29 @@ const element = (src: string) => {
     elements.set(src, a);
   }
   return a;
+};
+
+/* Put the audio session back on the media route (speaker, media volume). Playing a
+   playback-only element is the only lever a page has; iOS picks the category from what is
+   currently sounding, so a silent clip right after the mic closes is enough. */
+export const restorePlayback = () => {
+  try {
+    const a = new Audio(SILENT);
+    a.volume = 0.01; // audible to the session, inaudible to the learner
+    void a.play().catch(() => {});
+  } catch {}
+};
+
+/* Drop cached elements (blobs stay valid) and re-arm the unlock. Called when the tab comes
+   back: iOS may have torn the session down, and a stale element then plays nothing. */
+const reset = () => {
+  for (const a of elements.values()) { try { a.pause(); } catch {} }
+  elements.clear();
+  current = null;
+  unlocked = false;
+  refused = null;
+  // sounds rendered by the runner itself (correct/incorrect/finish) need their decoders back too
+  try { document.querySelectorAll("audio").forEach((a) => a.load()); } catch {}
 };
 
 export const play = (src?: string | null) => {
@@ -72,10 +101,16 @@ export const installUnlock = () => {
       void a.play().then(() => { unlocked = true; }, () => {});
     } catch {}
   };
+  const onVisible = () => { if (document.visibilityState === "visible") reset(); };
+  const onShow = (e: PageTransitionEvent) => { if (e.persisted) reset(); };
   document.addEventListener("pointerdown", onGesture, { capture: true, passive: true });
   document.addEventListener("keydown", onGesture, { capture: true, passive: true });
+  document.addEventListener("visibilitychange", onVisible);
+  window.addEventListener("pageshow", onShow);
   return () => {
     document.removeEventListener("pointerdown", onGesture, { capture: true } as EventListenerOptions);
     document.removeEventListener("keydown", onGesture, { capture: true } as EventListenerOptions);
+    document.removeEventListener("visibilitychange", onVisible);
+    window.removeEventListener("pageshow", onShow);
   };
 };
