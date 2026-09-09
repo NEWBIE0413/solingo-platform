@@ -118,8 +118,12 @@ function renderVoices(){const vs=voicesFor();const w=$('#voice-wrap');const rec=
   $('#voices').onclick=e=>{const b=e.target.closest('.voice');if(!b)return;S.voice=b.dataset.v;save();pickVoice();$$('.voice').forEach(x=>x.classList.toggle('on',x===b));unlockAudio();speak(COURSE.words[Math.floor(Math.random()*Math.min(8,COURSE.words.length))].t,true)}}
 function askPerm(cb){$('#perm').classList.add('on');$('#perm-note').textContent=('speechSynthesis' in window)?'':'이 브라우저는 음성 합성을 지원하지 않아요. 효과음만 나옵니다.';
   renderVoices();
-  $('#perm-ok').onclick=()=>{unlockAudio();soundOn=true;S.sound=true;save();$('#perm').classList.remove('on');haptic('ok');setTimeout(()=>{sfx.ok();if(!pickVoice())toast('이 언어 음성이 없어 효과음만 나와요')},150);cb&&cb()};
-  $('#perm-no').onclick=()=>{soundOn=false;S.sound=false;save();$('#perm').classList.remove('on');cb&&cb()};}
+  $('#perm-ok').onclick=()=>{unlockAudio();soundOn=true;S.sound=true;save();renderSoundBtn();$('#perm').classList.remove('on');haptic('ok');setTimeout(()=>{sfx.ok();if(!pickVoice())toast('이 언어 음성이 없어 효과음만 나와요')},150);cb&&cb()};
+  $('#perm-no').onclick=()=>{soundOn=false;S.sound=false;save();renderSoundBtn();$('#perm').classList.remove('on');cb&&cb()};}
+/* 소리를 켠다: 사용자가 스피커를 누른 순간 = 듣고 싶다는 뜻. 설정이 꺼져 있었다면 켜 주고,
+   왜 바뀌었는지 알려 준다 — 조용히 무시하면 앱이 고장 난 것처럼 보인다. */
+function enableSound(){soundOn=true;S.sound=true;save();unlockAudio();renderSoundBtn();toast('소리를 켰어요')}
+function renderSoundBtn(){const b=$('#snd-reset');if(b)b.textContent=(S&&S.sound===false?'🔇 소리 꺼짐':'🔊 소리 켜짐')+' · 설정'}
 $('#snd-reset').addEventListener('click',()=>{soundOn=true;askPerm()});
 
 // ================= speech recognition =================
@@ -144,6 +148,7 @@ function renderHome(){
   const rows=[...avail.map(x=>[x,false]),...WORDS.filter(x=>!avail.includes(x)).slice(0,6).map(x=>[x,true])];
   $('#wordlist').innerHTML=rows.map(([[w,m],lock])=>{const c=S.w[w];const p=c?Math.min(100,c.ok*25):0;return `<div class="word ${lock?'locked':''}"><span class="w kana">${w}</span><span class="m">${m}</span><span class="bar"><i style="width:${p}%"></i></span></div>`}).join('');
   $('#w-pct').textContent=`${avail.length} / ${WORDS.length}`;
+  renderSoundBtn();
 }
 
 // ================= session engine =================
@@ -320,7 +325,7 @@ function speakEx(s,b){
     checkFn=()=>{gradeWord(s.w,ok);s.sol=`${s.w} · 들린 말: ${heard||'없음'}`;return ok?true:(tries>=2?false:null)};
     if(!ok&&tries<2){out.textContent=heard+' · 한 번 더?'}}
 }
-document.addEventListener('click',e=>{const k=e.target.closest('.spk');if(k){sfx.pop();speak(k.dataset.say)}});
+document.addEventListener('click',e=>{const k=e.target.closest('.spk');if(k){if(!soundOn)enableSound();sfx.pop();speak(k.dataset.say,true)}});
 
 // ================= finish =================
 function finish(){
