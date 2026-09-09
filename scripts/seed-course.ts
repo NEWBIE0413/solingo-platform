@@ -12,7 +12,7 @@
 */
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/node-postgres";
-import { and, eq, inArray, notInArray } from "drizzle-orm";
+import { and, eq, inArray, notInArray, sql } from "drizzle-orm";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { Pool } from "pg";
@@ -83,6 +83,19 @@ async function insertUnit(courseId: number, u: Unit, order: number): Promise<num
   return n;
 }
 
+/* Unit-scoped seeds only touch the units named, so a unit that is deliberately never reseeded
+   (the placement test, whose attempts must survive) can keep a stale row forever — that is how
+   the Korean listening section stayed silent for a week. Check the whole course, every time. */
+async function warnSilent(courseId: number, title: string) {
+  const r = await db.execute(sql`
+    SELECT count(*)::int AS n FROM challenges ch
+    JOIN lessons l ON l.id = ch.lesson_id JOIN units u ON u.id = l.unit_id
+    WHERE u.course_id = ${courseId} AND ch.type IN ('LISTEN','BUILD','SPEAK','TRACE')
+      AND (ch.audio_src IS NULL OR ch.audio_src = '')`);
+  const n = (r.rows[0] as { n?: number } | undefined)?.n ?? 0;
+  if (n) console.warn(`⚠️  "${title}": ${n} audio-bearing challenges have no audioSrc — run gen_course_audio.py and reseed those units`);
+}
+
 async function main() {
   const problems = validate(course);
   if (problems.length) { console.error("content problems:\n" + problems.join("\n")); process.exit(1); }
@@ -105,10 +118,12 @@ async function main() {
       n += await insertUnit(c.id, u, unitOrders.get(u)!);
     }
     console.log(`seeded (units) "${course.title}": ${course.units.length} units replaced, ${n} challenges`);
+    await warnSilent(c.id, course.title);
   } else {
     if (c) await db.delete(schema.units).where(eq(schema.units.courseId, c.id));
     for (const [ui, u] of course.units.entries()) n += await insertUnit(c.id, u, ui + 1);
     console.log(`seeded "${course.title}": ${course.units.length} units, ${n} challenges`);
+    await warnSilent(c.id, course.title);
   }
   process.exit(0);
 }
