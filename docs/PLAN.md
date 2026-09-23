@@ -13,7 +13,7 @@ content pipeline underneath.
 - [x] Fork, rename, node-postgres driver (any Postgres, not only Neon), Docker Postgres for dev
 - [x] `scripts/seed-kana.ts`: JSON course → units/lessons/challenges. 5 units, 63 lessons, 674 challenges
 - [x] Clerk replaced by Better Auth (self-hosted, email+password); sign-up → courses → learn → lesson verified
-- [ ] Deploy on NucBox behind cloudflared (`app.jp.myworld.monster` or similar)
+- [x] Deploy on NucBox behind cloudflared — live since 2026-09-03 at https://solingo.myworld.monster (Docker `solingo-app`, see `docs/DEPLOY.md`)
 
 ## Milestone 1.5 — the Solingo engine as a tab  (done 2026-09-03)
 - `/kana` sidebar tab (히라가나) hosts `public/kana/` (the static engine) in an iframe.
