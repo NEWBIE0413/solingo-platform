@@ -1,6 +1,7 @@
 import { relations } from "drizzle-orm";
 import {
   boolean,
+  index,
   integer,
   jsonb,
   pgEnum,
@@ -17,6 +18,9 @@ export const courses = pgTable("courses", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(),
   imageSrc: text("image_src").notNull(),
+  // the content id (`<id>.json` in a content root, lib/content.ts) — set by seed-course; lets the app
+  // find files that live next to the course, like its writing tasks. Null for rows seeded before it existed.
+  slug: text("slug"),
 });
 
 export const coursesRelations = relations(courses, ({ many }) => ({
@@ -231,3 +235,21 @@ export const challengeAttempts = pgTable("challenge_attempts", {
 });
 
 export * from "./auth-schema";
+
+// 쓰기 과제 제출. 과제 자체는 콘텐츠 파일(<root>/<course>/writing/<id>.json, lib/writing.ts)이고
+// DB에는 학습자의 답안과 채점만 남는다. 채점은 사람이든 AI든 scripts/writing.ts로 한다 —
+// 그 경로에는 이 표의 SELECT와 score/feedback/graded_at/grader UPDATE만 있으면 된다.
+export const writingSubmissions = pgTable("writing_submissions", {
+  id: serial("id").primaryKey(),
+  userId: text("user_id").notNull(),
+  course: text("course").notNull(),        // courses.slug
+  promptId: text("prompt_id").notNull(),
+  text: text("text").notNull(),
+  maxScore: integer("max_score").notNull(), // copied at submit time so a later edit of the task can't rescale old grades
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  score: integer("score"),
+  feedback: text("feedback"),
+  gradedAt: timestamp("graded_at"),
+  grader: text("grader"),
+  seenAt: timestamp("seen_at"),             // learner opened the task after it was graded
+}, (t) => [index("writing_submissions_user_course_idx").on(t.userId, t.course)]);

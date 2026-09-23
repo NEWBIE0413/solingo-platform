@@ -21,13 +21,14 @@ import { Pool } from "pg";
 
 import * as schema from "@/db/schema";
 import { audioFile, contentRoots, courseRoot } from "@/lib/content";
+import { readTaskFiles } from "@/lib/writing";
 
 type Option = { text: string; correct: boolean; audioSrc?: string | null; imageSrc?: string | null; meta?: Record<string, unknown> | null };
 type ChallengeType = "SELECT" | "ASSIST" | "LISTEN" | "MATCH" | "BUILD" | "TRACE" | "SPEAK";
 type Challenge = { type: ChallengeType; question: string; level?: number; tag?: string; audioSrc?: string | null; meta?: Record<string, unknown> | null; options: Option[] };
 type Lesson = { title: string; challenges: Challenge[] };
 type Unit = { title: string; description: string; lessons: Lesson[] };
-type Course = { id: string; title: string; imageSrc?: string; units: Unit[] };
+type Course = { id?: string; title: string; imageSrc?: string; units: Unit[] };
 
 const args = process.argv.slice(2);
 const id = args[0];
@@ -119,6 +120,24 @@ function missingAudio(c: Course) {
   return missing;
 }
 
+/* <root>/<course>/writing/*.json — docs/COURSES.md §8. */
+function checkWriting(courseId: string) {
+  const problems: string[] = [];
+  let tasks: ReturnType<typeof readTaskFiles> = [];
+  try { tasks = readTaskFiles(courseId); } catch (e) { return { n: 0, problems: [`writing: unreadable task file (${(e as Error).message})`] }; }
+  const seen = new Set<string>();
+  for (const t of tasks) {
+    const where = `writing ${t.id ?? "(no id)"}`;
+    if (!t.id || !/^[A-Za-z0-9_-]+$/.test(t.id)) problems.push(`${where}: id must be letters, digits, - or _`);
+    if (seen.has(t.id)) problems.push(`${where}: duplicate id`);
+    seen.add(t.id);
+    if (!t.title?.trim() || !t.prompt?.trim()) problems.push(`${where}: needs title and prompt`);
+    if (!Number.isInteger(t.maxScore) || t.maxScore <= 0) problems.push(`${where}: maxScore must be a positive integer`);
+    if (t.minChars && t.maxChars && t.minChars > t.maxChars) problems.push(`${where}: minChars > maxChars`);
+  }
+  return { n: tasks.length, problems };
+}
+
 async function main() {
   const problems = validate(course);
   if (problems.length) { console.error("content problems:\n" + problems.join("\n")); process.exit(1); }
@@ -126,15 +145,18 @@ async function main() {
     const missing = missingAudio(course);
     const n = course.units.reduce((a, u) => a + u.lessons.reduce((b, l) => b + l.challenges.length, 0), 0);
     if (missing.length) { console.error(`"${course.title}" (${root}): ${missing.length} audio problems\n` + missing.slice(0, 20).join("\n")); process.exit(1); }
-    console.log(`ok "${course.title}" (${root}): ${course.units.length} units, ${n} challenges, audio complete`);
+    const writing = checkWriting(id);
+    if (writing.problems.length) { console.error(`"${course.title}": writing task problems\n` + writing.problems.join("\n")); process.exit(1); }
+    console.log(`ok "${course.title}" (${root}): ${course.units.length} units, ${n} challenges, audio complete${writing.n ? `, ${writing.n} writing tasks` : ""}`);
     process.exit(0);
   }
   // Keep the course row (user_progress.active_course_id cascades on course delete — wiping points and hearts);
   // replace only its units, which cascade to lessons/challenges/options/progress/attempts.
   let c = await db.query.courses.findFirst({ where: eq(schema.courses.title, course.title) });
   if (!c && onlyUnits.length) { console.error(`course "${course.title}" not found — run a full seed first`); process.exit(1); }
-  if (c) { if (course.imageSrc) await db.update(schema.courses).set({ imageSrc: course.imageSrc }).where(eq(schema.courses.id, c.id)); }
-  else [c] = await db.insert(schema.courses).values({ title: course.title, imageSrc: course.imageSrc ?? "/kr.svg" }).returning();
+  // slug = the content id, so the app can find files that live next to the course (writing tasks)
+  if (c) await db.update(schema.courses).set({ slug: course.id ?? id, ...(course.imageSrc ? { imageSrc: course.imageSrc } : {}) }).where(eq(schema.courses.id, c.id));
+  else [c] = await db.insert(schema.courses).values({ title: course.title, imageSrc: course.imageSrc ?? "/kr.svg", slug: course.id ?? id }).returning();
 
   let n = 0;
   if (onlyUnits.length && unitOrders) {

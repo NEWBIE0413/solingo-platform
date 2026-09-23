@@ -106,3 +106,43 @@ pnpm run db:seed:course es-a1 --units 3주차    # 고친 유닛만 교체. 다�
 ```
 
 AI가 쓴 파일은 반드시 `--check`로 검증한다. 형식 오류는 검사기가 잡지만 내용 오류(정답이 틀림, 비문)는 못 잡는다. 사람이나 다른 AI가 한 번 검토한 뒤 시드한다.
+
+## 8. 쓰기 과제 (채점은 밖에서)
+
+객관식으로 잴 수 없는 쓰기는 과제로 낸다. 학습자가 답안을 제출하면 DB에 쌓이고, 채점자(사람이든 AI든)가 점수와 첨삭을 돌려주면 학습자 화면에 뜬다. 코스에 과제가 하나라도 있으면 학습 화면에 "쓰기 과제" 줄이 생긴다.
+
+```jsonc
+// <root>/<course>/writing/w53-01.json — 파일 하나가 과제 하나
+{
+  "id": "w53-01",            // 영문·숫자·-·_ (주소에 쓰인다)
+  "number": 53,              // 선택: 시험 문항 번호 배지
+  "order": 1,                // 선택: 목록 순서 (없으면 id 순)
+  "title": "53번 · 1인 가구 비율의 변화",
+  "prompt": "다음을 참고하여 …\n\n| 연도 | 2005년 | … |",   // 마크다운, 표 가능
+  "maxScore": 30,
+  "minChars": 200, "maxChars": 300,   // 선택: 띄어쓰기 포함, 줄바꿈 제외로 센다
+  "blanks": ["㉠", "㉡"],              // 선택: 빈칸마다 입력칸. 없어도 지시문에 ㉠ ㉡가 둘 이상이면 자동
+  "rubric": "채점 기준·모범 답안 …"      // 채점자용. 학습자에게는 보내지 않는다
+}
+```
+
+채점 흐름:
+
+```bash
+export DATABASE_URL=… CONTENT_DIR=../my-courses
+pnpm exec tsx scripts/writing.ts pending > batch.json   # 미채점 답안 + 과제 정보 + rubric
+# batch.json의 각 항목에 "score"(0..maxScore)와 "feedback"(마크다운)을 채운다 — AI에게 맡겨도 된다
+WRITING_GRADER=tutor pnpm exec tsx scripts/writing.ts grade batch.json
+```
+
+채점자에게는 이 표 하나만 읽고 점수 칸만 쓸 수 있는 DB 계정을 따로 주면 된다:
+
+```sql
+create role solingo_grader login password '…';
+grant connect on database solingo to solingo_grader;
+grant usage on schema public to solingo_grader;
+grant select on writing_submissions to solingo_grader;
+grant update (score, feedback, graded_at, grader) on writing_submissions to solingo_grader;
+```
+
+`seed-course --check`는 과제 파일도 검사한다(필수 필드, id 중복, 글자 수 범위).
