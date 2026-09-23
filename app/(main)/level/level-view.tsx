@@ -111,7 +111,7 @@ export const LevelView = ({
 
       {!report ? (
         <div className="rounded-2xl border-2 border-border bg-white p-6 text-center text-sm font-medium text-muted-foreground shadow-sm">
-          한국어 TOPIK 코스의 레벨 테스트가 아직 없어요.
+          레벨 테스트가 있는 코스가 아직 없어요.
         </div>
       ) : (
         <>

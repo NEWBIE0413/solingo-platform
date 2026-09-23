@@ -1,14 +1,16 @@
 /*
- Generic course seed: content/<id>.json (+ content/<id>/units/*.json merged in file-name order)
+ Generic course seed: <root>/<id>.json (+ <root>/<id>/units/*.json merged in file-name order), where <root> is
+ CONTENT_DIR if it has the course, else the bundled content/ (lib/content.ts). Authoring guide: docs/COURSES.md.
    { id, title, imageSrc?, units: [{ title, description, lessons: [{ title, challenges: [
        { type: "SELECT"|"ASSIST", question, level?, tag?, options: [{ text, correct, audioSrc?, imageSrc? }] } ] }] }] }
  Idempotent per course title (replaces the course's units). Challenge/attempt history for the old rows is dropped with them,
- so re-seeding the 레벨 테스트 after the learner took it will erase her attempts — seed before, not after.
+ so re-seeding a placement unit (레벨 테스트) after learners took it erases their attempts — seed before, not after.
 
- pnpm run db:seed:course ko-topik
- seed-course ja-jlpt --units week-05,week-13   # replace only the named units (file basename or
+ pnpm run db:seed:course my-course
+ seed-course my-course --units week-05,week-13 # replace only the named units (file basename or
                                                # unit title prefix like "5주차"); other units and
                                                # their progress/attempts are left untouched.
+ seed-course my-course --check                 # validate the JSON and every audioSrc; no database.
 */
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/node-postgres";
@@ -18,6 +20,7 @@ import { join } from "node:path";
 import { Pool } from "pg";
 
 import * as schema from "@/db/schema";
+import { audioFile, contentRoots, courseRoot } from "@/lib/content";
 
 type Option = { text: string; correct: boolean; audioSrc?: string | null; imageSrc?: string | null; meta?: Record<string, unknown> | null };
 type ChallengeType = "SELECT" | "ASSIST" | "LISTEN" | "MATCH" | "BUILD" | "TRACE" | "SPEAK";
@@ -31,8 +34,10 @@ const id = args[0];
 if (!id) { console.error("usage: seed-course <course-id> [--units name,name | title-prefix]"); process.exit(1); }
 const unitsFlagIdx = args.indexOf("--units");
 const onlyUnits: string[] = unitsFlagIdx !== -1 ? (args[unitsFlagIdx + 1] ?? "").split(",").map((s) => s.trim()).filter(Boolean) : [];
-const course: Course = JSON.parse(readFileSync(`content/${id}.json`, "utf8"));
-const unitsDir = join("content", id, "units");
+const root = courseRoot(id);
+if (!root) { console.error(`course "${id}" not found in: ${contentRoots().join(", ")}`); process.exit(1); }
+const course: Course = JSON.parse(readFileSync(join(root, `${id}.json`), "utf8"));
+const unitsDir = join(root, id, "units");
 if (existsSync(unitsDir)) {
   for (const f of readdirSync(unitsDir).filter((f) => f.endsWith(".json")).sort()) {
     const extra = JSON.parse(readFileSync(join(unitsDir, f), "utf8"));
@@ -96,9 +101,34 @@ async function warnSilent(courseId: number, title: string) {
   if (n) console.warn(`⚠️  "${title}": ${n} audio-bearing challenges have no audioSrc — run gen_course_audio.py and reseed those units`);
 }
 
+/* Every audioSrc must name a clip that the /audio route can find (app/audio/[...path]/route.ts):
+   "/audio/<course>/<clip>" in some content root. A dangling one is a silent listening item. */
+function missingAudio(c: Course) {
+  const missing: string[] = [];
+  const check = (src: string | null | undefined, where: string) => {
+    if (!src) return;
+    const m = /^\/audio\/([^/]+)\/([^/]+)$/.exec(src);
+    if (!m || !audioFile(m[1], m[2])) missing.push(`${where}: ${src}`);
+  };
+  c.units.forEach((u, ui) => u.lessons.forEach((l, li) => l.challenges.forEach((ch, ci) => {
+    const where = `unit ${ui + 1} › lesson ${li + 1} › #${ci + 1}`;
+    if (["LISTEN", "BUILD", "SPEAK", "TRACE"].includes(ch.type) && !ch.audioSrc) missing.push(`${where}: ${ch.type} without audioSrc`);
+    check(ch.audioSrc, where);
+    ch.options.forEach((o) => check(o.audioSrc, `${where} option "${o.text}"`));
+  })));
+  return missing;
+}
+
 async function main() {
   const problems = validate(course);
   if (problems.length) { console.error("content problems:\n" + problems.join("\n")); process.exit(1); }
+  if (args.includes("--check")) {
+    const missing = missingAudio(course);
+    const n = course.units.reduce((a, u) => a + u.lessons.reduce((b, l) => b + l.challenges.length, 0), 0);
+    if (missing.length) { console.error(`"${course.title}" (${root}): ${missing.length} audio problems\n` + missing.slice(0, 20).join("\n")); process.exit(1); }
+    console.log(`ok "${course.title}" (${root}): ${course.units.length} units, ${n} challenges, audio complete`);
+    process.exit(0);
+  }
   // Keep the course row (user_progress.active_course_id cascades on course delete — wiping points and hearts);
   // replace only its units, which cascade to lessons/challenges/options/progress/attempts.
   let c = await db.query.courses.findFirst({ where: eq(schema.courses.title, course.title) });

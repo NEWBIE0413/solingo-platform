@@ -41,3 +41,4 @@ next-env.d.ts
 /ngrok
 /stripe
 .env
+.claude/ledger/

@@ -2,14 +2,17 @@
 """
 Render audio clips for a content course with edge-tts and write the audioSrc fields back.
 
-  python3 scripts/gen_course_audio.py ko-topik ko-KR-SunHiNeural
-  python3 scripts/gen_course_audio.py ja-jlpt ja-JP-NanamiNeural
+  python3 scripts/gen_course_audio.py ja-kana ja-JP-NanamiNeural
+  CONTENT_DIR=../my-courses python3 scripts/gen_course_audio.py my-course ko-KR-SunHiNeural
 
-Scans content/<id>.json and content/<id>/units/*.json:
+Finds the course the way the app does (lib/content.ts): CONTENT_DIR first, then the bundled content/.
+Scans <root>/<id>.json and <root>/<id>/units/*.json:
   LISTEN            → meta.say (or question)      → challenge.audioSrc
   BUILD/SPEAK/TRACE → meta.target                 → challenge.audioSrc
   any option with meta.say                        → option.audioSrc
-Clips land in public/audio/<id>/<md5>.mp3 (+ index.json). Idempotent: existing clips are reused.
+Clips land in <root>/audio/<id>/<md5>.mp3 (+ index.json) and are served at /audio/<id>/…
+Idempotent: existing clips are reused. Rewrites every unit file of the course (to fill audioSrc).
+Voices: `edge-tts --list-voices`.
 Needs: pip install edge-tts   (a venv is fine)
 """
 import asyncio, glob, hashlib, json, os, sys
@@ -19,8 +22,11 @@ except ImportError:
     sys.exit("pip install edge-tts first")
 
 cid = sys.argv[1]; voice = sys.argv[2] if len(sys.argv) > 2 else "ko-KR-SunHiNeural"
-out = f"public/audio/{cid}"; os.makedirs(out, exist_ok=True)
-files = [f"content/{cid}.json"] + sorted(glob.glob(f"content/{cid}/units/*.json"))
+roots = ([os.environ["CONTENT_DIR"]] if os.environ.get("CONTENT_DIR") else []) + ["content"]
+root = next((r for r in roots if os.path.exists(os.path.join(r, f"{cid}.json"))), None)
+if not root: sys.exit(f"course {cid!r} not found in: {', '.join(roots)}")
+out = os.path.join(root, "audio", cid); os.makedirs(out, exist_ok=True)
+files = [os.path.join(root, f"{cid}.json")] + sorted(glob.glob(os.path.join(root, cid, "units", "*.json")))
 files = [f for f in files if os.path.exists(f)]
 fn = lambda t: hashlib.md5(t.encode()).hexdigest()[:12] + ".mp3"
 jobs = {}  # text → path

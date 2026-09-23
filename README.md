@@ -1,360 +1,60 @@
-# Solingo platform
+# Solingo
 
-> Fork of [sanidhyy/duolingo-clone](https://github.com/sanidhyy/duolingo-clone) (MIT) — Duolingo's course
-> path, hearts, XP, quests and shop — being merged with [solingo](https://github.com/NEWBIE0413/solingo)'s
-> script-level engine (kana/hangul teaching, handwriting, speech, JSON courses, neural audio).
-> Roadmap: [docs/PLAN.md](docs/PLAN.md).
+셀프호스팅하는 듀오링고식 언어 학습 플랫폼입니다. **커리큘럼은 들어 있지 않습니다.** 배우려는 언어와 목표에 맞는 코스를 AI로 직접 만들어 얹어 쓰는 것을 전제로 만들었습니다.
 
-## Getting started (this fork)
+*A self-hosted, Duolingo-style learning platform. It ships without a curriculum: you write your own courses (typically with an AI) against a JSON spec and load them in. The UI is Korean.*
+
+## 들어 있는 것
+
+- **학습 경로**: 코스 → 유닛 → 레슨. 유닛마다 진행 막대, 레슨을 끝내면 다음이 열린다.
+- **문제 유형 7가지**: 고르기(SELECT), 말풍선 고르기(ASSIST), 듣고 고르기(LISTEN), 짝 맞추기(MATCH), 타일로 문장 만들기(BUILD), 따라 쓰기(TRACE), 따라 말하기(SPEAK, 브라우저 음성 인식).
+- **학습 루프**: 틀린 문제는 레슨이 끝나기 전에 다시 나오고, 약점 복습이 모아서 다시 낸다. 레벨 테스트 결과는 급수×영역 표로 나온다.
+- **동기 장치**: XP, 연속 출석(보호권), 커플 연속 출석, 일일 퀘스트와 젬, 상점(프로필 꾸미기), 업적, 주간 리더보드, 콤보와 축하 애니메이션.
+- **히라가나 훈련**: 가나 전용 적응형 엔진(`public/kana`). 새 글자 소개 → 따라 쓰기 → 4라운드 반복, 계정에 진도 저장.
+- **자체 인증**(Better Auth, 이메일+비밀번호)과 **아무 Postgres**.
+- 샘플 코스 하나: **일본어 가나**(15유닛 886문제, 음성 포함).
+
+## 띄우기
 
 ```sh
-docker run -d --name solingo-pg --restart unless-stopped \
-  -e POSTGRES_USER=solingo -e POSTGRES_PASSWORD=solingo -e POSTGRES_DB=solingo \
-  -p 5433:5432 -v solingo-pg:/var/lib/postgresql/data postgres:16-alpine
-cp .env.example .env      # set BETTER_AUTH_SECRET (openssl rand -hex 32) and ADMIN_EMAILS
+docker run -d --name solingo-pg -e POSTGRES_USER=solingo -e POSTGRES_PASSWORD=solingo \
+  -e POSTGRES_DB=solingo -p 5433:5432 -v solingo-pg:/var/lib/postgresql/data postgres:16-alpine
+cp .env.example .env        # BETTER_AUTH_SECRET(openssl rand -hex 32), ADMIN_EMAILS
 pnpm install
 pnpm run db:push
-pnpm run db:seed:kana      # content/ja-kana.json → 5 units / 63 lessons / 674 challenges
+pnpm run db:seed:kana       # 샘플: 일본어 가나
 pnpm dev
 ```
 
-Differences from upstream: a **히라가나 tab** (`/kana`) running the Solingo engine with account-bound
-progress (`/api/kana/state`), **self-hosted auth** (Better Auth, email + password, no Clerk), node-postgres
-instead of Neon's HTTP driver (any Postgres works), `scripts/seed-kana.ts` + `content/` + `public/audio/`
-for JSON-authored courses. Admins are listed by email in `ADMIN_EMAILS`.
+## 내 코스 만들기
 
----
+1. 저장소 밖에 코스 폴더를 만든다. 비공개 git 저장소를 권한다. 학습자 정보와 진단 결과가 담기는 곳이라 이 저장소에 섞지 않는다.
+2. `.env`에 `CONTENT_DIR=../my-courses`를 넣는다. 앱과 스크립트는 이 폴더를 먼저 보고, 없으면 저장소의 `content/`(샘플)를 본다.
+3. [`docs/COURSES.md`](docs/COURSES.md)를 AI에게 주고 유닛을 쓰게 한다. 이 문서에 형식, 7가지 유형의 필수 필드, 좋은 문제의 조건, 부탁 예시가 있다.
+4. 검증하고, 음성을 만들고, 시드한다:
 
-<a name="readme-top"></a>
-
-# Lingo - Interactive platform for language learning.
-
-![Lingo - Interactive platform for language learning.](/.github/images/img_main.png "Lingo - Interactive platform for language learning.")
-
-[![Ask Me Anything!](https://flat.badgen.net/static/Ask%20me/anything?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy "Ask Me Anything!")
-[![GitHub license](https://flat.badgen.net/github/license/sanidhyy/duolingo-clone?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/duolingo-clone/blob/main/LICENSE "GitHub license")
-[![Maintenance](https://flat.badgen.net/static/Maintained/yes?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/duolingo-clone/commits/main "Maintenance")
-[![GitHub branches](https://flat.badgen.net/github/branches/sanidhyy/duolingo-clone?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/duolingo-clone/branches "GitHub branches")
-[![Github commits](https://flat.badgen.net/github/commits/sanidhyy/duolingo-clone?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/duolingo-clone/commits "Github commits")
-[![GitHub issues](https://flat.badgen.net/github/issues/sanidhyy/duolingo-clone?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/duolingo-clone/issues "GitHub issues")
-[![GitHub pull requests](https://flat.badgen.net/github/prs/sanidhyy/duolingo-clone?icon=github&color=black&scale=1.01)](https://github.com/sanidhyy/duolingo-clone/pulls "GitHub pull requests")
-[![Vercel status](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://lingo-clone.vercel.app/ "Vercel status")
-
-<!-- Table of Contents -->
-<details>
-
-<summary>
-
-# :notebook_with_decorative_cover: Table of Contents
-
-</summary>
-
-- [Folder Structure](#bangbang-folder-structure)
-- [Getting Started](#toolbox-getting-started)
-- [Screenshots](#camera-screenshots)
-- [Tech Stack](#gear-tech-stack)
-- [Stats](#wrench-stats)
-- [Contribute](#raised_hands-contribute)
-- [Acknowledgements](#gem-acknowledgements)
-- [Buy Me a Coffee](#coffee-buy-me-a-coffee)
-- [Follow Me](#rocket-follow-me)
-- [Learn More](#books-learn-more)
-- [Deploy on Vercel](#page_with_curl-deploy-on-vercel)
-- [Give A Star](#star-give-a-star)
-- [Star History](#star2-star-history)
-- [Give A Star](#star-give-a-star)
-
-</details>
-
-## :bangbang: Folder Structure
-
-Here is the folder structure of this app.
-
-<!--- FOLDER_STRUCTURE_START --->
-```bash
-duolingo-clone/
-  |- actions/
-    |-- challenge-progress.ts
-    |-- user-progress.ts
-    |-- user-subscription.ts
-  |- app/
-    |-- (auth)/
-    |-- (main)/
-    |-- (marketing)/
-    |-- admin/
-    |-- api/
-    |-- lesson/
-    |-- apple-icon.png
-    |-- favicon.ico
-    |-- globals.css
-    |-- icon1.png
-    |-- icon2.png
-    |-- layout.tsx
-  |- components/
-    |-- modals/
-    |-- ui/
-    |-- banner.tsx
-    |-- feed-wrapper.tsx
-    |-- mobile-header.tsx
-    |-- mobile-sidebar.tsx
-    |-- promo.tsx
-    |-- quests.tsx
-    |-- sidebar-item.tsx
-    |-- sidebar.tsx
-    |-- sticky-wrapper.tsx
-    |-- user-progress.tsx
-  |- config/
-    |-- index.ts
-  |- db/
-    |-- drizzle.ts
-    |-- queries.ts
-    |-- schema.ts
-  |- lib/
-    |-- admin.ts
-    |-- stripe.ts
-    |-- utils.ts
-  |- public/
-  |- scripts/
-    |-- prod.ts
-  |- store/
-    |-- use-exit-modal.ts
-    |-- use-hearts-modal.ts
-    |-- use-practice-modal.ts
-  |- .env.example
-  |- .env/.env.local
-  |- .gitignore
-  |- .prettierrc.json
-  |- components.json
-  |- constants.ts
-  |- drizzle.config.ts
-  |- environment.d.ts
-  |- eslint.config.mjs
-  |- next.config.ts
-  |- package.json
-  |- pnpm-lock.yaml
-  |- pnpm-workspace.yaml
-  |- postcss.config.js
-  |- proxy.ts
-  |- tailwind.config.ts
-  |- tsconfig.json
-  |- vercel.ts
-```
-<!--- FOLDER_STRUCTURE_END --->
-
-<br />
-
-## :toolbox: Getting Started
-
-1. Make sure **Git** and **NodeJS** is installed.
-2. Clone this repository to your local computer.
-3. Create `.env` file in **root** directory.
-4. Contents of `.env`:
-
-```env
-# .env
-
-# disabled next.js telemetry
-NEXT_TELEMETRY_DISABLED=1
-
-# clerk auth keys
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-CLERK_SECRET_KEY=sk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-# neon db uri
-DATABASE_URL="postgresql://<user>:<password>@<host>:<post>/lingo?sslmode=require"
-
-# stripe api key and webhook
-STRIPE_API_SECRET_KEY=sk_test_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-STRIPE_WEBHOOK_SECRET=whsec_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-# public app url
-NEXT_PUBLIC_APP_URL=http://localhost:3000
-
-# clerk admin user id(s) separated by comma (,)
-CLERK_ADMIN_IDS="user_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-# or CLERK_ADMIN_IDS="user_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx, user_xxxxxxxxxxxxxxxxxxxxxx" for multiple admins.
-
+```sh
+pnpm exec tsx scripts/seed-course.ts my-course --check          # DB 없이 형식·음성 검증
+python3 scripts/gen_course_audio.py my-course ko-KR-SunHiNeural  # edge-tts로 음성 생성
+pnpm run db:seed:course my-course
 ```
 
-5. Obtain Clerk Authentication Keys
-   1. **Source**: Clerk Dashboard or Settings Page
-   2. **Procedure**:
-      - Log in to your Clerk account.
-      - Navigate to the dashboard or settings page.
-      - Look for the section related to authentication keys.
-      - Copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` provided in that section.
+유닛 제목을 `레벨 테스트`로 두면 진단 시험이 된다. 결과 표를 AI에게 다시 주면 다음 유닛의 배분을 맞출 수 있다.
 
-6. Retrieve Neon Database URI
-   1. **Source**: Database Provider (e.g., Neon, PostgreSQL)
-   2. **Procedure**:
-      - Access your database provider's platform or configuration.
-      - Locate the database connection details.
-      - Replace `<user>`, `<password>`, `<host>`, and `<port>` placeholders in the URI with your actual database credentials.
-      - Ensure to include `?sslmode=require` at the end of the URI for SSL mode requirement.
+## 배포
 
-7. Fetch Stripe API Key and Webhook Secret
-   1. **Source**: Stripe Dashboard
-   2. **Procedure**:
-      - Log in to your Stripe account.
-      - Navigate to the dashboard or API settings.
-      - Find the section related to API keys and webhook secrets.
-      - Copy the `STRIPE_API_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET`.
+도커 이미지 하나에 Postgres가 붙는다. 코스 폴더는 이미지에 넣지 않고 마운트한다.
 
-8. Specify Public App URL
-   1. **Procedure**:
-      - Replace `http://localhost:3000` with the URL of your deployed application.
-
-9. Identify Clerk Admin User IDs
-   1. **Source**: Clerk Dashboard or Settings Page
-   2. **Procedure**:
-      - Log in to your Clerk account.
-      - Navigate to the dashboard or settings page.
-      - Find the section related to admin user IDs.
-      - Copy the user IDs provided, ensuring they are separated by commas and spaces.
-
-10. Save and Secure:
-    - Save the changes to the `.env` file.
-
-11. Install Project Dependencies using `pnpm install`.
-
-12. Run the Seed Script:
-
-In the same terminal, run the following command to execute the seed script:
-
-```bash
-pnpm run db:push && pnpm run db:prod
+```sh
+docker build -t solingo .
+docker run -d --name solingo --env-file .env -p 3000:3000 \
+  -v /srv/my-courses:/courses:ro -e CONTENT_DIR=/courses solingo
+# 스키마: docker exec solingo sh -c 'cd /app && node_modules/.bin/drizzle-kit push --force'
+# 시드:   docker exec solingo sh -c 'cd /app && node_modules/.bin/tsx scripts/seed-course.ts my-course'
 ```
 
-This command uses `tsx` to execute the Typescript file (`scripts/prod.ts`) and writes challenges data in database.
+음성은 `/audio/<코스>/<파일>` 경로로 앱이 코스 폴더에서 직접 서빙한다(Range 요청 지원, 해시 이름이라 영구 캐시).
 
-13. Verify Data in Database:
+## 출처
 
-Once the script completes, check your database to ensure that the challenges data has been successfully seeded.
-
-14. Now app is fully configured 👍 and you can start using this app using either one of `pnpm dev`.
-
-**NOTE:** Please make sure to keep your API keys and configuration values secure and do not expose them publicly.
-
-### :raising_hand: Need Help?
-
-If you run into issues during installation or setup:
-
-- **GitHub Discussions** — [Open a Q&A discussion](https://github.com/sanidhyy/duolingo-clone/discussions/new?category=q-a) for setup and troubleshooting help.
-- **Email** — [sanidhyyy@gmail.com](mailto:sanidhyyy@gmail.com)
-- **Discord** — `@sanidhyy`
-
-## :camera: Screenshots
-
-![Modern UI/UX](/.github/images/img1.png "Modern UI/UX")
-
-![Quests](/.github/images/img2.png "Quests")
-
-![Shop](/.github/images/img3.png "Shop")
-
-## :gear: Tech Stack
-
-[![React JS](https://skillicons.dev/icons?i=react "React JS")](https://react.dev/ "React JS") [![Next JS](https://skillicons.dev/icons?i=next "Next JS")](https://nextjs.org/ "Next JS") [![Typescript](https://skillicons.dev/icons?i=ts "Typescript")](https://www.typescriptlang.org/ "Typescript") [![Tailwind CSS](https://skillicons.dev/icons?i=tailwind "Tailwind CSS")](https://tailwindcss.com/ "Tailwind CSS") [![Vercel](https://skillicons.dev/icons?i=vercel "Vercel")](https://vercel.app/ "Vercel") [![Postgresql](https://skillicons.dev/icons?i=postgres "Postgresql")](https://www.postgresql.org/ "Postgresql")
-
-## :wrench: Stats
-
-[![Stats for Lingo](/.github/images/stats.svg "Stats for Lingo")](https://pagespeed.web.dev/analysis?url=https://lingo-clone.vercel.app/ "Stats for Lingo")
-
-## :raised_hands: Contribute
-
-You might encounter some bugs while using this app. You are more than welcome to contribute. Just submit changes via pull request and I will review them before merging. Make sure you follow community guidelines.
-
-## :gem: Acknowledgements
-
-Useful resources and dependencies that are used in Lingo.
-
-- Special Thanks to Code with Antonio: https://codewithantonio.com/
-- Kenney Assets: https://kenney.nl/
-- Freesound: https://freesound.org/
-- Elevenlabs AI: https://elevenlabs.io/
-- Flagpack: https://flagpack.xyz/
-
-<!--- DEPENDENCIES_START --->
-- [@clerk/nextjs](https://www.npmjs.com/package/@clerk/nextjs): ^7.8.0
-- [@neondatabase/serverless](https://www.npmjs.com/package/@neondatabase/serverless): ^1.1.0
-- [@radix-ui/react-avatar](https://www.npmjs.com/package/@radix-ui/react-avatar): ^1.2.6
-- [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog): ^1.1.23
-- [@radix-ui/react-progress](https://www.npmjs.com/package/@radix-ui/react-progress): ^1.1.14
-- [@radix-ui/react-separator](https://www.npmjs.com/package/@radix-ui/react-separator): ^1.1.15
-- [@radix-ui/react-slot](https://www.npmjs.com/package/@radix-ui/react-slot): ^1.3.3
-- [@types/node](https://www.npmjs.com/package/@types/node): ^26.2.0
-- [@types/react](https://www.npmjs.com/package/@types/react): ^19.2.18
-- [@types/react-dom](https://www.npmjs.com/package/@types/react-dom): ^19.2.4
-- [@vercel/config](https://www.npmjs.com/package/@vercel/config): ^0.6.1
-- [autoprefixer](https://www.npmjs.com/package/autoprefixer): ^10.5.0
-- [class-variance-authority](https://www.npmjs.com/package/class-variance-authority): ^0.7.1
-- [clsx](https://www.npmjs.com/package/clsx): ^2.1.0
-- [dotenv](https://www.npmjs.com/package/dotenv): ^17.4.2
-- [drizzle-kit](https://www.npmjs.com/package/drizzle-kit): ^0.31.10
-- [drizzle-orm](https://www.npmjs.com/package/drizzle-orm): ^0.45.2
-- [eslint](https://www.npmjs.com/package/eslint): ^9
-- [eslint-config-next](https://www.npmjs.com/package/eslint-config-next): 16.3.2
-- [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier): ^10.1.8
-- [lucide-react](https://www.npmjs.com/package/lucide-react): ^1.25.0
-- [next](https://www.npmjs.com/package/next): ^16.3.1
-- [pg](https://www.npmjs.com/package/pg): ^8.23.0
-- [postcss](https://www.npmjs.com/package/postcss): ^8
-- [prettier](https://www.npmjs.com/package/prettier): ^3.9.6
-- [prettier-plugin-tailwindcss](https://www.npmjs.com/package/prettier-plugin-tailwindcss): ^0.8.0
-- [ra-data-simple-rest](https://www.npmjs.com/package/ra-data-simple-rest): ^5.15.0
-- [react](https://www.npmjs.com/package/react): ^19.2.8
-- [react-admin](https://www.npmjs.com/package/react-admin): ^5.15.1
-- [react-circular-progressbar](https://www.npmjs.com/package/react-circular-progressbar): ^2.2.0
-- [react-confetti](https://www.npmjs.com/package/react-confetti): ^6.4.0
-- [react-dom](https://www.npmjs.com/package/react-dom): ^19.2.8
-- [react-use](https://www.npmjs.com/package/react-use): ^17.6.1
-- [sonner](https://www.npmjs.com/package/sonner): ^2.0.8
-- [stripe](https://www.npmjs.com/package/stripe): ^22.5.0
-- [tailwind-merge](https://www.npmjs.com/package/tailwind-merge): ^3.6.0
-- [tailwindcss](https://www.npmjs.com/package/tailwindcss): ^3.4.19
-- [tailwindcss-animate](https://www.npmjs.com/package/tailwindcss-animate): ^1.0.7
-- [tsx](https://www.npmjs.com/package/tsx): ^4.23.12
-- [typescript](https://www.npmjs.com/package/typescript): ^6
-- [zustand](https://www.npmjs.com/package/zustand): ^5.0.15
-
-<!--- DEPENDENCIES_END --->
-
-## :coffee: Buy Me a Coffee
-
-[<img src="https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" width="200" />](https://www.buymeacoffee.com/sanidhy "Buy me a Coffee")
-
-## :rocket: Follow Me
-
-[![Follow Me](https://img.shields.io/github/followers/sanidhyy?style=social&label=Follow&maxAge=2592000)](https://github.com/sanidhyy "Follow Me")
-[![Tweet about this project](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fx.com%2F_sanidhyy)](https://x.com/intent/tweet?text=Check+out+this+amazing+app:&url=https%3A%2F%2Fgithub.com%2Fsanidhyy%2Fduolingo-clone "Tweet about this project")
-
-## :books: Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## :page_with_curl: Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## :star: Give A Star
-
-You can also give this repository a star to show more people and they can use this repository.
-
-## :star2: Star History
-
-<a href="https://star-history.com/#sanidhyy/duolingo-clone&Timeline">
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=sanidhyy/duolingo-clone&type=Timeline&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=sanidhyy/duolingo-clone&type=Timeline" />
-  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=sanidhyy/duolingo-clone&type=Timeline" />
-</picture>
-</a>
-
-<br />
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[sanidhyy/duolingo-clone](https://github.com/sanidhyy/duolingo-clone)(MIT, © 2024 Sanidhya Kumar Verma)을 포크해 시작했다. 학습 경로·하트·상점의 뼈대가 거기서 왔고, 인증(Clerk → Better Auth), DB 드라이버, 문제 유형, 콘텐츠 파이프라인, 가나 엔진은 이 저장소에서 새로 만들었다. 라이선스는 [LICENSE](LICENSE).

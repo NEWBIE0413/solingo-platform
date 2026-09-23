@@ -53,6 +53,11 @@ type QuizProps = {
     | null;
 };
 
+// Speech-recognition language for SPEAK: an explicit meta.lang wins; otherwise the script of the text
+// decides. Covers the scripts courses actually use; anything else should set meta.lang (docs/COURSES.md).
+const speechLang = (explicit: string | undefined, text: string) =>
+  explicit || (/[가-힣]/.test(text) ? "ko-KR" : /[぀-ヿ一-龯]/.test(text) ? "ja-JP" : /[一-鿿]/.test(text) ? "zh-CN" : "en-US");
+
 // whitespace-insensitive compare for BUILD: authored targets may carry stray spaces around tiles
 const squash = (t: string) => t.replace(/\s+/g, " ").trim();
 
@@ -156,7 +161,7 @@ export const Quiz = ({
     setActiveIndex((current) => current + 1);
   };
 
-  const meta = (challenge?.meta ?? {}) as { target?: string; reading?: string; explanation?: string };
+  const meta = (challenge?.meta ?? {}) as { target?: string; reading?: string; explanation?: string; lang?: string };
 
   // One place that knows what "right" means for every exercise type.
   const judge = (a: Answer | null): boolean | null => {
@@ -326,7 +331,7 @@ export const Quiz = ({
                 answer={answer}
                 onAnswer={onAnswer}
                 status={status}
-                lang="ja-JP"
+                lang={speechLang(meta.lang, meta.target ?? challenge.question)}
               />
             </div>
           </div>

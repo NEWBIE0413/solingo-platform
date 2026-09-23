@@ -13,7 +13,7 @@
     "db:studio": "drizzle-kit studio",
     "db:push": "drizzle-kit push",
     "db:prod": "tsx ./scripts/prod.ts",
-    "db:seed:kana": "tsx ./scripts/seed-kana.ts",
+    "db:seed:kana": "tsx ./scripts/seed-course.ts ja-kana",
     "db:seed:course": "tsx ./scripts/seed-course.ts"
   },
   "dependencies": {

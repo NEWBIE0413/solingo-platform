@@ -1,18 +1,31 @@
-import { and, eq, inArray, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 
 import db from "@/db/drizzle";
-import { challengeAttempts, challenges, courses, lessons, units } from "@/db/schema";
+import { PLACEMENT_UNIT_TITLE } from "@/constants";
+import { units, userProgress } from "@/db/schema";
 
 /*
- First-attempt accuracy for the 레벨 테스트 unit of a course, grouped by level and by tag.
+ First-attempt accuracy for a course's placement unit (PLACEMENT_UNIT_TITLE), grouped by level and by tag.
+ Which placement: the one in the learner's active course, else the one they have answered the most, else
+ the first one found — any course can carry a placement unit, none is special-cased here.
  First attempt = the earliest row in challenge_attempts per (user, challenge); retries are ignored,
  because a retry until correct says nothing about what the learner knew.
 */
-export async function levelReport(userId: string, courseTitle = "한국어 TOPIK", unitTitle = "레벨 테스트") {
-  const course = await db.query.courses.findFirst({ where: eq(courses.title, courseTitle) });
-  if (!course) return null;
-  const unit = await db.query.units.findFirst({ where: and(eq(units.courseId, course.id), eq(units.title, unitTitle)), with: { lessons: { with: { challenges: true } } } });
-  if (!unit) return null;
+export async function levelReport(userId: string, unitTitle = PLACEMENT_UNIT_TITLE) {
+  const placements = await db.query.units.findMany({ where: eq(units.title, unitTitle), with: { lessons: { with: { challenges: true } } } });
+  if (!placements.length) return null;
+  const progress = await db.query.userProgress.findFirst({ where: eq(userProgress.userId, userId), columns: { activeCourseId: true } });
+  const answeredIn = async (u: (typeof placements)[number]) => {
+    const ids = u.lessons.flatMap((l) => l.challenges.map((c) => c.id));
+    if (!ids.length) return 0;
+    const r = await db.execute(sql`select count(distinct challenge_id)::int as n from challenge_attempts where user_id = ${userId} and challenge_id in (${sql.join(ids.map((i) => sql`${i}`), sql`, `)})`);
+    return (r.rows[0] as { n?: number } | undefined)?.n ?? 0;
+  };
+  let unit = placements.find((u) => u.courseId === progress?.activeCourseId);
+  if (!unit) {
+    const counts = await Promise.all(placements.map(answeredIn));
+    unit = placements[counts.indexOf(Math.max(...counts))];
+  }
   const all = unit.lessons.flatMap((l) => l.challenges);
   const ids = all.map((c) => c.id);
   if (!ids.length) return { total: 0, answered: 0, byLevel: [], byTag: [], items: [] };

@@ -7,5 +7,9 @@ export const POINTS_TO_REFILL = 10;
 export const MAX_HEARTS = 5;
 
 
+// A unit with this title in any course is that course's placement test: its first attempts become the
+// level report (lib/level.ts, /level). Course authors opt in just by naming a unit this way.
+export const PLACEMENT_UNIT_TITLE = "레벨 테스트";
+
 // A course row with no units: selecting it turns the 학습 page into the kana trainer (public/kana engine).
 export const KANA_TRAINER_TITLE = "히라가나 훈련";

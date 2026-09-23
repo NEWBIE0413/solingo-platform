@@ -13,7 +13,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 
 type Src = { items: Record<string, { r: string; free?: boolean }>; order: string[]; words: { t: string; m: string }[]; tokenize: { joiners: string } };
 const src: Src = JSON.parse(readFileSync("content/ja-kana.src.json", "utf8"));
-const audioIdx: Record<string, string> = JSON.parse(readFileSync("public/audio/ja-kana/index.json", "utf8"));
+const audioIdx: Record<string, string> = JSON.parse(readFileSync("content/audio/ja-kana/index.json", "utf8"));
 const audio = (t: string) => (audioIdx[t] ? `/audio/ja-kana/${audioIdx[t]}` : null);
 const rom = (k: string) => src.items[k]?.r ?? k;
 const J = src.tokenize.joiners;

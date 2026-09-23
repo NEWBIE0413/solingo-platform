@@ -11,9 +11,9 @@ content pipeline underneath.
 
 ## Milestone 1 — the path works with our content  (now)
 - [x] Fork, rename, node-postgres driver (any Postgres, not only Neon), Docker Postgres for dev
-- [x] `scripts/seed-kana.ts`: JSON course → units/lessons/challenges. 5 units, 63 lessons, 674 challenges
+- [x] JSON course → units/lessons/challenges (now `scripts/build-kana-course.ts` + `scripts/seed-course.ts`)
 - [x] Clerk replaced by Better Auth (self-hosted, email+password); sign-up → courses → learn → lesson verified
-- [x] Deploy on NucBox behind cloudflared — live since 2026-09-03 at https://solingo.myworld.monster (Docker `solingo-app`, see `docs/DEPLOY.md`)
+- [x] Self-hosted deploy: one Docker image; an instance's own courses are mounted and named by `CONTENT_DIR` (README)
 
 ## Milestone 1.5 — the Solingo engine as a tab  (done 2026-09-03)
 - `/kana` sidebar tab (히라가나) hosts `public/kana/` (the static engine) in an iframe.
@@ -46,7 +46,7 @@ levels per item stays.
 
 ## Milestone 5 — courses as JSON, forever
 - `content/*.json` is the source of truth; seeding is idempotent per course title.
-- Hangul course for the TOPIK learner: `content/ko-hangul.json` + audio via edge-tts `ko-KR-SunHiNeural`.
+- Hangul course: `content/ko-hangul.json` + audio via edge-tts `ko-KR-SunHiNeural`.
 - Admin (react-admin) stays for hand edits; JSON → DB is the bulk path.
 
 ## Decisions
