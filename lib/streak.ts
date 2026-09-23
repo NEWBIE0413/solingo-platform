@@ -29,6 +29,16 @@ export async function recordActivity(userId: string, kind: ActivityKind = "lesso
   return { firstToday };
 }
 
+/** Today's study sessions against the learner's daily goal. Sessions are what attendance counts —
+ lessons, 약점 복습 and kana sessions — so "출석" is simply reaching 1 and the goal asks for more. */
+export async function todayGoal(userId: string): Promise<{ done: number; goal: number }> {
+  const [row, prog] = await Promise.all([
+    db.query.dailyActivity.findFirst({ where: and(eq(dailyActivity.userId, userId), eq(dailyActivity.day, dayKey())) }),
+    db.query.userProgress.findFirst({ where: eq(userProgress.userId, userId), columns: { dailyGoal: true } }),
+  ]);
+  return { done: row ? row.lessons + row.practice + row.kana : 0, goal: prog?.dailyGoal ?? 1 };
+}
+
 /** Active days for streak purposes = real activity + days a freeze filled in (frozen=true). */
 export async function activeDays(userId: string): Promise<Set<string>> {
   const rows = await db.select({ day: dailyActivity.day }).from(dailyActivity).where(eq(dailyActivity.userId, userId));

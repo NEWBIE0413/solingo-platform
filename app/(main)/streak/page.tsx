@@ -7,18 +7,20 @@ import { StickyWrapper } from "@/components/sticky-wrapper";
 import { UserProgress } from "@/components/user-progress";
 import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { auth } from "@/lib/session";
-import { getCoupleStatus, getStreak } from "@/lib/streak";
+import { getCoupleStatus, getStreak, todayGoal } from "@/lib/streak";
 
 import { CoupleCard } from "./couple-card";
+import { DailyGoal } from "./goal";
 import { WeekCalendar } from "./week";
 
 const StreakPage = async () => {
   const { userId } = await auth.protect().then((s) => ({ userId: s.user.id }));
-  const [userProgress, userSubscription, mine, couple] = await Promise.all([
+  const [userProgress, userSubscription, mine, couple, today] = await Promise.all([
     getUserProgress(),
     getUserSubscription(),
     getStreak(userId),
     getCoupleStatus(userId),
+    todayGoal(userId),
   ]);
   if (!userProgress || !userProgress.activeCourse) redirect("/courses");
   const isPro = !!userSubscription?.isActive;
@@ -53,6 +55,7 @@ const StreakPage = async () => {
           </p>
 
           <WeekCalendar userId={userId} />
+          <DailyGoal done={today.done} goal={today.goal} />
 
           <div className="mb-4 grid w-full grid-cols-2 gap-3 sm:gap-4">
             <div

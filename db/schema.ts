@@ -151,6 +151,7 @@ export const userProgress = pgTable("user_progress", {
   points: integer("points").notNull().default(0),
   gems: integer("gems").notNull().default(0), // 퀘스트 보상 재화 — 상점에서 쓴다
   equipped: jsonb("equipped").$type<{ frame?: string; title?: string; mascot?: string }>(), // 프로필 꾸미기 {frame,title,mascot}
+  dailyGoal: integer("daily_goal").notNull().default(1), // 하루 목표 학습 횟수 — 출석(1회)과 별개로 학습자가 정한다
 });
 
 export const userProgressRelations = relations(userProgress, ({ one }) => ({

@@ -4,7 +4,11 @@ import { revalidatePath } from "next/cache";
 
 import { auth } from "@/lib/session";
 import { getQuestBoard } from "@/lib/economy";
-import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity } from "@/lib/streak";
+import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity, todayGoal } from "@/lib/streak";
+import { DAILY_GOAL_OPTIONS } from "@/constants";
+import db from "@/db/drizzle";
+import { userProgress } from "@/db/schema";
+import { eq } from "drizzle-orm";
 import { syncAchievements } from "@/lib/achievements";
 
 /*
@@ -18,7 +22,7 @@ export const recordLessonComplete = async (kind: "lesson" | "practice" | "kana" 
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized.");
   const { firstToday } = await recordActivity(userId, kind);
-  const [streak, board, ach] = await Promise.all([getStreak(userId), getQuestBoard(userId, true), syncAchievements(userId)]);
+  const [streak, board, ach, goal] = await Promise.all([getStreak(userId), getQuestBoard(userId, true), syncAchievements(userId), todayGoal(userId)]);
   revalidatePath("/streak");
   revalidatePath("/learn");
   revalidatePath("/quests");
@@ -32,7 +36,17 @@ export const recordLessonComplete = async (kind: "lesson" | "practice" | "kana" 
     firstToday,
     claimable: board.quests.filter((q) => q.done && !q.claimed).length,
     achievements: ach.fresh.map(({ key, name, desc, emoji }) => ({ key, name, desc, emoji })),
+    goal, // { done, goal } after this session — the end screen says how many are left, or that it's met
   };
+};
+
+export const setDailyGoalAction = async (goal: number) => {
+  const { userId } = await auth();
+  if (!userId) throw new Error("Unauthorized.");
+  if (!(DAILY_GOAL_OPTIONS as readonly number[]).includes(goal)) return { error: "고를 수 없는 목표예요." };
+  await db.update(userProgress).set({ dailyGoal: goal }).where(eq(userProgress.userId, userId));
+  revalidatePath("/streak");
+  return { ok: true };
 };
 
 export const createCoupleAction = async () => {

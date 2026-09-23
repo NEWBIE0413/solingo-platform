@@ -106,7 +106,7 @@ export const Quiz = ({
   const reasks = useRef(new Map<number, number>());
   const stats = useRef({ firstTryCorrect: 0, wrong: 0, bestCombo: 0, startedAt: Date.now(), recovered: new Set<number>() });
   const [combo, setCombo] = useState(0);
-  const [done, setDone] = useState<{ streak: number; firstToday: boolean; claimable: number; achievements: { key: string; name: string; desc: string; emoji: string }[] } | null>(null);
+  const [done, setDone] = useState<{ streak: number; firstToday: boolean; claimable: number; achievements: { key: string; name: string; desc: string; emoji: string }[]; goal: { done: number; goal: number } } | null>(null);
   const unique = initialLessonChallenges.length;
   const percentage = queue.length ? Math.min(100, (activeIndex / queue.length) * 100) : 0;
 
@@ -149,11 +149,15 @@ export const Quiz = ({
     // mark the lesson done first so the /learn revalidation inside recordLessonComplete sees it
     (practice ? Promise.resolve() : completeLesson(lessonId)).then(() => recordLessonComplete(practice ? "practice" : "lesson")).then((d) => {
       setDone(d);
+      // moments play one after another (the overlay lasts ~2.2s): streak → daily goal → first new badge.
+      // A goal of 1 is met by the day's first session, which the streak moment already celebrates.
+      let at = 400;
+      const next = (e: Parameters<typeof celebrate>[0]) => { setTimeout(() => celebrate(e), at); at += 2600; };
       const streakMoment = d.firstToday && d.streak > 0;
-      if (streakMoment) setTimeout(() => celebrate({ kind: "streak", title: `🔥 ${d.streak}일 연속!`, subtitle: "오늘 몫을 채웠어요" }), 400);
-      // badge moment after the streak one has played out (overlay lasts ~2.2s); only the first badge gets the mascot, the rest are listed below
+      if (streakMoment) next({ kind: "streak", title: `🔥 ${d.streak}일 연속!`, subtitle: "오늘 몫을 채웠어요" });
+      if (d.goal.goal > 1 && d.goal.done === d.goal.goal) next({ kind: "lesson", title: "🎯 오늘 목표 달성!", subtitle: `오늘 ${d.goal.goal}번 학습했어요` });
       const a = d.achievements[0];
-      if (a) setTimeout(() => celebrate({ kind: "lesson", title: `${a.emoji} ${a.name}`, subtitle: d.achievements.length > 1 ? `새 업적 ${d.achievements.length}개 달성!` : `새 업적 · ${a.desc}` }), streakMoment ? 3000 : 400);
+      if (a) next({ kind: "lesson", title: `${a.emoji} ${a.name}`, subtitle: d.achievements.length > 1 ? `새 업적 ${d.achievements.length}개 달성!` : `새 업적 · ${a.desc}` });
     }).catch(() => {});
   }, [challenge, practice]);
 
@@ -268,6 +272,13 @@ export const Quiz = ({
           )}
           {done && !done.firstToday && done.streak > 0 && (
             <p className="text-sm font-bold text-orange-600">🔥 연속 {done.streak}일 유지 중</p>
+          )}
+          {done && done.goal.goal > 1 && (
+            done.goal.done >= done.goal.goal ? (
+              <p className="text-sm font-bold text-green-600">🎯 오늘 목표 달성 · {done.goal.done}/{done.goal.goal}</p>
+            ) : (
+              <p className="text-sm font-bold text-sky-600">🎯 오늘 목표까지 {done.goal.goal - done.goal.done}번 남았어요 · {done.goal.done}/{done.goal.goal}</p>
+            )
           )}
           {done && done.achievements.length > 0 && (
             <div className="w-full animate-[pop_.5s_ease-out] motion-reduce:animate-none rounded-2xl border-2 border-amber-200 bg-amber-50/90 p-4 shadow-sm">
