@@ -2,7 +2,7 @@
 
 Fork of [sanidhyy/duolingo-clone](https://github.com/sanidhyy/duolingo-clone) (MIT). The clone gives us
 the Duolingo *system*: course → unit → lesson path, hearts, XP, streak-less leaderboard, quests, shop,
-admin, Clerk login, Stripe. [solingo](https://github.com/NEWBIE0413/solingo) (static) gives us the
+admin, Clerk login, Stripe. The original Solingo static app (its engine now lives in `public/kana/`) gives us the
 *script-level engine*: kana/hangul-style symbol teaching with 4-round repetition, handwriting, speech,
 matching, tile building, pre-rendered neural audio, and JSON courses an LLM can author.
 
