@@ -324,9 +324,13 @@ export const Quiz = ({
         combo={combo}
       />
 
-      <div className="flex-1">
+      <div className="flex-1 overflow-x-clip">
         <div className="flex h-full items-center justify-center">
-          <div className="flex w-full flex-col gap-y-8 px-5 py-4 lg:min-h-[350px] lg:w-[600px] lg:px-0">
+          {/* keyed by queue position: every item, a re-ask included, mounts fresh and slides in */}
+          <div
+            key={activeIndex}
+            className="flex w-full animate-[challenge-in_220ms_cubic-bezier(0.23,1,0.32,1)] flex-col gap-y-8 px-5 py-4 motion-reduce:animate-[fade_150ms_ease-out] lg:min-h-[350px] lg:w-[600px] lg:px-0"
+          >
             <h1 className={longTitle ? "whitespace-pre-line text-left text-lg font-semibold leading-relaxed [word-break:keep-all] [overflow-wrap:anywhere] text-neutral-700 lg:text-xl" : "whitespace-pre-line text-center text-2xl font-bold [word-break:keep-all] [overflow-wrap:anywhere] text-neutral-700 lg:text-start lg:text-3xl"}>
               {title}
             </h1>
