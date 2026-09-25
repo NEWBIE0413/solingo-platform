@@ -16,12 +16,12 @@ export type CelebrateEvent = {
 type CelebrateState = {
   event: (CelebrateEvent & { id: number }) | null;
   fire: (e: CelebrateEvent) => void;
-  clear: () => void;
+  clear: (id?: number) => void; // with an id: only if that event is still the one showing
 };
 
 let seq = 0;
 export const useCelebrate = create<CelebrateState>((set) => ({
   event: null,
   fire: (e) => set({ event: { ...e, id: ++seq } }),
-  clear: () => set({ event: null }),
+  clear: (id) => set((s) => (id === undefined || s.event?.id === id ? { event: null } : s)),
 }));

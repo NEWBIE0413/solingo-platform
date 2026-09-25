@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
+import { cn } from "@/lib/utils";
 import { useCelebrate } from "@/store/use-celebrate";
 
 /*
@@ -29,17 +30,31 @@ const chime = (kind: string) => {
 
 const SPARKS = Array.from({ length: 14 }, (_, i) => ({ a: (i / 14) * 360, d: 70 + (i % 3) * 22, s: 6 + (i % 4) * 3, delay: (i % 5) * 40 }));
 
+const EXIT_MS = 160;
+
 export const Celebrate = () => {
   const { event, clear } = useCelebrate();
+
+  // id of the event on its way out; a newer event has a new id, so it is never caught mid-exit
+  const [leaving, setLeaving] = useState<number | null>(null);
 
   useEffect(() => {
     if (!event) return;
     chime(event.kind);
-    const t = setTimeout(clear, event.light ? 1300 : 2200);
+    const { id, light } = event;
+    // the light peek fades itself out inside its keyframes; the full overlay plays an exit first
+    const t = setTimeout(() => (light ? clear(id) : setLeaving(id)), light ? 1300 : 2200);
     return () => clearTimeout(t);
   }, [event, clear]);
 
+  useEffect(() => {
+    if (leaving === null) return;
+    const t = setTimeout(() => clear(leaving), EXIT_MS);
+    return () => clearTimeout(t);
+  }, [leaving, clear]);
+
   if (!event) return null;
+  const isLeaving = leaving === event.id;
   const tone = event.kind === "purchase" ? "sky" : event.kind === "combo" ? "orange" : event.kind === "streak" ? "orange" : "green";
   const ring = tone === "sky" ? "bg-sky-400" : tone === "orange" ? "bg-orange-400" : "bg-green-500";
   const text = tone === "sky" ? "text-sky-600" : tone === "orange" ? "text-orange-600" : "text-green-600";
@@ -59,10 +74,20 @@ export const Celebrate = () => {
   return (
     <div
       key={event.id}
-      onClick={clear}
-      className="fixed inset-0 z-[70] flex items-center justify-center bg-black/30 backdrop-blur-[3px] animate-[fade_.2s_ease-out] motion-reduce:animate-none px-4"
+      onClick={() => setLeaving(event.id)}
+      className={cn(
+        "fixed inset-0 z-[70] flex items-center justify-center bg-black/30 px-4 backdrop-blur-[3px]",
+        isLeaving
+          ? "pointer-events-none animate-[fade-out_160ms_cubic-bezier(0.23,1,0.32,1)_forwards]"
+          : "animate-[fade_.2s_ease-out] motion-reduce:animate-none"
+      )}
     >
-      <div className="relative flex w-[280px] flex-col items-center">
+      <div
+        className={cn(
+          "relative flex w-[280px] flex-col items-center",
+          isLeaving && "animate-[shrink-out_160ms_cubic-bezier(0.23,1,0.32,1)_forwards] motion-reduce:animate-none"
+        )}
+      >
         {/* sparkles burst from behind the mascot */}
         {SPARKS.map((s, i) => (
           <span
