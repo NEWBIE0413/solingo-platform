@@ -88,7 +88,7 @@ export const LessonButton = ({
               <Button
                 size="rounded"
                 variant={locked ? "locked" : "secondary"}
-                className="h-[68px] w-[68px] border-b-8 transition-all duration-100 ease-out active:translate-y-1.5 active:border-b-2 motion-reduce:active:translate-y-0"
+                className="h-[68px] w-[68px] border-b-8 transition duration-100 ease-out active:translate-y-1.5 active:border-b-2 motion-reduce:active:translate-y-0"
               >
                 <Icon
                   className={cn(
@@ -106,7 +106,7 @@ export const LessonButton = ({
           <Button
             size="rounded"
             variant={locked ? "locked" : "secondary"}
-            className="h-[68px] w-[68px] border-b-8 transition-all duration-100 ease-out active:translate-y-1.5 active:border-b-2 motion-reduce:active:translate-y-0"
+            className="h-[68px] w-[68px] border-b-8 transition duration-100 ease-out active:translate-y-1.5 active:border-b-2 motion-reduce:active:translate-y-0"
           >
             <Icon
               className={cn(

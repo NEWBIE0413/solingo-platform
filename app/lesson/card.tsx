@@ -48,17 +48,19 @@ export const Card = ({
     <div
       onClick={handleClick}
       className={cn(
-        "cursor-pointer select-none rounded-2xl border-2 border-b-4 bg-white p-3.5 shadow-[0_2px_0_0_rgba(0,0,0,0.03)] transition-all hover:bg-slate-50 active:translate-y-[2px] active:border-b-2 sm:p-4 lg:p-6",
+        // The lip is a box-shadow rather than a thicker bottom border: pressing sinks the card
+        // without changing its height, so the cards listed below it (ASSIST) stay put.
+        "cursor-pointer select-none rounded-2xl border-2 bg-white p-3.5 shadow-[0_2px_0_0_hsl(var(--border))] transition-[transform,box-shadow,background-color,border-color] duration-100 ease-out hover:bg-slate-50 active:translate-y-[2px] active:shadow-none sm:p-4 lg:p-6",
         layout === "grid"
           ? "flex min-h-[88px] items-center justify-center sm:min-h-[96px]"
           : "flex w-full items-center justify-between",
-        selected && "border-sky-400 bg-sky-50 shadow-sm",
+        selected && "border-sky-400 bg-sky-50 shadow-[0_2px_0_0_#38bdf8]",
         selected &&
           status === "correct" &&
-          "border-emerald-500 bg-emerald-50 shadow-sm",
+          "border-emerald-500 bg-emerald-50 shadow-[0_2px_0_0_#10b981]",
         selected &&
           status === "wrong" &&
-          "animate-[shake_.4s_ease-in-out] border-rose-500 bg-rose-50 shadow-sm",
+          "animate-[shake_.4s_ease-in-out] border-rose-500 bg-rose-50 shadow-[0_2px_0_0_#f43f5e]",
         disabled && "pointer-events-none opacity-60"
       )}
     >
