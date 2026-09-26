@@ -2,6 +2,7 @@ import { InfinityIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { CountUp } from "@/components/count-up";
 import { Button } from "@/components/ui/button";
 import { courses } from "@/db/schema";
 
@@ -43,7 +44,7 @@ export const UserProgress = ({
             alt="Points"
             className="mr-2"
           />
-          {points}
+          <CountUp value={points} storageKey="side-xp" />
         </Button>
       </Link>
 
@@ -56,7 +57,7 @@ export const UserProgress = ({
             alt="Gems"
             className="mr-2"
           />
-          {gems}
+          <CountUp value={gems} storageKey="side-gems" />
         </Button>
       </Link>
 

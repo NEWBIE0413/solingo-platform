@@ -2,6 +2,7 @@ import { Flame, Gem, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { CountUp } from "@/components/count-up";
 import { getUserProgress } from "@/db/queries";
 import { auth } from "@/lib/session";
 import { getStreak } from "@/lib/streak";
@@ -56,7 +57,7 @@ export const MobileHeader = async () => {
             )}
             strokeWidth={2.5}
           />
-          <span>{days}</span>
+          <CountUp value={days} storageKey="hdr-streak" />
         </Link>
         <Link
           href="/shop"
@@ -68,7 +69,7 @@ export const MobileHeader = async () => {
             className="h-5 w-5 fill-sky-300 text-sky-500"
             strokeWidth={2.5}
           />
-          <span>{progress?.gems ?? 0}</span>
+          <CountUp value={progress?.gems ?? 0} storageKey="hdr-gems" />
         </Link>
         <Link
           href="/leaderboard"
@@ -80,7 +81,7 @@ export const MobileHeader = async () => {
             className="h-5 w-5 fill-amber-300 text-amber-500"
             strokeWidth={2.5}
           />
-          <span>{progress?.points ?? 0}</span>
+          <CountUp value={progress?.points ?? 0} storageKey="hdr-xp" />
         </Link>
       </div>
     </nav>
