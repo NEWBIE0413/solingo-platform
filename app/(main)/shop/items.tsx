@@ -18,17 +18,21 @@ const KIND_LABEL: Record<string, string> = {
   frame: "아바타 테두리",
   title: "칭호",
   mascot: "마스코트 스킨",
+  gift: "선물",
 };
 
 export const Items = ({
   gems,
   owned,
   hasActiveSubscription,
+  partner,
 }: {
   gems: number;
   owned: Owned;
   hasActiveSubscription: boolean;
+  partner: { name: string; freezes: number } | null; // linked couple: the gift goes to them
 }) => {
+  const [partnerFreezes, setPartnerFreezes] = useState(partner?.freezes ?? 0);
   const [pending, startTransition] = useTransition();
   const [ownedQty, setOwnedQty] = useState<Owned>(owned);
   const [busy, setBusy] = useState<string | null>(null);
@@ -41,18 +45,19 @@ export const Items = ({
       buyItemAction(key)
         .then((r) => {
           if (r.ok) {
-            setOwnedQty((prev) => ({
-              ...prev,
-              [key]: ("qty" in r && r.qty) || 1,
-            }));
             const item = SHOP_ITEMS.find((i) => i.key === key);
+            const qty = ("qty" in r && r.qty) || 1;
+            if (item?.kind === "gift") setPartnerFreezes(qty);
+            else setOwnedQty((prev) => ({ ...prev, [key]: qty }));
             celebrate({
               kind: "purchase",
               title: item?.name ?? "구매 완료",
               subtitle:
-                item?.kind === "consumable"
-                  ? "연속 출석을 지켜줄게요"
-                  : "프로필에서 장착해 보세요",
+                item?.kind === "gift"
+                  ? `${partner?.name ?? "상대"}에게 보호권을 보냈어요`
+                  : item?.kind === "consumable"
+                    ? "연속 출석을 지켜줄게요"
+                    : "프로필에서 장착해 보세요",
               image:
                 item && item.kind === "mascot" && "icon" in item
                   ? item.icon
@@ -63,6 +68,8 @@ export const Items = ({
               "not-enough-gems": "젬이 부족해요.",
               "max-qty": "이미 최대 개수를 보유하고 있어요.",
               "already-owned": "이미 보유 중이에요.",
+              "partner-max": "상대가 이미 보호권을 2개 갖고 있어요.",
+              "no-partner": "커플로 연결돼 있어야 선물할 수 있어요.",
             };
             toast.error(msg[r.error ?? ""] ?? "문제가 생겼어요.");
           }
@@ -74,10 +81,10 @@ export const Items = ({
 
   return (
     <ul className="w-full space-y-3 pb-8">
-      {SHOP_ITEMS.map((item) => {
+      {SHOP_ITEMS.filter((item) => item.kind !== "gift" || partner).map((item) => {
         const qty = ownedQty[item.key] ?? owned[item.key] ?? 0;
-        const isOwned = item.kind !== "consumable" && qty > 0;
-        const maxed = item.kind === "consumable" && qty >= item.maxQty;
+        const isOwned = item.kind !== "consumable" && item.kind !== "gift" && qty > 0;
+        const maxed = (item.kind === "consumable" && qty >= item.maxQty) || (item.kind === "gift" && partnerFreezes >= 2);
         const canAfford = gems >= item.gems;
         const disabled =
           pending || busy === item.key || isOwned || maxed || !canAfford;
@@ -108,6 +115,11 @@ export const Items = ({
               {item.kind === "consumable" && qty > 0 && (
                 <span className="mt-1 inline-block text-[11px] font-bold text-sky-600">
                   현재 {qty}개 보유
+                </span>
+              )}
+              {item.kind === "gift" && partner && (
+                <span className="mt-1 inline-block text-[11px] font-bold text-rose-500">
+                  {partner.name} 보유 {partnerFreezes}/2
                 </span>
               )}
             </div>

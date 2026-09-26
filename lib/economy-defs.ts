@@ -27,14 +27,23 @@ export const QUEST_DEFS: QuestDef[] = [
   { key: "streak100", name: "연속 100일", hint: "연속 출석 100일 도달", gems: 500, goal: 100, oneOff: true, progress: (d) => d.streak },
 ];
 
-/** A quest as the client sees it: the definition's data without its progress function, plus today's state. */
-export type QuestView = Omit<QuestDef, "progress"> & { have: number; claimed: boolean; done: boolean };
+/** A quest as the client sees it: the definition's data without its progress function, plus its state now. */
+export type QuestView = Omit<QuestDef, "progress"> & { have: number; claimed: boolean; done: boolean; weekly?: boolean };
+
+/*
+ 커플 주간 목표 — a shared weekly quest, Duolingo's Friends Quest for two: both partners' sessions this
+ week (Mon–Sun, KST) count toward one target, five days of both daily goals, and each partner claims
+ the reward once per week. Not a QUEST_DEFS entry: its target and progress come from two learners.
+*/
+export const COUPLE_WEEK = { key: "couple_week", name: "커플 주간 목표", gems: 30, days: 5 } as const;
 
 export const questEmoji = (q: { key: string; oneOff?: boolean }) =>
-  q.oneOff ? "🔥" : ({ practice1: "🎯", kana1: "🈁", couple: "💞", xp50: "⚡️" } as Record<string, string>)[q.key] ?? "📚";
+  q.oneOff ? "🔥" : ({ practice1: "🎯", kana1: "🈁", couple: "💞", couple_week: "💑", xp50: "⚡️" } as Record<string, string>)[q.key] ?? "📚";
 
 export const SHOP_ITEMS = [
   { key: "freeze", kind: "consumable", name: "연속 출석 보호", desc: "하루 빠져도 연속 출석이 끊기지 않아요 (최대 2개 보유)", gems: 50, maxQty: 2, icon: "/shop-freeze.svg" },
+  // bought here, lands in the partner's stock as a freeze (lib/economy buyItem); shown only to a linked couple
+  { key: "gift_freeze", kind: "gift", name: "보호권 선물", desc: "상대의 연속 출석을 하루 지켜줘요 (상대 최대 2개)", gems: 50, icon: "/shop-freeze.svg" },
   { key: "frame_sky", kind: "frame", name: "맑은 하늘 테두리", gems: 30, icon: "/frame-sky.svg", color: "#38bdf8" },
   { key: "frame_rose", kind: "frame", name: "장미 테두리", gems: 60, icon: "/frame-rose.svg", color: "#fb7185" },
   { key: "frame_gold", kind: "frame", name: "황금 테두리", gems: 100, icon: "/frame-gold.svg", color: "#f59e0b" },

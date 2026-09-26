@@ -17,6 +17,7 @@ type Quest = {
   hint: string;
   gems: number;
   oneOff?: boolean;
+  weekly?: boolean; // 커플 주간 목표 (lib/economy-defs COUPLE_WEEK)
   goal: number;
   have: number;
   claimed: boolean;
@@ -67,6 +68,7 @@ export const QuestList = ({
             const msg: Record<string, string> = {
               "already-claimed": "이미 받았어요.",
               "not-done": "아직 달성하지 못했어요.",
+              "no-partner": "커플로 연결돼 있어야 해요.",
             };
             toast.error(msg[r.error ?? ""] ?? "문제가 생겼어요.");
           }
@@ -111,6 +113,11 @@ export const QuestList = ({
                   {q.oneOff && (
                     <span className="ml-1.5 rounded-md border border-amber-200 bg-amber-50 px-1.5 py-0.5 text-[10px] font-black text-amber-600">
                       일회성
+                    </span>
+                  )}
+                  {q.weekly && (
+                    <span className="ml-1.5 rounded-md border border-rose-200 bg-rose-50 px-1.5 py-0.5 text-[10px] font-black text-rose-600">
+                      주간
                     </span>
                   )}
                 </p>

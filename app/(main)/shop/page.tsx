@@ -8,15 +8,17 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import db from "@/db/drizzle";
 import { userItems } from "@/db/schema";
 import { eq } from "drizzle-orm";
+import { giftTarget } from "@/lib/economy";
 
 import { Items } from "./items";
 
 const ShopPage = async () => {
   const { userId } = await auth.protect().then((s) => ({ userId: s.user.id }));
-  const [userProgress, userSubscription, ownedRows] = await Promise.all([
+  const [userProgress, userSubscription, ownedRows, partner] = await Promise.all([
     getUserProgress(),
     getUserSubscription(),
     db.select().from(userItems).where(eq(userItems.userId, userId)),
+    giftTarget(userId),
   ]);
 
   if (!userProgress || !userProgress.activeCourse) redirect("/courses");
@@ -51,6 +53,7 @@ const ShopPage = async () => {
             gems={userProgress.gems}
             owned={owned}
             hasActiveSubscription={isPro}
+            partner={partner}
           />
         </div>
       </FeedWrapper>

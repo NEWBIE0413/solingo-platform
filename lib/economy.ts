@@ -1,9 +1,10 @@
-import { and, eq, sql } from "drizzle-orm";
+import { and, eq, gte, inArray, lte, sql } from "drizzle-orm";
 
 import db from "@/db/drizzle";
 import { couples, dailyActivity, questClaims, userItems, userProgress } from "@/db/schema";
+import { weekBounds } from "@/lib/leaderboard";
 import { dayKey } from "@/lib/streak";
-import { QUEST_DEFS, SHOP_ITEMS, shopItem, type QuestView } from "@/lib/economy-defs";
+import { COUPLE_WEEK, QUEST_DEFS, SHOP_ITEMS, shopItem, type QuestView } from "@/lib/economy-defs";
 
 export { QUEST_DEFS, SHOP_ITEMS, shopItem } from "@/lib/economy-defs";
 export type { QuestDef, QuestView, ShopItem } from "@/lib/economy-defs";
@@ -37,8 +38,67 @@ export async function coupleBothDone(userId: string, day = dayKey()): Promise<bo
   return rows.some((r) => r.userId === userId) && rows.some((r) => r.userId === partnerId);
 }
 
-/** Claim one quest: insert into quest_claims wins or loses, gems only follow a win. */
+/** Pay a quest once: the quest_claims insert wins or loses, gems only follow a win. */
+const payClaim = (userId: string, questKey: string, day: string, gems: number) =>
+  db.transaction(async (tx) => {
+    const inserted = await tx.insert(questClaims).values({ userId, questKey, day }).onConflictDoNothing().returning();
+    if (!inserted.length) return { ok: false, error: "already-claimed" };
+    await tx.update(userProgress).set({ gems: sql`${userProgress.gems} + ${gems}` }).where(eq(userProgress.userId, userId));
+    return { ok: true, gems };
+  }).catch((e) => ({ ok: false, error: (e as Error).message }));
+
+async function partnerOf(userId: string): Promise<string | null> {
+  const c = await db.query.couples.findFirst({ where: sql`${couples.userA} = ${userId} or ${couples.userB} = ${userId}` });
+  if (!c?.userB) return null;
+  return c.userA === userId ? c.userB : c.userA;
+}
+
+/** This week's shared couple quest (COUPLE_WEEK), or null without a linked partner. The claim is keyed by the week's Monday. */
+export async function coupleWeek(userId: string) {
+  const partnerId = await partnerOf(userId);
+  if (!partnerId) return null;
+  const { start, end } = weekBounds();
+  const pair = [userId, partnerId];
+  const [sessions, people, claim] = await Promise.all([
+    db
+      .select({ userId: dailyActivity.userId, n: sql<number>`coalesce(sum(${dailyActivity.lessons} + ${dailyActivity.practice} + ${dailyActivity.kana}), 0)::int` })
+      .from(dailyActivity)
+      .where(and(inArray(dailyActivity.userId, pair), gte(dailyActivity.day, start), lte(dailyActivity.day, end)))
+      .groupBy(dailyActivity.userId),
+    db.select({ userId: userProgress.userId, name: userProgress.userName, goal: userProgress.dailyGoal }).from(userProgress).where(inArray(userProgress.userId, pair)),
+    db.query.questClaims.findFirst({ where: and(eq(questClaims.userId, userId), eq(questClaims.questKey, COUPLE_WEEK.key), eq(questClaims.day, start)) }),
+  ]);
+  const of = (id: string) => sessions.find((r) => r.userId === id)?.n ?? 0;
+  const goalOf = (id: string) => people.find((p) => p.userId === id)?.goal ?? 1;
+  return {
+    start,
+    mine: of(userId),
+    theirs: of(partnerId),
+    partnerName: people.find((p) => p.userId === partnerId)?.name ?? "상대",
+    target: (goalOf(userId) + goalOf(partnerId)) * COUPLE_WEEK.days,
+    claimed: !!claim,
+  };
+}
+
+/** Who a gift would go to, and how many freezes they already hold (the shop shows the gift only to a couple). */
+export async function giftTarget(userId: string): Promise<{ name: string; freezes: number } | null> {
+  const partnerId = await partnerOf(userId);
+  if (!partnerId) return null;
+  const [person, freeze] = await Promise.all([
+    db.query.userProgress.findFirst({ where: eq(userProgress.userId, partnerId), columns: { userName: true } }),
+    db.query.userItems.findFirst({ where: and(eq(userItems.userId, partnerId), eq(userItems.itemKey, "freeze")) }),
+  ]);
+  return { name: person?.userName ?? "상대", freezes: freeze?.qty ?? 0 };
+}
+
+/** Claim one quest; the gems follow only a claim that wins its quest_claims row. */
 export async function claimQuest(userId: string, questKey: string): Promise<{ ok: boolean; gems?: number; error?: string }> {
+  if (questKey === COUPLE_WEEK.key) {
+    const week = await coupleWeek(userId);
+    if (!week) return { ok: false, error: "no-partner" };
+    if (week.mine + week.theirs < week.target) return { ok: false, error: "not-done" };
+    return payClaim(userId, questKey, week.start, COUPLE_WEEK.gems);
+  }
   const def = QUEST_DEFS.find((q) => q.key === questKey);
   if (!def) return { ok: false, error: "unknown-quest" };
   const day = def.oneOff ? "" : dayKey();
@@ -50,42 +110,45 @@ export async function claimQuest(userId: string, questKey: string): Promise<{ ok
   const coupleBoth = await coupleBothDone(userId, day || dayKey());
   const have = def.progress({ ...activity, coupleBoth, streak: streakRow.current });
   if (have < def.goal) return { ok: false, error: "not-done" };
-
-  return db.transaction(async (tx) => {
-    const inserted = await tx.insert(questClaims).values({ userId, questKey, day }).onConflictDoNothing().returning();
-    if (!inserted.length) return { ok: false, error: "already-claimed" };
-    await tx.update(userProgress).set({ gems: sql`${userProgress.gems} + ${def.gems}` }).where(eq(userProgress.userId, userId));
-    return { ok: true, gems: def.gems };
-  }).catch((e) => ({ ok: false, error: (e as Error).message }));
+  return payClaim(userId, questKey, day, def.gems);
 }
 
-/** The quests page: defs + today's numbers + claim state in one round trip. */
+/** The quests page: defs + today's numbers + claim state in one round trip. Quests come back as plain
+ * data (a definition carries a progress function, which can't cross to the client). */
 export async function getQuestBoard(userId: string, onlyCourseKana: boolean) {
   const day = dayKey();
-  const [activity, streak, dayClaims, coupleBoth] = await Promise.all([
+  const [activity, streak, dayClaims, coupleBoth, week] = await Promise.all([
     todayActivity(userId),
     import("@/lib/streak").then((m) => m.getStreak(userId)),
     db.select({ questKey: questClaims.questKey }).from(questClaims).where(and(eq(questClaims.userId, userId), eq(questClaims.day, day))),
     coupleBothDone(userId, day),
+    coupleWeek(userId),
   ]);
   const oneOffs = await db.select({ questKey: questClaims.questKey }).from(questClaims).where(and(eq(questClaims.userId, userId), eq(questClaims.day, "")));
   const claimedSet = new Set([...dayClaims, ...oneOffs].map((c) => c.questKey));
 
-  return {
-    activity,
-    streak,
-    coupleBoth,
-    hasPartner: !!(await db.query.couples.findFirst({ where: sql`${couples.userA} = ${userId} or ${couples.userB} = ${userId}` }))?.userB,
-    quests: QUEST_DEFS.filter((q) => !q.onlyCourse || onlyCourseKana).map((def) => {
-      const have = def.progress({ ...activity, coupleBoth, streak: streak.current });
-      return { ...def, have, claimed: claimedSet.has(def.key), done: have >= def.goal };
-    }),
-  };
+  const quests: QuestView[] = [];
+  for (const def of QUEST_DEFS.filter((q) => !q.onlyCourse || onlyCourseKana)) {
+    const have = def.progress({ ...activity, coupleBoth, streak: streak.current });
+    const { key, name, hint, gems, oneOff, goal, onlyCourse } = def;
+    quests.push({ key, name, hint, gems, oneOff, goal, onlyCourse, have, claimed: claimedSet.has(key), done: have >= goal });
+    if (key === "couple" && week) {
+      const have = week.mine + week.theirs;
+      quests.push({
+        key: COUPLE_WEEK.key,
+        name: COUPLE_WEEK.name,
+        hint: `둘이 합쳐 이번 주 ${week.target}번 · 나 ${week.mine} · ${week.partnerName} ${week.theirs}`,
+        gems: COUPLE_WEEK.gems,
+        goal: week.target,
+        weekly: true,
+        have,
+        claimed: week.claimed,
+        done: have >= week.target,
+      });
+    }
+  }
+  return { activity, streak, coupleBoth, hasPartner: !!week, quests };
 }
-
-/** Board quests as plain data (the definitions carry a progress function, which can't cross to the client). */
-export const questViews = (quests: Awaited<ReturnType<typeof getQuestBoard>>["quests"]): QuestView[] =>
-  quests.map(({ key, name, hint, gems, oneOff, goal, onlyCourse, have, claimed, done }) => ({ key, name, hint, gems, oneOff, goal, onlyCourse, have, claimed, done }));
 
 /** How far each quest was when a lesson began — the lesson-end quest step fills bars from here. */
 export async function questSnapshot(userId: string): Promise<Record<string, number>> {
@@ -108,24 +171,24 @@ export async function buyItem(userId: string, itemKey: string): Promise<{ ok: bo
     if (!paid.length) return { ok: false, error: "not-enough-gems" };
 
     if (def.kind === "consumable") {
-      const spent = await tx.update(userItems)
-        .set({ qty: sql`${userItems.qty} + 1` }) // keep acquiredAt: a top-up must not re-date the stock
-        .where(and(eq(userItems.userId, userId), eq(userItems.itemKey, itemKey), sql`${userItems.qty} < ${def.maxQty}`))
-        .returning({ qty: userItems.qty });
-      if (!spent.length) {
-        const inserted = await tx.insert(userItems).values({ userId, itemKey, qty: 1 }).onConflictDoUpdate({
-          target: [userItems.userId, userItems.itemKey],
-          set: { qty: sql`${userItems.qty} + 1` },
-        }).returning({ qty: userItems.qty });
-        // first purchase (or the row was at the cap): a fresh row is a success; beyond the cap, refund
-        if (inserted[0].qty > def.maxQty) {
-          await tx.update(userItems).set({ qty: def.maxQty }).where(and(eq(userItems.userId, userId), eq(userItems.itemKey, itemKey)));
-          await refund(tx, userId, def.gems);
-          return { ok: false, error: "max-qty" };
-        }
-        return { ok: true, gems: paid[0].gems, qty: inserted[0].qty };
+      const qty = await stock(tx, userId, itemKey, def.maxQty);
+      if (qty === null) {
+        await refund(tx, userId, def.gems);
+        return { ok: false, error: "max-qty" };
       }
-      return { ok: true, gems: paid[0].gems, qty: spent[0].qty };
+      return { ok: true, gems: paid[0].gems, qty };
+    }
+
+    if (def.kind === "gift") {
+      // a freeze for the partner; the buyer keeps nothing
+      const freeze = shopItem("freeze");
+      const partnerId = await partnerOf(userId);
+      const qty = partnerId && freeze?.kind === "consumable" ? await stock(tx, partnerId, freeze.key, freeze.maxQty) : null;
+      if (qty === null) {
+        await refund(tx, userId, def.gems);
+        return { ok: false, error: partnerId ? "partner-max" : "no-partner" };
+      }
+      return { ok: true, gems: paid[0].gems, qty };
     }
 
     const inserted = await tx.insert(userItems).values({ userId, itemKey, qty: 1 }).onConflictDoNothing().returning();
@@ -137,6 +200,28 @@ export async function buyItem(userId: string, itemKey: string): Promise<{ ok: bo
   }).catch((e) => ({ ok: false, error: (e as Error).message }));
 }
 
-async function refund(tx: Parameters<Parameters<typeof db.transaction>[0]>[0], userId: string, gems: number) {
+type Tx = Parameters<Parameters<typeof db.transaction>[0]>[0];
+
+/** One more of a consumable into `ownerId`'s stock, up to `maxQty`. Returns the new count, or null at the cap
+ * (the row is left at the cap). A top-up keeps acquiredAt: a freeze only covers days after it was acquired. */
+async function stock(tx: Tx, ownerId: string, itemKey: string, maxQty: number): Promise<number | null> {
+  const topped = await tx.update(userItems)
+    .set({ qty: sql`${userItems.qty} + 1` })
+    .where(and(eq(userItems.userId, ownerId), eq(userItems.itemKey, itemKey), sql`${userItems.qty} < ${maxQty}`))
+    .returning({ qty: userItems.qty });
+  if (topped.length) return topped[0].qty;
+  const inserted = await tx.insert(userItems).values({ userId: ownerId, itemKey, qty: 1 }).onConflictDoUpdate({
+    target: [userItems.userId, userItems.itemKey],
+    set: { qty: sql`${userItems.qty} + 1` },
+  }).returning({ qty: userItems.qty });
+  // first one (a fresh row) is a success; a row that was already at the cap went past it — put it back
+  if (inserted[0].qty > maxQty) {
+    await tx.update(userItems).set({ qty: maxQty }).where(and(eq(userItems.userId, ownerId), eq(userItems.itemKey, itemKey)));
+    return null;
+  }
+  return inserted[0].qty;
+}
+
+async function refund(tx: Tx, userId: string, gems: number) {
   await tx.update(userProgress).set({ gems: sql`${userProgress.gems} + ${gems}` }).where(eq(userProgress.userId, userId));
 }

@@ -53,31 +53,8 @@ const QuestsPage = async () => {
             </p>
           </div>
 
-          {/* plain data only: QuestDef carries a progress() function, which a client component cannot receive */}
           <QuestList
-            quests={board.quests.map(
-              ({
-                key,
-                name,
-                hint,
-                gems,
-                oneOff,
-                goal,
-                have,
-                claimed,
-                done,
-              }) => ({
-                key,
-                name,
-                hint,
-                gems,
-                oneOff,
-                goal,
-                have,
-                claimed,
-                done,
-              })
-            )}
+            quests={board.quests}
             initialGems={userProgress.gems}
           />
         </div>

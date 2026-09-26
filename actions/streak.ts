@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 
 import { auth } from "@/lib/session";
-import { getQuestBoard, questViews } from "@/lib/economy";
+import { getQuestBoard } from "@/lib/economy";
 import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity, todayGoal, weekDays } from "@/lib/streak";
 import { DAILY_GOAL_OPTIONS } from "@/constants";
 import db from "@/db/drizzle";
@@ -49,7 +49,7 @@ export const recordLessonComplete = async (
     streak: streak.current,
     firstToday,
     week,
-    quests: questViews(board.quests),
+    quests: board.quests,
     achievements: ach.fresh.map(({ key, name, desc, emoji }) => ({ key, name, desc, emoji })),
     goal, // { done, goal } after this session
     bonus,
