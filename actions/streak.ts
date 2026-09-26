@@ -8,21 +8,34 @@ import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity, today
 import { DAILY_GOAL_OPTIONS } from "@/constants";
 import db from "@/db/drizzle";
 import { userProgress } from "@/db/schema";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { syncAchievements } from "@/lib/achievements";
+import { sessionBonus } from "@/lib/xp";
 
 /*
  Called once when a lesson, a practice round, or a 히라가나 session is completed. This is also
  where those writes become visible elsewhere: per-answer actions skip revalidation to keep
  answering instant, so the paths that show points/hearts/streak are refreshed here.
  The kind routes the daily_activity counter — "lesson" fills lessons, "practice"/"kana"
- fill their own quest counters. XP was already credited per-answer in submitAnswer.
+ fill their own quest counters. Answer XP was already credited in submitAnswer; the session bonus
+ (lib/xp.ts: perfect run, combos, the day's goal met) is credited here, before the quest board and
+ achievements are read so they count it. `run` comes from the client — see submitAnswer's note.
 */
-export const recordLessonComplete = async (kind: "lesson" | "practice" | "kana" = "lesson") => {
+export const recordLessonComplete = async (
+  kind: "lesson" | "practice" | "kana" = "lesson",
+  run: { perfect: boolean; combos: number } = { perfect: false, combos: 0 }
+) => {
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized.");
   const { firstToday } = await recordActivity(userId, kind);
-  const [streak, board, ach, goal, week] = await Promise.all([getStreak(userId), getQuestBoard(userId, true), syncAchievements(userId), todayGoal(userId), weekDays(userId)]);
+  const goal = await todayGoal(userId);
+  // equality, not >=: only the session that reaches the goal is paid for it
+  const bonus = sessionBonus({ perfect: run.perfect, combos: run.combos, goalMet: goal.done === goal.goal });
+  if (bonus.total) {
+    await db.update(userProgress).set({ points: sql`${userProgress.points} + ${bonus.total}` }).where(eq(userProgress.userId, userId));
+    await recordActivity(userId, "xp", bonus.total);
+  }
+  const [streak, board, ach, week] = await Promise.all([getStreak(userId), getQuestBoard(userId, true), syncAchievements(userId), weekDays(userId)]);
   revalidatePath("/streak");
   revalidatePath("/learn");
   revalidatePath("/quests");
@@ -39,6 +52,7 @@ export const recordLessonComplete = async (kind: "lesson" | "practice" | "kana" 
     quests: questViews(board.quests),
     achievements: ach.fresh.map(({ key, name, desc, emoji }) => ({ key, name, desc, emoji })),
     goal, // { done, goal } after this session
+    bonus,
   };
 };
 

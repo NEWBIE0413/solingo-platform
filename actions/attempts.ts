@@ -1,6 +1,6 @@
 "use server";
 
-import { and, eq, inArray } from "drizzle-orm";
+import { and, eq, inArray, sql } from "drizzle-orm";
 
 import { MAX_HEARTS } from "@/constants";
 import db from "@/db/drizzle";
@@ -8,6 +8,7 @@ import { getUserProgress, getUserSubscription } from "@/db/queries";
 import { challengeAttempts, challengeProgress, challenges, userProgress } from "@/db/schema";
 import { auth } from "@/lib/session";
 import { recordActivity } from "@/lib/streak";
+import { answerXp } from "@/lib/xp";
 
 /*
  One round trip per answer: log the attempt and persist progress/hearts together.
@@ -17,17 +18,31 @@ import { recordActivity } from "@/lib/streak";
  No revalidatePath here on purpose. Revalidating /learn, /quests and /leaderboard on every
  single answer re-rendered the whole lesson route mid-lesson (~650ms of dead time per item).
  The lesson-completion action revalidates those paths once instead.
+
+ XP follows lib/xp.ts. `recovered` (missed earlier in this run) comes from the client, which is
+ the only side that knows the run; trusted, like the rest of a two-learner instance — if that
+ ever matters, derive it from this run's attempts instead.
 */
+const credit = async (userId: string, xp: number) => {
+  await db.update(userProgress).set({ points: sql`${userProgress.points} + ${xp}` }).where(eq(userProgress.userId, userId));
+  await recordActivity(userId, "xp", xp);
+};
+
 export const submitAnswer = async (
   challengeId: number,
   correct: boolean,
-  practice = false
+  practice = false,
+  recovered = false
 ): Promise<{ error?: "hearts" }> => {
   const { userId } = await auth();
   if (!userId) return {};
 
   await db.insert(challengeAttempts).values({ userId, challengeId, correct });
-  if (practice) return {};
+  if (practice) {
+    // review pays: it used to log the attempt and credit nothing while the summary showed XP
+    if (correct) await credit(userId, answerXp({ practice: true, recovered, replay: false }));
+    return {};
+  }
 
   const [progress, subscription] = await Promise.all([getUserProgress(), getUserSubscription()]);
   if (!progress) return {};
@@ -44,15 +59,14 @@ export const submitAnswer = async (
       await db.update(challengeProgress).set({ completed: true }).where(eq(challengeProgress.id, existing.id));
       await db
         .update(userProgress)
-        .set({ hearts: Math.min(progress.hearts + 1, MAX_HEARTS), points: progress.points + 10 })
+        .set({ hearts: Math.min(progress.hearts + 1, MAX_HEARTS) })
         .where(eq(userProgress.userId, userId));
-      await recordActivity(userId, "xp", 10);
+      await credit(userId, answerXp({ practice: false, recovered, replay: true }));
       return {};
     }
 
     await db.insert(challengeProgress).values({ challengeId, userId, completed: true });
-    await db.update(userProgress).set({ points: progress.points + 10 }).where(eq(userProgress.userId, userId));
-    await recordActivity(userId, "xp", 10);
+    await credit(userId, answerXp({ practice: false, recovered, replay: false }));
     return {};
   }
 

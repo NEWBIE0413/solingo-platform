@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useRef, useState, useTransition } from "react";
 
 import { Check, Flame, Snowflake } from "lucide-react";
 import Image from "next/image";
@@ -12,6 +12,7 @@ import { claimQuestAction } from "@/actions/economy";
 import { chime } from "@/components/celebrate";
 import { Button } from "@/components/ui/button";
 import { type QuestView, questEmoji } from "@/lib/economy-defs";
+import type { Bonus } from "@/lib/xp";
 import { cn } from "@/lib/utils";
 
 import { Footer } from "./footer";
@@ -29,11 +30,12 @@ export type LessonDone = {
   quests: QuestView[];
   achievements: { key: string; name: string; desc: string; emoji: string }[];
   goal: { done: number; goal: number };
+  bonus: Bonus;
 };
 
 export type LessonStats = {
   practice: boolean;
-  xp: number;
+  xp: number; // answer XP this run earned (lib/xp.ts); the session bonus arrives with LessonDone
   accuracy: number; // first-try, percent
   timeLabel: string;
   bestCombo: number;
@@ -47,16 +49,19 @@ const WEEK_LABELS = ["월", "화", "수", "목", "금", "토", "일"];
 
 const prefersReduced = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/** Counts from 0 to `target` after `delay` ms (ease-out cubic); reduced motion shows the target. */
+/** Counts up to `target` (ease-out cubic), from 0 after `delay` ms at first and from where it is when the
+ target later grows (the session bonus lands while the answer XP is counting). Reduced motion shows the target. */
 const useCounter = (target: number, delay: number, duration = 700) => {
   const [n, setN] = useState(() => (prefersReduced() ? target : 0));
+  const shown = useRef(prefersReduced() ? target : 0);
   useEffect(() => {
-    if (prefersReduced()) return;
+    const from = shown.current;
+    const start = performance.now() + (from === 0 ? delay : 0);
     let raf = 0;
-    const t0 = performance.now() + delay;
     const tick = (now: number) => {
-      const p = Math.max(0, Math.min(1, (now - t0) / duration));
-      setN(Math.round(target * (1 - Math.pow(1 - p, 3))));
+      const p = prefersReduced() ? 1 : Math.max(0, Math.min(1, (now - start) / duration));
+      shown.current = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3)));
+      setN(shown.current);
       if (p < 1) raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -121,7 +126,7 @@ export const RewardSteps = ({
           key={step}
           className="mx-auto flex min-h-full w-full max-w-lg animate-[challenge-in_220ms_cubic-bezier(0.23,1,0.32,1)] flex-col items-center justify-center gap-y-4 px-5 py-6 text-center motion-reduce:animate-[fade_150ms_ease-out]"
         >
-          {step === "summary" && <Summary stats={stats} />}
+          {step === "summary" && <Summary stats={stats} bonus={done?.bonus} />}
           {step === "streak" && done && <StreakStep streak={done.streak} week={done.week} />}
           {step === "quests" && done && <QuestStep quests={quests} before={questsBefore} goal={done.goal} />}
           {step === "badges" && done && <BadgeStep achievements={done.achievements} />}
@@ -155,9 +160,12 @@ const EndStat = ({ label, value, tone, delay }: { label: string; value: string; 
   );
 };
 
-const Summary = ({ stats }: { stats: LessonStats }) => {
+const Summary = ({ stats, bonus }: { stats: LessonStats; bonus?: Bonus }) => {
   const { width, height } = useWindowSize();
-  const xp = useCounter(stats.xp, 350);
+  const xp = useCounter(stats.xp + (bonus?.total ?? 0), 350);
+  const bonusParts = bonus
+    ? [bonus.perfect && `완벽 +${bonus.perfect}`, bonus.combo && `콤보 +${bonus.combo}`, bonus.goal && `오늘 목표 +${bonus.goal}`].filter(Boolean)
+    : [];
   const accuracy = useCounter(stats.accuracy, 430);
   const headline = stats.accuracy === 100 ? "완벽해요!" : stats.accuracy >= 80 ? "잘했어요!" : "끝까지 왔어요!";
   return (
@@ -178,6 +186,14 @@ const Summary = ({ stats }: { stats: LessonStats }) => {
         <EndStat label="정확도" value={`${accuracy}%`} tone={stats.accuracy >= 80 ? "green" : "sky"} delay={330} />
         <EndStat label="시간" value={stats.timeLabel} tone="sky" delay={410} />
       </div>
+      {/* one line kept for the bonus even before it arrives, so nothing below it moves when it does */}
+      <p className="h-5 text-sm font-black text-amber-600">
+        {bonusParts.length > 0 && (
+          <span className="inline-block animate-[pop_.4s_cubic-bezier(0.23,1,0.32,1)] motion-reduce:animate-none">
+            ⚡️ 보너스 {bonusParts.join(" · ")}
+          </span>
+        )}
+      </p>
       {stats.bestCombo >= 3 && (
         <p className="animate-[pop_.4s_.6s_cubic-bezier(.16,1,.3,1)_backwards] text-sm font-bold text-orange-600 motion-reduce:animate-none">
           🔥 최고 {stats.bestCombo}연속 정답

@@ -13,6 +13,7 @@ import { challengeOptions, challenges, userSubscription } from "@/db/schema";
 import { useHeartsModal } from "@/store/use-hearts-modal";
 import { usePracticeModal } from "@/store/use-practice-modal";
 import { useCelebrate } from "@/store/use-celebrate";
+import { answerXp } from "@/lib/xp";
 
 import { type Answer, Challenge } from "./challenge";
 import { installUnlock, play, prefetch } from "./audio";
@@ -88,8 +89,10 @@ export const Quiz = ({
     return uncompletedIndex === -1 ? 0 : uncompletedIndex;
   });
   const reasks = useRef(new Map<number, number>());
-  const stats = useRef({ firstTryCorrect: 0, wrong: 0, bestCombo: 0, startedAt: Date.now(), recovered: new Set<number>() });
+  // combos: runs of correct answers that reached a multiple of 5 (the session bonus counts them)
+  const stats = useRef({ firstTryCorrect: 0, wrong: 0, bestCombo: 0, combos: 0, startedAt: Date.now(), recovered: new Set<number>() });
   const [combo, setCombo] = useState(0);
+  const [runXp, setRunXp] = useState(0); // what this run earned per lib/xp.ts — the server credits the same
   const [done, setDone] = useState<LessonDone | null>(null);
   const [doneFailed, setDoneFailed] = useState(false);
   const unique = initialLessonChallenges.length;
@@ -134,7 +137,7 @@ export const Quiz = ({
     // mark the lesson done first so the /learn revalidation inside recordLessonComplete sees it
     // the rewards are shown as step screens (reward-steps.tsx) built from this answer
     (practice ? Promise.resolve() : completeLesson(lessonId))
-      .then(() => recordLessonComplete(practice ? "practice" : "lesson"))
+      .then(() => recordLessonComplete(practice ? "practice" : "lesson", { perfect: stats.current.firstTryCorrect === unique, combos: stats.current.combos }))
       .then(setDone)
       .catch(() => setDoneFailed(true));
   }, [challenge, practice]);
@@ -171,12 +174,16 @@ export const Quiz = ({
     if (ok) {
       void correctControls.play();
       setStatus("correct");
-      if (!reasks.current.has(challenge.id)) stats.current.firstTryCorrect++; else stats.current.recovered.add(challenge.id);
-      setCombo((c) => {
-        const n = c + 1; stats.current.bestCombo = Math.max(stats.current.bestCombo, n);
-        if (n === 3 || n === 5 || n === 10 || (n > 10 && n % 5 === 0)) setTimeout(() => celebrate({ kind: "combo", title: `🔥 ${n}연속!`, light: true }), 120);
-        return n;
-      });
+      const recovered = reasks.current.has(challenge.id);
+      if (!recovered) stats.current.firstTryCorrect++; else stats.current.recovered.add(challenge.id);
+      const gained = answerXp({ practice, recovered, replay: challenge.completed });
+      setRunXp((x) => x + gained);
+      // counted here, not in a state updater: dev StrictMode runs updaters twice
+      const n = combo + 1;
+      setCombo(n);
+      stats.current.bestCombo = Math.max(stats.current.bestCombo, n);
+      if (n % 5 === 0) stats.current.combos++;
+      if (n === 3 || n === 5 || n === 10 || (n > 10 && n % 5 === 0)) setTimeout(() => celebrate({ kind: "combo", title: `🔥 ${n}연속!`, light: true }), 120);
     } else {
       void incorrectControls.play();
       setStatus("wrong");
@@ -186,7 +193,7 @@ export const Quiz = ({
     }
     if (challenge.audioSrc && challenge.type !== "TRACE") play(challenge.audioSrc);
 
-    void submitAnswer(challenge.id, ok, practice)
+    void submitAnswer(challenge.id, ok, practice, reasks.current.has(challenge.id))
       .then((res) => { if (res?.error === "hearts") openHeartsModal(); })
       .catch(() => toast.error("기록을 저장하지 못했어요. 연결을 확인해 주세요."));
   };
@@ -220,7 +227,7 @@ export const Quiz = ({
           lessonId={lessonId}
           stats={{
             practice,
-            xp: unique * 10,
+            xp: runXp,
             accuracy: unique ? Math.round((100 * stats.current.firstTryCorrect) / unique) : 100,
             timeLabel: secs >= 60 ? `${Math.floor(secs / 60)}분 ${secs % 60}초` : `${secs}초`,
             bestCombo: stats.current.bestCombo,
