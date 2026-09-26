@@ -18,11 +18,49 @@ import {
 
 const DAY_IN_MS = 86_400_000;
 
-// 약점 복습: the engine's "틀린 것이 다시 나온다" promise. Collects the active
-// course's challenges the user answered wrong on their first attempt and never
-// got right since; falls back to completed challenges — 오래된 순(first-seen)으로 —
-// to always offer 10. /practice redirects only when there is nothing to replay
-// at all. No schema changes — reads attempts + progress only.
+/*
+ What counts as weak (약점), read straight from challenge_attempts — no table of its own:
+ an item whose first answer on some day (KST) was wrong stays weak until, on two later days,
+ its first answer of the day was right. Before this, "weak" meant "never answered right", but a
+ lesson brings a missed item back until it is answered right, so nearly every mistake left the
+ list the same day and 약점 복습 held only items missed three times in a row.
+ Weakest first: fewest clean days since the last miss, then the oldest miss.
+ Attempts are stored as timestamp-without-zone in the database session's zone (UTC in production,
+ local in dev), hence the two-step conversion.
+*/
+const weakItems = (userId: string, courseId: number, limit?: number) => sql`
+  WITH course_challenges AS (
+    SELECT c.id FROM challenges c
+    JOIN lessons l ON l.id = c.lesson_id
+    JOIN units u ON u.id = l.unit_id
+    WHERE u.course_id = ${courseId}
+  ),
+  firsts AS (
+    SELECT DISTINCT ON (a.challenge_id, a.day) a.challenge_id, a.day, a.correct
+    FROM (
+      SELECT ca.challenge_id, ca.correct, ca.created_at,
+             to_char((ca.created_at AT TIME ZONE current_setting('TimeZone')) AT TIME ZONE 'Asia/Seoul', 'YYYY-MM-DD') AS day
+      FROM challenge_attempts ca
+      JOIN course_challenges cc ON cc.id = ca.challenge_id
+      WHERE ca.user_id = ${userId}
+    ) a
+    ORDER BY a.challenge_id, a.day, a.created_at
+  ),
+  misses AS (
+    SELECT challenge_id, max(day) AS miss_day FROM firsts WHERE NOT correct GROUP BY challenge_id
+  )
+  SELECT m.challenge_id AS id
+  FROM misses m
+  LEFT JOIN firsts f ON f.challenge_id = m.challenge_id AND f.day > m.miss_day AND f.correct
+  GROUP BY m.challenge_id, m.miss_day
+  HAVING count(f.challenge_id) < 2
+  ORDER BY count(f.challenge_id) ASC, m.miss_day ASC
+  ${limit ? sql`LIMIT ${limit}` : sql``}
+`;
+
+// 약점 복습: the engine's "틀린 것이 다시 나온다" promise. Weak items first (weakItems above);
+// falls back to completed challenges — 오래된 순(first-seen)으로 — to always offer 10.
+// /practice redirects only when there is nothing to replay at all.
 export const getPracticeChallenges = cache(async () => {
   const { userId } = await auth();
   if (!userId) return null;
@@ -31,28 +69,7 @@ export const getPracticeChallenges = cache(async () => {
   const courseId = courseProgress?.activeCourseId;
   if (!courseId) return null;
 
-  const wrongs = await db.execute(sql`
-    WITH course_challenges AS (
-      SELECT c.id FROM challenges c
-      JOIN lessons l ON l.id = c.lesson_id
-      JOIN units u ON u.id = l.unit_id
-      WHERE u.course_id = ${courseId}
-    ),
-    stats AS (
-      SELECT a.challenge_id,
-             MIN(a.created_at) AS first_at,
-             BOOL_OR(a.correct) AS ever_correct
-      FROM challenge_attempts a
-      JOIN course_challenges cc ON cc.id = a.challenge_id
-      WHERE a.user_id = ${userId}
-      GROUP BY a.challenge_id
-    )
-    SELECT s.challenge_id AS id
-    FROM stats s
-    WHERE NOT s.ever_correct
-    ORDER BY s.first_at DESC
-    LIMIT 12
-  `);
+  const wrongs = await db.execute(weakItems(userId, courseId, 12));
   let ids = wrongs.rows.map((r) => Number(r.id));
 
   if (ids.length < 10) {
@@ -102,18 +119,7 @@ export const countWeakChallenges = cache(async () => {
   const progress = await getUserProgress();
   const courseId = progress?.activeCourseId;
   if (!courseId) return 0;
-  const r = await db.execute(sql`
-    SELECT COUNT(*)::int AS n
-    FROM (
-      SELECT a.challenge_id, BOOL_OR(a.correct) AS ever_ok
-      FROM challenge_attempts a
-      JOIN challenges c ON c.id = a.challenge_id
-      JOIN lessons l ON l.id = c.lesson_id
-      JOIN units u ON u.id = l.unit_id
-      WHERE a.user_id = ${userId} AND u.course_id = ${courseId}
-      GROUP BY a.challenge_id
-    ) s
-    WHERE NOT s.ever_ok`);
+  const r = await db.execute(sql`SELECT COUNT(*)::int AS n FROM (${weakItems(userId, courseId)}) w`);
   const first = r.rows[0] as { n?: number } | undefined;
   return first?.n ?? 0;
 });
