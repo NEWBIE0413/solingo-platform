@@ -3,10 +3,10 @@ import { and, eq, sql } from "drizzle-orm";
 import db from "@/db/drizzle";
 import { couples, dailyActivity, questClaims, userItems, userProgress } from "@/db/schema";
 import { dayKey } from "@/lib/streak";
-import { QUEST_DEFS, SHOP_ITEMS, shopItem } from "@/lib/economy-defs";
+import { QUEST_DEFS, SHOP_ITEMS, shopItem, type QuestView } from "@/lib/economy-defs";
 
 export { QUEST_DEFS, SHOP_ITEMS, shopItem } from "@/lib/economy-defs";
-export type { QuestDef, ShopItem } from "@/lib/economy-defs";
+export type { QuestDef, QuestView, ShopItem } from "@/lib/economy-defs";
 
 /*
  젬 경제: 퀘스트 → 젬 → 상품. Two invariants the whole file protects:
@@ -81,6 +81,16 @@ export async function getQuestBoard(userId: string, onlyCourseKana: boolean) {
       return { ...def, have, claimed: claimedSet.has(def.key), done: have >= def.goal };
     }),
   };
+}
+
+/** Board quests as plain data (the definitions carry a progress function, which can't cross to the client). */
+export const questViews = (quests: Awaited<ReturnType<typeof getQuestBoard>>["quests"]): QuestView[] =>
+  quests.map(({ key, name, hint, gems, oneOff, goal, onlyCourse, have, claimed, done }) => ({ key, name, hint, gems, oneOff, goal, onlyCourse, have, claimed, done }));
+
+/** How far each quest was when a lesson began — the lesson-end quest step fills bars from here. */
+export async function questSnapshot(userId: string): Promise<Record<string, number>> {
+  const board = await getQuestBoard(userId, true);
+  return Object.fromEntries(board.quests.map((q) => [q.key, q.have]));
 }
 
 /** Shop purchase. Race-safe: the balance check and deduction are one conditional

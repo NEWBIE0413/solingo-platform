@@ -20,8 +20,9 @@ import { KanaHome } from "./kana-home";
 import { LearnExtras } from "./learn-extras";
 import { Unit } from "./unit";
 
-const LearnPage = async () => {
+const LearnPage = async ({ searchParams }: { searchParams: Promise<{ done?: string }> }) => {
   await auth.protect();
+  const { done } = await searchParams;
 
   const userProgressData = getUserProgress();
   const courseProgressData = getCourseProgress();
@@ -53,6 +54,13 @@ const LearnPage = async () => {
 
   if (!courseProgress) redirect("/courses");
 
+  // Back from a first completion (/learn?done=<lesson>): that node fills and, if the next lesson in
+  // path order is now the active one, it opens (lesson-button.tsx).
+  const path = units.flatMap((u) => u.lessons);
+  const at = path.findIndex((l) => l.id === Number(done));
+  const justDone = at >= 0 ? path[at].id : undefined;
+  const opened = at >= 0 && path[at + 1]?.id === courseProgress.activeLesson?.id ? path[at + 1].id : undefined;
+
   return (
     <div className="flex flex-row-reverse gap-[48px] px-4 sm:px-6">
       <StickyWrapper>
@@ -81,6 +89,8 @@ const LearnPage = async () => {
               lessons={unit.lessons}
               activeLesson={courseProgress.activeLesson}
               activeLessonPercentage={lessonPercentage}
+              justDone={justDone}
+              opened={opened}
             />
           </div>
         ))}

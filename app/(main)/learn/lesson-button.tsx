@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+
 import { Check, Crown, Star } from "lucide-react";
 import Link from "next/link";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
@@ -16,6 +18,7 @@ type LessonButtonProps = {
   locked?: boolean;
   current?: boolean;
   percentage: number;
+  moment?: "done" | "opened"; // just finished / just opened by that finish (learn/page.tsx)
 };
 
 export const LessonButton = ({
@@ -25,7 +28,18 @@ export const LessonButton = ({
   locked,
   current,
   percentage,
+  moment,
 }: LessonButtonProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  // The path's reward moment: bring the node into view (the opened one wins — it comes later in the
+  // path) and drop ?done, so a reload or a back navigation doesn't replay it.
+  useEffect(() => {
+    if (!moment) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    ref.current?.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
+    if (moment === "done") window.history.replaceState(null, "", "/learn");
+  }, [moment]);
+
   const cycleLength = 8;
   const cycleIndex = index % cycleLength;
 
@@ -56,7 +70,12 @@ export const LessonButton = ({
       style={{ pointerEvents: locked ? "none" : "auto" }}
     >
       <div
-        className="relative"
+        ref={ref}
+        className={cn(
+          "relative",
+          moment === "done" && "animate-[node-done_.5s_.25s_backwards] motion-reduce:animate-none",
+          moment === "opened" && "animate-[node-unlock_.5s_.8s_backwards] motion-reduce:animate-none"
+        )}
         style={{
           right: `${rightPosition}px`,
           marginTop: `${marginTop}px`,
@@ -64,12 +83,16 @@ export const LessonButton = ({
       >
         {current ? (
           <div className="relative h-[96px] w-[96px]">
-            <div className="absolute -top-7 left-1/2 z-10 -translate-x-1/2 animate-bounce whitespace-nowrap rounded-xl border border-slate-200 bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-green-600 shadow-sm motion-reduce:animate-none">
-              시작
-              <div
-                className="absolute -bottom-1.5 left-1/2 h-0 w-0 -translate-x-1/2 transform border-x-[5px] border-t-[6px] border-x-transparent border-t-white"
-                aria-hidden
-              />
+            <div className="absolute -top-7 left-1/2 z-10 -translate-x-1/2">
+              <div className={cn(moment === "opened" && "animate-[drop-in_.35s_1.2s_cubic-bezier(0.23,1,0.32,1)_backwards] motion-reduce:animate-none")}>
+                <div className="relative animate-bounce whitespace-nowrap rounded-xl border border-slate-200 bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-green-600 shadow-sm motion-reduce:animate-none">
+                  시작
+                  <div
+                    className="absolute -bottom-1.5 left-1/2 h-0 w-0 -translate-x-1/2 transform border-x-[5px] border-t-[6px] border-x-transparent border-t-white"
+                    aria-hidden
+                  />
+                </div>
+              </div>
             </div>
             <CircularProgressbarWithChildren
               value={Number.isNaN(percentage) ? 0 : percentage}
@@ -114,7 +137,8 @@ export const LessonButton = ({
                 locked
                   ? "fill-neutral-400 stroke-neutral-400 text-neutral-400"
                   : "fill-primary-foreground text-primary-foreground",
-                isCompleted && "fill-none stroke-[3.5]"
+                isCompleted && "fill-none stroke-[3.5]",
+                moment === "done" && "animate-[stamp_.45s_.4s_backwards] motion-reduce:animate-none"
               )}
             />
           </Button>

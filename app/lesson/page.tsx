@@ -1,3 +1,4 @@
+import { questSnapshot } from "@/lib/economy";
 import { auth } from "@/lib/session";
 import { redirect } from "next/navigation";
 
@@ -6,16 +7,18 @@ import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 import { Quiz } from "./quiz";
 
 const LessonPage = async () => {
-  await auth.protect();
+  const session = await auth.protect();
 
   const lessonData = getLesson();
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
+  const questsBeforeData = questSnapshot(session.user.id);
 
-  const [lesson, userProgress, userSubscription] = await Promise.all([
+  const [lesson, userProgress, userSubscription, questsBefore] = await Promise.all([
     lessonData,
     userProgressData,
     userSubscriptionData,
+    questsBeforeData,
   ]);
 
   if (!lesson || !userProgress) return redirect("/learn");
@@ -32,6 +35,7 @@ const LessonPage = async () => {
       initialHearts={userProgress.hearts}
       initialPercentage={initialPercentage}
       userSubscription={userSubscription}
+      questsBefore={questsBefore}
     />
   );
 };

@@ -27,6 +27,12 @@ export const QUEST_DEFS: QuestDef[] = [
   { key: "streak100", name: "연속 100일", hint: "연속 출석 100일 도달", gems: 500, goal: 100, oneOff: true, progress: (d) => d.streak },
 ];
 
+/** A quest as the client sees it: the definition's data without its progress function, plus today's state. */
+export type QuestView = Omit<QuestDef, "progress"> & { have: number; claimed: boolean; done: boolean };
+
+export const questEmoji = (q: { key: string; oneOff?: boolean }) =>
+  q.oneOff ? "🔥" : ({ practice1: "🎯", kana1: "🈁", couple: "💞", xp50: "⚡️" } as Record<string, string>)[q.key] ?? "📚";
+
 export const SHOP_ITEMS = [
   { key: "freeze", kind: "consumable", name: "연속 출석 보호", desc: "하루 빠져도 연속 출석이 끊기지 않아요 (최대 2개 보유)", gems: 50, maxQty: 2, icon: "/shop-freeze.svg" },
   { key: "frame_sky", kind: "frame", name: "맑은 하늘 테두리", gems: 30, icon: "/frame-sky.svg", color: "#38bdf8" },

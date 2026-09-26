@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 
 import { getPracticeChallenges, getUserProgress, getUserSubscription } from "@/db/queries";
 
+import { questSnapshot } from "@/lib/economy";
 import { auth } from "@/lib/session";
 
 import { Quiz } from "../lesson/quiz";
@@ -10,14 +11,16 @@ import { Quiz } from "../lesson/quiz";
 // Deliberately lesson-id-less — the Quiz runs on a bare challenges array so the
 // original lessons' completion state stays untouched.
 const PracticePage = async () => {
-  await auth.protect();
+  const session = await auth.protect();
 
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();
+  const questsBeforeData = questSnapshot(session.user.id);
 
-  const [userProgress, userSubscription] = await Promise.all([
+  const [userProgress, userSubscription, questsBefore] = await Promise.all([
     userProgressData,
     userSubscriptionData,
+    questsBeforeData,
   ]);
 
   if (!userProgress) redirect("/learn");
@@ -33,6 +36,7 @@ const PracticePage = async () => {
       initialHearts={userProgress.hearts}
       initialPercentage={0}
       userSubscription={userSubscription}
+      questsBefore={questsBefore}
     />
   );
 };

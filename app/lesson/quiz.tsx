@@ -2,10 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import Confetti from "react-confetti";
-import { useAudio, useWindowSize, useMount } from "react-use";
+import { useAudio, useMount } from "react-use";
 import { toast } from "sonner";
 
 import { completeLesson, submitAnswer } from "@/actions/attempts";
@@ -21,27 +19,14 @@ import { installUnlock, play, prefetch } from "./audio";
 import { Footer } from "./footer";
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
-
-const EndStat = ({ label, value, tone }: { label: string; value: string; tone: "orange" | "sky" | "green" }) => {
-  const c =
-    tone === "orange"
-      ? { border: "border-orange-300", header: "bg-orange-500 text-white", text: "text-orange-600" }
-      : tone === "green"
-        ? { border: "border-green-300", header: "bg-green-500 text-white", text: "text-green-600" }
-        : { border: "border-sky-300", header: "bg-sky-500 text-white", text: "text-sky-600" };
-  return (
-    <div className={`overflow-hidden rounded-2xl border-2 ${c.border} bg-white shadow-sm`}>
-      <div className={`px-1 py-1 text-[11px] font-bold uppercase tracking-wide ${c.header}`}>{label}</div>
-      <div className={`bg-white px-1 py-3 text-base font-black tabular-nums ${c.text}`}>{value}</div>
-    </div>
-  );
-};
+import { type LessonDone, RewardSteps } from "./reward-steps";
 
 type QuizProps = {
   initialPercentage: number;
   initialHearts: number;
   initialLessonId: number;
   practice?: boolean; // 약점 복습: runs on a bare challenge set; never touches challenge_progress
+  questsBefore: Record<string, number>; // each quest's progress when the lesson began (lib/economy questSnapshot)
   initialLessonChallenges: (typeof challenges.$inferSelect & {
     completed: boolean;
     challengeOptions: (typeof challengeOptions.$inferSelect)[];
@@ -66,6 +51,7 @@ export const Quiz = ({
   initialHearts,
   initialLessonId,
   practice = false,
+  questsBefore,
   initialLessonChallenges,
   userSubscription,
 }: QuizProps) => {
@@ -79,8 +65,6 @@ export const Quiz = ({
     src: "/finish.mp3",
     autoPlay: true,
   });
-  const { width, height } = useWindowSize();
-
   const router = useRouter();
   const { open: openHeartsModal } = useHeartsModal();
   const { open: openPracticeModal } = usePracticeModal();
@@ -106,7 +90,8 @@ export const Quiz = ({
   const reasks = useRef(new Map<number, number>());
   const stats = useRef({ firstTryCorrect: 0, wrong: 0, bestCombo: 0, startedAt: Date.now(), recovered: new Set<number>() });
   const [combo, setCombo] = useState(0);
-  const [done, setDone] = useState<{ streak: number; firstToday: boolean; claimable: number; achievements: { key: string; name: string; desc: string; emoji: string }[]; goal: { done: number; goal: number } } | null>(null);
+  const [done, setDone] = useState<LessonDone | null>(null);
+  const [doneFailed, setDoneFailed] = useState(false);
   const unique = initialLessonChallenges.length;
   const percentage = queue.length ? Math.min(100, (activeIndex / queue.length) * 100) : 0;
 
@@ -147,18 +132,11 @@ export const Quiz = ({
     if (challenge || attended.current) return;
     attended.current = true;
     // mark the lesson done first so the /learn revalidation inside recordLessonComplete sees it
-    (practice ? Promise.resolve() : completeLesson(lessonId)).then(() => recordLessonComplete(practice ? "practice" : "lesson")).then((d) => {
-      setDone(d);
-      // moments play one after another (the overlay lasts ~2.2s): streak → daily goal → first new badge.
-      // A goal of 1 is met by the day's first session, which the streak moment already celebrates.
-      let at = 400;
-      const next = (e: Parameters<typeof celebrate>[0]) => { setTimeout(() => celebrate(e), at); at += 2600; };
-      const streakMoment = d.firstToday && d.streak > 0;
-      if (streakMoment) next({ kind: "streak", title: `🔥 ${d.streak}일 연속!`, subtitle: "오늘 몫을 채웠어요" });
-      if (d.goal.goal > 1 && d.goal.done === d.goal.goal) next({ kind: "lesson", title: "🎯 오늘 목표 달성!", subtitle: `오늘 ${d.goal.goal}번 학습했어요` });
-      const a = d.achievements[0];
-      if (a) next({ kind: "lesson", title: `${a.emoji} ${a.name}`, subtitle: d.achievements.length > 1 ? `새 업적 ${d.achievements.length}개 달성!` : `새 업적 · ${a.desc}` });
-    }).catch(() => {});
+    // the rewards are shown as step screens (reward-steps.tsx) built from this answer
+    (practice ? Promise.resolve() : completeLesson(lessonId))
+      .then(() => recordLessonComplete(practice ? "practice" : "lesson"))
+      .then(setDone)
+      .catch(() => setDoneFailed(true));
   }, [challenge, practice]);
 
   const onNext = () => {
@@ -233,75 +211,28 @@ export const Quiz = ({
   };
 
   if (!challenge) {
-    const xp = unique * 10;
-    const accuracy = unique ? Math.round((100 * stats.current.firstTryCorrect) / unique) : 100;
     const secs = Math.max(1, Math.round((Date.now() - stats.current.startedAt) / 1000));
-    const timeLabel = secs >= 60 ? `${Math.floor(secs / 60)}분 ${secs % 60}초` : `${secs}초`;
-    const headline = accuracy === 100 ? "완벽해요!" : accuracy >= 80 ? "잘했어요!" : "끝까지 왔어요!";
+    const missed = unique - stats.current.firstTryCorrect;
     return (
       <>
         {finishAudio}
-        <Confetti recycle={false} numberOfPieces={500} tweenDuration={10_000} width={width} height={height} />
-        <div className="mx-auto flex h-full w-full max-w-lg flex-col items-center justify-center gap-y-4 px-5 text-center">
-          <div className="animate-[bounceIn_.6s_cubic-bezier(.16,1,.3,1)] motion-reduce:animate-none">
-            <Image src="/finish.svg" alt="" height={104} width={104} className="drop-shadow-lg" />
-          </div>
-          <div className="animate-[pop_.4s_.15s_cubic-bezier(.16,1,.3,1)_backwards] motion-reduce:animate-none">
-            <h1 className="text-2xl font-black tracking-tight text-neutral-800 lg:text-3xl">{headline}</h1>
-            <p className="mt-1 text-sm font-medium text-muted-foreground">
-              {practice ? "약점 복습을 끝냈어요" : "레슨을 완료했어요"}
-              {unique - stats.current.firstTryCorrect > 0 && ` · 처음에 틀린 ${unique - stats.current.firstTryCorrect}개 중 ${stats.current.recovered.size}개를 다시 맞혔어요`}
-            </p>
-          </div>
-
-          <div className="grid w-full grid-cols-3 gap-2.5 animate-[pop_.4s_.25s_cubic-bezier(.16,1,.3,1)_backwards] motion-reduce:animate-none">
-            <EndStat label="획득 XP" value={`⚡️ ${xp}`} tone="orange" />
-            <EndStat label="정확도" value={`${accuracy}%`} tone={accuracy >= 80 ? "green" : "sky"} />
-            <EndStat label="시간" value={timeLabel} tone="sky" />
-          </div>
-          {stats.current.bestCombo >= 3 && (
-            <p className="text-sm font-bold text-orange-600">🔥 최고 {stats.current.bestCombo}연속 정답</p>
-          )}
-
-          {done?.firstToday && done.streak > 0 && (
-            <div className="w-full animate-[pop_.5s_ease-out] motion-reduce:animate-none rounded-2xl border-2 border-orange-200 bg-orange-50/90 p-4 shadow-sm">
-              <div className="text-4xl">🔥</div>
-              <div className="mt-1 text-xl font-black tracking-tight text-orange-600">{done.streak}일 연속 출석!</div>
-              <div className="mt-0.5 text-xs font-semibold text-orange-700/80">오늘 몫을 채웠어요. 내일도 하나만 하면 이어져요.</div>
-            </div>
-          )}
-          {done && !done.firstToday && done.streak > 0 && (
-            <p className="text-sm font-bold text-orange-600">🔥 연속 {done.streak}일 유지 중</p>
-          )}
-          {done && done.goal.goal > 1 && (
-            done.goal.done >= done.goal.goal ? (
-              <p className="text-sm font-bold text-green-600">🎯 오늘 목표 달성 · {done.goal.done}/{done.goal.goal}</p>
-            ) : (
-              <p className="text-sm font-bold text-sky-600">🎯 오늘 목표까지 {done.goal.goal - done.goal.done}번 남았어요 · {done.goal.done}/{done.goal.goal}</p>
-            )
-          )}
-          {done && done.achievements.length > 0 && (
-            <div className="w-full animate-[pop_.5s_ease-out] motion-reduce:animate-none rounded-2xl border-2 border-amber-200 bg-amber-50/90 p-4 shadow-sm">
-              <div className="text-sm font-black text-amber-800">🏅 새 업적 달성!</div>
-              <div className="mt-2 flex flex-wrap justify-center gap-2">
-                {done.achievements.map((a) => (
-                  <span key={a.key} className="rounded-full border-2 border-amber-200 bg-white px-3 py-1 text-xs font-bold text-neutral-700 shadow-sm">{a.emoji} {a.name}</span>
-                ))}
-              </div>
-            </div>
-          )}
-          {done && done.claimable > 0 && (
-            <button
-              type="button"
-              onClick={() => router.push("/quests")}
-              className="w-full rounded-2xl border-2 border-b-4 border-sky-600 bg-sky-500 px-4 py-3.5 text-base font-black text-white shadow-sm transition-all active:translate-y-[2px] active:border-b-2"
-            >
-              💎 퀘스트 {done.claimable}개 달성 — 젬 받으러 가기
-            </button>
-          )}
-        </div>
-
-        <Footer lessonId={practice ? undefined : lessonId} status="completed" onCheck={() => router.push("/learn")} />
+        <RewardSteps
+          lessonId={lessonId}
+          stats={{
+            practice,
+            xp: unique * 10,
+            accuracy: unique ? Math.round((100 * stats.current.firstTryCorrect) / unique) : 100,
+            timeLabel: secs >= 60 ? `${Math.floor(secs / 60)}분 ${secs % 60}초` : `${secs}초`,
+            bestCombo: stats.current.bestCombo,
+            missed,
+            recovered: stats.current.recovered.size,
+          }}
+          done={done}
+          failed={doneFailed}
+          questsBefore={questsBefore}
+          // a first completion comes back to the path with ?done so the node fills and the next one opens
+          onFinish={() => router.push(practice || initialPercentage === 100 ? "/learn" : `/learn?done=${lessonId}`)}
+        />
       </>
     );
   }

@@ -7,6 +7,7 @@ import { toast } from "sonner";
 
 import { claimQuestAction } from "@/actions/economy";
 import { Button } from "@/components/ui/button";
+import { questEmoji } from "@/lib/economy-defs";
 import { useCelebrate } from "@/store/use-celebrate";
 import { cn } from "@/lib/utils";
 
@@ -101,17 +102,7 @@ export const QuestList = ({
                 q.done ? "bg-emerald-100" : "bg-slate-100"
               )}
             >
-              {q.oneOff
-                ? "🔥"
-                : q.key === "practice1"
-                  ? "🎯"
-                  : q.key === "kana1"
-                    ? "🈁"
-                    : q.key === "couple"
-                      ? "💞"
-                      : q.key === "xp50"
-                        ? "⚡️"
-                        : "📚"}
+              {questEmoji(q)}
             </div>
             <div className="min-w-0 flex-1">
               <div className="flex items-center justify-between gap-2">

@@ -17,6 +17,8 @@ type UnitProps = {
       })
     | undefined;
   activeLessonPercentage: number;
+  justDone?: number; // lesson finished just now (first completion) — see learn/page.tsx
+  opened?: number; // the lesson that finish opened
 };
 
 export const Unit = ({
@@ -26,15 +28,19 @@ export const Unit = ({
   lessons,
   activeLesson,
   activeLessonPercentage,
+  justDone,
+  opened,
 }: UnitProps) => {
+  const done = lessons.filter((l) => l.completed).length;
   return (
     <>
       <UnitBanner
         order={order}
         title={title}
         description={description}
-        done={lessons.filter((l) => l.completed).length}
+        done={done}
         total={lessons.length}
+        grownFrom={lessons.some((l) => l.id === justDone) ? done - 1 : undefined}
       />
 
       <div className="relative flex flex-col items-center">
@@ -51,6 +57,7 @@ export const Unit = ({
               current={isCurrent}
               locked={isLocked}
               percentage={activeLessonPercentage}
+              moment={lesson.id === justDone ? "done" : lesson.id === opened ? "opened" : undefined}
             />
           );
         })}

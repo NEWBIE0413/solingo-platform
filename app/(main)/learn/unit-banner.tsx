@@ -2,6 +2,7 @@ import { NotebookText } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type UnitBannerProps = {
   order?: number;
@@ -9,6 +10,7 @@ type UnitBannerProps = {
   description: string;
   done: number; // lessons finished in this unit
   total: number;
+  grownFrom?: number; // lessons done before the one just finished: the bar fills from there
 };
 
 export const UnitBanner = ({
@@ -17,6 +19,7 @@ export const UnitBanner = ({
   description,
   done,
   total,
+  grownFrom,
 }: UnitBannerProps) => {
   const finished = total > 0 && done >= total;
   const percentage = total ? Math.round((100 * done) / total) : 0;
@@ -48,8 +51,17 @@ export const UnitBanner = ({
         <div className="mt-2.5 flex items-center gap-2.5">
           <div className="h-2 flex-1 overflow-hidden rounded-full bg-black/20">
             <div
-              className="h-full rounded-full bg-white transition-[width] duration-500 ease-out"
-              style={{ width: `${percentage}%` }}
+              className={cn(
+                "h-full origin-left rounded-full bg-white",
+                grownFrom !== undefined && done > 0 && "animate-[fill-bar_.8s_.2s_cubic-bezier(0.23,1,0.32,1)_both] motion-reduce:animate-none"
+              )}
+              style={
+                {
+                  width: `${percentage}%`,
+                  "--from": grownFrom !== undefined && done > 0 ? Math.max(0, grownFrom) / done : 1,
+                  "--to": 1,
+                } as React.CSSProperties
+              }
             />
           </div>
           <span className="flex-none text-[11px] font-bold text-green-100">

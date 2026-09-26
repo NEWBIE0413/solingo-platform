@@ -3,8 +3,8 @@
 import { revalidatePath } from "next/cache";
 
 import { auth } from "@/lib/session";
-import { getQuestBoard } from "@/lib/economy";
-import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity, todayGoal } from "@/lib/streak";
+import { getQuestBoard, questViews } from "@/lib/economy";
+import { createCouple, getStreak, joinCouple, leaveCouple, recordActivity, todayGoal, weekDays } from "@/lib/streak";
 import { DAILY_GOAL_OPTIONS } from "@/constants";
 import db from "@/db/drizzle";
 import { userProgress } from "@/db/schema";
@@ -22,21 +22,23 @@ export const recordLessonComplete = async (kind: "lesson" | "practice" | "kana" 
   const { userId } = await auth();
   if (!userId) throw new Error("Unauthorized.");
   const { firstToday } = await recordActivity(userId, kind);
-  const [streak, board, ach, goal] = await Promise.all([getStreak(userId), getQuestBoard(userId, true), syncAchievements(userId), todayGoal(userId)]);
+  const [streak, board, ach, goal, week] = await Promise.all([getStreak(userId), getQuestBoard(userId, true), syncAchievements(userId), todayGoal(userId), weekDays(userId)]);
   revalidatePath("/streak");
   revalidatePath("/learn");
   revalidatePath("/quests");
   revalidatePath("/leaderboard");
   revalidatePath("/shop");
   revalidatePath("/profile");
-  // the end screen celebrates with these: first lesson of the day → streak moment; done-but-unclaimed quests → nudge;
-  // achievements crossed by this session → badge moment
+  // The lesson-end steps (app/lesson/reward-steps.tsx) are built from these: first session of the day → streak step
+  // with this week's calendar; quests that moved since the lesson began (questSnapshot) → quest step, claimable in
+  // place; achievements crossed by this session → badge step.
   return {
     streak: streak.current,
     firstToday,
-    claimable: board.quests.filter((q) => q.done && !q.claimed).length,
+    week,
+    quests: questViews(board.quests),
     achievements: ach.fresh.map(({ key, name, desc, emoji }) => ({ key, name, desc, emoji })),
-    goal, // { done, goal } after this session — the end screen says how many are left, or that it's met
+    goal, // { done, goal } after this session
   };
 };
 

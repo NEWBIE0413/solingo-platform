@@ -13,7 +13,7 @@ import { useCelebrate } from "@/store/use-celebrate";
  writes. Kept cheap: CSS sparkles, one WebAudio chime, auto-dismiss, tap to dismiss.
 */
 let ac: AudioContext | null = null;
-const chime = (kind: string) => {
+export const chime = (kind: string) => {
   try {
     ac = ac ?? new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     const t0 = ac.currentTime;
